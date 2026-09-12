@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Logs
+logs/
+*.log
+
+# Temporary / decompression scratch files
+*.tmp
+*.temp
+*.part
+*.zst.tmp
+*.parquet.tmp
+temp/
+scratch/
+
+# Data — raw and regenerable intermediates are NOT committed
+# (frozen outputs in data/frozen ARE committed: they are the scientific record)
+data/raw/
+data/interim/
+data/processed/
+
+# Unrelated material — never commit
+BTC_V3/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Credentials / secrets — never commit
+*.key
+*.pem
+.env
+.env.*
+credentials*
+secrets*
+
+# Editors
+.vscode/
+.idea/
+*.swp

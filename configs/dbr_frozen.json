@@ -1,0 +1,52 @@
+﻿{
+  "experiment": "DBR_PROSPECTIVE_REPLICATION_01",
+  "name": "Directional Boundary Re-Anchoring prospective replication",
+  "status": "FROZEN",
+  "freeze_created_date": "2026-09-10",
+  "discovery_cutoff_utc": "2026-09-09T18:20:00Z",
+
+  "source": "FXSSI BTCUSD retail ecology",
+
+  "sampling_interval_minutes": 20,
+
+  "down_dbr": {
+    "btc_condition": "btc_return_20m_bps < 0",
+    "stop_condition": "long_cluster_changed == true AND long_cluster_migration_bps < 0",
+    "expected_response": "future position reallocation is longward"
+  },
+
+  "up_dbr": {
+    "btc_condition": "btc_return_20m_bps > 0",
+    "stop_condition": "short_cluster_changed == true AND short_cluster_migration_bps > 0",
+    "expected_response": "future position reallocation is shortward"
+  },
+
+  "controls": {
+    "down": "BTC down AND long stop boundary anchored",
+    "up": "BTC up AND short stop boundary anchored"
+  },
+
+  "primary_horizon_minutes": 20,
+  "secondary_horizons_minutes": [40, 60],
+
+  "primary_metric": "event minus anchored-control mean counter-directional position reallocation",
+
+  "secondary_metrics": [
+    "median counter-directional position reallocation",
+    "positive counter-response rate",
+    "standardized mean difference",
+    "BTC-magnitude-controlled reanchor coefficient"
+  ],
+
+  "rules": [
+    "Only timestamps strictly after discovery_cutoff_utc are prospective.",
+    "Do not recalculate the discovery cutoff.",
+    "Do not optimize a BTC-return threshold.",
+    "Do not change the stop-migration definition.",
+    "Do not change the primary 20-minute horizon.",
+    "Do not discard unfavorable prospective events.",
+    "Do not modify the rule after seeing prospective outcomes.",
+    "40-minute and 60-minute horizons are secondary diagnostics only.",
+    "No trading or profitability conclusion is implied."
+  ]
+}

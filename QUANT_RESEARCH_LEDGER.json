@@ -1,0 +1,278 @@
+{
+  "ledger_version": "1.0",
+  "created_utc": "2026-09-12",
+  "project": "BTC Quantitative Market-Ecology Research System",
+  "project_status": "ACTIVE",
+  "current_phase": "IndependentReplication -> UnifiedState",
+  "research_philosophy": "Mathematical, empirical, mechanism-first, falsifiable, reproducible. No discretionary technical analysis.",
+  "core_thesis": "Price is an output/coordinate of market state, not the complete state itself. The same market action can have different consequences depending on surrounding state.",
+  "entries": [
+    {
+      "experiment_id": "EXP-01",
+      "title": "Absorption vs Yielding: opposing near-touch liquidity response conditional on aggressive flow",
+      "layer": "CryptoHFT Binance Futures BTCUSDT microstructure",
+      "hypothesis": "Conditional on aggressive trade flow, depletion of opposing displayed liquidity within 0-5 ticks is associated with greater subsequent flow-direction midpoint displacement than replenishment.",
+      "discovery_data": ["2026-05-25_00"],
+      "replication_data": ["2026-05-25_04", "2026-05-25_12", "2026-05-25_18", "2026-05-26_15", "2026-05-26_21"],
+      "freeze_reference": "EXP01_FROZEN_REPLICATION_SPEC.json (mtime 2026-09-11 09:13:26)",
+      "definitions": {
+        "flow_side": "signed_flow_qty > 0 -> BUY; < 0 -> SELL",
+        "opposing_side": "BUY -> ASK; SELL -> BID",
+        "near_touch_region": "0-5 ticks from PRE-event opposing touch",
+        "response": "opposing_near_net_qty > 0 -> REPLENISHMENT; < 0 -> DEPLETION; == 0 -> NEUTRAL",
+        "starting_event_firewall": "trades_exactly_at_t1 == 0 AND total_flow_qty > 0 AND signed_flow_qty != 0",
+        "future_state": "literal consecutive valid L2 events within same verified episode (H1 diagnostic, H3/H5/H10 primary)",
+        "temporal_ordering_rule": "future shifts constructed BEFORE selecting starting flow events; never filter first then shift"
+      },
+      "primary_endpoints": ["H3", "H5", "H10"],
+      "secondary_endpoints": [],
+      "diagnostics": ["H1"],
+      "discovery_results": {
+        "sample": "2026-05-25_00",
+        "starting_events": 3733,
+        "state_counts": {"DEPLETION": 3254, "REPLENISHMENT": 439, "NEUTRAL": 40},
+        "pooled_depletion_minus_replenishment_bps": {"H1": 0.014925, "H3": 0.038168, "H5": 0.055901, "H10": 0.073965},
+        "equal_episode": {
+          "H1": {"episodes": 90, "mean_bps": 0.005608, "ci_bps": [-0.023348, 0.025517], "verdict": "FAIL"},
+          "H3": {"episodes": 88, "mean_bps": 0.032646, "ci_bps": [0.015373, 0.050143], "signflip_p": 0.000250, "verdict": "PASS"},
+          "H5": {"episodes": 84, "mean_bps": 0.048139, "ci_bps": [0.022329, 0.072962], "signflip_p": 0.000150, "verdict": "PASS"},
+          "H10": {"episodes": 78, "mean_bps": 0.083296, "ci_bps": [0.024718, 0.147887], "signflip_p": 0.003800, "verdict": "PASS"}
+        },
+        "frozen_conclusion": "H3/H5/H10 survive; H1 diagnostic/weak. Frozen BEFORE replication."
+      },
+      "replication_results": {
+        "gates": {"gate0_raw_data": "5/5 PASS", "gate1_canonical_d06": "5/5 PASS", "gate1b_d07": "5/5 PASS", "gate2_d08c": "5/5 PASS", "gate3_d09": "5/5 PASS"},
+        "sample": "27,137 starting events; 502 unique verified episodes; BUY 14,145 / SELL 12,992; DEPLETION 22,775 / REPLENISHMENT 4,093 / NEUTRAL 269",
+        "pooled_depletion_minus_replenishment_bps": {"H1": 0.016239, "H3": 0.033247, "H5": 0.045189, "H10": 0.069879},
+        "per_hour_sign": "5/5 untouched hours same sign at H3/H5/H10",
+        "flow_depth_control": "survives (weighted H3 +0.022130, H5 +0.030763, H10 +0.051320; positive cells 74-82%)",
+        "one_sided_aggression": "survives (H3 +0.028611, H5 +0.040196, H10 +0.059462)",
+        "equal_episode": {
+          "H1": {"episodes": 293, "mean_bps": 0.015046, "ci_bps": [0.010570, 0.020039], "signflip_p": 0.000050, "verdict": "DIAGNOSTIC (not promoted)"},
+          "H3": {"episodes": 287, "mean_bps": 0.016906, "ci_bps": [0.000245, 0.031367], "bootstrap_p_positive": 0.976300, "signflip_p": 0.014449, "verdict": "SURVIVES"},
+          "H5": {"episodes": 280, "mean_bps": 0.034735, "ci_bps": [0.022198, 0.048017], "bootstrap_p_positive": 1.0, "signflip_p": 0.000050, "verdict": "SURVIVES"},
+          "H10": {"episodes": 266, "mean_bps": 0.042933, "ci_bps": [0.027453, 0.058883], "bootstrap_p_positive": 1.0, "signflip_p": 0.000050, "verdict": "SURVIVES"}
+        },
+        "sparsity": "episode medians zero; zero rates 42.9-47.8%; positive rate among nonzero episodes 78.9-88.2% (NOT trading accuracy)",
+        "concentration": "top 20% of absolute episode effects account for 77.7-82.3% of total",
+        "move_rate_vs_displacement": "move-rate difference negative at H5/H10 while directional displacement increasingly positive (future research direction, not established)"
+      },
+      "status": "DISCOVERY COMPLETE / INDEPENDENT REPLICATION COMPLETE / FROZEN",
+      "verdict": "PASS (discovery + independent replication); H3/H5/H10 3/3 survive; strongest empirical mechanism in project",
+      "known_limitations": [
+        "L2 aggregated price-level data, not L3 order identity",
+        "No causality, profitability, tradability, or execution feasibility established",
+        "Effect is sparse and state-dependent, not a universal market law",
+        "Replication covers 5 untouched hours, not months/years",
+        "Latency (~80-270 ms horizons) and transaction costs may overwhelm raw effect",
+        "Removals are NOT known cancellations"
+      ],
+      "files": {
+        "frozen_spec": "C:\\Users\\USER\\Documents\\EXP01_FROZEN_REPLICATION_SPEC.json",
+        "discovery_scripts": ["d06_replay_book.py", "d07_liquidity_event_tape.py", "d08c_episode_conditioned_alignment.py", "d09_joint_flow_liquidity_tape.py", "d09b_touch_distance_ecology.py", "exp01c_canonical_absorption_yielding.py", "exp01d_episode_bootstrap.py", "exp01e_equal_episode_test.py"],
+        "replication_scripts": ["exp01_replication_gate0.py", "exp01_replication_gate1_canonical.py", "exp01_replication_d07_batch.py", "exp01_replication_gate2_d08c.py", "exp01_replication_d09_batch.py", "exp01_replication_d09b_one_hour.py", "exp01_frozen_independent_replication.py"],
+        "replication_dir": "C:\\Users\\USER\\Documents\\EXP01_REPLICATION",
+        "raw_orderbooks": "C:\\Users\\USER\\Documents\\Audit_V2_1\\Raw_Orderbooks",
+        "raw_trades": "C:\\Users\\USER\\Documents\\CryptoHFT_Trades_8Hours"
+      },
+      "usage_policy": "May be used for debugging, unit tests, reproducing recorded results, software regression tests. MUST NOT be used to optimize tick width, flow thresholds, horizons, state filters, entry/exit thresholds, or ML hyperparameters for claims of independent performance."
+    },
+    {
+      "experiment_id": "DBR",
+      "title": "Directional Boundary Re-Anchoring prospective replication",
+      "layer": "FXSSI BTCUSD retail ecology",
+      "hypothesis": "BTC down + long stop boundary re-anchor downward -> future longward retail reallocation; BTC up + short stop boundary re-anchor upward -> future shortward retail reallocation.",
+      "discovery_data": ["FXSSI experiment18 canonical dataset (Sep 4 - Sep 9 2026)"],
+      "replication_data": ["PROSPECTIVE ONLY - timestamps strictly after 2026-09-09T18:20:00Z"],
+      "freeze_reference": "DBR_FROZEN_SPEC_20260910.json (mtime 2026-09-10 11:44:28)",
+      "definitions": {
+        "down_dbr": "BTC 20m return < 0 AND long cluster changed AND long migration < 0",
+        "up_dbr": "BTC 20m return > 0 AND short cluster changed AND short migration > 0",
+        "expected_down_response": "future longward retail reallocation",
+        "expected_up_response": "future shortward retail reallocation",
+        "controls": "anchored stop boundaries (no re-anchor)",
+        "primary_horizon_minutes": 20,
+        "secondary_horizons_minutes": [40, 60]
+      },
+      "primary_endpoints": ["20-minute event minus anchored-control mean counter-directional position reallocation"],
+      "secondary_endpoints": ["median counter-directional reallocation", "positive counter-response rate", "standardized mean difference", "BTC-magnitude-controlled reanchor coefficient"],
+      "diagnostics": [],
+      "discovery_results": {
+        "down_dbr_20m": {"counter_reallocation": 0.7500, "control": 0.0934, "difference": 0.6567, "smd": 0.617},
+        "up_dbr_20m": {"counter_reallocation": 0.6245, "control": -0.1241, "difference": 0.7487, "smd": 0.677},
+        "notes": "Downside effects persisted longer; upside weakened with horizon. Confounding: DBR events had larger BTC moves; linear absolute-return controls may not fully remove magnitude confounding. NOT declared causal or tradable."
+      },
+      "replication_results": {"prospective_rows": 0, "note": "FXSSI subscription/data access ended ~Sep 11 2026; expected to resume ~Tuesday. Do not modify experiment while waiting."},
+      "status": "DISCOVERY COMPLETE / PROSPECTIVE REPLICATION PENDING",
+      "verdict": "Discovery-stage candidate; frozen prospective specification active; awaiting new data",
+      "known_limitations": ["Magnitude confounding unresolved", "No causality or tradability", "Prospective sample currently empty"],
+      "files": {
+        "frozen_spec": "C:\\Users\\USER\\Documents\\DBR_FROZEN_SPEC_20260910.json",
+        "monitor_script": "C:\\Users\\USER\\Documents\\monitor_DBR_prospective.py",
+        "status_outputs": ["C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.csv", "C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.txt"],
+        "canonical_dataset": "C:\\Users\\USER\\Documents\\experiment18_market_ecology_state_BTCUSD.csv"
+      },
+      "usage_policy": "Frozen. No post-hoc magnitude threshold optimization. No changing event definitions after prospective outcomes appear. No deleting unfavorable events."
+    },
+    {
+      "experiment_id": "FXSSI-EXP19",
+      "title": "Retail reallocation/flow state vs BTC direction",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "Same broad retail reallocation/flow state can occur during opposite BTC price directions; retail state is not a deterministic directional signal.",
+      "status": "DISCOVERY COMPLETE (descriptive)",
+      "verdict": "Intensity and surrounding state matter; retail state not deterministic directional signal"
+    },
+    {
+      "experiment_id": "FXSSI-EXP20",
+      "title": "Chronology: BTC impulse -> retail ecology response",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "BTC price impulse -> retail ecology response is stronger than retail ecology -> future BTC.",
+      "discovery_results": "Strong BTC up -> long retail mass down, short mass up; strong BTC down -> long mass up, short mass down (counter-directional retail reallocation).",
+      "status": "DISCOVERY COMPLETE (descriptive)"
+    },
+    {
+      "experiment_id": "FXSSI-EXP21",
+      "title": "Falsification of broad symmetric response hypothesis",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "Broad symmetric counter-directional response did NOT survive unchanged. UP moves: broad response near zero; DOWN moves: more consistent; largest shocks: mirror response both sides. Magnitude dependence nonlinear/nonmonotonic.",
+      "refined_candidate": "A1: Large BTC displacement -> counter-directional sampled retail reallocation, downside broader, upside requires larger shocks.",
+      "status": "DISCOVERY COMPLETE (refined candidate A1 remains discovery-stage)"
+    },
+    {
+      "experiment_id": "FXSSI-EXP22",
+      "title": "Price is not state (descriptive)",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "Same/similar-price observations can possess different ecological states; future path divergence larger when ecology differs.",
+      "discovery_results": {
+        "same_price_pairs_within_10bps": {"20m": "12.14 vs 16.37 bps", "40m": "16.24 vs 22.39", "60m": "19.74 vs 26.58", "120m": "27.58 vs 35.18"},
+        "ecology_nn_vs_price_only_error": {"20m": "14.65 vs 18.71", "40m": "19.50 vs 22.41", "60m": "23.98 vs 26.99", "120m": "33.77 vs 36.51"}
+      },
+      "verdict": "PASS - price is not state descriptively. Does NOT establish directional prediction.",
+      "status": "DISCOVERY COMPLETE"
+    },
+    {
+      "experiment_id": "FXSSI-EXP23",
+      "title": "Ecological transition atlas",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "Binary axes R (reallocation), A (directional activity), P (participation), O (open-interest expansion/contraction).",
+      "discovery_results": "~390 complete observations; 10/16 theoretical states observed; top 4 states ~86.7% of observations; recurring transition patterns and three-step episodes.",
+      "verdict": "Recurring ecological organization detected. NOT a profitable trading rule or future-direction classifier.",
+      "status": "DISCOVERY COMPLETE"
+    },
+    {
+      "experiment_id": "FXSSI-EXP24-26",
+      "title": "Stop ecology / DBR discovery",
+      "layer": "FXSSI retail ecology",
+      "hypothesis": "Stop clusters frequently anchored (~83.6%; 64 long + 64 short reanchors). Stock/flow: Stock(t+1) = Stock(t) + Flow(t) + Reset(t). EXP-25 produced DBR candidate; EXP-26 compared DBR events with anchored controls.",
+      "status": "DISCOVERY COMPLETE (led to frozen DBR prospective specification)"
+    },
+    {
+      "experiment_id": "LAB2-GEN3",
+      "title": "Older Lab2 Track A Gen3 (historical)",
+      "layer": "FXSSI",
+      "hypothesis": "delta60 FXSSI thresholds: LONG <= -0.0218, SHORT >= +0.0230.",
+      "discovery_results": {"historical": "N=269, mean gross ~+5.7552 bps", "prospective_independent": "N=56, mean gross ~+4.4942 bps, net ~+3.4071 bps, CI included zero"},
+      "freeze_reference": "Track A freeze cutoff 2026-09-06T08:40Z; 20-minute cutoff ~Sep 7 13:10 UTC",
+      "status": "HISTORICAL - do not make centerpiece of new system",
+      "files": {"ledger": "C:\\Users\\USER\\Documents\\experiment8_gen3_independent_trades_BTCUSD.csv"}
+    },
+    {
+      "experiment_id": "LAB2-GEN4E",
+      "title": "Older Lab2 Gen4-E StopLossClusters (historical)",
+      "layer": "FXSSI",
+      "hypothesis": "Only ~2 candidates found.",
+      "status": "HISTORICAL - do not make centerpiece of new system"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "D1",
+      "detail": "build_may_5m_bars.py referenced in handoff section 18 is NOT present anywhere in C:\\Users\\USER\\Documents (recursive search 2026-09-12). Only its output may_5m_bars.csv survives in Audit_V2_1.",
+      "owner_directive": "KEEP - legacy/supporting CryptoHFT preprocessing, not active EXP-01 core. Do not delete or alter yet.",
+      "review_status": "LEGACY / MISSING ARTIFACT / NON-BLOCKING (confirmed absent from disk 2026-09-12; do NOT recreate from memory, do NOT substitute another script, do NOT block Phase 2)",
+      "historical_role": "Raw CryptoHFT trades -> may_5m_bars.csv. NOT part of canonical EXP-01 chain (D06 -> D07 -> D08C -> D09 -> D09B -> EXP-01). Absence does not invalidate EXP-01.",
+      "action": "Preserve may_5m_bars.csv. Recovery of the script handled separately from backup / Recycle Bin / prior project files. Do not manufacture a replacement and present it as the original."
+    },
+    {
+      "id": "D2",
+      "detail": "may_5m_bars.csv located at Documents\\Audit_V2_1\\may_5m_bars.csv, not Documents\\may_5m_bars.csv as handoff states.",
+      "action": "Recorded; no action needed."
+    },
+    {
+      "id": "D3",
+      "detail": "QUANT_RESEARCH_LEDGER.json did not exist before this ledger was created (2026-09-12).",
+      "action": "Resolved by creation of this file."
+    }
+  ],
+  "observations": [
+    {"id": "O1", "detail": "exp01_replication_gate1.py (760 lines, outputs exp01_replication_gate1_reconstruction.csv) exists alongside canonical gate1_canonical.py - consistent with rejected simplified-bridge attempt. Preserve; never use."},
+    {"id": "O2", "detail": "exp01_replication_gate0_BACKUP.py exists. Preserve."},
+    {"id": "O3", "detail": "Pre-canonical EXP-01 iterations exist: exp01_absorption_vs_yielding.py, exp01b_corrected_l2_horizons.py + outputs. Canonical = exp01c."},
+    {"id": "O4", "detail": "Documents\\BTC_V3 is a distinct Binance ML pipeline (collectors 01-12, builders 01-12, audits 01-27, 00_CONFIG-05_AUDITS). Owner directive: KEEP FULLY SEPARATE. Do not merge into quant-market-ecology until separately audited and explicitly approved."},
+    {"id": "O5", "detail": "Documents is not under version control. Git not installed on machine (winget available). Repo root approved: C:\\Users\\USER\\Documents\\quant-market-ecology. Do NOT init git at Documents root."},
+    {"id": "O6", "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."}
+  ],
+  "next_objectives": [
+    "Freeze EXP-01 (done - do not mine the six May hours further)",
+    "Build regression tests reproducing known D06/D09/D09B/EXP-01 results (DONE 2026-09-12: 28 checks green)",
+    "Phase 2: behavior-preserving refactor into src/ modules (APPROVED 2026-09-12 by ChatGPT review checkpoint)",
+    "Build Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)",
+    "Build unified state model (M_t fast microstructure + R_t slow retail ecology) - hierarchical/multiscale, NOT naive merge",
+    "Forward validation on genuinely new data with frozen rules"
+  ],
+  "phase_2_approval": {
+    "date": "2026-09-12",
+    "authority": "ChatGPT review checkpoint (approved by project owner)",
+    "scope": "REFACTORING ONLY",
+    "allowed": [
+      "Extract duplicated logic into src/ modules",
+      "Improve code organization",
+      "Add type hints/docstrings where useful",
+      "Centralize configuration/path handling",
+      "Improve error handling",
+      "Remove engineering duplication",
+      "Add additional regression/unit tests",
+      "Improve logging",
+      "Create reusable D06/D07/D09/D09B components"
+    ],
+    "not_allowed": [
+      "Change mathematical definitions",
+      "Change D06 bridge/continuity logic",
+      "Change aggressor classification",
+      "Change D09 interval semantics (t0, t1]",
+      "Change exact-t1 handling",
+      "Change 0-5 tick definition",
+      "Change depletion/replenishment classification",
+      "Change H1/H3/H5/H10 construction",
+      "Promote H1 to primary",
+      "Change H3/H5/H10 primary endpoints",
+      "Change flow/depth controls",
+      "Remove May-26 15",
+      "Optimize thresholds",
+      "Add new predictive filters",
+      "Train ML",
+      "Optimize historical PnL",
+      "Modify frozen CSVs/specifications",
+      "Overwrite original canonical scripts"
+    ],
+    "validation_rule": "After each major extraction, rerun the regression suite. OLD CANONICAL -> KNOWN FROZEN OUTPUT <- NEW REFACTORED. Outputs must match exactly wherever technically possible (row counts, episode counts, sequence integrity counts, timestamps, event ordering, liquidity quantities, D09 interval identity, D09B spatial classifications, EXP-01 response classifications, future horizons, final EXP-01 statistics). Any unexplained discrepancy = STOP and report; do not fix tests to accept a changed result without research review.",
+    "git_checkpoints": [
+      "Commit 1: Establish frozen research baseline",
+      "Commit 2: Add regression tests for canonical pipeline",
+      "Then small Phase-2 commits by subsystem (e.g., 'Extract canonical order book reconstruction module', 'Extract liquidity event measurement module', 'Extract joint flow interval builder', 'Extract spatial liquidity feature module')"
+    ],
+    "btc_v3_policy": "Still fully separate. Do not import, copy, merge, refactor, or use BTC_V3 code/data during Phase 2."
+  },
+  "main_risks": [
+    "Latency (EXP-01 operates over ~80-270 ms)",
+    "Transaction costs (raw effect sizes are fractions of a basis point)",
+    "Execution observability (can state be detected early enough to act)",
+    "Fill uncertainty (L2 has no queue position)",
+    "Long-run stability (replication covers hours, not months/years)",
+    "State dependence (many episodes are zero)",
+    "Regime dependence (May-26 15 much more active)",
+    "Multiscale synchronization (FXSSI 20-min vs millisecond state)",
+    "Multiple testing (new hypotheses must be frozen before testing)",
+    "Overfitting (May data must not become a threshold-optimization playground)"
+  ]
+}

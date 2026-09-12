@@ -1,0 +1,55 @@
+{
+  "experiment": "EXP-01 Absorption vs Yielding",
+  "stage": "Independent replication",
+  "discovery_hour": "2026-05-25_00",
+  "replication_hours": [
+    "2026-05-25_04",
+    "2026-05-25_12",
+    "2026-05-25_18",
+    "2026-05-26_15",
+    "2026-05-26_21"
+  ],
+  "market": "Binance Futures BTCUSDT",
+  "flow_definition": {
+    "buy": "signed aggressive flow > 0",
+    "sell": "signed aggressive flow < 0",
+    "buyer_maker_true": "seller aggressive",
+    "buyer_maker_false": "buyer aggressive"
+  },
+  "liquidity_region": "0-5 ticks from PRE-event opposing touch",
+  "response_definition": {
+    "replenishment": "opposing near-touch net displayed liquidity > 0",
+    "depletion": "opposing near-touch net displayed liquidity < 0",
+    "neutral": "opposing near-touch net displayed liquidity == 0"
+  },
+  "anchor_timestamp_rule": "exclude starting intervals with trades exactly at t1",
+  "future_state_rule": "future midpoint measured using literal consecutive valid L2 events within same verified episode",
+  "primary_horizons_events": [
+    3,
+    5,
+    10
+  ],
+  "diagnostic_horizon_events": [
+    1
+  ],
+  "discovery_result": {
+    "H1": "failed equal-episode robustness",
+    "H3": "survived equal-episode robustness",
+    "H5": "survived equal-episode robustness",
+    "H10": "survived equal-episode robustness"
+  },
+  "primary_proposition": "future directional displacement under depletion exceeds replenishment",
+  "direction_policy": "retain pooled, BUY and SELL; no post-hoc side selection",
+  "controls": [
+    "aggressive flow magnitude",
+    "starting opposing 5-level depth"
+  ],
+  "replication_rules": [
+    "no change to 0-5 tick region",
+    "no optimization of H3/H5/H10",
+    "no new flow threshold",
+    "no selecting only favorable BUY or SELL side",
+    "no discarding valid unfavorable hours",
+    "data quality must be evaluated independently of hypothesis outcome"
+  ]
+}

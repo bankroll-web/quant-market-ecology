@@ -1,0 +1,6 @@
+hour,valid_l2_intervals,episodes_with_intervals,intervals_with_trade_rows,positive_qty_flow_intervals,trades_assigned,trades_exactly_at_t1,intervals_with_exact_t1,clean_intervals,clean_flow_intervals,interval_ms_mean,interval_ms_median,interval_ms_p99,interval_ms_max,output_file
+2026-05-25_04,23627,72,1765,1746,9509,463,95,23532,1653,26.978795445888178,26.0,28.0,28.0,C:\Users\USER\Documents\EXP01_REPLICATION\2026-05-25_04_d09_joint_flow_liquidity_tape.csv
+2026-05-25_12,55577,166,5037,4992,25250,748,234,55343,4759,27.17264335966317,28.0,28.0,30.0,C:\Users\USER\Documents\EXP01_REPLICATION\2026-05-25_12_d09_joint_flow_liquidity_tape.csv
+2026-05-25_18,57396,73,3248,3223,13158,415,161,57235,3063,27.30462053104746,28.0,28.0,30.0,C:\Users\USER\Documents\EXP01_REPLICATION\2026-05-25_18_d09_joint_flow_liquidity_tape.csv
+2026-05-26_15,50852,175,13660,13587,121490,4882,843,50009,12749,26.648706048926297,26.0,28.0,50.0,C:\Users\USER\Documents\EXP01_REPLICATION\2026-05-26_15_d09_joint_flow_liquidity_tape.csv
+2026-05-26_21,71465,104,5315,5221,30433,1276,250,71215,4972,27.019799902049954,28.0,28.0,52.0,C:\Users\USER\Documents\EXP01_REPLICATION\2026-05-26_21_d09_joint_flow_liquidity_tape.csv
