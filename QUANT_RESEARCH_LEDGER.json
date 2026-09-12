@@ -202,6 +202,12 @@
       "id": "D3",
       "detail": "QUANT_RESEARCH_LEDGER.json did not exist before this ledger was created (2026-09-12).",
       "action": "Resolved by creation of this file."
+    },
+    {
+      "id": "D4",
+      "detail": "Discovery d06_replay_book.py sums top-5 depth with a naive loop (bid_qty_5 = 0.0; += q); replication exp01_replication_gate1_canonical.py uses sum() (compensated summation in Python 3.12+). Verified 2026-09-12: frozen discovery d06_reconstructed_book_states.csv depth columns equal the naive loop for all 42,839 rows; sum() differs by up to 1.42e-14 in bid_depth_top5 / ask_depth_top5 / obi_top5 only. All other columns identical.",
+      "impact": "Refactored src/book/replay.py follows the replication canonical (sum()) and matches all 5 replication hours bit-for-bit. Discovery comparison allows 1e-13 tolerance on the three depth columns only (documented in tests/test_refactored_d06.py). No downstream scientific result affected.",
+      "action": "Recorded; refactor validated with documented tolerance."
     }
   ],
   "observations": [
@@ -210,12 +216,14 @@
     {"id": "O3", "detail": "Pre-canonical EXP-01 iterations exist: exp01_absorption_vs_yielding.py, exp01b_corrected_l2_horizons.py + outputs. Canonical = exp01c."},
     {"id": "O4", "detail": "Documents\\BTC_V3 is a distinct Binance ML pipeline (collectors 01-12, builders 01-12, audits 01-27, 00_CONFIG-05_AUDITS). Owner directive: KEEP FULLY SEPARATE. Do not merge into quant-market-ecology until separately audited and explicitly approved."},
     {"id": "O5", "detail": "Documents is not under version control. Git not installed on machine (winget available). Repo root approved: C:\\Users\\USER\\Documents\\quant-market-ecology. Do NOT init git at Documents root."},
-    {"id": "O6", "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."}
+    {"id": "O6", "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."},
+    {"id": "O7", "detail": "pandas read_csv default C parser drops the last ULP of long float reprs (e.g. 0.10000000000582077 -> 0.1000000000058207). Tests comparing floats bit-for-bit must use float_precision='round_trip'."}
   ],
   "next_objectives": [
     "Freeze EXP-01 (done - do not mine the six May hours further)",
     "Build regression tests reproducing known D06/D09/D09B/EXP-01 results (DONE 2026-09-12: 28 checks green)",
     "Phase 2: behavior-preserving refactor into src/ modules (APPROVED 2026-09-12 by ChatGPT review checkpoint)",
+    "Phase 2 module 1 (D06 replay -> src/book/replay.py + src/ingestion/cryptohft.py): DONE 2026-09-12. Validated bit-for-bit vs frozen: 5/5 replication hours exact (all columns), discovery exact except 3 depth cols within documented 1e-13 tolerance (D4), all gate1 summary counters exact. Next: D07 liquidity event module.",
     "Build Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)",
     "Build unified state model (M_t fast microstructure + R_t slow retail ecology) - hierarchical/multiscale, NOT naive merge",
     "Forward validation on genuinely new data with frozen rules"

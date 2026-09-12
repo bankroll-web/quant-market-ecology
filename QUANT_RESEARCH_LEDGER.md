@@ -115,6 +115,7 @@
 | D1 | `build_may_5m_bars.py` **absent from disk** (recursive search 2026-09-12); only `may_5m_bars.csv` survives in `Audit_V2_1`. **Status: LEGACY / MISSING ARTIFACT / NON-BLOCKING.** Historical role: raw trades → `may_5m_bars.csv`; NOT part of canonical EXP-01 chain; absence does not invalidate EXP-01 | Preserve `may_5m_bars.csv`; recover script separately from backup/Recycle Bin; do NOT recreate from memory or substitute another script |
 | D2 | `may_5m_bars.csv` at `Audit_V2_1\may_5m_bars.csv`, not Documents root | Recorded; no action |
 | D3 | Ledger did not exist before 2026-09-12 | Resolved by creation |
+| D4 | Discovery `d06_replay_book.py` sums top-5 depth with a naive loop; replication `gate1_canonical.py` uses `sum()` (compensated in Python 3.12+). Verified: frozen discovery depth columns == naive loop for all 42,839 rows; `sum()` differs by up to 1.42e-14 in `bid_depth_top5`/`ask_depth_top5`/`obi_top5` only | Refactor follows replication canonical (`sum()`); discovery comparison allows 1e-13 tolerance on those 3 columns only (see `tests/test_refactored_d06.py`). No downstream result affected |
 
 ## Observations
 
@@ -124,6 +125,7 @@
 - **O4** `BTC_V3` = separate Binance ML pipeline — **KEEP FULLY SEPARATE** until separately audited and approved
 - **O5** No git on machine (winget available); approved repo root `Documents\quant-market-ecology`; do NOT init at Documents root
 - **O6** No tests existed before Phase 1 scaffolding
+- **O7** pandas `read_csv` default C parser drops the last ULP of long float reprs (e.g. `0.10000000000582077` → `0.1000000000058207`); bit-for-bit float tests must use `float_precision='round_trip'`
 
 ---
 
@@ -132,6 +134,8 @@
 1. ~~Freeze EXP-01~~ (done — do not mine the six May hours further)
 2. ~~Regression tests~~ (DONE 2026-09-12 — 28 checks green)
 3. **Phase 2: behavior-preserving refactor into `src/` modules** ← current (APPROVED 2026-09-12)
+   - ✅ **Module 1 (D06 replay) DONE 2026-09-12** — `src/book/replay.py` + `src/ingestion/cryptohft.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, discovery exact except 3 depth cols within documented tolerance, all gate1 counters exact)
+   - ⏳ Module 2 (D07 liquidity events) — next
 4. Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)
 5. Unified state model (M_t + R_t, hierarchical/multiscale — NOT naive merge)
 6. Forward validation on genuinely new data with frozen rules
@@ -144,7 +148,7 @@
 
 **Validation:** rerun regression suite after each extraction. Canonical → frozen output ← refactored must match exactly (row counts, episode counts, sequence integrity, timestamps, ordering, liquidity quantities, interval identity, spatial classifications, response classifications, horizons, final statistics). **Any unexplained discrepancy = STOP and report.** Do not fix tests to accept changed results.
 
-**Git checkpoints:** Commit 1 "Establish frozen research baseline" · Commit 2 "Add regression tests for canonical pipeline" · then small per-subsystem commits.
+**Git checkpoints:** ✅ Commit 1 "Establish frozen research baseline" · ✅ Commit 2 "Add regression tests for canonical pipeline" · then small per-subsystem commits (D06 module commit next).
 
 **BTC_V3:** fully separate — do not import/copy/merge/refactor/use during Phase 2.
 
