@@ -127,6 +127,8 @@
 - **O6** No tests existed before Phase 1 scaffolding
 - **O7** pandas `read_csv` default C parser drops the last ULP of long float reprs (e.g. `0.10000000000582077` → `0.1000000000058207`); bit-for-bit float tests must use `float_precision='round_trip'`
 - **O8** Frozen d07 UTC columns are strings with **mixed fractional-second formats** (some rows `...00+00:00`, others `...00.163000+00:00`; hours 12/18/15/21 + discovery affected). Parse with `pd.to_datetime(..., utc=True, format='mixed')`; module emits `datetime64[ns, UTC]`, tests cast both sides to `datetime64[us, UTC]`. Input-parser fix only — frozen CSVs untouched, equality checks unchanged
+- **O9** Frozen d09 joint-tape CSVs embed **default-parser last-ULP artifacts** (e.g. `spread_t1` `0.1000000000058207` vs d07 source `0.10000000000582077`) because canonical D09 read the D07 book CSV with pandas' **DEFAULT parser**. Refactored `src/liquidity/joint_flow.py` must read the book CSV with the default parser to reproduce frozen output bit-for-bit; tests read frozen with `round_trip` (O7). Same artifact propagates into frozen d09b joint outputs (`spread_t0` `0.0999999999912688`)
+- **O10** On this machine (4 CPUs, ~4.1 GB RAM) the 3-worker multiprocessing pool **thrashes memory**: D07 harness took ~21 min wall for 6 hours while a single serial hour takes ~77 s. Heavy per-hour replays run **serially, one hour per process**, with per-hour checkpoints (`tests/logs/checkpoints/<suite>/<hour>.pkl`); the pool remains for light CSV-only suites (D09)
 
 ---
 
@@ -137,7 +139,9 @@
 3. **Phase 2: behavior-preserving refactor into `src/` modules** ← current (APPROVED 2026-09-12)
    - ✅ **Module 1 (D06 replay) DONE 2026-09-12** — `src/book/replay.py` + `src/ingestion/cryptohft.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, discovery exact except 3 depth cols within documented tolerance, all gate1 counters exact)
    - ✅ **Module 2 (D07 liquidity events) DONE 2026-09-13** — `src/liquidity/events.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, all 41 columns, 259,734 records; discovery exact on shared columns, 42,839 records; all 85 gate1b summary counters exact)
-   - ⏳ Module 3 (D09 joint flow interval builder) — next
+   - ✅ **Module 3 (D09 joint flow interval builder) DONE 2026-09-13** — `src/liquidity/joint_flow.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, 258,917 records; discovery exact on shared columns, 42,499 records; all 70 gate3 summary counters exact). Input note: frozen d09 outputs embed default-parser last-ULP artifacts (O9); module reads the D07 book CSV with the default parser
+   - ✅ **Module 4 (D09B touch-distance ecology) DONE 2026-09-13** — `src/liquidity/touch_ecology.py`; validated bit-for-bit vs frozen (5/5 replication hours exact for event tables, 259,534 records, and joint tables, 258,917 rows; discovery exact, 42,839 events / 42,499 joint rows; all 60 counter checks exact; canonical gate PASS for all 6 hours)
+   - ⏳ Module 5 (EXP-01 analysis layer: exp01c/d/e) — next
 4. Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)
 5. Unified state model (M_t + R_t, hierarchical/multiscale — NOT naive merge)
 6. Forward validation on genuinely new data with frozen rules
