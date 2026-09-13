@@ -17,6 +17,7 @@ TESTS = [
     "test_exp01_regression.py",
     "test_refactored_d06.py",
     "test_refactored_d07.py",
+    "test_refactored_d09.py",
 ]
 
 
