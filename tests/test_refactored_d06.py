@@ -23,11 +23,19 @@ tolerance on those three columns and requires exact equality everywhere
 else.
 
 Runtime note: the canonical replay sorts the full book per state, so this
-suite takes ~10-12 minutes (all six hours, replayed once each).
+suite takes ~10-12 minutes serial (all six hours, replayed once each).
+The harness replays the six independent hours across 3 worker processes,
+cutting wall time to ~4-5 minutes. The refactored module itself is
+unchanged by this; only the test harness parallelizes.
+
+Each completed hour is checkpointed to tests/logs/checkpoints/d06/ so an
+interrupted run resumes from where it left off instead of restarting.
 
 Run:  python tests/test_refactored_d06.py
 """
+import multiprocessing
 import os
+import pickle
 import sys
 
 import numpy as np
@@ -41,6 +49,7 @@ from src.book.replay import replay_hour  # noqa: E402
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FROZEN = os.path.join(ROOT, "data", "frozen")
 RAW = os.path.join(ROOT, "data", "raw")
+CHECKPOINT_DIR = os.path.join(ROOT, "tests", "logs", "checkpoints", "d06")
 
 REPLICATION_HOURS = [
     "2026-05-25_04",
@@ -174,13 +183,38 @@ def test_summary_matches_gate1(results):
     return ok
 
 
+def _checkpoint_path(hour):
+    return os.path.join(CHECKPOINT_DIR, f"{hour}.pkl")
+
+
+def _replay_one(hour):
+    """Top-level worker (picklable under Windows spawn)."""
+    states_df, result = replay_hour(hour, RAW)
+    return hour, states_df, result
+
+
 def main():
-    print("Replaying all six hours (this takes several minutes)...")
+    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+    hours = REPLICATION_HOURS + [DISCOVERY_HOUR]
     results = {}
-    for hour in REPLICATION_HOURS + [DISCOVERY_HOUR]:
-        states_df, result = replay_hour(hour, RAW)
-        results[hour] = (states_df, result)
-        print(f"  {hour}: {len(states_df)} states")
+    todo = []
+    for hour in hours:
+        cp = _checkpoint_path(hour)
+        if os.path.exists(cp):
+            with open(cp, "rb") as f:
+                results[hour] = pickle.load(f)
+            print(f"  {hour}: loaded from checkpoint")
+        else:
+            todo.append(hour)
+
+    if todo:
+        print(f"Replaying {len(todo)} hours (3 parallel workers)...")
+        with multiprocessing.Pool(processes=3) as pool:
+            for hour, states_df, result in pool.imap_unordered(_replay_one, todo):
+                results[hour] = (states_df, result)
+                with open(_checkpoint_path(hour), "wb") as f:
+                    pickle.dump((states_df, result), f)
+                print(f"  {hour}: {len(states_df)} states")
 
     checks = [
         test_replication_states_exact(results),
