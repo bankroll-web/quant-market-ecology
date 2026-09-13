@@ -22,6 +22,7 @@ TESTS = [
     "test_refactored_exp01.py",
     "test_paper_engine_causality.py",
     "test_paper_engine_determinism.py",
+    "test_paper_engine_signal.py",
 ]
 
 
