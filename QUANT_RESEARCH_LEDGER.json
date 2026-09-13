@@ -12,8 +12,16 @@
       "title": "Absorption vs Yielding: opposing near-touch liquidity response conditional on aggressive flow",
       "layer": "CryptoHFT Binance Futures BTCUSDT microstructure",
       "hypothesis": "Conditional on aggressive trade flow, depletion of opposing displayed liquidity within 0-5 ticks is associated with greater subsequent flow-direction midpoint displacement than replenishment.",
-      "discovery_data": ["2026-05-25_00"],
-      "replication_data": ["2026-05-25_04", "2026-05-25_12", "2026-05-25_18", "2026-05-26_15", "2026-05-26_21"],
+      "discovery_data": [
+        "2026-05-25_00"
+      ],
+      "replication_data": [
+        "2026-05-25_04",
+        "2026-05-25_12",
+        "2026-05-25_18",
+        "2026-05-26_15",
+        "2026-05-26_21"
+      ],
       "freeze_reference": "EXP01_FROZEN_REPLICATION_SPEC.json (mtime 2026-09-11 09:13:26)",
       "definitions": {
         "flow_side": "signed_flow_qty > 0 -> BUY; < 0 -> SELL",
@@ -24,34 +32,134 @@
         "future_state": "literal consecutive valid L2 events within same verified episode (H1 diagnostic, H3/H5/H10 primary)",
         "temporal_ordering_rule": "future shifts constructed BEFORE selecting starting flow events; never filter first then shift"
       },
-      "primary_endpoints": ["H3", "H5", "H10"],
+      "primary_endpoints": [
+        "H3",
+        "H5",
+        "H10"
+      ],
       "secondary_endpoints": [],
-      "diagnostics": ["H1"],
+      "diagnostics": [
+        "H1"
+      ],
       "discovery_results": {
         "sample": "2026-05-25_00",
         "starting_events": 3733,
-        "state_counts": {"DEPLETION": 3254, "REPLENISHMENT": 439, "NEUTRAL": 40},
-        "pooled_depletion_minus_replenishment_bps": {"H1": 0.014925, "H3": 0.038168, "H5": 0.055901, "H10": 0.073965},
+        "state_counts": {
+          "DEPLETION": 3254,
+          "REPLENISHMENT": 439,
+          "NEUTRAL": 40
+        },
+        "pooled_depletion_minus_replenishment_bps": {
+          "H1": 0.014925,
+          "H3": 0.038168,
+          "H5": 0.055901,
+          "H10": 0.073965
+        },
         "equal_episode": {
-          "H1": {"episodes": 90, "mean_bps": 0.005608, "ci_bps": [-0.023348, 0.025517], "verdict": "FAIL"},
-          "H3": {"episodes": 88, "mean_bps": 0.032646, "ci_bps": [0.015373, 0.050143], "signflip_p": 0.000250, "verdict": "PASS"},
-          "H5": {"episodes": 84, "mean_bps": 0.048139, "ci_bps": [0.022329, 0.072962], "signflip_p": 0.000150, "verdict": "PASS"},
-          "H10": {"episodes": 78, "mean_bps": 0.083296, "ci_bps": [0.024718, 0.147887], "signflip_p": 0.003800, "verdict": "PASS"}
+          "H1": {
+            "episodes": 90,
+            "mean_bps": 0.005608,
+            "ci_bps": [
+              -0.023348,
+              0.025517
+            ],
+            "verdict": "FAIL"
+          },
+          "H3": {
+            "episodes": 88,
+            "mean_bps": 0.032646,
+            "ci_bps": [
+              0.015373,
+              0.050143
+            ],
+            "signflip_p": 0.00025,
+            "verdict": "PASS"
+          },
+          "H5": {
+            "episodes": 84,
+            "mean_bps": 0.048139,
+            "ci_bps": [
+              0.022329,
+              0.072962
+            ],
+            "signflip_p": 0.00015,
+            "verdict": "PASS"
+          },
+          "H10": {
+            "episodes": 78,
+            "mean_bps": 0.083296,
+            "ci_bps": [
+              0.024718,
+              0.147887
+            ],
+            "signflip_p": 0.0038,
+            "verdict": "PASS"
+          }
         },
         "frozen_conclusion": "H3/H5/H10 survive; H1 diagnostic/weak. Frozen BEFORE replication."
       },
       "replication_results": {
-        "gates": {"gate0_raw_data": "5/5 PASS", "gate1_canonical_d06": "5/5 PASS", "gate1b_d07": "5/5 PASS", "gate2_d08c": "5/5 PASS", "gate3_d09": "5/5 PASS"},
+        "gates": {
+          "gate0_raw_data": "5/5 PASS",
+          "gate1_canonical_d06": "5/5 PASS",
+          "gate1b_d07": "5/5 PASS",
+          "gate2_d08c": "5/5 PASS",
+          "gate3_d09": "5/5 PASS"
+        },
         "sample": "27,137 starting events; 502 unique verified episodes; BUY 14,145 / SELL 12,992; DEPLETION 22,775 / REPLENISHMENT 4,093 / NEUTRAL 269",
-        "pooled_depletion_minus_replenishment_bps": {"H1": 0.016239, "H3": 0.033247, "H5": 0.045189, "H10": 0.069879},
+        "pooled_depletion_minus_replenishment_bps": {
+          "H1": 0.016239,
+          "H3": 0.033247,
+          "H5": 0.045189,
+          "H10": 0.069879
+        },
         "per_hour_sign": "5/5 untouched hours same sign at H3/H5/H10",
         "flow_depth_control": "survives (weighted H3 +0.022130, H5 +0.030763, H10 +0.051320; positive cells 74-82%)",
         "one_sided_aggression": "survives (H3 +0.028611, H5 +0.040196, H10 +0.059462)",
         "equal_episode": {
-          "H1": {"episodes": 293, "mean_bps": 0.015046, "ci_bps": [0.010570, 0.020039], "signflip_p": 0.000050, "verdict": "DIAGNOSTIC (not promoted)"},
-          "H3": {"episodes": 287, "mean_bps": 0.016906, "ci_bps": [0.000245, 0.031367], "bootstrap_p_positive": 0.976300, "signflip_p": 0.014449, "verdict": "SURVIVES"},
-          "H5": {"episodes": 280, "mean_bps": 0.034735, "ci_bps": [0.022198, 0.048017], "bootstrap_p_positive": 1.0, "signflip_p": 0.000050, "verdict": "SURVIVES"},
-          "H10": {"episodes": 266, "mean_bps": 0.042933, "ci_bps": [0.027453, 0.058883], "bootstrap_p_positive": 1.0, "signflip_p": 0.000050, "verdict": "SURVIVES"}
+          "H1": {
+            "episodes": 293,
+            "mean_bps": 0.015046,
+            "ci_bps": [
+              0.01057,
+              0.020039
+            ],
+            "signflip_p": 5e-05,
+            "verdict": "DIAGNOSTIC (not promoted)"
+          },
+          "H3": {
+            "episodes": 287,
+            "mean_bps": 0.016906,
+            "ci_bps": [
+              0.000245,
+              0.031367
+            ],
+            "bootstrap_p_positive": 0.9763,
+            "signflip_p": 0.014449,
+            "verdict": "SURVIVES"
+          },
+          "H5": {
+            "episodes": 280,
+            "mean_bps": 0.034735,
+            "ci_bps": [
+              0.022198,
+              0.048017
+            ],
+            "bootstrap_p_positive": 1.0,
+            "signflip_p": 5e-05,
+            "verdict": "SURVIVES"
+          },
+          "H10": {
+            "episodes": 266,
+            "mean_bps": 0.042933,
+            "ci_bps": [
+              0.027453,
+              0.058883
+            ],
+            "bootstrap_p_positive": 1.0,
+            "signflip_p": 5e-05,
+            "verdict": "SURVIVES"
+          }
         },
         "sparsity": "episode medians zero; zero rates 42.9-47.8%; positive rate among nonzero episodes 78.9-88.2% (NOT trading accuracy)",
         "concentration": "top 20% of absolute episode effects account for 77.7-82.3% of total",
@@ -69,8 +177,25 @@
       ],
       "files": {
         "frozen_spec": "C:\\Users\\USER\\Documents\\EXP01_FROZEN_REPLICATION_SPEC.json",
-        "discovery_scripts": ["d06_replay_book.py", "d07_liquidity_event_tape.py", "d08c_episode_conditioned_alignment.py", "d09_joint_flow_liquidity_tape.py", "d09b_touch_distance_ecology.py", "exp01c_canonical_absorption_yielding.py", "exp01d_episode_bootstrap.py", "exp01e_equal_episode_test.py"],
-        "replication_scripts": ["exp01_replication_gate0.py", "exp01_replication_gate1_canonical.py", "exp01_replication_d07_batch.py", "exp01_replication_gate2_d08c.py", "exp01_replication_d09_batch.py", "exp01_replication_d09b_one_hour.py", "exp01_frozen_independent_replication.py"],
+        "discovery_scripts": [
+          "d06_replay_book.py",
+          "d07_liquidity_event_tape.py",
+          "d08c_episode_conditioned_alignment.py",
+          "d09_joint_flow_liquidity_tape.py",
+          "d09b_touch_distance_ecology.py",
+          "exp01c_canonical_absorption_yielding.py",
+          "exp01d_episode_bootstrap.py",
+          "exp01e_equal_episode_test.py"
+        ],
+        "replication_scripts": [
+          "exp01_replication_gate0.py",
+          "exp01_replication_gate1_canonical.py",
+          "exp01_replication_d07_batch.py",
+          "exp01_replication_gate2_d08c.py",
+          "exp01_replication_d09_batch.py",
+          "exp01_replication_d09b_one_hour.py",
+          "exp01_frozen_independent_replication.py"
+        ],
         "replication_dir": "C:\\Users\\USER\\Documents\\EXP01_REPLICATION",
         "raw_orderbooks": "C:\\Users\\USER\\Documents\\Audit_V2_1\\Raw_Orderbooks",
         "raw_trades": "C:\\Users\\USER\\Documents\\CryptoHFT_Trades_8Hours"
@@ -82,8 +207,12 @@
       "title": "Directional Boundary Re-Anchoring prospective replication",
       "layer": "FXSSI BTCUSD retail ecology",
       "hypothesis": "BTC down + long stop boundary re-anchor downward -> future longward retail reallocation; BTC up + short stop boundary re-anchor upward -> future shortward retail reallocation.",
-      "discovery_data": ["FXSSI experiment18 canonical dataset (Sep 4 - Sep 9 2026)"],
-      "replication_data": ["PROSPECTIVE ONLY - timestamps strictly after 2026-09-09T18:20:00Z"],
+      "discovery_data": [
+        "FXSSI experiment18 canonical dataset (Sep 4 - Sep 9 2026)"
+      ],
+      "replication_data": [
+        "PROSPECTIVE ONLY - timestamps strictly after 2026-09-09T18:20:00Z"
+      ],
       "freeze_reference": "DBR_FROZEN_SPEC_20260910.json (mtime 2026-09-10 11:44:28)",
       "definitions": {
         "down_dbr": "BTC 20m return < 0 AND long cluster changed AND long migration < 0",
@@ -92,24 +221,54 @@
         "expected_up_response": "future shortward retail reallocation",
         "controls": "anchored stop boundaries (no re-anchor)",
         "primary_horizon_minutes": 20,
-        "secondary_horizons_minutes": [40, 60]
+        "secondary_horizons_minutes": [
+          40,
+          60
+        ]
       },
-      "primary_endpoints": ["20-minute event minus anchored-control mean counter-directional position reallocation"],
-      "secondary_endpoints": ["median counter-directional reallocation", "positive counter-response rate", "standardized mean difference", "BTC-magnitude-controlled reanchor coefficient"],
+      "primary_endpoints": [
+        "20-minute event minus anchored-control mean counter-directional position reallocation"
+      ],
+      "secondary_endpoints": [
+        "median counter-directional reallocation",
+        "positive counter-response rate",
+        "standardized mean difference",
+        "BTC-magnitude-controlled reanchor coefficient"
+      ],
       "diagnostics": [],
       "discovery_results": {
-        "down_dbr_20m": {"counter_reallocation": 0.7500, "control": 0.0934, "difference": 0.6567, "smd": 0.617},
-        "up_dbr_20m": {"counter_reallocation": 0.6245, "control": -0.1241, "difference": 0.7487, "smd": 0.677},
+        "down_dbr_20m": {
+          "counter_reallocation": 0.75,
+          "control": 0.0934,
+          "difference": 0.6567,
+          "smd": 0.617
+        },
+        "up_dbr_20m": {
+          "counter_reallocation": 0.6245,
+          "control": -0.1241,
+          "difference": 0.7487,
+          "smd": 0.677
+        },
         "notes": "Downside effects persisted longer; upside weakened with horizon. Confounding: DBR events had larger BTC moves; linear absolute-return controls may not fully remove magnitude confounding. NOT declared causal or tradable."
       },
-      "replication_results": {"prospective_rows": 0, "note": "FXSSI subscription/data access ended ~Sep 11 2026; expected to resume ~Tuesday. Do not modify experiment while waiting."},
+      "replication_results": {
+        "prospective_rows": 0,
+        "note": "FXSSI subscription/data access ended ~Sep 11 2026; expected to resume ~Tuesday. Do not modify experiment while waiting."
+      },
       "status": "DISCOVERY COMPLETE / PROSPECTIVE REPLICATION PENDING",
       "verdict": "Discovery-stage candidate; frozen prospective specification active; awaiting new data",
-      "known_limitations": ["Magnitude confounding unresolved", "No causality or tradability", "Prospective sample currently empty"],
+      "known_limitations": [
+        "Magnitude confounding unresolved",
+        "No causality or tradability",
+        "Prospective sample currently empty"
+      ],
       "files": {
         "frozen_spec": "C:\\Users\\USER\\Documents\\DBR_FROZEN_SPEC_20260910.json",
         "monitor_script": "C:\\Users\\USER\\Documents\\monitor_DBR_prospective.py",
-        "status_outputs": ["C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.csv", "C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.txt"],
+        "status_outputs": [
+          "C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.csv",
+          "C:\\Users\\USER\\Documents\\DBR_PROSPECTIVE_STATUS.txt"
+        ],
         "canonical_dataset": "C:\\Users\\USER\\Documents\\experiment18_market_ecology_state_BTCUSD.csv"
       },
       "usage_policy": "Frozen. No post-hoc magnitude threshold optimization. No changing event definitions after prospective outcomes appear. No deleting unfavorable events."
@@ -144,8 +303,18 @@
       "layer": "FXSSI retail ecology",
       "hypothesis": "Same/similar-price observations can possess different ecological states; future path divergence larger when ecology differs.",
       "discovery_results": {
-        "same_price_pairs_within_10bps": {"20m": "12.14 vs 16.37 bps", "40m": "16.24 vs 22.39", "60m": "19.74 vs 26.58", "120m": "27.58 vs 35.18"},
-        "ecology_nn_vs_price_only_error": {"20m": "14.65 vs 18.71", "40m": "19.50 vs 22.41", "60m": "23.98 vs 26.99", "120m": "33.77 vs 36.51"}
+        "same_price_pairs_within_10bps": {
+          "20m": "12.14 vs 16.37 bps",
+          "40m": "16.24 vs 22.39",
+          "60m": "19.74 vs 26.58",
+          "120m": "27.58 vs 35.18"
+        },
+        "ecology_nn_vs_price_only_error": {
+          "20m": "14.65 vs 18.71",
+          "40m": "19.50 vs 22.41",
+          "60m": "23.98 vs 26.99",
+          "120m": "33.77 vs 36.51"
+        }
       },
       "verdict": "PASS - price is not state descriptively. Does NOT establish directional prediction.",
       "status": "DISCOVERY COMPLETE"
@@ -171,10 +340,15 @@
       "title": "Older Lab2 Track A Gen3 (historical)",
       "layer": "FXSSI",
       "hypothesis": "delta60 FXSSI thresholds: LONG <= -0.0218, SHORT >= +0.0230.",
-      "discovery_results": {"historical": "N=269, mean gross ~+5.7552 bps", "prospective_independent": "N=56, mean gross ~+4.4942 bps, net ~+3.4071 bps, CI included zero"},
+      "discovery_results": {
+        "historical": "N=269, mean gross ~+5.7552 bps",
+        "prospective_independent": "N=56, mean gross ~+4.4942 bps, net ~+3.4071 bps, CI included zero"
+      },
       "freeze_reference": "Track A freeze cutoff 2026-09-06T08:40Z; 20-minute cutoff ~Sep 7 13:10 UTC",
       "status": "HISTORICAL - do not make centerpiece of new system",
-      "files": {"ledger": "C:\\Users\\USER\\Documents\\experiment8_gen3_independent_trades_BTCUSD.csv"}
+      "files": {
+        "ledger": "C:\\Users\\USER\\Documents\\experiment8_gen3_independent_trades_BTCUSD.csv"
+      }
     },
     {
       "experiment_id": "LAB2-GEN4E",
@@ -211,17 +385,54 @@
     }
   ],
   "observations": [
-    {"id": "O1", "detail": "exp01_replication_gate1.py (760 lines, outputs exp01_replication_gate1_reconstruction.csv) exists alongside canonical gate1_canonical.py - consistent with rejected simplified-bridge attempt. Preserve; never use."},
-    {"id": "O2", "detail": "exp01_replication_gate0_BACKUP.py exists. Preserve."},
-    {"id": "O3", "detail": "Pre-canonical EXP-01 iterations exist: exp01_absorption_vs_yielding.py, exp01b_corrected_l2_horizons.py + outputs. Canonical = exp01c."},
-    {"id": "O4", "detail": "Documents\\BTC_V3 is a distinct Binance ML pipeline (collectors 01-12, builders 01-12, audits 01-27, 00_CONFIG-05_AUDITS). Owner directive: KEEP FULLY SEPARATE. Do not merge into quant-market-ecology until separately audited and explicitly approved."},
-    {"id": "O5", "detail": "Documents is not under version control. Git not installed on machine (winget available). Repo root approved: C:\\Users\\USER\\Documents\\quant-market-ecology. Do NOT init git at Documents root."},
-    {"id": "O6", "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."},
-    {"id": "O7", "detail": "pandas read_csv default C parser drops the last ULP of long float reprs (e.g. 0.10000000000582077 -> 0.1000000000058207). Tests comparing floats bit-for-bit must use float_precision='round_trip'."},
-    {"id": "O8", "detail": "Frozen d07_liquidity_event_tape CSVs store UTC columns as strings with MIXED fractional-second formats (some rows '...00+00:00', others '...00.163000+00:00'; hours 12/18/15/21 + discovery affected, hour 04 uniform 6-digit). Parsing requires pd.to_datetime(..., utc=True, format='mixed'). The refactored module emits datetime64[ns, UTC]; tests cast both sides to datetime64[us, UTC] before comparison. Input-parser fix only - frozen CSVs untouched, equality checks unchanged."},
-    {"id": "O9", "detail": "Frozen d09_joint_flow_liquidity_tape CSVs embed default-parser last-ULP artifacts (e.g. spread_t1 0.1000000000058207 vs the d07 source 0.10000000000582077) because the canonical D09 read the D07 book CSV with pandas' DEFAULT parser. The refactored src/liquidity/joint_flow.py must read the book CSV with the default parser to reproduce frozen output bit-for-bit; tests read frozen with round_trip (O7). The same artifact propagates into frozen d09b joint outputs (spread_t0 0.0999999999912688)."},
-    {"id": "O10", "detail": "On this machine (4 CPUs, ~4.1 GB RAM) the 3-worker multiprocessing pool thrashes memory: the D07 harness took ~21 min wall for 6 hours while a single serial hour takes ~77 s. Heavy per-hour replays are run serially, one hour per process, with per-hour checkpoints (tests/logs/checkpoints/<suite>/<hour>.pkl); the pool remains for light CSV-only suites (D09)."},
-    {"id": "O11", "detail": "Downstream analysis consumes WRITTEN files, not in-memory frames: canonical exp01d/exp01e read the written exp01c_canonical_rows.csv with the DEFAULT parser, so the default-parser last-ULP artifacts (O9) propagate through the written file. The refactored exp01d/exp01e tests must feed them the CSV-read frame (read_input('exp01c_canonical_rows.csv')) rather than the in-memory analysis frame; exp01c itself (frame + summary) is validated against the in-memory frame. Replication analysis reads the hour joint CSVs directly, so no written-file hop is involved."}
+    {
+      "id": "O1",
+      "detail": "exp01_replication_gate1.py (760 lines, outputs exp01_replication_gate1_reconstruction.csv) exists alongside canonical gate1_canonical.py - consistent with rejected simplified-bridge attempt. Preserve; never use."
+    },
+    {
+      "id": "O2",
+      "detail": "exp01_replication_gate0_BACKUP.py exists. Preserve."
+    },
+    {
+      "id": "O3",
+      "detail": "Pre-canonical EXP-01 iterations exist: exp01_absorption_vs_yielding.py, exp01b_corrected_l2_horizons.py + outputs. Canonical = exp01c."
+    },
+    {
+      "id": "O4",
+      "detail": "Documents\\BTC_V3 is a distinct Binance ML pipeline (collectors 01-12, builders 01-12, audits 01-27, 00_CONFIG-05_AUDITS). Owner directive: KEEP FULLY SEPARATE. Do not merge into quant-market-ecology until separately audited and explicitly approved."
+    },
+    {
+      "id": "O5",
+      "detail": "Documents is not under version control. Git not installed on machine (winget available). Repo root approved: C:\\Users\\USER\\Documents\\quant-market-ecology. Do NOT init git at Documents root."
+    },
+    {
+      "id": "O6",
+      "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."
+    },
+    {
+      "id": "O7",
+      "detail": "pandas read_csv default C parser drops the last ULP of long float reprs (e.g. 0.10000000000582077 -> 0.1000000000058207). Tests comparing floats bit-for-bit must use float_precision='round_trip'."
+    },
+    {
+      "id": "O8",
+      "detail": "Frozen d07_liquidity_event_tape CSVs store UTC columns as strings with MIXED fractional-second formats (some rows '...00+00:00', others '...00.163000+00:00'; hours 12/18/15/21 + discovery affected, hour 04 uniform 6-digit). Parsing requires pd.to_datetime(..., utc=True, format='mixed'). The refactored module emits datetime64[ns, UTC]; tests cast both sides to datetime64[us, UTC] before comparison. Input-parser fix only - frozen CSVs untouched, equality checks unchanged."
+    },
+    {
+      "id": "O9",
+      "detail": "Frozen d09_joint_flow_liquidity_tape CSVs embed default-parser last-ULP artifacts (e.g. spread_t1 0.1000000000058207 vs the d07 source 0.10000000000582077) because the canonical D09 read the D07 book CSV with pandas' DEFAULT parser. The refactored src/liquidity/joint_flow.py must read the book CSV with the default parser to reproduce frozen output bit-for-bit; tests read frozen with round_trip (O7). The same artifact propagates into frozen d09b joint outputs (spread_t0 0.0999999999912688)."
+    },
+    {
+      "id": "O10",
+      "detail": "On this machine (4 CPUs, ~4.1 GB RAM) the 3-worker multiprocessing pool thrashes memory: the D07 harness took ~21 min wall for 6 hours while a single serial hour takes ~77 s. Heavy per-hour replays are run serially, one hour per process, with per-hour checkpoints (tests/logs/checkpoints/<suite>/<hour>.pkl); the pool remains for light CSV-only suites (D09)."
+    },
+    {
+      "id": "O11",
+      "detail": "Downstream analysis consumes WRITTEN files, not in-memory frames: canonical exp01d/exp01e read the written exp01c_canonical_rows.csv with the DEFAULT parser, so the default-parser last-ULP artifacts (O9) propagate through the written file. The refactored exp01d/exp01e tests must feed them the CSV-read frame (read_input('exp01c_canonical_rows.csv')) rather than the in-memory analysis frame; exp01c itself (frame + summary) is validated against the in-memory frame. Replication analysis reads the hour joint CSVs directly, so no written-file hop is involved."
+    },
+    {
+      "id": "O12",
+      "detail": "PE-1 verified structural invariants of the validated tapes on all 6 hours (discovery + 5 replication): D07 tapes are grouped by episode_id and sorted by event_time_ms with zero duplicate (episode_id, event_time_ms) keys; D09B interval rows == D07 events - episodes (every non-first event is the t1 of exactly one interval, every interval attaches to exactly one event); received_time_ns and transaction_time_ms are non-decreasing within episodes and transaction_time_ms <= event_time_ms; t1_utc string-equals the D07 event_time_utc of the same event and t0_utc < t1_utc lexicographically (fixed-width UTC format); interval_ms == t1_event_time_ms - t0_event_time_ms. These invariants are asserted by tests/test_paper_engine_causality.py and make the PE-1 causal join (interval attached only at its t1 event) exact by construction."
+    }
   ],
   "next_objectives": [
     "Freeze EXP-01 (done - do not mine the six May hours further)",
@@ -232,7 +443,7 @@
     "Phase 2 module 3 (D09 joint flow interval builder -> src/liquidity/joint_flow.py): DONE 2026-09-13. Validated bit-for-bit vs frozen: 5/5 replication hours exact (258,917 records), discovery exact on shared columns (42,499 records), all 70 gate3 summary counters exact. Input note: frozen d09 outputs embed default-parser last-ULP artifacts (O9); the module reads the D07 book CSV with the default parser to reproduce them.",
     "Phase 2 module 4 (D09B touch-distance ecology -> src/liquidity/touch_ecology.py): DONE 2026-09-13. Validated bit-for-bit vs frozen: 5/5 replication hours exact for both event tables (259,534 records) and joint tables (258,917 rows), discovery exact (42,839 events / 42,499 joint rows), all 60 counter checks exact, canonical gate PASS for all 6 hours.",
     "Phase 2 module 5 (EXP-01 analysis layer -> src/analysis/exp01.py): DONE 2026-09-13. Validated bit-for-bit vs frozen: exp01c canonical rows (3,733) + group summary (9 rows), exp01d episode bootstrap (4 rows, 10,000 draws), exp01e effects (340) + summary (4 rows), replication canonical rows (27,137), hour summary (5), equal-episode effects (1,126) + final summary (4). Full end-to-end regression green: all 9 suites pass (D06/D09/D09B/EXP-01 sanity + refactored D06/D07/D09/D09B/EXP-01). Input notes: exp01d/exp01e consume the WRITTEN exp01c rows CSV with the default parser (O11). Next: Paper Engine V1.",
-    "Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model): spec APPROVED 2026-09-13 (ChatGPT review checkpoint). PE-0 done: PAPER_ENGINE_V1_SPEC.md written (20 sections: purpose, inputs, event model, frozen EXP-01 signal semantics, MODE A/B, decision time, 7-point latency grid 0-200ms, midpoint + touch execution models, cost model, episode-safe outcomes, dual clocks, ledger schema, summaries A-F, no-optimization rule, 10 tests, package structure, PE-0..PE-10 gates). PE-1 (sequential event iterator + causal state) pending review approval.",
+    "Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model): spec APPROVED 2026-09-13 (ChatGPT review checkpoint). PE-0 done: PAPER_ENGINE_V1_SPEC.md written (20 sections: purpose, inputs, event model, frozen EXP-01 signal semantics, MODE A/B, decision time, 7-point latency grid 0-200ms, midpoint + touch execution models, cost model, episode-safe outcomes, dual clocks, ledger schema, summaries A-F, no-optimization rule, 10 tests, package structure, PE-0..PE-10 gates). PE-1 DONE 2026-09-13 (sequential event iterator + causal state): src/paper_engine/events.py (iter_events: tape-order iteration, episode identity, order/duplicate validation, fail-loud) + src/paper_engine/state.py (iter_states: CausalState per event, D09B interval attached only at its t1 event, has_interval explicit for episode-first events, all-intervals-attach integrity check). Test gate A-G all PASS on all 6 hours (discovery + 5 replication): no lookahead, event order, episode containment, input immutability, determinism (NaN-aware), terminal/missing explicit, upstream regression (all 11 suites green). Next: PE-2 (frozen EXP-01 signal-state reconstruction) pending review approval.",
     "Build unified state model (M_t fast microstructure + R_t slow retail ecology) - hierarchical/multiscale, NOT naive merge",
     "Forward validation on genuinely new data with frozen rules"
   ],
