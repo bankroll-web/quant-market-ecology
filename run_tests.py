@@ -19,6 +19,7 @@ TESTS = [
     "test_refactored_d07.py",
     "test_refactored_d09.py",
     "test_refactored_d09b.py",
+    "test_refactored_exp01.py",
 ]
 
 
