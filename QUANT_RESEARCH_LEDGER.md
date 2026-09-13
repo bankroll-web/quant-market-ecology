@@ -144,7 +144,7 @@
    - ✅ **Module 4 (D09B touch-distance ecology) DONE 2026-09-13** — `src/liquidity/touch_ecology.py`; validated bit-for-bit vs frozen (5/5 replication hours exact for event tables, 259,534 records, and joint tables, 258,917 rows; discovery exact, 42,839 events / 42,499 joint rows; all 60 counter checks exact; canonical gate PASS for all 6 hours)
    - ✅ **Module 5 (EXP-01 analysis layer) DONE 2026-09-13** — `src/analysis/exp01.py`; validated bit-for-bit vs frozen (exp01c canonical rows 3,733 + group summary 9 rows; exp01d episode bootstrap 4 rows, 10,000 draws; exp01e effects 340 + summary 4 rows; replication canonical rows 27,137, hour summary 5, equal-episode effects 1,126, final summary 4). **Full end-to-end regression green: all 9 suites pass** (D06/D09/D09B/EXP-01 sanity + refactored D06/D07/D09/D09B/EXP-01). Input notes: exp01d/exp01e consume the written exp01c rows CSV with the default parser (O11)
    - ⏳ Paper Engine V1 — next
-4. Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)
+4. **Paper Engine V1** (sequential replay, causal ordering, latency grid, cost model) — spec **APPROVED 2026-09-13** (ChatGPT review checkpoint); **PE-0 done**: `PAPER_ENGINE_V1_SPEC.md` written (20 sections: purpose, inputs, event model, frozen EXP-01 signal semantics, MODE A/B, decision time, 7-point latency grid 0–200 ms, midpoint + touch execution models, cost model, episode-safe outcomes, dual clocks, ledger schema, summaries A–F, no-optimization rule, 10 tests, package structure, PE-0…PE-10 gates). PE-1 (sequential event iterator + causal state) pending review approval
 5. Unified state model (M_t + R_t, hierarchical/multiscale — NOT naive merge)
 6. Forward validation on genuinely new data with frozen rules
 
