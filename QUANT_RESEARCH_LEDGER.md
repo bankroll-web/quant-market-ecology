@@ -126,6 +126,7 @@
 - **O5** No git on machine (winget available); approved repo root `Documents\quant-market-ecology`; do NOT init at Documents root
 - **O6** No tests existed before Phase 1 scaffolding
 - **O7** pandas `read_csv` default C parser drops the last ULP of long float reprs (e.g. `0.10000000000582077` → `0.1000000000058207`); bit-for-bit float tests must use `float_precision='round_trip'`
+- **O8** Frozen d07 UTC columns are strings with **mixed fractional-second formats** (some rows `...00+00:00`, others `...00.163000+00:00`; hours 12/18/15/21 + discovery affected). Parse with `pd.to_datetime(..., utc=True, format='mixed')`; module emits `datetime64[ns, UTC]`, tests cast both sides to `datetime64[us, UTC]`. Input-parser fix only — frozen CSVs untouched, equality checks unchanged
 
 ---
 
@@ -135,7 +136,8 @@
 2. ~~Regression tests~~ (DONE 2026-09-12 — 28 checks green)
 3. **Phase 2: behavior-preserving refactor into `src/` modules** ← current (APPROVED 2026-09-12)
    - ✅ **Module 1 (D06 replay) DONE 2026-09-12** — `src/book/replay.py` + `src/ingestion/cryptohft.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, discovery exact except 3 depth cols within documented tolerance, all gate1 counters exact)
-   - ⏳ Module 2 (D07 liquidity events) — next
+   - ✅ **Module 2 (D07 liquidity events) DONE 2026-09-13** — `src/liquidity/events.py`; validated bit-for-bit vs frozen (5/5 replication hours exact, all 41 columns, 259,734 records; discovery exact on shared columns, 42,839 records; all 85 gate1b summary counters exact)
+   - ⏳ Module 3 (D09 joint flow interval builder) — next
 4. Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)
 5. Unified state model (M_t + R_t, hierarchical/multiscale — NOT naive merge)
 6. Forward validation on genuinely new data with frozen rules

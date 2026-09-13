@@ -20,17 +20,24 @@ import pandas as pd
 from src.ingestion.cryptohft import read_cryptohft
 
 
-def prepare_events(df):
+def prepare_events(df, lowercase_side=False):
     """Convert raw rows into ordered logical events (exact D06 grouping).
 
     Returns (events, snapshot_groups, update_groups). Event ordering is
     (received_time, snapshot-before-update, u / last_update_id).
+
+    lowercase_side: D07's canonical script lowercases the side column
+    before grouping; D06 does not. On CryptoHFT data side is already
+    lowercase, so this is a no-op, but the option keeps each port exact.
     """
     df = df.copy()
 
     df["price_num"] = pd.to_numeric(df["price"], errors="raise")
     df["qty_num"] = pd.to_numeric(df["quantity"], errors="raise")
     df["event_type"] = df["event_type"].astype(str).str.lower()
+
+    if lowercase_side:
+        df["side"] = df["side"].astype(str).str.lower()
 
     snap_rows = df[df["event_type"] == "snapshot"].copy()
     snapshot_groups = []

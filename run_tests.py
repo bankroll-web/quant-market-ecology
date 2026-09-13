@@ -16,6 +16,7 @@ TESTS = [
     "test_d09b_touch.py",
     "test_exp01_regression.py",
     "test_refactored_d06.py",
+    "test_refactored_d07.py",
 ]
 
 

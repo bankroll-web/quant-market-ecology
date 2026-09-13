@@ -217,13 +217,15 @@
     {"id": "O4", "detail": "Documents\\BTC_V3 is a distinct Binance ML pipeline (collectors 01-12, builders 01-12, audits 01-27, 00_CONFIG-05_AUDITS). Owner directive: KEEP FULLY SEPARATE. Do not merge into quant-market-ecology until separately audited and explicitly approved."},
     {"id": "O5", "detail": "Documents is not under version control. Git not installed on machine (winget available). Repo root approved: C:\\Users\\USER\\Documents\\quant-market-ecology. Do NOT init git at Documents root."},
     {"id": "O6", "detail": "No tests directory existed before this project scaffolding. Regression tests are Phase 1."},
-    {"id": "O7", "detail": "pandas read_csv default C parser drops the last ULP of long float reprs (e.g. 0.10000000000582077 -> 0.1000000000058207). Tests comparing floats bit-for-bit must use float_precision='round_trip'."}
+    {"id": "O7", "detail": "pandas read_csv default C parser drops the last ULP of long float reprs (e.g. 0.10000000000582077 -> 0.1000000000058207). Tests comparing floats bit-for-bit must use float_precision='round_trip'."},
+    {"id": "O8", "detail": "Frozen d07_liquidity_event_tape CSVs store UTC columns as strings with MIXED fractional-second formats (some rows '...00+00:00', others '...00.163000+00:00'; hours 12/18/15/21 + discovery affected, hour 04 uniform 6-digit). Parsing requires pd.to_datetime(..., utc=True, format='mixed'). The refactored module emits datetime64[ns, UTC]; tests cast both sides to datetime64[us, UTC] before comparison. Input-parser fix only - frozen CSVs untouched, equality checks unchanged."}
   ],
   "next_objectives": [
     "Freeze EXP-01 (done - do not mine the six May hours further)",
     "Build regression tests reproducing known D06/D09/D09B/EXP-01 results (DONE 2026-09-12: 28 checks green)",
     "Phase 2: behavior-preserving refactor into src/ modules (APPROVED 2026-09-12 by ChatGPT review checkpoint)",
-    "Phase 2 module 1 (D06 replay -> src/book/replay.py + src/ingestion/cryptohft.py): DONE 2026-09-12. Validated bit-for-bit vs frozen: 5/5 replication hours exact (all columns), discovery exact except 3 depth cols within documented 1e-13 tolerance (D4), all gate1 summary counters exact. Next: D07 liquidity event module.",
+    "Phase 2 module 1 (D06 replay -> src/book/replay.py + src/ingestion/cryptohft.py): DONE 2026-09-12. Validated bit-for-bit vs frozen: 5/5 replication hours exact (all columns), discovery exact except 3 depth cols within documented 1e-13 tolerance (D4), all gate1 summary counters exact.",
+    "Phase 2 module 2 (D07 liquidity events -> src/liquidity/events.py): DONE 2026-09-13. Validated bit-for-bit vs frozen: 5/5 replication hours exact (all 41 columns, 259,734 records), discovery exact on shared columns (42,839 records), all 85 gate1b summary counters exact. Parser fix: frozen UTC strings have mixed fractional-second formats -> pd.to_datetime(format='mixed') + cast both sides to datetime64[us, UTC] (O8). Next: D09 joint flow interval builder.",
     "Build Paper Engine V1 (sequential replay, causal ordering, latency grid, cost model)",
     "Build unified state model (M_t fast microstructure + R_t slow retail ecology) - hierarchical/multiscale, NOT naive merge",
     "Forward validation on genuinely new data with frozen rules"
