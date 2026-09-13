@@ -261,9 +261,13 @@ def test_terminal_and_missing():
         elif n_ends != d07["episode_id"].nunique():
             ok = check(f"{hour}: terminal/missing explicit", False,
                        f"episode ends {n_ends} != episodes {d07['episode_id'].nunique()}") and ok
+        elif n_intervals != n - n_first:
+            ok = check(f"{hour}: terminal/missing explicit", False,
+                       f"accounting identity broken: intervals {n_intervals} != events {n} - episode-first {n_first}") and ok
         else:
             ok = check(f"{hour}: terminal/missing explicit", True,
-                       f"{n} events, {n_intervals} intervals, {n_first} episode-first") and ok
+                       f"{n} events, {n_intervals} intervals, {n_first} episode-first "
+                       f"(identity: {n} - {n_first} == {n_intervals})") and ok
     return ok
 
 
