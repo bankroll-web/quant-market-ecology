@@ -19,6 +19,13 @@ pandas' DEFAULT parser. The frozen d09 outputs embed the resulting
 last-ULP artifacts (e.g. spread_t1 0.1000000000058207 vs the d07
 source 0.10000000000582077); reading with float_precision='round_trip'
 would NOT reproduce the frozen d09 files bit-for-bit.
+
+Provenance field (PE-3A, review-approved): latest_trade_received_time_ns
+is the max local receipt time (raw trades received_time, ns) over the
+exact canonical contributing trade set (t0, t1]. It is ADDITIVE: no
+frozen column, interval membership, or exact-t1 semantics change. It is
+int64 with sentinel 0 for no-trade intervals (explicit missing; see
+build_intervals). All pre-existing columns remain bit-for-bit identical.
 """
 from pathlib import Path
 
@@ -55,6 +62,9 @@ def build_intervals(book, trades, hour):
     trades = trades.copy()
     trades["trade_time_ms"] = pd.to_numeric(
         trades["trade_time"], errors="raise"
+    ).astype("int64")
+    trades["received_time_ns"] = pd.to_numeric(
+        trades["received_time"], errors="raise"
     ).astype("int64")
     trades["price_num"] = pd.to_numeric(
         trades["price"], errors="raise"
@@ -127,6 +137,18 @@ def build_intervals(book, trades, hour):
 
                 exact_t1 = int((ti["trade_time_ms"] == t1).sum())
 
+                # Provenance (PE-3A, review-approved): latest local receipt
+                # over the exact canonical contributing trade set (t0, t1].
+                # int64 with sentinel 0 for no-trade intervals: received_time
+                # ~1.75e18 ns exceeds 2^53, so a NaN-mixed float64 column
+                # would corrupt the value by ~128 ns and the default-parser
+                # CSV round-trip (O11) could not preserve exactness. 0 is
+                # explicit missing provenance: never carried forward, never
+                # substituted with the t1 book receipt, never fabricated.
+                latest_trade_received_time_ns = int(
+                    ti["received_time_ns"].max()
+                )
+
                 same_timestamp_trade_count += exact_t1
                 used_trade_count += n_trades
             else:
@@ -138,6 +160,7 @@ def build_intervals(book, trades, hour):
                 total_flow = 0.0
                 trade_vwap = np.nan
                 exact_t1 = 0
+                latest_trade_received_time_ns = 0
 
             # ---------------------------------------------------------
             # STATE BEFORE INTERVAL = PREVIOUS EVENT AFTER-STATE
@@ -223,6 +246,7 @@ def build_intervals(book, trades, hour):
                 "mid_change_bps": mid_change_bps,
                 "mid_moved": int(mid_change != 0),
                 "spread_t1": float(cur["spread_after"]),
+                "latest_trade_received_time_ns": latest_trade_received_time_ns,
             })
 
     out = pd.DataFrame(records)

@@ -5,7 +5,8 @@ reproduce frozen outputs exactly.
 Runs src.liquidity.joint_flow.process_hour on all six hours (discovery +
 5 replication) and compares:
   - per-hour records DataFrame vs frozen <hour>_d09_joint_flow_liquidity_tape.csv
-    (exact, all columns)
+    (exact, frozen column set; the additive provenance field
+    latest_trade_received_time_ns is validated by test_d09_provenance.py)
   - discovery records vs frozen d09_joint_flow_liquidity_tape.csv (shared
     columns; discovery output has no hour column)
   - result counters vs frozen gate3_d09_joint_tape_summary.csv
@@ -112,8 +113,11 @@ def test_replication_records_exact(results):
         records_df = normalize_utc(results[hour][0])
         frozen = normalize_utc(read_frozen(f"{hour}_d09_joint_flow_liquidity_tape.csv"))
         try:
+            # Compare the frozen column set only: the additive provenance
+            # field latest_trade_received_time_ns (PE-3A) is validated
+            # separately by test_d09_provenance.py (gates A-H).
             assert_frame_equal(
-                records_df.reset_index(drop=True),
+                records_df[frozen.columns].reset_index(drop=True),
                 frozen.reset_index(drop=True),
                 check_exact=True,
                 check_dtype=True,
@@ -130,7 +134,9 @@ def test_replication_records_exact(results):
 def test_discovery_records_exact(results):
     records_df = normalize_utc(results[DISCOVERY_HOUR][0])
     frozen = normalize_utc(read_frozen("d09_joint_flow_liquidity_tape.csv"))
-    shared = [c for c in records_df.columns if c != "hour"]
+    # Frozen column set only (the additive provenance field is validated
+    # separately by test_d09_provenance.py).
+    shared = list(frozen.columns)
     try:
         assert_frame_equal(
             records_df[shared].reset_index(drop=True),
