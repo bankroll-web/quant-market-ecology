@@ -166,7 +166,7 @@ def common_flow(params, seed):
     return flow
 
 
-def run(params, flow, withdrawal):
+def run(params, flow, withdrawal, shock_qty=SHOCK_QTY):
     book = Book(params)
     scenario = "maker_withdrawal" if withdrawal else "normal_liquidity"
     rows, shock = [], None
@@ -183,9 +183,9 @@ def run(params, flow, withdrawal):
             book.execute(side, qty)
         if second == SHOCK_SECOND:
             before = book.state(second, scenario)
-            filled, vwap = book.execute("buy", SHOCK_QTY)
+            filled, vwap = book.execute("buy", shock_qty)
             shock = {"pre_shock_mid": before["mid"], "pre_shock_ask": before["ask"],
-                     "requested_qty_btc": SHOCK_QTY, "filled_qty_btc": filled,
+                     "requested_qty_btc": shock_qty, "filled_qty_btc": filled,
                      "execution_vwap": vwap,
                      "slippage_vs_pre_ask_bps": (vwap / before["ask"] - 1) * 10_000}
         # Quotes arrive after trades; reserve the shock-second state to see immediate impact.
@@ -200,7 +200,7 @@ def run(params, flow, withdrawal):
         rows.append(book.state(second, scenario, cancel_A + cancel_B, posted_A + posted_B,
                                sum(side == "buy" for side, _ in trades),
                                sum(side == "sell" for side, _ in trades),
-                               SHOCK_QTY if second == SHOCK_SECOND else 0.,
+                               shock_qty if second == SHOCK_SECOND else 0.,
                                cancel_A, cancel_B, posted_A, posted_B))
     shock["immediate_mid_move_bps"] = (rows[SHOCK_SECOND + 1]["mid"] / shock["pre_shock_mid"] - 1) * 10_000
     shock["immediate_spread"] = rows[SHOCK_SECOND + 1]["spread"]

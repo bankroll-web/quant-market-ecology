@@ -5,6 +5,7 @@ from pathlib import Path
 
 from src.simulation.ecology import Book, common_flow, run, SHOCK_SECOND, SHOCK_QTY
 from src.simulation.book_change_rates import fit, score
+from src.simulation.impact_sweep import experiment
 
 
 class SimulationEcologyTest(unittest.TestCase):
@@ -54,6 +55,15 @@ class SimulationEcologyTest(unittest.TestCase):
         self.assertAlmostEqual(model["global_per_second"]["bid_add_levels"], 25)
         self.assertGreater(model["state_rates"]["obi2_depth1"]["bid_add_levels_per_second"], 0)
         self.assertTrue(all(v > 0 for v in score(rows, model)["poisson_nll_per_exposure_second"].values()))
+
+    def test_impact_sweep_uses_paired_size_interventions(self):
+        rows = experiment(self.params, sizes=(5., 80.))
+        self.assertEqual([(r["size_btc"], r["scenario"]) for r in rows],
+                         [(5., "normal"), (5., "withdrawal"),
+                          (80., "normal"), (80., "withdrawal")])
+        self.assertTrue(all(abs(r["filled_btc"] - r["size_btc"]) < 1e-8 for r in rows))
+        self.assertGreater(rows[3]["incremental_move_vs_normal_bps"],
+                           rows[1]["incremental_move_vs_normal_bps"])
 
 
 if __name__ == "__main__":
