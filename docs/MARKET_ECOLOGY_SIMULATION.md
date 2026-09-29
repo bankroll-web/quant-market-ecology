@@ -1,6 +1,6 @@
 # Market Ecology simulation laboratory (experimental)
 
-**Start here:** [User manual](USER_MANUAL.md) for Windows and cloud run steps, and [price formation and gamma plan](PRICE_FORMATION_AND_GAMMA_PLAN.md) for the new size sweep, agent modules, and data requirements. These pages are on the draft `codex/market-ecology-simulation-v1` branch, not yet on `master`.
+**Start here:** [User manual](USER_MANUAL.md) for Windows and cloud run steps, and [price formation and gamma plan](PRICE_FORMATION_AND_GAMMA_PLAN.md) for the new size sweep, agent modules, and data requirements. [New-hour audit](NEW_HOURS_BOOK_CHANGE_AUDIT.md) reports the May 25–26 holdouts. These pages are on the draft `codex/market-ecology-simulation-v1` branch, not yet on `master`.
 
 This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine definitions. It is a mechanistic counterfactual, not a calibrated market forecast or trading signal.
 
