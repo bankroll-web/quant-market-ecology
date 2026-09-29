@@ -1,0 +1,13 @@
+{
+  "calibration_from_valid_samples": {
+    "reference_mid": 77118.95,
+    "top_bid_qty": 6.856,
+    "top_ask_qty": 6.9835,
+    "depth_bid_10bps": 180.743,
+    "depth_ask_10bps": 179.6425,
+    "background_trades_per_second": 4.0,
+    "mean_trade_qty_btc": 0.02505766013384321,
+    "source_valid_book_seconds": 2034
+  },
+  "provenance": "Medians/mean fill size from two uploaded BTCUSDT Futures sample hours (2026-05-25 00 and 04 UTC). Valid book seconds only. Not the frozen EXP-01 or DBR calibration."
+}
