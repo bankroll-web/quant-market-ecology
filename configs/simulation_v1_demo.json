@@ -1,13 +1,13 @@
 {
   "calibration_from_valid_samples": {
-    "reference_mid": 77118.95,
-    "top_bid_qty": 6.856,
-    "top_ask_qty": 6.9835,
-    "depth_bid_10bps": 180.743,
-    "depth_ask_10bps": 179.6425,
+    "reference_mid": 77116.65,
+    "top_bid_qty": 6.757,
+    "top_ask_qty": 7.015,
+    "depth_bid_10bps": 185.293,
+    "depth_ask_10bps": 185.465,
     "background_trades_per_second": 4.0,
-    "mean_trade_qty_btc": 0.02505766013384321,
-    "source_valid_book_seconds": 2034
+    "mean_trade_qty_btc": 0.03129872701976065,
+    "source_verified_exposure_seconds": 1781.555625602
   },
-  "provenance": "Medians/mean fill size from two uploaded BTCUSDT Futures sample hours (2026-05-25 00 and 04 UTC). Valid book seconds only. Not the frozen EXP-01 or DBR calibration."
+  "provenance": "Exposure-weighted medians of pre-update book state from D06-audit-matching replay of uploaded BTCUSDT Futures 2026-05-25 00 and 04 UTC files; mean fill size is from all 201,967 matching raw trade rows. Background trade count is an assumed robust scale, not an arrival-rate fit. Maker-side behavior is not calibrated."
 }

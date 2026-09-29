@@ -1,38 +1,46 @@
 # Market Ecology simulation laboratory (experimental)
 
-This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine definitions. It is a mechanistic counterfactual, not a calibrated market forecast or a trading signal.
+This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine definitions. It is a mechanistic counterfactual, not a calibrated market forecast or trading signal.
 
-## Run
+## Run the observer
 
 From the repository root, with Python 3.13:
 
 ```bash
 python -m src.simulation.ecology --config configs/simulation_v1_demo.json --out data/processed/simulation_v1
-python -m src.simulation.ecology --config configs/simulation_v1_demo.json --rates configs/simulation_v1_flow_rates.json --out data/processed/simulation_v1_stateful
-python -m src.simulation.observer --csv data/processed/simulation_v1_stateful/simulated_ecology.csv --out data/processed/simulation_v1_stateful/observer.html
+python -m src.simulation.observer --csv data/processed/simulation_v1/simulated_ecology.csv --out data/processed/simulation_v1/observer.html
 python -m unittest discover -s tests -p test_simulation_ecology.py
 ```
 
-The first command needs only Python's standard library and writes a CSV time series plus JSON report to a gitignored output directory. To estimate the basic initial scales from other valid one-second ecology CSVs, install pandas and use `--input file1.csv file2.csv` instead of `--config`. Those CSVs require columns `mid`, `bid_top_qty`, `ask_top_qty`, `bid_depth_10bps`, `ask_depth_10bps`, `trade_count`, and `total_aggressive_qty`.
+Open `observer.html` locally. Move the second slider to compare maker A/B postings and displayed reductions, maker inventories, background buy/sell trades, spread, depth and midprice. This is 300 simulated seconds, not a full-day market replay. Outputs are gitignored.
 
-The second command uses a fitted, book-state-dependent background trade-count model. To regenerate its JSON from the two local prototype ecology CSVs, run `python -m src.simulation.flow_rates --train HOUR_00_ECOLOGY.csv --holdout HOUR_04_ECOLOGY.csv --out configs/simulation_v1_flow_rates.json`. The inputs require `top_obi`, two 10 bps depth columns and aggressive buy/sell trade counts. The training hour supplies depth tercile cutoffs and nine states: three OBI bins (below -0.25, middle, above 0.25) crossed with three total-depth bins. Within each state and side, a 30-second global-rate prior gives `lambda=(state_count + 30*global_rate)/(state_seconds + 30)`. This is a Gamma–Poisson posterior mean with fixed shrinkage; the Poisson likelihood is a count-model benchmark, not proof that counts are Poisson distributed.
+## Mechanism and mathematical boundary
 
-The third command creates a self-contained HTML observer. Open `observer.html` locally and move the second slider to inspect maker A/B posted and removed quantities, maker inventories, background buy/sell arrivals, spread, depth and midprice across both scenarios. It covers 300 simulated seconds; it is an intraday mechanism demonstration, not a full-day market replay. The HTML embeds the simulation CSV and needs no network connection.
+Two providers own half of 770 price levels per side at $0.10 ticks. Background takers arrive with an assumed constant Poisson rate, symmetric side and exponential fill sizes. An 80 BTC aggressive buy arrives at second 120. In the paired scenario maker B removes its quotes and pauses posting for 60 seconds. Both runs use the same background random draws. Execution respects price priority, with pro-rata maker allocation at each price; no latency, time priority, fees, hedging or fundamental-value process.
 
-The 00 UTC training hour has 1,331 valid book seconds. On the separate 04 UTC hour (703 valid seconds), buy/sell combined Poisson negative log likelihood per second was 34.19 for state-conditional rates versus 37.15 for a constant-rate baseline. That is a one-hour, same-day diagnostic. It does not establish stationarity, forecasting value, or independent-day replication. The fitted rates capture **aggressive trade counts only**; maker cancellation and replenishment remain assumed. In stateful mode, each paired run receives the same underlying uniform draws, while different book states can produce different arrival counts.
+Assumed maker behavior at price p:
 
-## Mechanism
+`displayed_reduction[j,p,t] = 0.002 * Q[j,p,t]` per second;
 
-Two makers each own half the initial bid and ask quantities at 770 price levels per side, tick size $0.10. Background liquidity takers arrive by a Poisson count with symmetric buy/sell directions and exponential sizes. A scheduled 80 BTC aggressive buy order arrives at second 120. In the paired scenario, maker B withdraws all quotes at that second and does not replenish for 60 seconds. The same random background flow is fed into both runs. Orders execute by price priority, with maker shares filled pro rata at a common price; time priority, latency, fees, hedging and fundamental-value movement are absent.
+`posting[j,p,t] = 0.08 * max(target[j,p] / 2 - Q[j,p,t], 0)` per second.
 
-At price p, maker j's displayed quantity follows assumed fractional cancellation and deficit replenishment:
+These are **scenario parameters**, not inferred maker cancellation/replenishment rates. Mark-to-mid accounting is not profit. A prior prototype's one-second book reconstruction used looser event grouping; its fitted trade-count rate table was withdrawn. This branch uses a D06-audit-matching replay for the sample-derived initial book scale. The demo config contains exposure-weighted medians from 1,781.56 verified within-episode seconds across the uploaded 00 and 04 UTC files. Mean trade size uses all 201,967 matching raw trade rows; background trade frequency remains an assumed robust scale.
 
-`cancelled[j,p,t] = 0.002 * Q[j,p,t]`
+## Observed near-touch book changes
 
-`posted[j,p,t] = 0.08 * max(target[j,p] / 2 - Q[j,p,t], 0)`
+Install `pyarrow` and `zstandard` to process raw outer-Zstandard Parquet. Use the canonical-compatible *separate simulation diagnostic*:
 
-The demo config anchors initial mid, top quantities, approximate visible depth within 10 bps, median active trade count, and mean fill size to the two supplied BTCUSDT Futures sample hours (2026-05-25 00 and 04 UTC, 2,034 valid book seconds). The 770-level depth shape, Poisson arrivals, cancel/replenish rates, fixed reference price, 80 BTC order and withdrawal behavior are assumptions. Do not treat maker mark-to-mid accounting as profit.
+```bash
+python -m src.simulation.book_changes BTCUSDT_orderbook_2026-05-25_00.parquet BTCUSDT_orderbook_2026-05-25_04.parquet --out data/processed/book_changes
+python -m src.simulation.book_change_rates --train data/processed/book_changes/BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv --holdout data/processed/book_changes/BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv --out data/processed/book_changes/rates.json
+```
 
-The seed-7 paired run fills 80 BTC in each scenario. Its VWAP slippage relative to the pre-shock ask is about 2.03 bps with both makers and 4.40 bps after one withdraws. Ask depth at 10 seconds is about 140.6 versus 53.0 BTC. These are outputs of the assumed model, not observations of actual BTC market impact. More contiguous days are needed to estimate conditional arrival/depletion intensities and validate simulated spread, depth, price and recovery distributions on held-out periods. Level reductions in the observed L2 tape do not by themselves identify cancellations.
+The replay matched frozen D06 audit counters for these two uploaded files: 00 UTC had 340 valid bridges, 24 invalid bridges, 918 stale updates and 42,839 valid states; 04 UTC had 122, 13, 307 and 23,749 respectively. It measures increases/decreases in displayed quantity at levels within 10 bps of the **pre-update** mid, only within verified episodes. Exposure is elapsed local receipt time between consecutive valid updates, not the span of an invalid gap. A reduction can be execution, cancellation, modification, or another cause; individual market makers are anonymous.
 
-The model is inspired by the exchange/agent architecture of [ABIDES](https://github.com/abides-sim/abides) and the state-dependent queue perspective of [Huang, Lehalle and Rosenbaum](https://arxiv.org/abs/1312.0563). It does not reuse ABIDES code or claim to implement the full queue-reactive model.
+The diagnostic model crosses three top-OBI bands with exposure-weighted depth terciles. Four observed level-change counts (bid/ask increase/decrease) receive a Gamma–Poisson shrinkage estimate, `lambda=(state_count + 30*global_rate)/(state_exposure_seconds + 30)`. Training uses 1,145.40 verified exposure seconds in 00 UTC; holdout is 636.15 seconds in 04 UTC. On the prespecified same-day holdout, conditional Poisson negative log likelihood was **935.11 per exposure second**, worse than the constant-rate baseline **908.65**. The state table is retained as a diagnostic, **not used to drive simulated makers**. No additional bins or thresholds were selected against the holdout. Poisson is a count-likelihood benchmark, not an established arrival law.
+
+A defensible maker-side simulator needs more contiguous days, a model of event sizes and timing, explicit treatment of executions when interpreting level reductions, and held-out distributional checks for spread, depth, impact and recovery. The observed tape cannot identify private participant roles.
+
+## Research basis
+
+The small exchange/agent design is inspired by [ABIDES](https://github.com/abides-sim/abides) and the state-dependent queue viewpoint of [Huang, Lehalle and Rosenbaum](https://arxiv.org/abs/1312.0563). This code does not reuse ABIDES or implement the full queue-reactive model.

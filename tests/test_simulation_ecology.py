@@ -3,9 +3,8 @@ import json
 import unittest
 from pathlib import Path
 
-from src.simulation.ecology import (Book, common_flow, run, stateful_randomness,
-                                    SHOCK_SECOND, SHOCK_QTY)
-from src.simulation.flow_rates import fit, rate_for_state, score
+from src.simulation.ecology import Book, common_flow, run, SHOCK_SECOND, SHOCK_QTY
+from src.simulation.book_change_rates import fit, score
 
 
 class SimulationEcologyTest(unittest.TestCase):
@@ -41,29 +40,20 @@ class SimulationEcologyTest(unittest.TestCase):
             self.assertGreaterEqual(row["bid_depth_btc"], 0)
             self.assertGreaterEqual(row["ask_depth_btc"], 0)
 
-    def test_stateful_rates_preserve_paired_pre_shock_path(self):
-        root = Path(__file__).resolve().parents[1]
-        model = json.loads((root / "configs/simulation_v1_flow_rates.json").read_text())
-        flow = stateful_randomness(self.params, 7)
-        normal, n_shock = run(self.params, flow, False, rate_model=model)
-        withdrawn, w_shock = run(self.params, flow, True, rate_model=model)
-        for a, b in zip(normal[:SHOCK_SECOND], withdrawn[:SHOCK_SECOND]):
-            self.assertEqual(a["mid"], b["mid"])
-            self.assertEqual(a["ask_depth_btc"], b["ask_depth_btc"])
-        self.assertGreater(w_shock["slippage_vs_pre_ask_bps"],
-                           n_shock["slippage_vs_pre_ask_bps"])
-        self.assertGreater(rate_for_state(model, 0, 360)["buy_per_second"], 0)
-
-    def test_smoothed_rate_fit_and_scoring(self):
-        rows = [{"top_obi": -0.5 if i % 2 else 0.5,
-                 "bid_depth_10bps": 100 + i, "ask_depth_10bps": 100 + i,
-                 "buy_count": 1 if i % 2 else 4, "sell_count": 4 if i % 2 else 1}
+    def test_smoothed_book_change_rate_fit_and_scoring(self):
+        rows = [{"pre_obi_top": -0.5 if i % 2 else 0.5,
+                 "pre_bid_depth_10bps": 100 + i, "pre_ask_depth_10bps": 100 + i,
+                 "exposure_seconds": .1,
+                 "bid_add_levels": 1 if i % 2 else 4,
+                 "bid_remove_levels": 4 if i % 2 else 1,
+                 "ask_add_levels": 4 if i % 2 else 1,
+                 "ask_remove_levels": 1 if i % 2 else 4}
                 for i in range(90)]
         model = fit(rows)
-        self.assertEqual(model["training_valid_seconds"], 90)
-        self.assertAlmostEqual(model["global_buy_per_second"], 2.5)
-        self.assertLess(score(rows, model)["poisson_nll_per_second"]["conditional"],
-                        score(rows, model)["poisson_nll_per_second"]["constant"])
+        self.assertEqual(model["training_intervals"], 90)
+        self.assertAlmostEqual(model["global_per_second"]["bid_add_levels"], 25)
+        self.assertGreater(model["state_rates"]["obi2_depth1"]["bid_add_levels_per_second"], 0)
+        self.assertTrue(all(v > 0 for v in score(rows, model)["poisson_nll_per_exposure_second"].values()))
 
 
 if __name__ == "__main__":

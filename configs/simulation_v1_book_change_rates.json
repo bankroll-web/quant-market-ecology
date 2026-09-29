@@ -1,0 +1,106 @@
+{
+  "depth_cutoffs_btc": [
+    337.65099999999995,
+    380.54200000000003
+  ],
+  "obi_cutoffs": [
+    -0.25,
+    0.25
+  ],
+  "prior_exposure_seconds": 30.0,
+  "training_intervals": 42466,
+  "training_exposure_seconds": 1145.402796202,
+  "global_per_second": {
+    "bid_add_levels": 233.85485078976646,
+    "bid_remove_levels": 231.06281988971617,
+    "ask_add_levels": 205.1217272902182,
+    "ask_remove_levels": 203.11893839568555
+  },
+  "state_rates": {
+    "obi0_depth0": {
+      "seconds": 176.604522986,
+      "intervals": 6570,
+      "bid_add_levels_per_second": 236.30482439632388,
+      "bid_remove_levels_per_second": 232.85494383853083,
+      "ask_add_levels_per_second": 223.92855272506083,
+      "ask_remove_levels_per_second": 209.09788192196518
+    },
+    "obi0_depth1": {
+      "seconds": 183.760832533001,
+      "intervals": 6825,
+      "bid_add_levels_per_second": 230.70477851025163,
+      "bid_remove_levels_per_second": 232.0999783205464,
+      "ask_add_levels_per_second": 213.73256867182698,
+      "ask_remove_levels_per_second": 209.124223657621
+    },
+    "obi0_depth2": {
+      "seconds": 170.7968054810004,
+      "intervals": 6293,
+      "bid_add_levels_per_second": 219.71288546155404,
+      "bid_remove_levels_per_second": 227.50304461897403,
+      "ask_add_levels_per_second": 198.13388825287367,
+      "ask_remove_levels_per_second": 205.56884883199146
+    },
+    "obi1_depth0": {
+      "seconds": 95.56320579800017,
+      "intervals": 3572,
+      "bid_add_levels_per_second": 197.65858450301113,
+      "bid_remove_levels_per_second": 185.86563196097677,
+      "ask_add_levels_per_second": 173.24065342598155,
+      "ask_remove_levels_per_second": 160.52925714796936
+    },
+    "obi1_depth1": {
+      "seconds": 109.11952521499984,
+      "intervals": 4043,
+      "bid_add_levels_per_second": 174.983673111819,
+      "bid_remove_levels_per_second": 169.48652290361048,
+      "ask_add_levels_per_second": 149.35827150498494,
+      "ask_remove_levels_per_second": 140.03475156893413
+    },
+    "obi1_depth2": {
+      "seconds": 113.25628390900003,
+      "intervals": 4176,
+      "bid_add_levels_per_second": 166.901198825463,
+      "bid_remove_levels_per_second": 167.09832157797297,
+      "ask_add_levels_per_second": 134.57456310225683,
+      "ask_remove_levels_per_second": 131.0488282929076
+    },
+    "obi2_depth0": {
+      "seconds": 109.62847590199985,
+      "intervals": 4055,
+      "bid_add_levels_per_second": 280.8714001234134,
+      "bid_remove_levels_per_second": 262.4957721547867,
+      "ask_add_levels_per_second": 239.7050573136505,
+      "ask_remove_levels_per_second": 238.73760661304425
+    },
+    "obi2_depth1": {
+      "seconds": 88.92201509500002,
+      "intervals": 3363,
+      "bid_add_levels_per_second": 316.75081769848634,
+      "bid_remove_levels_per_second": 308.0160100501993,
+      "ask_add_levels_per_second": 270.5861634870621,
+      "ask_remove_levels_per_second": 279.8772634762556
+    },
+    "obi2_depth2": {
+      "seconds": 97.75112928299994,
+      "intervals": 3569,
+      "bid_add_levels_per_second": 303.603152014205,
+      "bid_remove_levels_per_second": 309.24098141767735,
+      "ask_add_levels_per_second": 243.71331974479608,
+      "ask_remove_levels_per_second": 260.54226165106627
+    }
+  },
+  "observation": "Displayed level increases/decreases within 10 bps of the pre-event mid; decreases include executions and other causes. Not identified maker/cancel events.",
+  "formula": "rate=(state_count+prior_seconds*global_rate)/(state_exposure_seconds+prior_seconds)",
+  "training_source": "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv",
+  "holdout_source": "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+  "holdout_score": {
+    "holdout_intervals": 23614,
+    "holdout_exposure_seconds": 636.1528293999975,
+    "poisson_nll_per_exposure_second": {
+      "conditional": 935.1133356771428,
+      "constant": 908.6543770957685
+    },
+    "note": "Lower is better; Poisson is a diagnostic count likelihood, not a validated arrival law."
+  }
+}

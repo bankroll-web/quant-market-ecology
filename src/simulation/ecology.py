@@ -1,8 +1,9 @@
 """Small, reproducible agent-based BTC limit-order-book ecology experiment.
 
 Run: python -m src.simulation.ecology --config configs/simulation_v1_demo.json --out data/processed/simulation_v1
-Only initial scale and background trade flow are anchored to the supplied samples.
-Cancellation, replenishment, agent behavior and stress size are explicit assumptions.
+Only the initial book scale is anchored to D06-audited supplied samples.
+Background flow, cancellation, replenishment, agent behavior and stress size
+remain explicit assumptions.
 """
 import argparse
 import csv
@@ -12,7 +13,6 @@ import random
 from collections import defaultdict
 from pathlib import Path
 
-from src.simulation.flow_rates import rate_for_state
 
 
 TICK = 0.1
@@ -29,17 +29,6 @@ def poisson(rng, rate):
         count += 1
         product *= rng.random()
     return count - 1
-
-
-def poisson_from_uniform(u, rate):
-    """Inverse CDF: common uniform draws allow paired state-dependent scenarios."""
-    probability = math.exp(-rate)
-    cumulative, count = probability, 0
-    while u > cumulative:
-        count += 1
-        probability *= rate / count
-        cumulative += probability
-    return count
 
 
 def calibrate(files):
@@ -90,12 +79,6 @@ class Book:
 
     def depth(self, side):
         return sum(q for owners in self.levels(side).values() for q in owners.values())
-
-    def rate_state(self):
-        bid, ask = self.best("bid"), self.best("ask")
-        bid_qty = sum(self.bids[bid].values())
-        ask_qty = sum(self.asks[ask].values())
-        return (bid_qty - ask_qty) / (bid_qty + ask_qty), self.depth("bid") + self.depth("ask")
 
     def cancel(self, maker, fraction):
         removed = 0.
@@ -183,37 +166,12 @@ def common_flow(params, seed):
     return flow
 
 
-def stateful_randomness(params, seed):
-    rng = random.Random(seed)
-    mean = max(params["mean_trade_qty_btc"], .001)
-    return [(rng.random(), rng.random(),
-             [min(1., rng.expovariate(1 / mean)) for _ in range(256)],
-             [min(1., rng.expovariate(1 / mean)) for _ in range(256)])
-            for _ in range(STEPS)]
-
-
-def run(params, flow, withdrawal, rate_model=None):
+def run(params, flow, withdrawal):
     book = Book(params)
     scenario = "maker_withdrawal" if withdrawal else "normal_liquidity"
     rows, shock = [], None
     rows.append(book.state(-1, scenario))
-    for second, exogenous in enumerate(flow):
-        if rate_model is not None:
-            obi, depth = book.rate_state()
-            rates = rate_for_state(rate_model, obi, depth)
-            buy_u, sell_u, buy_sizes, sell_sizes = exogenous
-            n_buy = poisson_from_uniform(buy_u, rates["buy_per_second"])
-            n_sell = poisson_from_uniform(sell_u, rates["sell_per_second"])
-            if n_buy > len(buy_sizes) or n_sell > len(sell_sizes):
-                raise RuntimeError("Increase the common-randomness fill capacity")
-            trades = []
-            for i in range(max(n_buy, n_sell)):
-                if i < n_buy:
-                    trades.append(("buy", buy_sizes[i]))
-                if i < n_sell:
-                    trades.append(("sell", sell_sizes[i]))
-        else:
-            trades = exogenous
+    for second, trades in enumerate(flow):
         cancel_A = book.cancel("maker_A", .002)
         if second == SHOCK_SECOND and withdrawal:
             cancel_B = book.cancel("maker_B", 1.)
@@ -262,15 +220,13 @@ def main():
     source.add_argument("--config", type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--seed", type=int, default=7)
-    parser.add_argument("--rates", type=Path, help="Optional fitted state-dependent trade-count model")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     params = calibrate(args.input) if args.input else json.loads(args.config.read_text())["calibration_from_valid_samples"]
-    rate_model = json.loads(args.rates.read_text()) if args.rates else None
-    flow = stateful_randomness(params, args.seed) if rate_model else common_flow(params, args.seed)
+    flow = common_flow(params, args.seed)
     all_rows, shocks = [], []
     for withdrawal in (False, True):
-        rows, shock = run(params, flow, withdrawal, rate_model=rate_model)
+        rows, shock = run(params, flow, withdrawal)
         all_rows.extend(rows)
         shocks.append(shock)
     with open(args.out / "simulated_ecology.csv", "w", newline="") as handle:
@@ -278,8 +234,7 @@ def main():
         writer.writeheader()
         writer.writerows(all_rows)
     report = {"calibration_from_valid_samples": params, "seed": args.seed,
-              "background_flow_mode": "state_conditional_poisson" if rate_model else "constant_poisson",
-              "rate_model": str(args.rates) if args.rates else None,
+              "background_flow_mode": "constant_poisson_assumption",
               "assumptions": {"tick_usdt": TICK, "levels_each_side": LEVELS,
                   "makers": 2, "maker_cancel_fraction_per_second": .002,
                   "maker_replenish_fraction_of_deficit_per_second": .08,
