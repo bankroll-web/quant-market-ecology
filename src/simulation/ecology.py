@@ -150,7 +150,9 @@ class Book:
         filled = requested - remaining
         return filled, (value / filled if filled else None)
 
-    def state(self, second, scenario, cancelled=0., posted=0.):
+    def state(self, second, scenario, cancelled=0., posted=0., buy_trades=0,
+              sell_trades=0, shock_qty=0., maker_A_cancelled=0., maker_B_cancelled=0.,
+              maker_A_posted=0., maker_B_posted=0.):
         bid, ask = self.best("bid"), self.best("ask")
         if bid is None or ask is None or bid >= ask:
             raise RuntimeError("Empty or crossed simulated book")
@@ -158,7 +160,13 @@ class Book:
         row = {"scenario": scenario, "second": second, "bid": bid * TICK,
                "ask": ask * TICK, "mid": mid, "spread": (ask - bid) * TICK,
                "bid_depth_btc": self.depth("bid"), "ask_depth_btc": self.depth("ask"),
-               "cancelled_btc": cancelled, "posted_btc": posted}
+               "cancelled_btc": cancelled, "posted_btc": posted,
+               "background_buy_trades": buy_trades, "background_sell_trades": sell_trades,
+               "shock_buy_qty_btc": shock_qty,
+               "maker_A_cancelled_btc": maker_A_cancelled,
+               "maker_B_cancelled_btc": maker_B_cancelled,
+               "maker_A_posted_btc": maker_A_posted,
+               "maker_B_posted_btc": maker_B_posted}
         for maker in self.inventory:
             row[maker + "_inventory_btc"] = self.inventory[maker]
             row[maker + "_mark_to_mid_usdt"] = self.cash[maker] + self.inventory[maker] * mid
@@ -206,11 +214,13 @@ def run(params, flow, withdrawal, rate_model=None):
                     trades.append(("sell", sell_sizes[i]))
         else:
             trades = exogenous
-        cancelled = book.cancel("maker_A", .002)
+        cancel_A = book.cancel("maker_A", .002)
         if second == SHOCK_SECOND and withdrawal:
-            cancelled += book.cancel("maker_B", 1.)
+            cancel_B = book.cancel("maker_B", 1.)
         elif not (withdrawal and SHOCK_SECOND <= second < SHOCK_SECOND + WITHDRAW_SECONDS):
-            cancelled += book.cancel("maker_B", .002)
+            cancel_B = book.cancel("maker_B", .002)
+        else:
+            cancel_B = 0.
         for side, qty in trades:
             book.execute(side, qty)
         if second == SHOCK_SECOND:
@@ -222,12 +232,18 @@ def run(params, flow, withdrawal, rate_model=None):
                      "slippage_vs_pre_ask_bps": (vwap / before["ask"] - 1) * 10_000}
         # Quotes arrive after trades; reserve the shock-second state to see immediate impact.
         if second != SHOCK_SECOND:
-            posted = book.replenish("maker_A", .08)
+            posted_A = book.replenish("maker_A", .08)
             if not (withdrawal and SHOCK_SECOND <= second < SHOCK_SECOND + WITHDRAW_SECONDS):
-                posted += book.replenish("maker_B", .08)
+                posted_B = book.replenish("maker_B", .08)
+            else:
+                posted_B = 0.
         else:
-            posted = 0.
-        rows.append(book.state(second, scenario, cancelled, posted))
+            posted_A = posted_B = 0.
+        rows.append(book.state(second, scenario, cancel_A + cancel_B, posted_A + posted_B,
+                               sum(side == "buy" for side, _ in trades),
+                               sum(side == "sell" for side, _ in trades),
+                               SHOCK_QTY if second == SHOCK_SECOND else 0.,
+                               cancel_A, cancel_B, posted_A, posted_B))
     shock["immediate_mid_move_bps"] = (rows[SHOCK_SECOND + 1]["mid"] / shock["pre_shock_mid"] - 1) * 10_000
     shock["immediate_spread"] = rows[SHOCK_SECOND + 1]["spread"]
     shock["ask_depth_10s_after_btc"] = rows[SHOCK_SECOND + 11]["ask_depth_btc"]

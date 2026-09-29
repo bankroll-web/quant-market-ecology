@@ -9,12 +9,15 @@ From the repository root, with Python 3.13:
 ```bash
 python -m src.simulation.ecology --config configs/simulation_v1_demo.json --out data/processed/simulation_v1
 python -m src.simulation.ecology --config configs/simulation_v1_demo.json --rates configs/simulation_v1_flow_rates.json --out data/processed/simulation_v1_stateful
+python -m src.simulation.observer --csv data/processed/simulation_v1_stateful/simulated_ecology.csv --out data/processed/simulation_v1_stateful/observer.html
 python -m unittest discover -s tests -p test_simulation_ecology.py
 ```
 
 The first command needs only Python's standard library and writes a CSV time series plus JSON report to a gitignored output directory. To estimate the basic initial scales from other valid one-second ecology CSVs, install pandas and use `--input file1.csv file2.csv` instead of `--config`. Those CSVs require columns `mid`, `bid_top_qty`, `ask_top_qty`, `bid_depth_10bps`, `ask_depth_10bps`, `trade_count`, and `total_aggressive_qty`.
 
 The second command uses a fitted, book-state-dependent background trade-count model. To regenerate its JSON from the two local prototype ecology CSVs, run `python -m src.simulation.flow_rates --train HOUR_00_ECOLOGY.csv --holdout HOUR_04_ECOLOGY.csv --out configs/simulation_v1_flow_rates.json`. The inputs require `top_obi`, two 10 bps depth columns and aggressive buy/sell trade counts. The training hour supplies depth tercile cutoffs and nine states: three OBI bins (below -0.25, middle, above 0.25) crossed with three total-depth bins. Within each state and side, a 30-second global-rate prior gives `lambda=(state_count + 30*global_rate)/(state_seconds + 30)`. This is a Gamma–Poisson posterior mean with fixed shrinkage; the Poisson likelihood is a count-model benchmark, not proof that counts are Poisson distributed.
+
+The third command creates a self-contained HTML observer. Open `observer.html` locally and move the second slider to inspect maker A/B posted and removed quantities, maker inventories, background buy/sell arrivals, spread, depth and midprice across both scenarios. It covers 300 simulated seconds; it is an intraday mechanism demonstration, not a full-day market replay. The HTML embeds the simulation CSV and needs no network connection.
 
 The 00 UTC training hour has 1,331 valid book seconds. On the separate 04 UTC hour (703 valid seconds), buy/sell combined Poisson negative log likelihood per second was 34.19 for state-conditional rates versus 37.15 for a constant-rate baseline. That is a one-hour, same-day diagnostic. It does not establish stationarity, forecasting value, or independent-day replication. The fitted rates capture **aggressive trade counts only**; maker cancellation and replenishment remain assumed. In stateful mode, each paired run receives the same underlying uniform draws, while different book states can produce different arrival counts.
 
