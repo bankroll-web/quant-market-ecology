@@ -37,6 +37,8 @@ For a small underlying move `dS`, the dealer delta change is approximately `G_de
 
 GEX influences the model through *hypothesized hedge orders*, not by directly shifting a price variable. Route those orders through the same book as other taker flow; optional quote responses and cross-venue transmission need explicit latency. This separates a Greek exposure estimate from realized price impact.
 
+An initial **unfitted gamma scenario experiment** now implements that one-order mechanism in `src/simulation/gamma_scenarios.py`. After a 60 BTC initiating buy, calculate the dollar midpoint change `dS`; with assumed signed dealer gamma `g = +0.5, 0, -0.5 BTC per $1`, send one hedge of signed size `-g*dS` BTC through the same book. Positive `g` sells into a rise; negative `g` buys into it. The sign, size and instant timing are chosen to make the mechanism visible and must not be interpreted as measured options exposure or actual hedging. The simulation uses a smaller 60 BTC buy so all six paired books remain valid within their finite displayed depth. The resulting chart shows seconds 110–180 and distinguishes the initiating buy's midpoint move from the move after the hypothetical hedge.
+
 Binance Options documents contract units and expiries via exchange info, per-contract open interest by expiry, and mark Greeks including gamma. Those are candidate inputs, subject to coverage and time alignment. A historical intraday backfill at the exact futures dates is needed before estimating past GEX. Options activity on other venues may be material; exchange-specific OI is not global market gamma. Source: [Binance Options market data](https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-options/api/rest-api/market-data).
 
 ## Data request and research gates
@@ -53,3 +55,11 @@ python -m src.simulation.impact_sweep --config configs/simulation_v1_demo.json -
 ```
 
 Open `data/processed/impact_sweep/impact_sweep.html`. The CSV contains the numeric output. This uses Python standard library and no API key.
+
+Run the separate gamma picture with:
+
+```bash
+python -m src.simulation.gamma_scenarios --config configs/simulation_v1_demo.json --out data/processed/gamma_scenarios
+```
+
+Open `data/processed/gamma_scenarios/gamma_scenarios.html`. Its two CSV files contain the scenario table and 110–180 second trajectories. No option feed is connected.

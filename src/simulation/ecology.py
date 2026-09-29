@@ -166,7 +166,7 @@ def common_flow(params, seed):
     return flow
 
 
-def run(params, flow, withdrawal, shock_qty=SHOCK_QTY):
+def run(params, flow, withdrawal, shock_qty=SHOCK_QTY, dealer_gamma_btc_per_usdt=0.):
     book = Book(params)
     scenario = "maker_withdrawal" if withdrawal else "normal_liquidity"
     rows, shock = [], None
@@ -188,6 +188,20 @@ def run(params, flow, withdrawal, shock_qty=SHOCK_QTY):
                      "requested_qty_btc": shock_qty, "filled_qty_btc": filled,
                      "execution_vwap": vwap,
                      "slippage_vs_pre_ask_bps": (vwap / before["ask"] - 1) * 10_000}
+            # One delayed hedge decision, evaluated after the initiating buy.
+            # The signed dealer gamma is a hypothetical scenario parameter,
+            # never inferred from option open interest or public trade labels.
+            mid_after_buy = book.state(second, scenario)["mid"]
+            price_change = mid_after_buy - before["mid"]
+            hedge_btc = -dealer_gamma_btc_per_usdt * price_change
+            hedge_side = "buy" if hedge_btc > 0 else "sell" if hedge_btc < 0 else "none"
+            hedge_filled, hedge_vwap = book.execute(hedge_side, abs(hedge_btc)) if hedge_btc else (0., None)
+            shock.update({"mid_after_initiating_buy": mid_after_buy,
+                          "hedge_side": hedge_side,
+                          "hedge_requested_btc": abs(hedge_btc),
+                          "hedge_filled_btc": hedge_filled,
+                          "hedge_execution_vwap": hedge_vwap,
+                          "assumed_dealer_gamma_btc_per_usdt": dealer_gamma_btc_per_usdt})
         # Quotes arrive after trades; reserve the shock-second state to see immediate impact.
         if second != SHOCK_SECOND:
             posted_A = book.replenish("maker_A", .08)

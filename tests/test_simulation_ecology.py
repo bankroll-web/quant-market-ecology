@@ -6,6 +6,7 @@ from pathlib import Path
 from src.simulation.ecology import Book, common_flow, run, SHOCK_SECOND, SHOCK_QTY
 from src.simulation.book_change_rates import fit, score
 from src.simulation.impact_sweep import experiment
+from src.simulation.gamma_scenarios import experiment as gamma_experiment
 
 
 class SimulationEcologyTest(unittest.TestCase):
@@ -64,6 +65,18 @@ class SimulationEcologyTest(unittest.TestCase):
         self.assertTrue(all(abs(r["filled_btc"] - r["size_btc"]) < 1e-8 for r in rows))
         self.assertGreater(rows[3]["incremental_move_vs_normal_bps"],
                            rows[1]["incremental_move_vs_normal_bps"])
+
+    def test_dealer_hedge_sign_changes_book_price_in_hypothetical_run(self):
+        summary, _ = gamma_experiment(self.params)
+        self.assertEqual(len(summary), 6)
+        for i in (0, 3):
+            long, neutral, short = summary[i:i + 3]
+            self.assertEqual((long["hedge_side"], neutral["hedge_side"], short["hedge_side"]),
+                             ("sell", "none", "buy"))
+            self.assertAlmostEqual(long["move_after_initiating_buy_bps"],
+                                   short["move_after_initiating_buy_bps"])
+            self.assertLess(long["move_after_hedge_bps"], neutral["move_after_hedge_bps"])
+            self.assertLess(neutral["move_after_hedge_bps"], short["move_after_hedge_bps"])
 
 
 if __name__ == "__main__":
