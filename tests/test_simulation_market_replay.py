@@ -1,7 +1,9 @@
 """Replay observer: preserve missing states, receipt boundaries and exposure."""
 import unittest
+import tempfile
+from pathlib import Path
 
-from src.simulation.market_replay import build_seconds
+from src.simulation.market_replay import build_seconds, render
 
 
 def state(received, exposure, mid):
@@ -28,6 +30,17 @@ class MarketReplayTest(unittest.TestCase):
     def test_overlapping_exposure_is_rejected(self):
         with self.assertRaises(ValueError):
             build_seconds([state(900_000_000,.9,100),state(950_000_000,.9,100)],[],0,count=2)
+
+    def test_charts_exist_in_initial_markup_without_javascript(self):
+        rows = build_seconds([state(900_000_000,.2,100)],[],0,count=3)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'replay.html'
+            render({'2026-05-25_12':rows},path)
+            markup = path.read_text().split('<script>')[0]
+            self.assertIn('id="static-preview"',markup)
+            self.assertEqual(markup.count('<svg '),3)
+            self.assertIn('Minute within UTC hour',markup)
+            self.assertIn('id="interactive-plots" class="panel" hidden',markup)
 
 
 if __name__ == '__main__':
