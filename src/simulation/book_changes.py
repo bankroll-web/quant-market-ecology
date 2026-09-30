@@ -87,10 +87,14 @@ def replay(path,out):
             if dt<0:raise ValueError('Nonmonotonic receipt time')
             previous_received=received
             if not bridge and dt>0:
+                post_mid,post_obi,post_db,post_da,post_bid,post_ask=state(bids,asks)
                 row={'received_time_ns':received,'event_time_ms':event,'episode':episode,
                      'exposure_seconds':dt,'pre_mid':mid,'pre_obi_top':obi,
                      'pre_bid_top_qty':pre_bid_qty, 'pre_ask_top_qty':pre_ask_qty,
                      'pre_bid_depth_10bps':db,'pre_ask_depth_10bps':da,
+                     'post_mid':post_mid,'post_best_bid':post_bid,'post_best_ask':post_ask,
+                     'post_spread':post_ask-post_bid,'post_obi_top':post_obi,
+                     'post_bid_depth_10bps':post_db,'post_ask_depth_10bps':post_da,
                      **{name:changes[name] for side in ('bid','ask') for name in
                         (side+'_add_levels',side+'_remove_levels',side+'_add_qty',side+'_remove_qty')}}
                 if writer is None:writer=csv.DictWriter(f,fieldnames=list(row));writer.writeheader()
