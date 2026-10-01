@@ -1,0 +1,194 @@
+[
+  {
+    "hour": "2026-05-25_12",
+    "book": {
+      "raw_rows": 2417986,
+      "messages": 56785,
+      "negative_age_count": 0,
+      "age_median_ms": 116.617147,
+      "age_p95_ms": 396.1886155999993,
+      "age_max_ms": 2821.711727,
+      "age_over_250ms_pct": 9.053447213172493,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 27,
+      "distinct_receipt_cadence_median_ms": 27.52112,
+      "distinct_receipt_cadence_p95_ms": 37.69322059999999,
+      "event_minus_transaction_median_ms": 1.0
+    },
+    "trades": {
+      "raw_rows": 65031,
+      "messages": 65031,
+      "negative_age_count": 0,
+      "age_median_ms": 116.824134,
+      "age_p95_ms": 560.7949335000001,
+      "age_max_ms": 1601.3116,
+      "age_over_250ms_pct": 23.453429902661806,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 0,
+      "distinct_receipt_cadence_median_ms": 0.0150005,
+      "distinct_receipt_cadence_p95_ms": 369.3218838499995,
+      "duplicate_trade_ids": 0
+    },
+    "observation_boundary": {
+      "emitted_intervals": 55555,
+      "post_to_next_pre_comparisons": 55389,
+      "post_to_next_pre_mid_mismatches": 0,
+      "pre_state_label_age_median_ms": 27.518138,
+      "pre_state_label_age_p95_ms": 37.224804999999996,
+      "verified_exposure_seconds": 1504.533482183,
+      "rows_with_duplicate_receipt": 0,
+      "conclusion": "Use post-update state at its receipt time. Pre-update states describe the preceding state; future-path freshness is not an online selection rule."
+    },
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-25_12(1).parquet": "d6ca20c84acf58204deee2c4a4d77170bf7b4c06252592398f99040b85a4b788",
+      "BTCUSDT_trades_2026-05-25_12.parquet": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c",
+      "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b"
+    }
+  },
+  {
+    "hour": "2026-05-25_18",
+    "book": {
+      "raw_rows": 2151171,
+      "messages": 67501,
+      "negative_age_count": 0,
+      "age_median_ms": 117.39579,
+      "age_p95_ms": 358.904457,
+      "age_max_ms": 2704.043852,
+      "age_over_250ms_pct": 9.223567058265804,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 30,
+      "distinct_receipt_cadence_median_ms": 27.4700975,
+      "distinct_receipt_cadence_p95_ms": 41.6459651,
+      "event_minus_transaction_median_ms": 1.0
+    },
+    "trades": {
+      "raw_rows": 34550,
+      "messages": 34550,
+      "negative_age_count": 0,
+      "age_median_ms": 117.2385765,
+      "age_p95_ms": 354.7493040999993,
+      "age_max_ms": 2709.160819,
+      "age_over_250ms_pct": 19.916063675832127,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 0,
+      "distinct_receipt_cadence_median_ms": 0.014917,
+      "distinct_receipt_cadence_p95_ms": 687.6026695999998,
+      "duplicate_trade_ids": 0
+    },
+    "observation_boundary": {
+      "emitted_intervals": 20412,
+      "post_to_next_pre_comparisons": 20373,
+      "post_to_next_pre_mid_mismatches": 0,
+      "pre_state_label_age_median_ms": 27.506669,
+      "pre_state_label_age_p95_ms": 41.11709039999999,
+      "verified_exposure_seconds": 555.863621983,
+      "rows_with_duplicate_receipt": 0,
+      "conclusion": "Use post-update state at its receipt time. Pre-update states describe the preceding state; future-path freshness is not an online selection rule."
+    },
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-25_18(1).parquet": "5da73308012697bd98d11a064515d3723da1164f374dca361f5fab2f60fc4df5",
+      "BTCUSDT_trades_2026-05-25_18.parquet": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77",
+      "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "b779543c9cb87e8ef3fcb02bb5361f16059270ca3ab1abfb48fbee5225ebf1a2"
+    }
+  },
+  {
+    "hour": "2026-05-26_15",
+    "book": {
+      "raw_rows": 4453246,
+      "messages": 53596,
+      "negative_age_count": 0,
+      "age_median_ms": 147.4661045,
+      "age_p95_ms": 4192.24704925,
+      "age_max_ms": 10231.567618,
+      "age_over_250ms_pct": 41.083289797746104,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 7,
+      "distinct_receipt_cadence_median_ms": 25.925561,
+      "distinct_receipt_cadence_p95_ms": 62.38636534999994,
+      "event_minus_transaction_median_ms": 1.0
+    },
+    "trades": {
+      "raw_rows": 346798,
+      "messages": 346798,
+      "negative_age_count": 0,
+      "age_median_ms": 148.5046405,
+      "age_p95_ms": 2304.1606451999673,
+      "age_max_ms": 8175.986782,
+      "age_over_250ms_pct": 37.914001810852426,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 0,
+      "distinct_receipt_cadence_median_ms": 0.012374,
+      "distinct_receipt_cadence_p95_ms": 63.326086400000214,
+      "duplicate_trade_ids": 0
+    },
+    "observation_boundary": {
+      "emitted_intervals": 50845,
+      "post_to_next_pre_comparisons": 50670,
+      "post_to_next_pre_mid_mismatches": 0,
+      "pre_state_label_age_median_ms": 25.911396,
+      "pre_state_label_age_p95_ms": 61.113214799999966,
+      "verified_exposure_seconds": 1369.681951488,
+      "rows_with_duplicate_receipt": 0,
+      "conclusion": "Use post-update state at its receipt time. Pre-update states describe the preceding state; future-path freshness is not an online selection rule."
+    },
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-26_15.parquet": "9b94141910e590ad8329204c6b11e2812e52da56dc2e4c98e4e9ce5882865c8e",
+      "BTCUSDT_trades_2026-05-26_15.parquet": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1",
+      "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7"
+    }
+  },
+  {
+    "hour": "2026-05-26_21",
+    "book": {
+      "raw_rows": 2781213,
+      "messages": 83160,
+      "negative_age_count": 0,
+      "age_median_ms": 116.9677745,
+      "age_p95_ms": 421.7659779500004,
+      "age_max_ms": 3657.726099,
+      "age_over_250ms_pct": 8.956228956228957,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 36,
+      "distinct_receipt_cadence_median_ms": 26.593186,
+      "distinct_receipt_cadence_p95_ms": 37.600491699999964,
+      "event_minus_transaction_median_ms": 1.0
+    },
+    "trades": {
+      "raw_rows": 51018,
+      "messages": 51018,
+      "negative_age_count": 0,
+      "age_median_ms": 117.66975049999999,
+      "age_p95_ms": 348.2091584,
+      "age_max_ms": 844.603045,
+      "age_over_250ms_pct": 19.332392488925475,
+      "receipt_backsteps_in_file": 0,
+      "exchange_backsteps_in_file": 0,
+      "duplicate_receipt_timestamps": 0,
+      "distinct_receipt_cadence_median_ms": 0.021683,
+      "distinct_receipt_cadence_p95_ms": 484.50636579999957,
+      "duplicate_trade_ids": 0
+    },
+    "observation_boundary": {
+      "emitted_intervals": 71429,
+      "post_to_next_pre_comparisons": 71325,
+      "post_to_next_pre_mid_mismatches": 0,
+      "pre_state_label_age_median_ms": 26.633375,
+      "pre_state_label_age_p95_ms": 37.358370199999996,
+      "verified_exposure_seconds": 1923.698235064,
+      "rows_with_duplicate_receipt": 0,
+      "conclusion": "Use post-update state at its receipt time. Pre-update states describe the preceding state; future-path freshness is not an online selection rule."
+    },
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-26_21.parquet": "2c4087341935d71efb0aba5b8ba1a68158ffd499cae547e499b6fd3a255bfec6",
+      "BTCUSDT_trades_2026-05-26_21.parquet": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb",
+      "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+    }
+  }
+]

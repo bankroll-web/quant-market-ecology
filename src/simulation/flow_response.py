@@ -35,7 +35,10 @@ def trade_tape(path):
     return trades
 
 
-def windows(changes_csv, trades_path, max_message_age_ms=None):
+def windows(changes_csv, trades_path, max_message_age_ms=None,
+            state_mode='pre', require_future_freshness=True):
+    if state_mode not in ('pre', 'post'):
+        raise ValueError('state_mode must be pre or post')
     with open(changes_csv, newline='') as handle:
         book = list(csv.DictReader(handle))
     trades = trade_tape(trades_path)
@@ -79,8 +82,8 @@ def windows(changes_csv, trades_path, max_message_age_ms=None):
         if not fresh_book(i, end) or (max_message_age_ms is not None and
                 any(not 0 <= t[2] <= max_message_age_ms for t in trades[first:last])):
             continue
-        p0 = float(start['pre_mid'])
-        p1 = float(book[end]['pre_mid'])
+        p0 = float(start[state_mode + '_mid'])
+        p1 = float(book[end][state_mode + '_mid'])
         row = {'start_received_ns': t0, 'end_received_ns': t1, 'episode': episode,
                        'duration_seconds': (t1 - t0) / NS,
                        'buy_btc': buy, 'sell_btc': sell, 'signed_btc': buy - sell,
@@ -95,8 +98,9 @@ def windows(changes_csv, trades_path, max_message_age_ms=None):
             key = f'forward_{horizon}s_return_bps'
             row[key] = None
             if (future < n and book[future]['episode'] == episode and
-                    times[future] - target <= MAX_SAMPLING_LAG_NS and fresh_book(end, future)):
-                row[key] = 10_000 * math.log(float(book[future]['pre_mid']) / p1)
+                    times[future] - target <= MAX_SAMPLING_LAG_NS and
+                    (not require_future_freshness or fresh_book(end, future))):
+                row[key] = 10_000 * math.log(float(book[future][state_mode + '_mid']) / p1)
         output.append(row)
     return output
 

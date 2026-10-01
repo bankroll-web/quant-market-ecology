@@ -9,6 +9,23 @@ from src.simulation.flow_response import NS, summarize, windows
 
 
 class FlowResponseTest(unittest.TestCase):
+    def test_post_state_and_decision_filter_do_not_use_future_freshness(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'changes.csv'
+            rows = [dict(received_time_ns=i * NS + 100_000_000,
+                         event_time_ms=i * 1000 if i < 2 else i * 1000 - 1000,
+                         episode=1, pre_mid=100., post_mid=100. + i)
+                    for i in range(4)]
+            with path.open('w',newline='') as handle:
+                writer=csv.DictWriter(handle,fieldnames=rows[0]);writer.writeheader();writer.writerows(rows)
+            with patch('src.simulation.flow_response.trade_tape', return_value=[(NS//2,2.,100.)]):
+                causal=windows(path,'unused',250.,state_mode='post',require_future_freshness=False)
+                retrospective=windows(path,'unused',250.,state_mode='post')
+            self.assertEqual(len(causal),1)
+            self.assertEqual(causal[0]['end_mid'],101.)
+            self.assertIsNotNone(causal[0]['forward_1s_return_bps'])
+            self.assertIsNone(retrospective[0]['forward_1s_return_bps'])
+
     def test_alignment_preserves_price_direction(self):
         rows = [dict(signed_btc=2., absolute_trade_btc=2., mid_log_return_bps=-3.),
                 dict(signed_btc=-2., absolute_trade_btc=2., mid_log_return_bps=-1.)]
