@@ -1,0 +1,149 @@
+[
+  {
+    "file": "Multi-Level_Market_Making_with_Reinforcement_Learn.pdf",
+    "title": "Multi-Level Market Making with Reinforcement Learning",
+    "authors": "Cheridito and Weiss",
+    "year": "2026",
+    "identifier": "arXiv:2608.18195",
+    "pdf_pages": 30,
+    "sha256": "7791c67d0faaf75d3b5d403ae976ee87568fe1157e771d2ea2a1a55ecd0b1477",
+    "reviewed_reference_pages": [
+      2,
+      5,
+      6
+    ],
+    "useful_principle": "FIFO/partial fills, multi-level actions, wealth-change reward and terminal liquidation",
+    "implementation_status": "Implemented simplified two-level discrete quoting and tabular Q-learning; no actor-critic, logistic-normal allocation or deep-set encoder."
+  },
+  {
+    "file": "MMarxiv4.pdf",
+    "title": "Market Making under a Weakly Consistent Limit Order Book Model",
+    "authors": "Law and Viens",
+    "year": "2020",
+    "identifier": "",
+    "pdf_pages": 34,
+    "sha256": "b318802275612b3a0a21a09605e36de3ebd4293ad41ad828d4b0e4acfc86afd7",
+    "reviewed_reference_pages": [
+      3,
+      5
+    ],
+    "useful_principle": "Order-type direction consistency and price-time priority",
+    "implementation_status": "FIFO matching and event-local direction/volume tests; not the full marked-point-process/HJB-QVI model."
+  },
+  {
+    "file": "An_Impulse_Control_Approach_to_Market_Making_in_a_.pdf",
+    "title": "An Impulse Control Approach to Market Making in a Hawkes LOB Market",
+    "authors": "Jain, Firoozye, Kochems and Treleaven",
+    "year": "2025",
+    "identifier": "arXiv:2510.26438",
+    "pdf_pages": 26,
+    "sha256": "08ce910fa7bad2a1bc3896e0913ddf8812288258bfcc70014691a6f3e694d25e",
+    "reviewed_reference_pages": [
+      3,
+      6
+    ],
+    "useful_principle": "Clustered mutually exciting arrivals and discrete interventions",
+    "implementation_status": "Two-type exponential Hawkes trade arrivals, hold/cancel/requote/hedge actions; no fitted ten-type LOB, PPO, self-imitation or HJB-QVI solver."
+  },
+  {
+    "file": "056e459f9e6723607e93a931b6e0608e3343.pdf",
+    "title": "Reinforcement Learning Approaches to Optimal Market Making",
+    "authors": "Gasperov, Begusic, Posedel Simovic and Kostanjcar",
+    "year": "2021",
+    "identifier": "doi:10.3390/math9212689",
+    "pdf_pages": 22,
+    "sha256": "09a79d9e5b0c8d1dc378ce230a0ef38e9e88bdd20b08a82648dab2c01f9e9937",
+    "reviewed_reference_pages": [
+      1
+    ],
+    "useful_principle": "Inventory-aware learning and benchmarking",
+    "implementation_status": "Used for the state/action/reward and baseline design; survey performance claims are not transferred to Bitcoin."
+  },
+  {
+    "file": "main.pdf",
+    "title": "Option market making with hedging-induced market impact",
+    "authors": "Aubert, Chevalier and Ly Vath",
+    "year": "2026",
+    "identifier": "",
+    "pdf_pages": 39,
+    "sha256": "38f0ec78c21054feae94f3c72a63b803cd7fbff0589c7f8471f8737a6ff806fe",
+    "reviewed_reference_pages": [
+      1,
+      6,
+      11
+    ],
+    "useful_principle": "Option inventory/hedge feedback, permanent versus transient impact and manipulation checks",
+    "implementation_status": "Future coupled options module; current hypothetical gamma experiment remains separate. Options quotes, contract terms, hedge timing and signed-position assumptions are required."
+  },
+  {
+    "file": "Learning_Market_Making_with_Closing_Auctions.pdf",
+    "title": "Learning Market Making with Closing Auctions",
+    "authors": "Graf and Mastrolia",
+    "year": "2026",
+    "identifier": "arXiv:2601.17247",
+    "pdf_pages": 28,
+    "sha256": "b8b0386c44e6531a9f705e37b15d4b74998b533dfafa9b5906b26e5cae593954",
+    "reviewed_reference_pages": [
+      1
+    ],
+    "useful_principle": "Explicit terminal liquidity event and inventory management",
+    "implementation_status": "Executable terminal liquidation is adopted, not a closing auction. This continuous Bitcoin sandbox has no auction mechanism; an auction would need a venue-specific extension."
+  },
+  {
+    "file": "Online_Market_Making_and_the_Value_of_Observing_th.pdf",
+    "title": "Online Market Making and the Value of Observing the Order Book",
+    "authors": "Maran and Restelli",
+    "year": "2026",
+    "identifier": "arXiv:2605.19584",
+    "pdf_pages": 30,
+    "sha256": "97cf8a3e47f963605fadcc345f83a9a2f86b1b413d0bbd030d974d68d86015b4",
+    "reviewed_reference_pages": [
+      1,
+      2
+    ],
+    "useful_principle": "Action-dependent feedback and value of book observations",
+    "implementation_status": "Retained as a future observation/partial-feedback experiment. No-trade observations do not identify private trader valuations in our aggregate data; no regret theorem is claimed."
+  },
+  {
+    "file": "22642-ArticleText-61628-1-10-20220607.pdf",
+    "title": "Foreign Exchange Volatility and the Bubble Formation in Financial Markets: Evidence From The COVID-19 Pandemic",
+    "authors": "Ozdemir",
+    "year": "2022",
+    "identifier": "doi:10.15388/Ekon.2022.101.1.8",
+    "pdf_pages": 20,
+    "sha256": "904e986a5093f057fab2d9e85de1ea4200fb1214e043ccb758c2c6df9c8f2770",
+    "reviewed_reference_pages": [
+      1
+    ],
+    "useful_principle": "SADF/GSADF right-tailed explosiveness tests on long daily series",
+    "implementation_status": "Deferred to a separate macro/regime diagnostic requiring long contiguous data and appropriate critical values; not a short-horizon price or RL engine."
+  },
+  {
+    "file": "PublishedArticleWJAETS-2025-0535.pdf",
+    "title": "Market making and liquidity provision: The role of market makers in financial markets",
+    "authors": "Purwar",
+    "year": "2025",
+    "identifier": "doi:10.30574/wjaets.2025.15.2.0535",
+    "pdf_pages": 11,
+    "sha256": "c0d7a549d0ba0b71f4ed1efed9a3458738ee841dce3ecc1d7f276113b08b763a",
+    "reviewed_reference_pages": [
+      1
+    ],
+    "useful_principle": "General inventory, liquidity and operational-risk overview",
+    "implementation_status": "Background context, not a specific fitted algorithm or empirical Bitcoin calibration source."
+  },
+  {
+    "file": "The_hidden_role_of_market-making_in_the_rise_of_fa.pdf",
+    "title": "The hidden role of market-making in the rise of farmed salmon",
+    "authors": "Robinson and Fernandes",
+    "year": "2025",
+    "identifier": "doi:10.1088/1748-9326/adec05",
+    "pdf_pages": 11,
+    "sha256": "184948b302be2b19fa0dd4f939361a049c01386b59ef4f71914cd22645523f8c",
+    "reviewed_reference_pages": [
+      1
+    ],
+    "useful_principle": "Consumer demand and marketing in salmon markets",
+    "implementation_status": "Excluded from financial matching/learning implementation: market-making has a different meaning here."
+  }
+]
