@@ -4,7 +4,7 @@
 
 The BTCUSDT USD-M Futures depth adapter, local dashboard, event capture and fixture replay are implemented. Thirty isolated simulation tests pass. The captured-event fixture recovers after a disconnect and shows a gap in the chart history. Dashboard JavaScript passes `node --check`; actual browser rendering and an exchange-connected session have not been verified.
 
-A bounded eight-second live attempt from this cloud runtime failed with `Cannot connect to host fstream.binance.com:443 ... Temporary failure in name resolution`. No live exchange message or snapshot was received. This is a cloud-network reachability blocker, not a missing API key or proof of an exchange outage. Do not label the fixture as live data. [Standalone fixture demonstration](LIVE_OBSERVER_DEMO.html).
+A bounded eight-second live attempt from this cloud runtime failed with `Cannot connect to host fstream.binance.com:443 ... Temporary failure in name resolution`. No live exchange message or snapshot was received. A subsequent fix enabled the configured network proxy; the REST endpoint then returned HTTP 451 (restricted location). The current blocker is exchange access from this runtime, not a missing API key or proof of an exchange outage. See [cloud deployment preparation](LIVE_CLOUD_DEPLOYMENT.md). Do not label the fixture as live data. [Standalone fixture demonstration](LIVE_OBSERVER_DEMO.html).
 
 ## Behavior
 

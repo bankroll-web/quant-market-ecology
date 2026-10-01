@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements-live-observer.txt .
+RUN pip install --no-cache-dir -r requirements-live-observer.txt
+COPY src/simulation/ src/simulation/
+RUN mkdir -p /app/data/live && useradd --uid 10001 --create-home observer && chown -R observer:observer /app/data
+USER observer
+ENV PORT=10000
+EXPOSE 10000
+CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "86400", "--serve", "--host", "0.0.0.0"]

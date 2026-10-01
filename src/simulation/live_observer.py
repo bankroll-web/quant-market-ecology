@@ -7,6 +7,7 @@ import functools
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import math
+import os
 from pathlib import Path
 import threading
 import time
@@ -126,7 +127,7 @@ async def live(out, seconds):
     import aiohttp
     observer = DepthObserver()
     deadline = time.monotonic() + seconds
-    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=15)) as session:
+    async with aiohttp.ClientSession(trust_env=True, timeout=aiohttp.ClientTimeout(total=15)) as session:
         while time.monotonic() < deadline:
             observer.invalidate('connecting')
             out.publish(observer,time.time_ns())
@@ -167,10 +168,13 @@ async def live(out, seconds):
                         task.cancel()
                         await asyncio.gather(task,return_exceptions=True)
             except (aiohttp.ClientError, asyncio.TimeoutError, RuntimeError, ValueError, KeyError) as error:
-                observer.invalidate('reconnecting')
+                restricted = getattr(error, 'status', None) == 451
+                observer.invalidate('restricted_location' if restricted else 'reconnecting')
                 out.capture('disconnect',dict(error=str(error)),time.time_ns())
                 out.publish(observer,time.time_ns())
                 print('Connection unavailable:',str(error),flush=True)
+                if restricted:
+                    return
                 await asyncio.sleep(min(2,max(0,deadline-time.monotonic())))
         observer.invalidate('stopped')
         out.publish(observer,time.time_ns())
@@ -208,16 +212,17 @@ def main():
     parser.add_argument('--seconds',type=float,default=60)
     parser.add_argument('--replay',type=Path)
     parser.add_argument('--serve',action='store_true')
-    parser.add_argument('--port',type=int,default=8765)
+    parser.add_argument('--port',type=int,default=int(os.environ.get('PORT','8765')))
+    parser.add_argument('--host',default='127.0.0.1',help='Use 0.0.0.0 only in an authorized cloud deployment')
     args=parser.parse_args()
     if not math.isfinite(args.seconds) or args.seconds<=0:
         parser.error('seconds must be positive and finite')
     out=Output(args.out, 'replay' if args.replay else 'live')
     server=None
     if args.serve:
-        server=ThreadingHTTPServer(('127.0.0.1',args.port),functools.partial(SimpleHTTPRequestHandler,directory=str(args.out)))
+        server=ThreadingHTTPServer((args.host,args.port),functools.partial(SimpleHTTPRequestHandler,directory=str(args.out)))
         threading.Thread(target=server.serve_forever,daemon=True).start()
-        print(f'Observer: http://127.0.0.1:{args.port}',flush=True)
+        print(f'Observer: http://{args.host}:{args.port}',flush=True)
     try:
         if args.replay:
             replay(args.replay,out)
