@@ -1,0 +1,6 @@
+{"kind": "snapshot", "received_ns": 1100000000, "payload": {"lastUpdateId": 100, "bids": [["77000", "2"], ["76999", "3"]], "asks": [["77001", "4"], ["77002", "5"]]}}
+{"kind": "depth", "received_ns": 1120000000, "payload": {"e": "depthUpdate", "s": "BTCUSDT", "E": 1000, "U": 99, "u": 101, "pu": 98, "b": [], "a": []}}
+{"kind": "depth", "received_ns": 1220000000, "payload": {"e": "depthUpdate", "s": "BTCUSDT", "E": 1100, "U": 102, "u": 102, "pu": 101, "b": [["77000", "0"]], "a": []}}
+{"kind": "disconnect", "received_ns": 1230000000, "payload": {"reason": "fixture disconnect"}}
+{"kind": "snapshot", "received_ns": 1300000000, "payload": {"lastUpdateId": 200, "bids": [["77000", "2"], ["76999", "3"]], "asks": [["77001", "4"], ["77002", "5"]]}}
+{"kind": "depth", "received_ns": 1320000000, "payload": {"e": "depthUpdate", "s": "BTCUSDT", "E": 1200, "U": 199, "u": 201, "pu": 198, "b": [], "a": []}}
