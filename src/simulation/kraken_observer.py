@@ -73,15 +73,16 @@ class KrakenObserver(DepthObserver):
 
 async def live_kraken(out,seconds):
     import aiohttp
-    observer=KrakenObserver()
+    observer=KrakenObserver(depth=100)
     deadline=time.monotonic()+seconds
     failures=0
+    last_publish=0.
     async with aiohttp.ClientSession(trust_env=True,timeout=aiohttp.ClientTimeout(total=15)) as session:
         while time.monotonic()<deadline:
             observer.invalidate('connecting');out.publish(observer,time.time_ns())
             try:
                 async with session.ws_connect(STREAM,heartbeat=20,max_msg_size=2**22) as ws:
-                    await ws.send_json(dict(method='subscribe',params=dict(channel='book',symbol=['BTC/USD'],depth=1000,snapshot=True)))
+                    await ws.send_json(dict(method='subscribe',params=dict(channel='book',symbol=['BTC/USD'],depth=observer.depth,snapshot=True)))
                     while time.monotonic()<deadline:
                         try:message=await ws.receive(timeout=1)
                         except asyncio.TimeoutError:
@@ -102,7 +103,10 @@ async def live_kraken(out,seconds):
                             if not accepted and observer.sequence is None:
                                 raise RuntimeError(observer.reason)
                             if accepted:failures=0
-                        out.publish(observer,time.time_ns())
+                        # Apply every update; publish/coalesce the human display at 4 Hz.
+                        if time.monotonic()-last_publish>=.25:
+                            out.publish(observer,time.time_ns())
+                            last_publish=time.monotonic()
             except (aiohttp.ClientError,asyncio.TimeoutError,RuntimeError,ValueError,KeyError) as error:
                 observer.invalidate('reconnecting')
                 out.capture('kraken_disconnect',dict(error=str(error)),time.time_ns());out.publish(observer,time.time_ns())
