@@ -53,3 +53,15 @@ class KrakenTests(unittest.TestCase):
             self.assertEqual(data["quote_currency"],"USD")
             self.assertEqual(data["rollouts"]["baseline"]["inventory_sum_btc"],0)
             self.assertIn("BTC/USD",json.loads((Path(directory)/"state.json").read_text())["symbol"])
+
+class TradeCaptureTests(unittest.TestCase):
+    def test_trade_updates_count_events_not_snapshots_and_do_not_change_book(self):
+        o=KrakenObserver()
+        message=dict(channel='trade',type='snapshot',data=[dict(symbol='BTC/USD')])
+        o.observe_trades(message,100)
+        self.assertEqual(o.trade_events,0)
+        message['type']='update';message['data']=[dict(symbol='BTC/USD'),dict(symbol='BTC/USD'),dict(symbol='ETH/USD')]
+        o.observe_trades(message,200)
+        self.assertEqual(o.trade_events,2);self.assertEqual(o.trade_messages,1)
+        self.assertEqual(o.last_trade_received_ns,200)
+        self.assertFalse(o.valid)

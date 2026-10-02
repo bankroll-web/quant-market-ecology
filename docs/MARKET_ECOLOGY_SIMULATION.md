@@ -49,3 +49,7 @@ The small exchange/agent design is inspired by [ABIDES](https://github.com/abide
 ## Live simulation laboratory
 
 [Live ecology laboratory and mathematics](LIVE_ECOLOGY_LAB.md) connects fresh observations to frozen-book interventions and synthetic participant rollouts. Open `/ecology.html` on the deployed observer. Scenario assumptions and learned-policy limitations are shown in the dashboard.
+
+## Cost-aware strategy research
+
+The first [strategy comparison](STRATEGY_RESEARCH.md) tests linear and nonlinear regression against flow-sign and no-trade benchmarks using delayed bid/ask paper proxies. No candidate qualifies: no-trade wins validation. See [audited results](STRATEGY_RESEARCH_RESULTS.json) for costs, missing exits, input hashes and qualification limits. The Kraken collector now records public trade updates alongside the live book; free-instance recordings remain ephemeral.

@@ -30,6 +30,10 @@ class KrakenObserver(DepthObserver):
         super().__init__(max_age_ms=2000)
         self.depth=depth
         self.counter=0
+        self.trade_messages=0
+        self.trade_events=0
+        self.last_trade_received_ns=None
+        self.trade_subscribed=False
 
     def update_kraken(self,message,received_ns):
         if message.get('channel')!='book' or message.get('type') not in ('snapshot','update'):
@@ -64,10 +68,21 @@ class KrakenObserver(DepthObserver):
         self.reason='checksum_verified'
         return True
 
+    def observe_trades(self,message,received_ns):
+        if message.get('channel')!='trade' or message.get('type')!='update':return
+        events=[row for row in message.get('data',[]) if row.get('symbol')==self.symbol]
+        if events:
+            self.trade_messages+=1
+            self.trade_events+=len(events)
+            self.last_trade_received_ns=int(received_ns)
+
     def view(self,now_ns):
         result=super().view(now_ns)
         result.update(sequence_valid=None,book_validated=self.valid,
-                      local_update_count=self.counter)
+                      local_update_count=self.counter,trade_subscription_active=self.trade_subscribed,
+                      captured_trade_messages=self.trade_messages,captured_trade_events=self.trade_events,
+                      last_trade_received_ns=self.last_trade_received_ns,
+                      capture_persistence='ephemeral; lost on restart/redeploy')
         return result
 
 
@@ -79,10 +94,12 @@ async def live_kraken(out,seconds):
     last_publish=0.
     async with aiohttp.ClientSession(trust_env=True,timeout=aiohttp.ClientTimeout(total=15)) as session:
         while time.monotonic()<deadline:
+            observer.trade_subscribed=False
             observer.invalidate('connecting');out.publish(observer,time.time_ns())
             try:
                 async with session.ws_connect(STREAM,heartbeat=20,max_msg_size=2**22) as ws:
                     await ws.send_json(dict(method='subscribe',params=dict(channel='book',symbol=['BTC/USD'],depth=observer.depth,snapshot=True)))
+                    await ws.send_json(dict(method='subscribe',params=dict(channel='trade',symbol=['BTC/USD'],snapshot=False)))
                     while time.monotonic()<deadline:
                         try:message=await ws.receive(timeout=1)
                         except asyncio.TimeoutError:
@@ -97,6 +114,11 @@ async def live_kraken(out,seconds):
                         event=json.loads(message.data,parse_float=Decimal)
                         if event.get('method')=='subscribe' and not event.get('success',False):
                             raise RuntimeError('subscription_rejected: '+str(event.get('error')))
+                        if event.get('method')=='subscribe' and event.get('success') and event.get('result',{}).get('channel')=='trade':
+                            observer.trade_subscribed=True
+                        if event.get('channel')=='trade':
+                            out.capture('kraken_trade_message',dict(raw=message.data),received)
+                            observer.observe_trades(event,received)
                         if event.get('channel')=='book':
                             out.capture('kraken_message',dict(raw=message.data),received)
                             accepted=observer.update_kraken(event,received)
@@ -108,6 +130,7 @@ async def live_kraken(out,seconds):
                             out.publish(observer,time.time_ns())
                             last_publish=time.monotonic()
             except (aiohttp.ClientError,asyncio.TimeoutError,RuntimeError,ValueError,KeyError) as error:
+                observer.trade_subscribed=False
                 observer.invalidate('reconnecting')
                 out.capture('kraken_disconnect',dict(error=str(error)),time.time_ns());out.publish(observer,time.time_ns())
                 failures+=1
