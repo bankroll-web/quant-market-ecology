@@ -108,13 +108,22 @@ class LiveEcology:
         self.history.append(dict(time_ms=now_ns//1_000_000,observed_mid=view['mid'],
                                  large_buy_mid=scenarios[1]['midpoint_after'],
                                  thin_buy_mid=scenarios[3]['midpoint_after']))
-        if self.rollouts is None or bucket % 10 == 0:
+        if self.rollouts is None or now_ns-self.rollouts['generated_ns'] >= 30_000_000_000:
             from .live_rollout import rollout
             self.rollouts = dict(generated_ns=now_ns,source_update_id=view['last_update_id'],
                 baseline=rollout(observer.bids,observer.asks),
                 withdrawal=rollout(observer.bids,observer.asks,withdrawal=True),
                 short_gamma=rollout(observer.bids,observer.asks,signed_gamma=-.05))
-        self.previous=dict(rollouts=self.rollouts,status='running',reason=view['status'],research_usable=view['research_usable'],receipt_minus_event_ms=view['receipt_minus_event_ms'],silence_ms=view['silence_ms'],source_update_id=self.last_sequence,
+        elapsed=min(29,int((now_ns-self.rollouts['generated_ns'])//1_000_000_000))
+        visible=dict(generated_ns=self.rollouts['generated_ns'],
+                     source_update_id=self.rollouts['source_update_id'],simulation_second=elapsed)
+        for key in ('baseline','withdrawal','short_gamma'):
+            full=self.rollouts[key]
+            trace=full['trace'][:elapsed+1]
+            visible[key]={**full,'trace':trace,
+                          'participants':trace[-1]['participants'] if trace else [],
+                          'total_paid_fees_quote':trace[-1]['total_paid_fees_quote'] if trace else 0.}
+        self.previous=dict(rollouts=visible,status='running',reason=view['status'],research_usable=view['research_usable'],receipt_minus_event_ms=view['receipt_minus_event_ms'],silence_ms=view['silence_ms'],source_update_id=self.last_sequence,
                            observed_mid=view['mid'],scenarios=scenarios,monte_carlo=self.monte_carlo(),
                            history=list(self.history),models=self.models())
         return self.previous

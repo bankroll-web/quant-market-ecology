@@ -73,3 +73,15 @@ class LiveEcologyTests(unittest.TestCase):
         gamma=rollout(self.bids,self.asks,signed_gamma=-100)
         dealer=next(p for p in gamma['participants'] if p['role']=='assumed_gamma_dealer')
         self.assertLessEqual(abs(dealer['inventory_btc']),.5+1e-10)
+
+    def test_simulation_advances_without_showing_future_and_reanchors(self):
+        o=DepthObserver();o.snapshot(dict(lastUpdateId=1,bids=[['100','2'],['99','5']],asks=[['101','2'],['102','5']]))
+        e=LiveEcology()
+        for t in range(31):
+            now=(t+1)*1_000_000_000
+            o.update(dict(e='depthUpdate',s='BTCUSDT',U=t+1,u=t+2,pu=t+1,E=(t+1)*1000,b=[],a=[]),now)
+            r=e.update(o,now)['rollouts']
+            self.assertEqual(r['simulation_second'],t%30)
+            self.assertEqual(len(r['baseline']['trace']),t%30+1)
+            self.assertEqual(r['baseline']['participants'],r['baseline']['trace'][-1]['participants'])
+            self.assertEqual(r['generated_ns'],(1 if t<30 else 31)*1_000_000_000)

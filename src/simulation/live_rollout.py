@@ -24,6 +24,12 @@ def rollout(bids, asks, withdrawal=False, signed_gamma=0., seed=71, seconds=30):
     events=[[] for _ in range(seconds)]
     for timestamp,side,lots in hawkes(seed,seconds):
         events[int(timestamp)].append((side,lots))
+    def balances():
+        return [dict(role=owner,inventory_btc=book.inventory[owner]*book.lot,
+                     cash_quote=book.cash[owner],marked_wealth_quote=book.wealth(owner,anchor),
+                     filled_btc=book.filled[owner]*book.lot)
+                for owner in ['anonymous_background','maker_A','maker_B','simulated_retail',
+                              'simulated_institution','assumed_gamma_dealer']]
     trace=[]
     fees=0.
     for second in range(seconds):
@@ -61,7 +67,7 @@ def rollout(bids, asks, withdrawal=False, signed_gamma=0., seed=71, seconds=30):
         mid=(book.best('bid')+book.best('ask'))/2*book.tick if book.best('bid') is not None and book.best('ask') is not None else None
         # Total marked wealth equals negative paid fees by cash/inventory conservation.
         fees=-sum(book.cash.values())
-        trace.append(dict(second=second,midpoint=mid,move_bps=(mid/base_mid-1)*10000 if mid is not None else None,
+        trace.append(dict(participants=balances(),total_paid_fees_quote=fees,second=second,midpoint=mid,move_bps=(mid/base_mid-1)*10000 if mid is not None else None,
                           maker_A_inventory_btc=book.inventory['maker_A']*book.lot,
                           maker_B_inventory_btc=book.inventory['maker_B']*book.lot,
                           hedge_signed_btc=hedge*book.lot))
