@@ -67,3 +67,5 @@ The small exchange/agent design is inspired by [ABIDES](https://github.com/abide
 The first [strategy comparison](STRATEGY_RESEARCH.md) tests linear and nonlinear regression against flow-sign and no-trade benchmarks using delayed bid/ask paper proxies. No candidate qualifies: no-trade wins validation. See [audited results](STRATEGY_RESEARCH_RESULTS.json) for costs, missing exits, input hashes and qualification limits. The Kraken collector now records public trade updates alongside the live book; free-instance recordings remain ephemeral.
 
 Recorded-flow development diagnostic: [Empirical trade flow](EMPIRICAL_ECOLOGY_FLOW.md).
+
+Training liquidity-response benchmark: [Displayed liquidity response](ECOLOGY_LIQUIDITY_RESPONSE.md).
