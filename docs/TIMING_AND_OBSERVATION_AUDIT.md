@@ -1,5 +1,8 @@
 # Real-data timing and decision-boundary audit
 
+> Replay integrity correction: the 25 May 18 UTC local tape used for these historical numbers was a truncated prefix. See [the correction and rebuilt analysis](OBSERVED_MARKET_MECHANICS.md#replay-integrity-correction). These numbers are preserved for provenance and must not be treated as a completed whole-hour evaluation.
+
+
 Audit completed on the four available paired hours. It reads raw L2 update messages and raw trades, preserving their file order, and checks the emitted verified book-state intervals. This does not synchronize clocks or establish a trading signal.
 
 ## Raw timing

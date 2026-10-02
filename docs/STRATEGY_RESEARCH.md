@@ -1,5 +1,8 @@
 # Strategy research: first cost-aware comparison
 
+> Replay integrity correction: the 25 May 18 UTC local tape used for these historical numbers was a truncated prefix. See [the correction and rebuilt analysis](OBSERVED_MARKET_MECHANICS.md#replay-integrity-correction). These numbers are preserved for provenance and must not be treated as a completed whole-hour evaluation.
+
+
 The first experiment selects **no trading**. No model is qualified for live orders or investment decisions. The laboratory is working; profitable trading has not been established.
 
 ## Hypothesis and observation boundary

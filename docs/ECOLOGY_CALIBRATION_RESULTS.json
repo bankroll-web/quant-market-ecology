@@ -1,0 +1,309 @@
+{
+  "status": "exploratory_calibration_not_live_promoted",
+  "training_hour": "2026-05-25_12",
+  "model": {
+    "depth_cutoffs_btc": [
+      446.24,
+      486.243
+    ],
+    "obi_cutoffs": [
+      -0.25,
+      0.25
+    ],
+    "prior_exposure_seconds": 30.0,
+    "training_intervals": 55555,
+    "training_exposure_seconds": 1504.533482183,
+    "global_per_second": {
+      "bid_add_levels": 171.27967110847973,
+      "bid_remove_levels": 167.69251265443907,
+      "ask_add_levels": 165.97104880489945,
+      "ask_remove_levels": 163.06848794353283
+    },
+    "state_rates": {
+      "obi0_depth0": {
+        "seconds": 132.226070718,
+        "intervals": 4863,
+        "bid_add_levels_per_second": 241.00559151936787,
+        "bid_remove_levels_per_second": 239.43608575192673,
+        "ask_add_levels_per_second": 236.52259648725854,
+        "ask_remove_levels_per_second": 229.05106727819592
+      },
+      "obi0_depth1": {
+        "seconds": 142.2828108569999,
+        "intervals": 5292,
+        "bid_add_levels_per_second": 189.4581935997488,
+        "bid_remove_levels_per_second": 184.13778613099652,
+        "ask_add_levels_per_second": 177.57506574199232,
+        "ask_remove_levels_per_second": 178.1666695918018
+      },
+      "obi0_depth2": {
+        "seconds": 222.40217827999945,
+        "intervals": 8166,
+        "bid_add_levels_per_second": 165.95494705591287,
+        "bid_remove_levels_per_second": 164.09832776358107,
+        "ask_add_levels_per_second": 162.7407962326682,
+        "ask_remove_levels_per_second": 162.58597654724676
+      },
+      "obi1_depth0": {
+        "seconds": 164.11050105999993,
+        "intervals": 6027,
+        "bid_add_levels_per_second": 131.6280674859353,
+        "bid_remove_levels_per_second": 126.27743087457455,
+        "ask_add_levels_per_second": 137.31936870281856,
+        "ask_remove_levels_per_second": 130.51357087824516
+      },
+      "obi1_depth1": {
+        "seconds": 135.12993388399997,
+        "intervals": 5012,
+        "bid_add_levels_per_second": 135.48960874029774,
+        "bid_remove_levels_per_second": 132.0703936995054,
+        "ask_add_levels_per_second": 123.15835769929731,
+        "ask_remove_levels_per_second": 121.24424789251306
+      },
+      "obi1_depth2": {
+        "seconds": 135.25777606899976,
+        "intervals": 5003,
+        "bid_add_levels_per_second": 131.1671417156424,
+        "bid_remove_levels_per_second": 127.55693487507524,
+        "ask_add_levels_per_second": 130.08242017713786,
+        "ask_remove_levels_per_second": 125.96717161202919
+      },
+      "obi2_depth0": {
+        "seconds": 205.17108402399964,
+        "intervals": 7658,
+        "bid_add_levels_per_second": 189.30639503584166,
+        "bid_remove_levels_per_second": 182.48321454032862,
+        "ask_add_levels_per_second": 182.21258638997446,
+        "ask_remove_levels_per_second": 174.28186296119333
+      },
+      "obi2_depth1": {
+        "seconds": 224.07709364400037,
+        "intervals": 8219,
+        "bid_add_levels_per_second": 170.62297711101854,
+        "bid_remove_levels_per_second": 167.8064510584028,
+        "ask_add_levels_per_second": 154.4811887652581,
+        "ask_remove_levels_per_second": 155.24836998322385
+      },
+      "obi2_depth2": {
+        "seconds": 143.87603364700018,
+        "intervals": 5315,
+        "bid_add_levels_per_second": 188.901192673491,
+        "bid_remove_levels_per_second": 187.71865618868338,
+        "ask_add_levels_per_second": 194.91548520684634,
+        "ask_remove_levels_per_second": 194.83452622966163
+      }
+    },
+    "observation": "Displayed level increases/decreases within 10 bps of the pre-event mid; decreases include executions and other causes. Not identified maker/cancel events.",
+    "formula": "rate=(state_count+prior_seconds*global_rate)/(state_exposure_seconds+prior_seconds)",
+    "global_quantity_btc_per_second": {
+      "bid_add_qty": 79.52868408510848,
+      "bid_remove_qty": 77.37062111180134,
+      "ask_add_qty": 77.53411830406262,
+      "ask_remove_qty": 75.18218061579947
+    },
+    "state_quantity_btc_per_second": {
+      "obi0_depth0": {
+        "bid_add_qty": 99.18610153927541,
+        "bid_remove_qty": 85.7654541700634,
+        "ask_add_qty": 136.2863037443266,
+        "ask_remove_qty": 116.38499493274804
+      },
+      "obi0_depth1": {
+        "bid_add_qty": 73.42873302115777,
+        "bid_remove_qty": 70.71459173873268,
+        "ask_add_qty": 95.60846184935977,
+        "ask_remove_qty": 97.24190901656243
+      },
+      "obi0_depth2": {
+        "bid_add_qty": 51.90638849407834,
+        "bid_remove_qty": 57.488436638044014,
+        "ask_add_qty": 69.36659052799185,
+        "ask_remove_qty": 74.31916612726184
+      },
+      "obi1_depth0": {
+        "bid_add_qty": 74.82307986039332,
+        "bid_remove_qty": 64.1810441234361,
+        "ask_add_qty": 78.82471306584557,
+        "ask_remove_qty": 68.21614155939506
+      },
+      "obi1_depth1": {
+        "bid_add_qty": 84.06514310303594,
+        "bid_remove_qty": 85.34586250881833,
+        "ask_add_qty": 68.44709667879954,
+        "ask_remove_qty": 71.15442453170193
+      },
+      "obi1_depth2": {
+        "bid_add_qty": 44.714631276823965,
+        "bid_remove_qty": 49.518992860809554,
+        "ask_add_qty": 45.32352260382954,
+        "ask_remove_qty": 49.102920367789054
+      },
+      "obi2_depth0": {
+        "bid_add_qty": 108.87791595985651,
+        "bid_remove_qty": 95.58747295250016,
+        "ask_add_qty": 86.13275153783323,
+        "ask_remove_qty": 73.29535214760946
+      },
+      "obi2_depth1": {
+        "bid_add_qty": 89.4021700137225,
+        "bid_remove_qty": 91.05033555590066,
+        "ask_add_qty": 68.8257304045831,
+        "ask_remove_qty": 70.51503211689491
+      },
+      "obi2_depth2": {
+        "bid_add_qty": 87.23978920147718,
+        "bid_remove_qty": 93.98802865800262,
+        "ask_add_qty": 55.5643946234482,
+        "ask_remove_qty": 61.8955424318171
+      }
+    },
+    "warning": "Observed displayed-level change rates and quantities; no identification of orders, cancellations, participants, FIFO fills, psychological states or fitted Hawkes excitation."
+  },
+  "input_sha256": {
+    "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b",
+    "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "a9f34efc19fbaa07bbae821750c79d60a67c5e9dfb7bfa8a2689d08ddd47e51e",
+    "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7",
+    "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+  },
+  "scores": {
+    "2026-05-25_12": {
+      "role": "train",
+      "holdout_intervals": 55555,
+      "holdout_exposure_seconds": 1504.5334821830058,
+      "poisson_nll_per_exposure_second": {
+        "conditional": 855.1850620809353,
+        "constant": 871.266048531987
+      },
+      "note": "Lower is better; Poisson is a diagnostic count likelihood, not a validated arrival law.",
+      "quantity_rates": {
+        "bid_add_qty": {
+          "observed_btc_per_second": 79.52868408510419,
+          "conditional_predicted_btc_per_second": 79.57084076000898,
+          "constant_predicted_btc_per_second": 79.52868408510848
+        },
+        "bid_remove_qty": {
+          "observed_btc_per_second": 77.37062111179667,
+          "conditional_predicted_btc_per_second": 77.42436609318942,
+          "constant_predicted_btc_per_second": 77.37062111180134
+        },
+        "ask_add_qty": {
+          "observed_btc_per_second": 77.53411830405742,
+          "conditional_predicted_btc_per_second": 77.40306438514429,
+          "constant_predicted_btc_per_second": 77.53411830406262
+        },
+        "ask_remove_qty": {
+          "observed_btc_per_second": 75.1821806157941,
+          "conditional_predicted_btc_per_second": 75.07279406333258,
+          "constant_predicted_btc_per_second": 75.18218061579947
+        }
+      },
+      "conditional_count_improvement_pct": 1.8457033277202717
+    },
+    "2026-05-25_18": {
+      "role": "previously_inspected_later_hour",
+      "holdout_intervals": 57366,
+      "holdout_exposure_seconds": 1565.2497652819982,
+      "poisson_nll_per_exposure_second": {
+        "conditional": 679.3204849806293,
+        "constant": 687.9751384812301
+      },
+      "note": "Lower is better; Poisson is a diagnostic count likelihood, not a validated arrival law.",
+      "quantity_rates": {
+        "bid_add_qty": {
+          "observed_btc_per_second": 71.94412578602692,
+          "conditional_predicted_btc_per_second": 77.71031313318218,
+          "constant_predicted_btc_per_second": 79.52868408510848
+        },
+        "bid_remove_qty": {
+          "observed_btc_per_second": 70.17502729361966,
+          "conditional_predicted_btc_per_second": 77.03171223674318,
+          "constant_predicted_btc_per_second": 77.37062111180134
+        },
+        "ask_add_qty": {
+          "observed_btc_per_second": 57.53516147870184,
+          "conditional_predicted_btc_per_second": 75.5472754771926,
+          "constant_predicted_btc_per_second": 77.53411830406262
+        },
+        "ask_remove_qty": {
+          "observed_btc_per_second": 56.20949764790353,
+          "conditional_predicted_btc_per_second": 75.27161565386082,
+          "constant_predicted_btc_per_second": 75.18218061579947
+        }
+      },
+      "conditional_count_improvement_pct": 1.257989281372407
+    },
+    "2026-05-26_15": {
+      "role": "previously_inspected_later_hour",
+      "holdout_intervals": 50845,
+      "holdout_exposure_seconds": 1369.681951488,
+      "poisson_nll_per_exposure_second": {
+        "conditional": 2434.1631375697348,
+        "constant": 2541.3304133348224
+      },
+      "note": "Lower is better; Poisson is a diagnostic count likelihood, not a validated arrival law.",
+      "quantity_rates": {
+        "bid_add_qty": {
+          "observed_btc_per_second": 126.45502031462762,
+          "conditional_predicted_btc_per_second": 92.16235567560334,
+          "constant_predicted_btc_per_second": 79.52868408510848
+        },
+        "bid_remove_qty": {
+          "observed_btc_per_second": 123.69127870593593,
+          "conditional_predicted_btc_per_second": 82.31183476394737,
+          "constant_predicted_btc_per_second": 77.37062111180134
+        },
+        "ask_add_qty": {
+          "observed_btc_per_second": 120.18761349753932,
+          "conditional_predicted_btc_per_second": 95.2009322665785,
+          "constant_predicted_btc_per_second": 77.53411830406262
+        },
+        "ask_remove_qty": {
+          "observed_btc_per_second": 116.99709543949486,
+          "conditional_predicted_btc_per_second": 83.7765213677289,
+          "constant_predicted_btc_per_second": 75.18218061579947
+        }
+      },
+      "conditional_count_improvement_pct": 4.216975297771652
+    },
+    "2026-05-26_21": {
+      "role": "previously_inspected_later_hour",
+      "holdout_intervals": 71429,
+      "holdout_exposure_seconds": 1923.6982350639964,
+      "poisson_nll_per_exposure_second": {
+        "conditional": 856.8618087137071,
+        "constant": 832.3889151869143
+      },
+      "note": "Lower is better; Poisson is a diagnostic count likelihood, not a validated arrival law.",
+      "quantity_rates": {
+        "bid_add_qty": {
+          "observed_btc_per_second": 38.7644193048343,
+          "conditional_predicted_btc_per_second": 97.74765125913225,
+          "constant_predicted_btc_per_second": 79.52868408510848
+        },
+        "bid_remove_qty": {
+          "observed_btc_per_second": 37.805701369566215,
+          "conditional_predicted_btc_per_second": 85.77373653080555,
+          "constant_predicted_btc_per_second": 77.37062111180134
+        },
+        "ask_add_qty": {
+          "observed_btc_per_second": 27.87599896000113,
+          "conditional_predicted_btc_per_second": 100.35968962802892,
+          "constant_predicted_btc_per_second": 77.53411830406262
+        },
+        "ask_remove_qty": {
+          "observed_btc_per_second": 27.107215180382006,
+          "conditional_predicted_btc_per_second": 86.4935586179867,
+          "constant_predicted_btc_per_second": 75.18218061579947
+        }
+      },
+      "conditional_count_improvement_pct": -2.9400792202161075
+    }
+  },
+  "limits": [
+    "Four discontinuous previously inspected hours do not establish cross-regime calibration.",
+    "Poisson counts are a diagnostic likelihood; updates bundle multiple changed levels and can be overdispersed.",
+    "Near-touch changes are measured against the pre-update midpoint, not private order identities.",
+    "Receipt delay and verified-episode censoring remain unresolved.",
+    "Binance historical parameters are not deployed on the Kraken live feed."
+  ]
+}

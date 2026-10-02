@@ -1,5 +1,8 @@
 # Quantitative horizon and liquidity-regime analysis
 
+> Replay integrity correction: the 25 May 18 UTC local tape used for these historical numbers was a truncated prefix. See [the correction and rebuilt analysis](OBSERVED_MARKET_MECHANICS.md#replay-integrity-correction). These numbers are preserved for provenance and must not be treated as a completed whole-hour evaluation.
+
+
 **Result: no candidate qualifies.** The expanded analysis compares 260 fixed candidate/configuration combinations and selects no trading under the stated cost and missing-exit stress assumptions. This is development research on previously inspected data; it is not an independent final test.
 
 ## Mathematical question

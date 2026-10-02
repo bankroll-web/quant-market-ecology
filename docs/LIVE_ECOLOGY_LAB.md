@@ -65,3 +65,7 @@ The Kraken adapter subscribes to the public v2 book channel at depth 100, obtain
 Sources: [Kraken public book API](https://docs.kraken.com/exchange/api-reference/spot-websocket-v2/book) and [official checksum guide](https://docs.kraken.com/exchange/guides/websockets/book-checksum-v2). Tests include the official expected CRC32 value, deletion, mismatch/recovery, truncation and absent timestamps. The Docker command selects `--provider kraken`; standalone CLI defaults to Binance unless a provider is specified.
 
 The cloud Kraken subscription is limited to 100 levels per side and display output is coalesced to four writes/second. Every received book update is still applied and checksum-checked. This reduces CPU/disk backlog on the free instance; larger orders may exhaust known liquidity sooner and then return unknown price impact rather than fabricated depth.
+
+## Observed mechanics and calibration
+
+The live laboratory now includes a ten-second panel of aggressive flow, near-touch additions/reductions and observed price movement. These measurements are separate from simulated participant identities. See [mechanics, calibration and replay integrity correction](OBSERVED_MARKET_MECHANICS.md).

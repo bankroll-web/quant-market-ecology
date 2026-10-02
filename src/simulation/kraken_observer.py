@@ -6,6 +6,7 @@ import json
 import time
 import zlib
 from .live_observer import DepthObserver
+from .market_mechanics import MarketMechanics
 
 STREAM='wss://ws.kraken.com/v2'
 
@@ -34,6 +35,11 @@ class KrakenObserver(DepthObserver):
         self.trade_events=0
         self.last_trade_received_ns=None
         self.trade_subscribed=False
+        self.mechanics=MarketMechanics()
+
+    def invalidate(self,reason):
+        super().invalidate(reason)
+        if hasattr(self,'mechanics'):self.mechanics.reset()
 
     def update_kraken(self,message,received_ns):
         if message.get('channel')!='book' or message.get('type') not in ('snapshot','update'):
@@ -48,11 +54,17 @@ class KrakenObserver(DepthObserver):
         event_ms=int(datetime.fromisoformat(timestamp.replace('Z','+00:00')).timestamp()*1000) if timestamp else None
         if message['type']=='update' and event_ms is not None and self.event_ms is not None and event_ms<self.event_ms:
             self.invalidate('out_of_order_timestamp');return False
+        pre_mid=(max(self.bids)+min(self.asks))/2 if self.bids and self.asks and self.valid else None
+        changes={}
         for side,key,reverse in ((self.bids,'bids',True),(self.asks,'asks',False)):
             for level in data.get(key,[]):
                 price,qty=Decimal(str(level['price'])),Decimal(str(level['qty']))
                 if not price.is_finite() or not qty.is_finite() or price<=0 or qty<0:
                     self.invalidate('invalid_level');return False
+                if pre_mid is not None and (price>=pre_mid*Decimal('.999') if key=='bids' else price<=pre_mid*Decimal('1.001')):
+                    delta=qty-side.get(price,Decimal(0))
+                    change_key=('bid' if key=='bids' else 'ask')+('_added_btc' if delta>0 else '_removed_btc')
+                    changes[change_key]=changes.get(change_key,0.)+abs(float(delta))
                 if qty==0:side.pop(price,None)
                 else:side[price]=qty
             for price in sorted(side,reverse=reverse)[self.depth:]:del side[price]
@@ -66,6 +78,7 @@ class KrakenObserver(DepthObserver):
         self.received_ns=int(received_ns)
         self.valid=True
         self.reason='checksum_verified'
+        self.mechanics.record(received_ns,changes, float((max(self.bids)+min(self.asks))/2))
         return True
 
     def observe_trades(self,message,received_ns):
@@ -75,6 +88,7 @@ class KrakenObserver(DepthObserver):
             self.trade_messages+=1
             self.trade_events+=len(events)
             self.last_trade_received_ns=int(received_ns)
+            for row in events:self.mechanics.trade(row,received_ns)
 
     def view(self,now_ns):
         result=super().view(now_ns)
@@ -82,7 +96,8 @@ class KrakenObserver(DepthObserver):
                       local_update_count=self.counter,trade_subscription_active=self.trade_subscribed,
                       captured_trade_messages=self.trade_messages,captured_trade_events=self.trade_events,
                       last_trade_received_ns=self.last_trade_received_ns,
-                      capture_persistence='ephemeral; lost on restart/redeploy')
+                      capture_persistence='ephemeral; lost on restart/redeploy',
+                      mechanics=self.mechanics.view(now_ns,result['usable'],self.trade_subscribed))
         return result
 
 

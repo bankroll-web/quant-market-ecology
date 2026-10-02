@@ -26,6 +26,8 @@ THRESHOLD_BPS=2*(FEE_BPS+SLIPPAGE_BPS)
 def load(flow_path, book_path, horizon_ns=HORIZON, latency_ns=LATENCY, retain_unresolved=False):
     if not 0 < latency_ns < horizon_ns:raise ValueError('Latency must be positive and less than horizon')
     with Path(book_path).open(newline='') as f: book=list(csv.DictReader(f))
+    if any(None in r or any(v is None for v in r.values()) for r in book):
+        raise ValueError('Incomplete replay row: rebuild from original recording before research')
     times=[int(r['received_time_ns']) for r in book]
     if any(b<a for a,b in zip(times,times[1:])): raise ValueError('Backwards book time')
     # Last message at a duplicate timestamp is available at that timestamp.
