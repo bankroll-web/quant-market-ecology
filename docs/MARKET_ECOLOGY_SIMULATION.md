@@ -10,6 +10,8 @@ This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine defi
 
 [Robust response comparison](ROBUST_ECOLOGY_RESPONSE.md) separately tests fixed training-only clipping, asinh compression and time-weighted depth against that original calibration. [End goal and remaining development](MARKET_ECOLOGY_ROADMAP.md) states the data, simulator, policy, execution and live-shadow acceptance stages.
 
+[Regime transitions and persistence](ECOLOGY_REGIME_DYNAMICS.md) adds continuity-aware transition counts, censored observed runs and a frozen categorical transition diagnostic. The first-order conditional benchmark does not consistently beat an IID frequency baseline and is not used as a validated simulator.
+
 ## Run the observer
 
 From the repository root, with Python 3.13:
