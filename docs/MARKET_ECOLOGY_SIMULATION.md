@@ -1,7 +1,5 @@
 # Market Ecology simulation laboratory (experimental)
 
-**Start here:** [User manual](USER_MANUAL.md) for Windows and cloud run steps, and [price formation and gamma plan](PRICE_FORMATION_AND_GAMMA_PLAN.md) for the new size sweep, agent modules, and data requirements. [New-hour audit](NEW_HOURS_BOOK_CHANGE_AUDIT.md) reports the May 25–26 holdouts. [Real flow and price response](REAL_FLOW_PRICE_RESPONSE.md) explains the receipt-time sensitivity study and its viewer. [Historical market replay](HISTORICAL_MARKET_REPLAY.md) documents the combined price, spread, flow and depth observer. [First price-response regression](RESPONSE_REGRESSION.md) records the fixed chronological baseline and its later-hour results. [Paper integration and learning module](LEARNING_MODEL_INTEGRATION.md) maps the supplied papers, documents the trained synthetic controller, and sets the fitting standard. [Timing and observation audit](TIMING_AND_OBSERVATION_AUDIT.md) records raw ordering, delays, coverage and the new decision-time response study. [Read-only live observer](LIVE_OBSERVER.md) documents the depth adapter, dashboard, fixture and cloud connectivity test. These pages are on the draft `codex/market-ecology-simulation-v1` branch, not yet on `master`.
-
 This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine definitions. It is a mechanistic counterfactual, not a calibrated market forecast or trading signal.
 
 ## Run the observer
@@ -46,3 +44,8 @@ A defensible maker-side simulator needs more contiguous days, a model of event s
 ## Research basis
 
 The small exchange/agent design is inspired by [ABIDES](https://github.com/abides-sim/abides) and the state-dependent queue viewpoint of [Huang, Lehalle and Rosenbaum](https://arxiv.org/abs/1312.0563). This code does not reuse ABIDES or implement the full queue-reactive model.
+
+
+## Live simulation laboratory
+
+[Live ecology laboratory and mathematics](LIVE_ECOLOGY_LAB.md) connects fresh observations to frozen-book interventions and synthetic participant rollouts. Open `/ecology.html` on the deployed observer. Scenario assumptions and learned-policy limitations are shown in the dashboard.
