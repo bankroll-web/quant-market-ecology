@@ -6,6 +6,8 @@ This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine defi
 
 [Observed market ecology and price reactions](ECOLOGY_PRICE_MECHANICS.md) contains the six-recording statistical study, source/timing audit, conditional price distributions, frozen explanatory regressions, freshness checks and figure. It excludes windows with missing trade payloads or intersecting trade-ID gaps. Earlier strategy studies did not apply these stricter trade exclusions. Same-window explanations are not validated trading signals. The current free live observer uses Coinbase; historical BTCUSDT calibration is not automatically transferable to that venue.
 
+[Frozen replication on two additional periods](ECOLOGY_MECHANICS_REPLICATION.md) applies the original settings to the saved 26 May 03:00 and 09:00 books and trades. The liquidity-reinforcement contrast repeats, while extreme imbalance/depth ratios expose a severe frozen linear-calibration failure at 03:00. These are additional hours from the same archive, not new days or certified untouched final tests.
+
 ## Run the observer
 
 From the repository root, with Python 3.13:

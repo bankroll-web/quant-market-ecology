@@ -1,0 +1,217 @@
+{
+  "status": "frozen_additional_period_replication_not_untouched_final_test",
+  "baseline_commit": "cd587f84e104c2149f50ebd1ab71fb103b0c1160",
+  "baseline_sha256": "0fce731298694ce20b8ee626e02728fd56cc6744fc2aee090eca49f60be6d15c",
+  "implementation_sha256": {
+    "ecology_price_mechanics.py": "377bd045efe8f80b12c04778d3a9fe41bf9dc2eb369f3a8f7d3fd85f97744b42",
+    "book_changes.py": "84516859a7a7b58d177e70523d531af9180dbf03ea443e16705c695b9f1f1f43"
+  },
+  "hours": [
+    "2026-05-26_03",
+    "2026-05-26_09"
+  ],
+  "training_hour": "2026-05-25_00",
+  "thresholds": {
+    "high_trade_pressure": 0.0010578000616062236,
+    "thin_depth_btc": 364.226
+  },
+  "models": {
+    "trade_only": {
+      "center": [
+        -0.00017841527800350034
+      ],
+      "scale": [
+        0.003328440911467386
+      ],
+      "weights": [
+        0.18009846096175192
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    },
+    "book_only": {
+      "center": [
+        -0.11726288738784375
+      ],
+      "scale": [
+        3.4895722652426997
+      ],
+      "weights": [
+        0.2996621444420497
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    },
+    "joint": {
+      "center": [
+        -0.00017841527800350007,
+        -0.11726288738784378,
+        0.003080997058781175,
+        -0.167976990986164,
+        5.875085479928166,
+        -6.857111936837836e-05
+      ],
+      "scale": [
+        0.003328440911467384,
+        3.4895722652427033,
+        0.0759114682396836,
+        0.5441072010257155,
+        0.152757825479839,
+        0.0022590366947085
+      ],
+      "weights": [
+        0.10164919805989416,
+        0.24514416478328366,
+        0.02635135677384658,
+        0.06157917805967407,
+        0.002927057130615671,
+        -0.035749292717820014
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    }
+  },
+  "audits": {
+    "2026-05-26_03": {
+      "missing_trade_payload": 42,
+      "interior_gap": 72,
+      "no_same_episode_end": 465,
+      "end_sampling_lag": 2,
+      "windows": 1173,
+      "fresh_windows": 1082,
+      "recorded_window_seconds": 1189.668492315
+    },
+    "2026-05-26_09": {
+      "interior_gap": 189,
+      "missing_trade_payload": 37,
+      "no_same_episode_end": 396,
+      "end_sampling_lag": 2,
+      "windows": 1116,
+      "fresh_windows": 950,
+      "recorded_window_seconds": 1131.101106142
+    }
+  },
+  "source_audit": {
+    "2026-05-26_03": {
+      "sources": {
+        "BTCUSDT_orderbook_2026-05-26_03.parquet": {
+          "bytes": 8226461,
+          "sha256": "86d18df8fc215ba43c3d4fc378cd44a0caf6078954f71ff98d8aec9de7153ddb",
+          "rows": 2162605
+        },
+        "BTCUSDT_trades_2026-05-26_03.parquet": {
+          "bytes": 799517,
+          "sha256": "37764125bcec9d95778e7794aedeb2ad9daae3c8706632e37d4c2e234676c5e8",
+          "rows": 73520
+        }
+      },
+      "trade_integrity": {
+        "duplicate_trade_ids": 0,
+        "backward_receipt_steps": 0,
+        "nonincreasing_trade_id_steps": 0,
+        "positive_id_gap_steps": 0,
+        "missing_trade_ids": 0,
+        "missing_payload_records": 140,
+        "nonpositive_or_nonfinite_qty": 0,
+        "nonpositive_or_nonfinite_price": 0,
+        "missing_maker_flags": 0,
+        "negative_age_trades": 0,
+        "age_ms_quantiles": {
+          "0.05": 117.2158516,
+          "0.5": 118.15313950000001,
+          "0.95": 361.08178025,
+          "0.99": 526.1885763999995
+        },
+        "fresh_250ms_fraction": 0.817981501632209
+      },
+      "reconstruction": {
+        "snapshots_loaded": 72,
+        "valid_snapshot_bridges": 33,
+        "valid_states": 49222,
+        "continuous_updates": 49189,
+        "calibration_intervals": 49143,
+        "exposure_seconds": 1322.815755705985,
+        "stale_updates_skipped": 82,
+        "invalid_snapshot_bridges": 3,
+        "valid_episodes": 33
+      }
+    },
+    "2026-05-26_09": {
+      "sources": {
+        "BTCUSDT_orderbook_2026-05-26_09.parquet": {
+          "bytes": 8316669,
+          "sha256": "57554e84de29dc1fbdbd2e94cb4449997f46bef51efa6cd2cd734d7f2a05c393",
+          "rows": 1915236
+        },
+        "BTCUSDT_trades_2026-05-26_09.parquet": {
+          "bytes": 570887,
+          "sha256": "eb5bb1582bf0255e37a6c0e7e06ccc7385e71f35699a88dcdf62781adb174b38",
+          "rows": 56454
+        }
+      },
+      "trade_integrity": {
+        "duplicate_trade_ids": 0,
+        "backward_receipt_steps": 0,
+        "nonincreasing_trade_id_steps": 0,
+        "positive_id_gap_steps": 0,
+        "missing_trade_ids": 0,
+        "missing_payload_records": 126,
+        "nonpositive_or_nonfinite_qty": 0,
+        "nonpositive_or_nonfinite_price": 0,
+        "missing_maker_flags": 0,
+        "negative_age_trades": 0,
+        "age_ms_quantiles": {
+          "0.05": 116.77748745,
+          "0.5": 118.0235725,
+          "0.95": 610.10468655,
+          "0.99": 1341.60273888
+        },
+        "fresh_250ms_fraction": 0.7672087008892196
+      },
+      "reconstruction": {
+        "snapshots_loaded": 76,
+        "valid_snapshot_bridges": 35,
+        "valid_states": 50991,
+        "continuous_updates": 50956,
+        "calibration_intervals": 50898,
+        "exposure_seconds": 1376.7682812380074,
+        "stale_updates_skipped": 91,
+        "invalid_snapshot_bridges": 3,
+        "valid_episodes": 35
+      }
+    }
+  },
+  "processed_book_sha256": {
+    "2026-05-26_03": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8",
+    "2026-05-26_09": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36"
+  },
+  "methods": {
+    "window": "Approximately one second, disjoint interiors, post-state t0 to t1; book changes and trades use (t0,t1].",
+    "ofi": "Indicator-weighted changes of best bid/ask price and queue size, accumulated across received update bundles.",
+    "confidence": "1000 one-minute block bootstrap draws; conditional mean/probability intervals include zero-eligible observed minute blocks. Exploratory and not multiple-comparison adjusted.",
+    "information": "Three-state sign mutual information with 200 whole-minute-block shuffles. Exchangeability across minutes is unverified; this is not a causal or calibrated significance test."
+  },
+  "limitations": [
+    "Six selected discontinuous hours over two days, all previously inspected; no untouched final evaluation.",
+    "Anonymous L2 cannot identify makers, institutions, retail, informed traders, intent, cancellations separately from execution, or signed option inventory.",
+    "Batched L2 OFI is an observed quote-change statistic, not a complete sequence of individual order events.",
+    "Same-window book/OFI includes price-changing quotes: explanatory fit partly mechanical and not forward prediction.",
+    "Trade and book channels are aligned by receipt time, not proven matching-engine causal order; message clocks and delays can differ.",
+    "Near-touch changes use each update pre-midpoint; price-band movement and unknown deeper levels affect interpretation.",
+    "Thin/deep groups are not matched for trade size or volatility; pressure thresholds already normalize by depth, so group differences do not estimate a causal depth effect.",
+    "Forward means condition on observable endpoints and verified paths; missingness can bias their distributions.",
+    "Bootstrap intervals describe within-hour dependence under block assumptions, not across-day robustness or participant causality.",
+    "No fees, execution, profitability, policy promotion or historical-to-live venue transfer is implied.",
+    "These are additional hours from the same two-day archive, not additional contiguous days. Earlier project work may have inspected them; untouched status is not established.",
+    "09:00 book comes from a legacy CSV export. Decimal update IDs are safely cast without float inference, but CSV precision or provenance lost before this export cannot be restored."
+  ],
+  "csv_conversion": {
+    "source": "BTCUSDT_orderbook_2026-05-26_09.csv",
+    "source_sha256": "b03f51931495254bf0153bfc23ba57c6db10bcd07500dda363fb6b66ff122316",
+    "source_bytes": 255620367,
+    "output": "BTCUSDT_orderbook_2026-05-26_09.parquet",
+    "output_sha256": "57554e84de29dc1fbdbd2e94cb4449997f46bef51efa6cd2cd734d7f2a05c393",
+    "rows": 1915236,
+    "method": "Streaming Arrow CSV; int64 timestamps; exact decimal update IDs safely cast to int64. Selected replay columns only."
+  }
+}

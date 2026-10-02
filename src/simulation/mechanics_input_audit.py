@@ -9,9 +9,9 @@ from .book_changes import plain
 from .ecology_price_mechanics import HOURS
 
 
-def audit(raw_dir,recovered_dir,states_dir):
+def audit(raw_dir,recovered_dir,states_dir,hours=HOURS):
     report={}
-    for hour in HOURS:
+    for hour in hours:
         candidates=list(Path(recovered_dir).glob(f'BTCUSDT_orderbook_{hour}*.parquet')) or list(Path(raw_dir).glob(f'BTCUSDT_orderbook_{hour}*.parquet'))
         # Midnight must use the complete recovered original, never a truncated copy.
         bp=sorted(candidates)[0];tp=Path(raw_dir)/f'BTCUSDT_trades_{hour}.parquet'
