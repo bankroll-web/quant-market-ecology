@@ -67,7 +67,7 @@ class KrakenObserver(DepthObserver):
     def view(self,now_ns):
         result=super().view(now_ns)
         result.update(sequence_valid=None,book_validated=self.valid,
-                      validation=self.validation,local_update_count=self.counter)
+                      local_update_count=self.counter)
         return result
 
 

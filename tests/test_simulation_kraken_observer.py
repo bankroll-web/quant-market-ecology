@@ -36,3 +36,20 @@ class KrakenTests(unittest.TestCase):
         self.assertEqual(len(observer.bids),1)
         self.assertIsNone(observer.view(1_100_000_000)['mid'])
         self.assertIsNone(observer.view(1_100_000_000)['receipt_minus_event_ms'])
+
+    def test_output_publishes_both_unavailable_and_live_kraken_states(self):
+        import json,tempfile
+        from pathlib import Path
+        from src.simulation.live_observer import Output
+        with tempfile.TemporaryDirectory() as directory:
+            out=Output(directory);observer=KrakenObserver()
+            out.publish(observer,1_100_000_000)
+            self.assertEqual(json.loads((Path(directory)/"state.json").read_text())["provider"],"Kraken")
+            self.assertEqual(json.loads((Path(directory)/"ecology.json").read_text())["status"],"paused")
+            observer.update_kraken(self.message(),1_100_000_000)
+            out.publish(observer,1_100_000_000)
+            data=json.loads((Path(directory)/"ecology.json").read_text())
+            self.assertEqual(data["status"],"running")
+            self.assertEqual(data["quote_currency"],"USD")
+            self.assertEqual(data["rollouts"]["baseline"]["inventory_sum_btc"],0)
+            self.assertIn("BTC/USD",json.loads((Path(directory)/"state.json").read_text())["symbol"])
