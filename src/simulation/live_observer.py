@@ -264,7 +264,7 @@ def main():
     parser.add_argument('--archive',type=Path,default=os.environ.get('CAPTURE_ARCHIVE_DIR'))
     parser.add_argument('--seconds',type=float,default=60)
     parser.add_argument('--replay',type=Path)
-    parser.add_argument('--provider',choices=('binance','kraken'),default='binance')
+    parser.add_argument('--provider',choices=('binance','kraken','coinbase'),default='binance')
     parser.add_argument('--serve',action='store_true')
     parser.add_argument('--port',type=int,default=int(os.environ.get('PORT','8765')))
     parser.add_argument('--host',default='127.0.0.1',help='Use 0.0.0.0 only in an authorized cloud deployment')
@@ -281,7 +281,10 @@ def main():
         if args.replay:
             replay(args.replay,out)
         else:
-            if args.provider=='kraken':
+            if args.provider=='coinbase':
+                from .coinbase_observer import live_coinbase
+                asyncio.run(live_coinbase(out,args.seconds))
+            elif args.provider=='kraken':
                 from .kraken_observer import live_kraken
                 asyncio.run(live_kraken(out,args.seconds))
             else:
