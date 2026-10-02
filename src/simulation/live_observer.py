@@ -131,6 +131,20 @@ class Output:
         tmp.replace(self.directory/'ecology.json')
 
 
+def retry_delay(error):
+    status = getattr(error, 'status', None)
+    if status not in (418, 429):
+        return 2.
+    headers = getattr(error, 'headers', None) or {}
+    try:
+        supplied = float(headers.get('Retry-After', ''))
+    except (ValueError, TypeError):
+        supplied = 0.
+    if not math.isfinite(supplied):
+        supplied = 0.
+    return max(300. if status == 418 else 60., supplied)
+
+
 async def live(out, seconds):
     import aiohttp
     observer = DepthObserver()
@@ -177,13 +191,19 @@ async def live(out, seconds):
                         await asyncio.gather(task,return_exceptions=True)
             except (aiohttp.ClientError, asyncio.TimeoutError, RuntimeError, ValueError, KeyError) as error:
                 restricted = getattr(error, 'status', None) == 451
-                observer.invalidate('restricted_location' if restricted else 'reconnecting')
+                observer.invalidate('restricted_location' if restricted else 'provider_cooldown' if getattr(error,'status',None) in (418,429) else 'reconnecting')
                 out.capture('disconnect',dict(error=str(error)),time.time_ns())
                 out.publish(observer,time.time_ns())
                 print('Connection unavailable:',str(error),flush=True)
                 if restricted:
                     return
-                await asyncio.sleep(min(2,max(0,deadline-time.monotonic())))
+                delay = retry_delay(error)
+                # Publish unavailable state throughout cooldown without opening new connections.
+                until = min(deadline, time.monotonic()+delay)
+                print(f'Retrying after at least {delay:.0f} seconds',flush=True)
+                while time.monotonic() < until:
+                    out.publish(observer,time.time_ns())
+                    await asyncio.sleep(min(1,max(0,until-time.monotonic())))
         observer.invalidate('stopped')
         out.publish(observer,time.time_ns())
 

@@ -56,3 +56,14 @@ class LiveObserverTest(unittest.TestCase):
         self.assertFalse(observer.update(wrong,1_100_000_000))
         observer.update(update(first=101,final=103),1_100_000_000)
         self.assertEqual(observer.reason,'snapshot_bridge_gap')
+
+
+class ProviderCooldownTest(unittest.TestCase):
+    def test_ban_and_rate_limit_respect_retry_after(self):
+        from types import SimpleNamespace
+        from src.simulation.live_observer import retry_delay
+        self.assertEqual(retry_delay(SimpleNamespace(status=418,headers={"Retry-After":"1200"})),1200)
+        self.assertEqual(retry_delay(SimpleNamespace(status=429,headers={"Retry-After":"90"})),90)
+        self.assertEqual(retry_delay(SimpleNamespace(status=418,headers={})),300)
+        self.assertEqual(retry_delay(SimpleNamespace(status=429,headers={"Retry-After":"nan"})),60)
+        self.assertEqual(retry_delay(SimpleNamespace(status=500,headers={})),2)
