@@ -1,5 +1,6 @@
 """Public Coinbase Exchange BTC-USD batched L2 and matches; no credentials."""
 import asyncio
+import copy
 from datetime import datetime
 from decimal import Decimal
 import json
@@ -95,6 +96,15 @@ class CoinbaseObserver(KrakenObserver):
                                   side='buy' if side == 'sell' else 'sell'), received_ns)
 
 
+def publish_coinbase(out, observer, now_ns):
+    # Keep the authoritative full book, but bound display/scenario copies to 100 levels.
+    display = copy.copy(observer)
+    display.bids = {p: observer.bids[p] for p in sorted(observer.bids, reverse=True)[:100]}
+    display.asks = {p: observer.asks[p] for p in sorted(observer.asks)[:100]}
+    display.validation += '; display and scenarios limited to 100 levels/side'
+    out.publish(display, now_ns)
+
+
 async def live_coinbase(out, seconds):
     import aiohttp
     observer = CoinbaseObserver()
@@ -105,7 +115,7 @@ async def live_coinbase(out, seconds):
         while time.monotonic() < deadline:
             observer.trade_subscribed = False
             observer.invalidate('connecting')
-            out.publish(observer, time.time_ns())
+            publish_coinbase(out, observer, time.time_ns())
             try:
                 async with session.ws_connect(STREAM, heartbeat=20, max_msg_size=2**24) as ws:
                     await ws.send_json(dict(type='subscribe', product_ids=[observer.symbol],
@@ -115,7 +125,7 @@ async def live_coinbase(out, seconds):
                         try:
                             message = await ws.receive(timeout=1)
                         except asyncio.TimeoutError:
-                            out.publish(observer, time.time_ns())
+                            publish_coinbase(out, observer, time.time_ns())
                             if time.monotonic() - connected > 30 and (observer.received_ns is None or time.time_ns() - observer.received_ns > 30_000_000_000):
                                 raise RuntimeError('book_updates_silent_30_seconds')
                             continue
@@ -139,7 +149,7 @@ async def live_coinbase(out, seconds):
                         if time.monotonic() - connected > 30 and (observer.received_ns is None or received - observer.received_ns > 30_000_000_000):
                             raise RuntimeError('book_updates_silent_30_seconds')
                         if time.monotonic() - last_publish >= .25:
-                            out.publish(observer, time.time_ns())
+                            publish_coinbase(out, observer, time.time_ns())
                             last_publish = time.monotonic()
             except (aiohttp.ClientError, asyncio.TimeoutError, RuntimeError, ValueError, KeyError) as error:
                 observer.trade_subscribed = False
@@ -150,7 +160,7 @@ async def live_coinbase(out, seconds):
                 print(f'Coinbase unavailable: {error}; retry in {delay}s', flush=True)
                 until = min(deadline, time.monotonic() + delay)
                 while time.monotonic() < until:
-                    out.publish(observer, time.time_ns())
+                    publish_coinbase(out, observer, time.time_ns())
                     await asyncio.sleep(min(1, max(0, until-time.monotonic())))
         observer.invalidate('stopped')
-        out.publish(observer, time.time_ns())
+        publish_coinbase(out, observer, time.time_ns())
