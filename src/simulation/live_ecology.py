@@ -45,12 +45,12 @@ def experiment(bids, asks, signed_btc, liquidity_fraction=1., gamma=0.):
     second = walk(first['bids'], first['asks'], hedge) if hedge else first
     after = second['midpoint']
     return dict(order_btc=signed_btc, liquidity_fraction=liquidity_fraction,
-                assumed_gamma_btc_per_usdt=gamma, initiating_filled_btc=first['filled_btc'],
+                assumed_gamma_btc_per_quote=gamma, initiating_filled_btc=first['filled_btc'],
                 initiating_unfilled_btc=first['unfilled_btc'], initiating_vwap=first['vwap'],
                 hedge_signed_btc=hedge, hedge_filled_btc=second['filled_btc'] if hedge else 0.,
                 hedge_unfilled_btc=second['unfilled_btc'] if hedge else 0.,
                 midpoint_before=before, midpoint_after=after,
-                move_usdt=after-before if after is not None else None,
+                move_quote=after-before if after is not None else None,
                 move_bps=(after/before-1)*10000 if after is not None else None,
                 book_exhausted=after is None)
 

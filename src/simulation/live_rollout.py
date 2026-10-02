@@ -66,12 +66,12 @@ def rollout(bids, asks, withdrawal=False, signed_gamma=0., seed=71, seconds=30):
                           maker_B_inventory_btc=book.inventory['maker_B']*book.lot,
                           hedge_signed_btc=hedge*book.lot))
     participants=[dict(role=owner,inventory_btc=book.inventory[owner]*book.lot,
-                       cash_usdt=book.cash[owner],marked_wealth_usdt=book.wealth(owner,anchor),
+                       cash_quote=book.cash[owner],marked_wealth_quote=book.wealth(owner,anchor),
                        filled_btc=book.filled[owner]*book.lot)
                   for owner in ['anonymous_background','maker_A','maker_B','simulated_retail',
                                 'simulated_institution','assumed_gamma_dealer']]
     return dict(status='synthetic',seed=seed,seconds=seconds,trace=trace,participants=participants,
-                total_paid_fees_usdt=fees,inventory_sum_btc=sum(book.inventory.values())*book.lot,
+                total_paid_fees_quote=fees,inventory_sum_btc=sum(book.inventory.values())*book.lot,
                 quantization_dropped_btc=dropped,initial_midpoint=base_mid,
-                assumed_gamma_btc_per_usdt=signed_gamma,
+                assumed_gamma_btc_per_quote=signed_gamma,
                 assumptions='20 levels/side; 0.10 USDT tick, 0.01 BTC lot; invented FIFO queues; frozen anchor; Hawkes mu=1.2, alpha_self=.5, alpha_cross=.1, beta=1.5; institution buys 1 BTC at 10s, sells 1 BTC at 20s; maker cap ±.20 BTC; dealer cap ±.50 BTC; maker fee 1 bp, taker 2 bps; inventory-skew baseline, no trained policy; no latency or background replenishment.')

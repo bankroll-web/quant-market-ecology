@@ -7,4 +7,4 @@ RUN mkdir -p /app/data/live && useradd --uid 10001 --create-home observer && cho
 USER observer
 ENV PORT=10000
 EXPOSE 10000
-CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "86400", "--serve", "--host", "0.0.0.0"]
+CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "86400", "--provider", "kraken", "--serve", "--host", "0.0.0.0"]

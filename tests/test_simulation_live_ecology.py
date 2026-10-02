@@ -64,8 +64,8 @@ class LiveEcologyTests(unittest.TestCase):
         result=rollout(self.bids,self.asks)
         self.assertEqual(result,rollout(self.bids,self.asks))
         self.assertEqual(result['inventory_sum_btc'],0)
-        self.assertAlmostEqual(sum(p['cash_usdt'] for p in result['participants']),-result['total_paid_fees_usdt'])
-        self.assertAlmostEqual(sum(p['marked_wealth_usdt'] for p in result['participants']),-result['total_paid_fees_usdt'])
+        self.assertAlmostEqual(sum(p['cash_quote'] for p in result['participants']),-result['total_paid_fees_quote'])
+        self.assertAlmostEqual(sum(p['marked_wealth_quote'] for p in result['participants']),-result['total_paid_fees_quote'])
         for row in result['trace']:
             self.assertLessEqual(abs(row['maker_A_inventory_btc']),.2+1e-10)
             self.assertLessEqual(abs(row['maker_B_inventory_btc']),.2+1e-10)

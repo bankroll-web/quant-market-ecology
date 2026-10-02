@@ -17,6 +17,11 @@ STREAM = 'wss://fstream.binance.com/public/stream?streams=btcusdt@depth@100ms'
 
 
 class DepthObserver:
+    provider='Binance'
+    symbol='BTCUSDT'
+    product='USD-M futures'
+    quote_currency='USDT'
+    validation='Futures snapshot bridge and pu update continuity'
     def __init__(self, max_age_ms=250):
         self.max_age_ms = max_age_ms
         self.bids, self.asks = {}, {}
@@ -80,7 +85,7 @@ class DepthObserver:
 
     def view(self, now_ns):
         since = (now_ns - self.received_ns) / 1e6 if self.received_ns is not None else None
-        age = (self.received_ns - self.event_ms * 1_000_000) / 1e6 if self.received_ns is not None else None
+        age = (self.received_ns - self.event_ms * 1_000_000) / 1e6 if self.received_ns is not None and self.event_ms is not None else None
         usable = self.valid and since is not None and age is not None and 0 <= since <= self.max_age_ms and 0 <= age <= self.max_age_ms
         research_usable = usable and age <= 250 and since <= 250
         status = self.reason if not self.valid else ('fresh' if research_usable else 'live_delayed') if usable else 'stale_or_clock_warning'
@@ -128,12 +133,14 @@ class Output:
     def publish(self, observer, now_ns):
         view = observer.view(now_ns)
         self.history.append(dict(time_ms=now_ns//1_000_000, mid=view['mid']))
-        content = dict(mode=self.mode, symbol='BTCUSDT', product='USD-M futures', read_only=True,
+        market=dict(provider=observer.provider,symbol=observer.symbol,product=observer.product,quote_currency=observer.quote_currency,validation=observer.validation)
+        content = dict(mode=self.mode, **market, read_only=True,
                        generated_ns=now_ns, **view, history=list(self.history))
         tmp = self.directory/'state.tmp'
         tmp.write_text(json.dumps(content))
         tmp.replace(self.directory/'state.json')
-        ecology = dict(mode=self.mode, generated_ns=now_ns, **self.ecology.update(observer,now_ns))
+        ecology = dict(mode=self.mode, **market, generated_ns=now_ns, **self.ecology.update(observer,now_ns))
+        ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))
         tmp.replace(self.directory/'ecology.json')
@@ -239,7 +246,7 @@ def replay(path, out):
     return observer
 
 
-PAGE = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market ecology observer</title><style>body{font:17px system-ui;background:#101827;color:#e8edf6;max-width:1100px;margin:30px auto;padding:20px}.cards{display:flex;flex-wrap:wrap;gap:12px}.card{background:#1c2a40;padding:16px;border-radius:12px;min-width:160px}strong{font-size:25px}canvas{width:100%;height:300px;background:#1c2a40;margin-top:20px}table{display:inline-table;width:48%;padding:12px;text-align:right}p{line-height:1.5;color:#bccadd}</style><h1>Bitcoin market ecology · Read-only observer</h1><p><a href="ecology.html" style="color:#63d0c6">Open the live simulation laboratory →</a></p><p>Live view accepts synchronized updates up to 2 seconds old and labels delay; the stricter research-quality cutoff remains 250 ms. Recorded or live order-book observations. No trading decisions or orders. Empty prices mean the book is unavailable or stale.</p><div id="status">Waiting for observations…</div><div class="cards" id="cards"></div><canvas id="chart"></canvas><div id="depth"></div><p>This view shows anonymous displayed liquidity. It does not identify institutions or dealers. Depth is limited to the snapshot and received updates; timestamp age includes clock differences.</p><script>const fmt=x=>x==null?'—':Number(x).toFixed(3);async function draw(){try{const r=await fetch('state.json',{cache:'no-store'});if(!r.ok)throw Error('unavailable');const s=await r.json();const pageAge=Date.now()-s.generated_ns/1e6;if(s.mode!=='replay'&&pageAge>2000){document.getElementById('status').textContent='Observer offline · data not current';document.getElementById('cards').textContent='';document.getElementById('depth').textContent='';document.getElementById('chart').getContext('2d').clearRect(0,0,2000,2000);return}document.getElementById('status').textContent=(s.usable?'LIVE · '+(s.research_usable?'fast feed':'delayed feed'):s.status)+' · receipt/event age '+fmt(s.receipt_minus_event_ms)+' ms · silence '+fmt(s.silence_ms)+' ms · update '+s.last_update_id;document.getElementById('cards').innerHTML=[['Midpoint',s.mid],['Spread',s.spread],['Top imbalance',s.top_obi],['Bid depth BTC',s.bid_depth_10bps],['Ask depth BTC',s.ask_depth_10bps]].map(([k,v])=>`<div class="card">${k}<br><strong>${fmt(v)}</strong></div>`).join('');document.getElementById('depth').innerHTML=[['Bids',s.bids],['Asks',s.asks]].map(([label,rows])=>`<table><tr><th>${label}: price</th><th>BTC</th></tr>${rows.map(([p,q])=>`<tr><td>${fmt(p)}</td><td>${fmt(q)}</td></tr>`).join('')}</table>`).join('');let el=document.getElementById('chart');el.width=el.clientWidth;el.height=300;let c=el.getContext('2d'),v=s.history.filter(x=>x.mid!=null);if(!v.length)return;let lo=Math.min(...v.map(x=>x.mid)),hi=Math.max(...v.map(x=>x.mid));if(hi===lo){lo-=.1;hi+=.1}let first=s.history[0].time_ms,last=s.history.at(-1).time_ms;c.strokeStyle='#63d0c6';c.beginPath();let active=false;for(let p of s.history){if(p.mid==null){active=false;continue}let x=20+(p.time_ms-first)/Math.max(1,last-first)*(el.width-40),y=20+(hi-p.mid)/(hi-lo)*260;if(active)c.lineTo(x,y);else c.moveTo(x,y);active=true}c.stroke();c.fillStyle='#e8edf6';c.fillText('Midpoint · '+fmt(lo)+' to '+fmt(hi)+' USDT',20,15)}catch(e){document.getElementById('status').textContent='Cannot load observations';document.getElementById('cards').textContent='';document.getElementById('depth').textContent=''}}draw();setInterval(draw,500)</script></html>'''
+PAGE = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market ecology observer</title><style>body{font:17px system-ui;background:#101827;color:#e8edf6;max-width:1100px;margin:30px auto;padding:20px}.cards{display:flex;flex-wrap:wrap;gap:12px}.card{background:#1c2a40;padding:16px;border-radius:12px;min-width:160px}strong{font-size:25px}canvas{width:100%;height:300px;background:#1c2a40;margin-top:20px}table{display:inline-table;width:48%;padding:12px;text-align:right}p{line-height:1.5;color:#bccadd}</style><h1>Bitcoin market ecology · Read-only observer</h1><p><a href="ecology.html" style="color:#63d0c6">Open the live simulation laboratory →</a></p><p>Live view accepts synchronized updates up to 2 seconds old and labels delay; the stricter research-quality cutoff remains 250 ms. Recorded or live order-book observations. No trading decisions or orders. Empty prices mean the book is unavailable or stale.</p><p id="market"></p><div id="status">Waiting for observations…</div><div class="cards" id="cards"></div><canvas id="chart"></canvas><div id="depth"></div><p>This view shows anonymous displayed liquidity. It does not identify institutions or dealers. Depth is limited to the snapshot and received updates; timestamp age includes clock differences.</p><script>const fmt=x=>x==null?'—':Number(x).toFixed(3);async function draw(){try{const r=await fetch('state.json',{cache:'no-store'});if(!r.ok)throw Error('unavailable');const s=await r.json();document.getElementById('market').textContent=s.provider+' · '+s.symbol+' · '+s.product+' · '+s.validation;const pageAge=Date.now()-s.generated_ns/1e6;if(s.mode!=='replay'&&pageAge>2000){document.getElementById('status').textContent='Observer offline · data not current';document.getElementById('cards').textContent='';document.getElementById('depth').textContent='';document.getElementById('chart').getContext('2d').clearRect(0,0,2000,2000);return}document.getElementById('status').textContent=(s.usable?'LIVE · '+(s.research_usable?'fast feed':'delayed feed'):s.status)+' · receipt/event age '+fmt(s.receipt_minus_event_ms)+' ms · silence '+fmt(s.silence_ms)+' ms · update '+s.last_update_id;document.getElementById('cards').innerHTML=[['Midpoint',s.mid],['Spread',s.spread],['Top imbalance',s.top_obi],['Bid depth BTC',s.bid_depth_10bps],['Ask depth BTC',s.ask_depth_10bps]].map(([k,v])=>`<div class="card">${k}<br><strong>${fmt(v)}</strong></div>`).join('');document.getElementById('depth').innerHTML=[['Bids',s.bids],['Asks',s.asks]].map(([label,rows])=>`<table><tr><th>${label}: price</th><th>BTC</th></tr>${rows.map(([p,q])=>`<tr><td>${fmt(p)}</td><td>${fmt(q)}</td></tr>`).join('')}</table>`).join('');let el=document.getElementById('chart');el.width=el.clientWidth;el.height=300;let c=el.getContext('2d'),v=s.history.filter(x=>x.mid!=null);if(!v.length)return;let lo=Math.min(...v.map(x=>x.mid)),hi=Math.max(...v.map(x=>x.mid));if(hi===lo){lo-=.1;hi+=.1}let first=s.history[0].time_ms,last=s.history.at(-1).time_ms;c.strokeStyle='#63d0c6';c.beginPath();let active=false;for(let p of s.history){if(p.mid==null){active=false;continue}let x=20+(p.time_ms-first)/Math.max(1,last-first)*(el.width-40),y=20+(hi-p.mid)/(hi-lo)*260;if(active)c.lineTo(x,y);else c.moveTo(x,y);active=true}c.stroke();c.fillStyle='#e8edf6';c.fillText('Midpoint · '+fmt(lo)+' to '+fmt(hi)+' '+s.quote_currency,20,15)}catch(e){document.getElementById('status').textContent='Cannot load observations';document.getElementById('cards').textContent='';document.getElementById('depth').textContent=''}}draw();setInterval(draw,500)</script></html>'''
 
 
 def main():
@@ -247,6 +254,7 @@ def main():
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--seconds',type=float,default=60)
     parser.add_argument('--replay',type=Path)
+    parser.add_argument('--provider',choices=('binance','kraken'),default='binance')
     parser.add_argument('--serve',action='store_true')
     parser.add_argument('--port',type=int,default=int(os.environ.get('PORT','8765')))
     parser.add_argument('--host',default='127.0.0.1',help='Use 0.0.0.0 only in an authorized cloud deployment')
@@ -263,7 +271,11 @@ def main():
         if args.replay:
             replay(args.replay,out)
         else:
-            asyncio.run(live(out,args.seconds))
+            if args.provider=='kraken':
+                from .kraken_observer import live_kraken
+                asyncio.run(live_kraken(out,args.seconds))
+            else:
+                asyncio.run(live(out,args.seconds))
     finally:
         if server: server.shutdown()
 
