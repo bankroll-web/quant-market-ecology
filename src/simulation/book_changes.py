@@ -40,6 +40,10 @@ def state(bids,asks):
     da=sum(q for p,q in asks.items() if p<=mid*1.001)
     return mid,(qb-qa)/(qb+qa),db,da,bid,ask
 
+def best_quote_ofi(previous_bid,previous_bid_qty,previous_ask,previous_ask_qty,bid,bid_qty,ask,ask_qty):
+    return ((bid_qty if bid>=previous_bid else 0.)-(previous_bid_qty if bid<=previous_bid else 0.)
+            -(ask_qty if ask<=previous_ask else 0.)+(previous_ask_qty if ask>=previous_ask else 0.))
+
 def replay(path,out):
     events=grouped(path);counts=Counter();bids={};asks={}
     valid=False;waiting=False;sequence=None;snapshot_id=None;previous_received=None;episode=0
@@ -92,6 +96,9 @@ def replay(path,out):
                      'exposure_seconds':dt,'pre_mid':mid,'pre_obi_top':obi,
                      'pre_bid_top_qty':pre_bid_qty, 'pre_ask_top_qty':pre_ask_qty,
                      'pre_bid_depth_10bps':db,'pre_ask_depth_10bps':da,
+                     'pre_best_bid':bid,'pre_best_ask':ask,
+                     'post_bid_top_qty':bids[post_bid],'post_ask_top_qty':asks[post_ask],
+                     'best_quote_ofi_btc':best_quote_ofi(bid,pre_bid_qty,ask,pre_ask_qty,post_bid,bids[post_bid],post_ask,asks[post_ask]),
                      'post_mid':post_mid,'post_best_bid':post_bid,'post_best_ask':post_ask,
                      'post_spread':post_ask-post_bid,'post_obi_top':post_obi,
                      'post_bid_depth_10bps':post_db,'post_ask_depth_10bps':post_da,
@@ -106,6 +113,6 @@ def replay(path,out):
 if __name__=='__main__':
     ap=argparse.ArgumentParser();ap.add_argument('files',nargs='+',type=Path);ap.add_argument('--out',type=Path,required=True);a=ap.parse_args();a.out.mkdir(exist_ok=True,parents=True)
     for path in a.files:
-        out=a.out/(path.stem.replace('(1)','')+'_observed_changes.csv')
+        out=a.out/(path.stem.replace('(1)','').replace('(2)','')+'_observed_changes.csv')
         result=replay(path,out);print(path.name,json.dumps(result,indent=2))
         out.with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n')

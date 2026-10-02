@@ -2,6 +2,10 @@
 
 This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine definitions. It is a mechanistic counterfactual, not a calibrated market forecast or trading signal.
 
+## Measured ecology and price reactions — October 2026
+
+[Observed market ecology and price reactions](ECOLOGY_PRICE_MECHANICS.md) contains the six-recording statistical study, source/timing audit, conditional price distributions, frozen explanatory regressions, freshness checks and figure. It excludes windows with missing trade payloads or intersecting trade-ID gaps. Earlier strategy studies did not apply these stricter trade exclusions. Same-window explanations are not validated trading signals. The current free live observer uses Coinbase; historical BTCUSDT calibration is not automatically transferable to that venue.
+
 ## Run the observer
 
 From the repository root, with Python 3.13:

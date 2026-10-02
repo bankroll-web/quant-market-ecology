@@ -1,0 +1,266 @@
+{
+  "2026-05-25_00": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-25_00(2).parquet": {
+        "bytes": 8872131,
+        "sha256": "6c252e43e31abc3ff24a79fbde4fdda8fc1421533a7de329c1925146cbcfb474",
+        "rows": 3128703
+      },
+      "BTCUSDT_trades_2026-05-25_00.parquet": {
+        "bytes": 1418619,
+        "sha256": "17e184557837f27999c1133433f02ba274fb065b6ae40923dd6ccadf523de942",
+        "rows": 124145
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 0,
+      "missing_trade_ids": 0,
+      "missing_payload_records": 135,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 117.21474380000001,
+        "0.5": 119.476471,
+        "0.95": 519.1574551999997,
+        "0.99": 1580.8503550399998
+      },
+      "fresh_250ms_fraction": 0.7788070401546578
+    },
+    "reconstruction": {
+      "snapshots_loaded": 729,
+      "valid_snapshot_bridges": 340,
+      "valid_states": 42839,
+      "continuous_updates": 42499,
+      "calibration_intervals": 42466,
+      "exposure_seconds": 1145.4027962020034,
+      "stale_updates_skipped": 918,
+      "invalid_snapshot_bridges": 24,
+      "valid_episodes": 340
+    }
+  },
+  "2026-05-25_04": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-25_04(1).parquet": {
+        "bytes": 3509493,
+        "sha256": "9b2a0a4113b3973ab4fac9141c0a20731c4b896b21e67ac8a73f95932ece2e75",
+        "rows": 1088645
+      },
+      "BTCUSDT_trades_2026-05-25_04.parquet": {
+        "bytes": 863082,
+        "sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b",
+        "rows": 77822
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 0,
+      "missing_trade_ids": 0,
+      "missing_payload_records": 109,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 115.53608704999999,
+        "0.5": 116.9458485,
+        "0.95": 967.5978244999956,
+        "0.99": 2859.16375587
+      },
+      "fresh_250ms_fraction": 0.7555061550718306
+    },
+    "reconstruction": {
+      "snapshots_loaded": 270,
+      "valid_snapshot_bridges": 122,
+      "valid_states": 23749,
+      "continuous_updates": 23627,
+      "calibration_intervals": 23614,
+      "exposure_seconds": 636.1528293999975,
+      "stale_updates_skipped": 307,
+      "invalid_snapshot_bridges": 13,
+      "valid_episodes": 122
+    }
+  },
+  "2026-05-25_12": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-25_12(1).parquet": {
+        "bytes": 7871059,
+        "sha256": "d6ca20c84acf58204deee2c4a4d77170bf7b4c06252592398f99040b85a4b788",
+        "rows": 2417986
+      },
+      "BTCUSDT_trades_2026-05-25_12.parquet": {
+        "bytes": 724764,
+        "sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c",
+        "rows": 65031
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 0,
+      "missing_trade_ids": 0,
+      "missing_payload_records": 122,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 115.80044649999999,
+        "0.5": 116.824134,
+        "0.95": 560.7949335000001,
+        "0.99": 1262.3881993
+      },
+      "fresh_250ms_fraction": 0.765465700973382
+    },
+    "reconstruction": {
+      "snapshots_loaded": 494,
+      "valid_snapshot_bridges": 234,
+      "valid_states": 55811,
+      "continuous_updates": 55577,
+      "calibration_intervals": 55555,
+      "exposure_seconds": 1504.5334821830058,
+      "stale_updates_skipped": 645,
+      "invalid_snapshot_bridges": 8,
+      "valid_episodes": 234
+    }
+  },
+  "2026-05-25_18": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-25_18(1).parquet": {
+        "bytes": 7415257,
+        "sha256": "5da73308012697bd98d11a064515d3723da1164f374dca361f5fab2f60fc4df5",
+        "rows": 2151171
+      },
+      "BTCUSDT_trades_2026-05-25_18.parquet": {
+        "bytes": 359649,
+        "sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77",
+        "rows": 34550
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 0,
+      "missing_trade_ids": 0,
+      "missing_payload_records": 66,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 116.0717343,
+        "0.5": 117.2385765,
+        "0.95": 354.7493040999993,
+        "0.99": 555.9318611900001
+      },
+      "fresh_250ms_fraction": 0.8008393632416787
+    },
+    "reconstruction": {
+      "snapshots_loaded": 212,
+      "stale_updates_skipped": 295,
+      "valid_snapshot_bridges": 103,
+      "valid_states": 57499,
+      "continuous_updates": 57396,
+      "calibration_intervals": 57366,
+      "exposure_seconds": 1565.2497652819982,
+      "invalid_snapshot_bridges": 3,
+      "valid_episodes": 103
+    }
+  },
+  "2026-05-26_15": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-26_15.parquet": {
+        "bytes": 14770799,
+        "sha256": "9b94141910e590ad8329204c6b11e2812e52da56dc2e4c98e4e9ce5882865c8e",
+        "rows": 4453246
+      },
+      "BTCUSDT_trades_2026-05-26_15.parquet": {
+        "bytes": 3032136,
+        "sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1",
+        "rows": 346798
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 5,
+      "missing_trade_ids": 24582,
+      "missing_payload_records": 324,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 116.53974895,
+        "0.5": 148.5046405,
+        "0.95": 2304.1606451999673,
+        "0.99": 6742.49085685
+      },
+      "fresh_250ms_fraction": 0.6208599818914757
+    },
+    "reconstruction": {
+      "snapshots_loaded": 542,
+      "valid_snapshot_bridges": 215,
+      "valid_states": 51067,
+      "continuous_updates": 50852,
+      "calibration_intervals": 50845,
+      "exposure_seconds": 1369.681951488,
+      "stale_updates_skipped": 718,
+      "invalid_snapshot_bridges": 7,
+      "valid_episodes": 215
+    }
+  },
+  "2026-05-26_21": {
+    "sources": {
+      "BTCUSDT_orderbook_2026-05-26_21.parquet": {
+        "bytes": 9886579,
+        "sha256": "2c4087341935d71efb0aba5b8ba1a68158ffd499cae547e499b6fd3a255bfec6",
+        "rows": 2781213
+      },
+      "BTCUSDT_trades_2026-05-26_21.parquet": {
+        "bytes": 571884,
+        "sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb",
+        "rows": 51018
+      }
+    },
+    "trade_integrity": {
+      "duplicate_trade_ids": 0,
+      "backward_receipt_steps": 0,
+      "nonincreasing_trade_id_steps": 0,
+      "positive_id_gap_steps": 0,
+      "missing_trade_ids": 0,
+      "missing_payload_records": 176,
+      "nonpositive_or_nonfinite_qty": 0,
+      "nonpositive_or_nonfinite_price": 0,
+      "missing_maker_flags": 0,
+      "negative_age_trades": 0,
+      "age_ms_quantiles": {
+        "0.05": 115.93432585000001,
+        "0.5": 117.66975049999999,
+        "0.95": 348.2091584,
+        "0.99": 498.42235885
+      },
+      "fresh_250ms_fraction": 0.8066760751107452
+    },
+    "reconstruction": {
+      "snapshots_loaded": 306,
+      "stale_updates_skipped": 389,
+      "valid_snapshot_bridges": 143,
+      "valid_states": 71608,
+      "continuous_updates": 71465,
+      "calibration_intervals": 71429,
+      "exposure_seconds": 1923.6982350639964,
+      "invalid_snapshot_bridges": 8,
+      "valid_episodes": 143
+    }
+  }
+}

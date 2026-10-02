@@ -1,0 +1,257 @@
+{
+  "status": "descriptive_ecology_research_not_causal_or_tradable",
+  "training_hour": "2026-05-25_00",
+  "hours": [
+    "2026-05-25_00",
+    "2026-05-25_04",
+    "2026-05-25_12",
+    "2026-05-25_18",
+    "2026-05-26_15",
+    "2026-05-26_21"
+  ],
+  "thresholds": {
+    "high_trade_pressure": 0.0010578000616062236,
+    "thin_depth_btc": 364.226
+  },
+  "features": [
+    "trade_btc_over_start_depth",
+    "best_quote_ofi_over_start_top_depth",
+    "net_displayed_pressure_over_start_depth",
+    "start_obi",
+    "log_start_depth",
+    "trade_pressure_times_thin"
+  ],
+  "models": {
+    "trade_only": {
+      "center": [
+        -0.00017841527800350034
+      ],
+      "scale": [
+        0.003328440911467386
+      ],
+      "weights": [
+        0.18009846096175192
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    },
+    "book_only": {
+      "center": [
+        -0.11726288738784375
+      ],
+      "scale": [
+        3.4895722652426997
+      ],
+      "weights": [
+        0.2996621444420497
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    },
+    "joint": {
+      "center": [
+        -0.00017841527800350007,
+        -0.11726288738784378,
+        0.003080997058781175,
+        -0.167976990986164,
+        5.875085479928166,
+        -6.857111936837836e-05
+      ],
+      "scale": [
+        0.003328440911467384,
+        3.4895722652427033,
+        0.0759114682396836,
+        0.5441072010257155,
+        0.152757825479839,
+        0.0022590366947085
+      ],
+      "weights": [
+        0.10164919805989416,
+        0.24514416478328366,
+        0.02635135677384658,
+        0.06157917805967407,
+        0.002927057130615671,
+        -0.035749292717820014
+      ],
+      "intercept": -0.01135235929820659,
+      "alpha": 1.0
+    }
+  },
+  "audits": {
+    "2026-05-25_00": {
+      "no_same_episode_end": 4772,
+      "missing_trade_payload": 31,
+      "interior_gap": 75,
+      "windows": 897,
+      "fresh_windows": 807,
+      "recorded_window_seconds": 909.617524745,
+      "trade_id_gap_ranges": 0,
+      "missing_trade_payload_records": 135,
+      "reconstruction": {
+        "snapshots_loaded": 729,
+        "valid_snapshot_bridges": 340,
+        "valid_states": 42839,
+        "continuous_updates": 42499,
+        "calibration_intervals": 42466,
+        "exposure_seconds": 1145.4027962020034,
+        "stale_updates_skipped": 918,
+        "invalid_snapshot_bridges": 24,
+        "valid_episodes": 340
+      }
+    },
+    "2026-05-25_04": {
+      "no_same_episode_end": 1779,
+      "missing_trade_payload": 17,
+      "interior_gap": 32,
+      "windows": 531,
+      "fresh_windows": 501,
+      "recorded_window_seconds": 538.171316131,
+      "trade_id_gap_ranges": 0,
+      "missing_trade_payload_records": 109,
+      "reconstruction": {
+        "snapshots_loaded": 270,
+        "valid_snapshot_bridges": 122,
+        "valid_states": 23749,
+        "continuous_updates": 23627,
+        "calibration_intervals": 23614,
+        "exposure_seconds": 636.1528293999975,
+        "stale_updates_skipped": 307,
+        "invalid_snapshot_bridges": 13,
+        "valid_episodes": 122
+      }
+    },
+    "2026-05-25_12": {
+      "no_same_episode_end": 3402,
+      "interior_gap": 252,
+      "end_sampling_lag": 5,
+      "missing_trade_payload": 37,
+      "windows": 1094,
+      "fresh_windows": 894,
+      "recorded_window_seconds": 1109.151317632,
+      "trade_id_gap_ranges": 0,
+      "missing_trade_payload_records": 122,
+      "reconstruction": {
+        "snapshots_loaded": 494,
+        "valid_snapshot_bridges": 234,
+        "valid_states": 55811,
+        "continuous_updates": 55577,
+        "calibration_intervals": 55555,
+        "exposure_seconds": 1504.5334821830058,
+        "stale_updates_skipped": 645,
+        "invalid_snapshot_bridges": 8,
+        "valid_episodes": 234
+      }
+    },
+    "2026-05-25_18": {
+      "no_same_episode_end": 1621,
+      "interior_gap": 318,
+      "missing_trade_payload": 18,
+      "end_sampling_lag": 11,
+      "windows": 1140,
+      "fresh_windows": 947,
+      "recorded_window_seconds": 1157.215438999,
+      "trade_id_gap_ranges": 0,
+      "missing_trade_payload_records": 66,
+      "reconstruction": {
+        "snapshots_loaded": 212,
+        "stale_updates_skipped": 295,
+        "valid_snapshot_bridges": 103,
+        "valid_states": 57499,
+        "continuous_updates": 57396,
+        "calibration_intervals": 57366,
+        "exposure_seconds": 1565.2497652819982,
+        "invalid_snapshot_bridges": 3,
+        "valid_episodes": 103
+      }
+    },
+    "2026-05-26_15": {
+      "missing_trade_payload": 64,
+      "interior_gap": 289,
+      "no_same_episode_end": 3341,
+      "end_sampling_lag": 10,
+      "trade_id_gap_windows": 4,
+      "windows": 875,
+      "fresh_windows": 350,
+      "recorded_window_seconds": 893.725994718,
+      "trade_id_gap_ranges": 5,
+      "missing_trade_payload_records": 324,
+      "reconstruction": {
+        "snapshots_loaded": 542,
+        "valid_snapshot_bridges": 215,
+        "valid_states": 51067,
+        "continuous_updates": 50852,
+        "calibration_intervals": 50845,
+        "exposure_seconds": 1369.681951488,
+        "stale_updates_skipped": 718,
+        "invalid_snapshot_bridges": 7,
+        "valid_episodes": 215
+      }
+    },
+    "2026-05-26_21": {
+      "no_same_episode_end": 1723,
+      "interior_gap": 285,
+      "missing_trade_payload": 83,
+      "end_sampling_lag": 2,
+      "windows": 1474,
+      "fresh_windows": 1182,
+      "recorded_window_seconds": 1496.34379353,
+      "trade_id_gap_ranges": 0,
+      "missing_trade_payload_records": 176,
+      "reconstruction": {
+        "snapshots_loaded": 306,
+        "stale_updates_skipped": 389,
+        "valid_snapshot_bridges": 143,
+        "valid_states": 71608,
+        "continuous_updates": 71465,
+        "calibration_intervals": 71429,
+        "exposure_seconds": 1923.6982350639964,
+        "invalid_snapshot_bridges": 8,
+        "valid_episodes": 143
+      }
+    }
+  },
+  "input_sha256": {
+    "2026-05-25_00": {
+      "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815",
+      "BTCUSDT_trades_2026-05-25_00.parquet": "17e184557837f27999c1133433f02ba274fb065b6ae40923dd6ccadf523de942"
+    },
+    "2026-05-25_04": {
+      "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019",
+      "BTCUSDT_trades_2026-05-25_04.parquet": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    "2026-05-25_12": {
+      "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac",
+      "BTCUSDT_trades_2026-05-25_12.parquet": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    "2026-05-25_18": {
+      "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2",
+      "BTCUSDT_trades_2026-05-25_18.parquet": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    "2026-05-26_15": {
+      "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6",
+      "BTCUSDT_trades_2026-05-26_15.parquet": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    "2026-05-26_21": {
+      "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99",
+      "BTCUSDT_trades_2026-05-26_21.parquet": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  },
+  "methods": {
+    "window": "Approximately one second, disjoint interiors, post-state t0 to t1; book changes and trades use (t0,t1].",
+    "ofi": "Indicator-weighted changes of best bid/ask price and queue size, accumulated across received update bundles.",
+    "confidence": "1000 one-minute block bootstrap draws; conditional mean/probability intervals include zero-eligible observed minute blocks. Exploratory and not multiple-comparison adjusted.",
+    "information": "Three-state sign mutual information with 200 whole-minute-block shuffles. Exchangeability across minutes is unverified; this is not a causal or calibrated significance test."
+  },
+  "limitations": [
+    "Six selected discontinuous hours over two days, all previously inspected; no untouched final evaluation.",
+    "Anonymous L2 cannot identify makers, institutions, retail, informed traders, intent, cancellations separately from execution, or signed option inventory.",
+    "Batched L2 OFI is an observed quote-change statistic, not a complete sequence of individual order events.",
+    "Same-window book/OFI includes price-changing quotes: explanatory fit partly mechanical and not forward prediction.",
+    "Trade and book channels are aligned by receipt time, not proven matching-engine causal order; message clocks and delays can differ.",
+    "Near-touch changes use each update pre-midpoint; price-band movement and unknown deeper levels affect interpretation.",
+    "Thin/deep groups are not matched for trade size or volatility; pressure thresholds already normalize by depth, so group differences do not estimate a causal depth effect.",
+    "Forward means condition on observable endpoints and verified paths; missingness can bias their distributions.",
+    "Bootstrap intervals describe within-hour dependence under block assumptions, not across-day robustness or participant causality.",
+    "No fees, execution, profitability, policy promotion or historical-to-live venue transfer is implied."
+  ]
+}
