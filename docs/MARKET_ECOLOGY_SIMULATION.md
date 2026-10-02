@@ -69,3 +69,5 @@ The first [strategy comparison](STRATEGY_RESEARCH.md) tests linear and nonlinear
 Recorded-flow development diagnostic: [Empirical trade flow](EMPIRICAL_ECOLOGY_FLOW.md).
 
 Training liquidity-response benchmark: [Displayed liquidity response](ECOLOGY_LIQUIDITY_RESPONSE.md).
+
+Joint trade/book integration: [Receipt-order event audit](ECOLOGY_JOINT_EVENT_AUDIT.md).
