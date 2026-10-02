@@ -8,6 +8,8 @@ This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine defi
 
 [Frozen replication on two additional periods](ECOLOGY_MECHANICS_REPLICATION.md) applies the original settings to the saved 26 May 03:00 and 09:00 books and trades. The liquidity-reinforcement contrast repeats, while extreme imbalance/depth ratios expose a severe frozen linear-calibration failure at 03:00. These are additional hours from the same archive, not new days or certified untouched final tests.
 
+[Robust response comparison](ROBUST_ECOLOGY_RESPONSE.md) separately tests fixed training-only clipping, asinh compression and time-weighted depth against that original calibration. [End goal and remaining development](MARKET_ECOLOGY_ROADMAP.md) states the data, simulator, policy, execution and live-shadow acceptance stages.
+
 ## Run the observer
 
 From the repository root, with Python 3.13:
