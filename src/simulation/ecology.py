@@ -166,12 +166,13 @@ def common_flow(params, seed):
     return flow
 
 
-def run(params, flow, withdrawal, shock_qty=SHOCK_QTY, dealer_gamma_btc_per_usdt=0.):
-    book = Book(params)
+def run(params, flow, withdrawal, shock_qty=SHOCK_QTY, dealer_gamma_btc_per_usdt=0.,book_factory=None):
+    book = (book_factory or Book)(params)
     scenario = "maker_withdrawal" if withdrawal else "normal_liquidity"
     rows, shock = [], None
     rows.append(book.state(-1, scenario))
     for second, trades in enumerate(flow):
+        if hasattr(book,'begin_observation'):book.begin_observation(second)
         cancel_A = book.cancel("maker_A", .002)
         if second == SHOCK_SECOND and withdrawal:
             cancel_B = book.cancel("maker_B", 1.)

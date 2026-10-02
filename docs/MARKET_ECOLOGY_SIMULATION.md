@@ -12,6 +12,8 @@ This module is isolated from frozen EXP-01, DBR, D06–D09 and Paper Engine defi
 
 [Regime transitions and persistence](ECOLOGY_REGIME_DYNAMICS.md) adds continuity-aware transition counts, censored observed runs and a frozen categorical transition diagnostic. The first-order conditional benchmark does not consistently beat an IID frequency baseline and is not used as a validated simulator.
 
+[Simulator calibration check](ECOLOGY_CALIBRATION_CHECK.md) instruments optional per-side synthetic quantity changes and compares regime occupancy, transitions and observed runs with the historical benchmark. Three pre-intervention seeds reveal that the fixed demo generates far fewer high-pressure windows than the selected recordings. Default simulator behaviour is preserved; no fitted environment or trading policy is promoted.
+
 ## Run the observer
 
 From the repository root, with Python 3.13:
