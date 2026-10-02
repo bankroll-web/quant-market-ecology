@@ -46,8 +46,12 @@ For an options branch, provide a timestamped option chain (bid/ask, strike, expi
 
 ## Validation and running
 
-Run `python -m unittest discover -s tests -p 'test_simulation*.py'` with pyarrow/zstandard available for historical tests. Current integration: 37 tests pass, including immutable book clones, fill conservation, exhaustion, thinning, hedge signs/partial fills, option put-call parity, reproducible rollouts, fee/wealth conservation, inventory caps and stale-window resets. Dashboard JavaScript syntax was checked. These checks validate mechanics, not market realism or predictive accuracy.
+Run `python -m unittest discover -s tests -p 'test_simulation*.py'` with pyarrow/zstandard available for historical tests. Current integration: 38 tests pass, including immutable book clones, fill conservation, exhaustion, thinning, hedge signs/partial fills, option put-call parity, reproducible rollouts, fee/wealth conservation, inventory caps and stale-window resets. Dashboard JavaScript syntax was checked. These checks validate mechanics, not market realism or predictive accuracy.
 
 Run the existing observer command; it now writes `ecology.html` and atomic `ecology.json` alongside `index.html`, `state.json` and `capture.jsonl`. `--replay configs/live_observer_fixture.jsonl` supplies a fabricated fixture for offline checks; replay is not live validation. Production Docker requires only aiohttp; these additional modules use the standard library and existing pure-Python matching/Hawkes modules.
 
 Provider cooldown: HTTP 418/429 publishes unavailable state and does not reconnect until the Retry-After duration has elapsed, with conservative fallback minimums of 300/60 seconds. See Binance [general API rate-limit documentation](https://developers.binance.com/en/docs/products/derivatives-trading-portfolio-margin-pro/general-info). A successful web deployment does not imply the feed is currently available.
+
+## Live-display freshness fix
+
+The production dashboard accepts synchronized observations whose receipt/event age and silence are each at most 2,000 ms; it labels ages above the strict 250 ms research threshold as `live_delayed`. `research_usable` remains false for these delayed observations. This is a human-facing display allowance, not an improved latency claim or approval to train/execute a policy on delayed data. Illustrative book interventions/rollouts and rolling Monte Carlo use the display allowance and retain their research limitations. Negative clock age, sequence gaps, provider cooldowns and observations older than 2 seconds still hide current features and pause experiments. HTTP responses prohibit caching. The default DepthObserver used by strict tests/replay retains 250 ms.

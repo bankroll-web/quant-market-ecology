@@ -114,7 +114,7 @@ class LiveEcology:
                 baseline=rollout(observer.bids,observer.asks),
                 withdrawal=rollout(observer.bids,observer.asks,withdrawal=True),
                 short_gamma=rollout(observer.bids,observer.asks,signed_gamma=-.05))
-        self.previous=dict(rollouts=self.rollouts,status='running',reason='fresh book',source_update_id=self.last_sequence,
+        self.previous=dict(rollouts=self.rollouts,status='running',reason=view['status'],research_usable=view['research_usable'],receipt_minus_event_ms=view['receipt_minus_event_ms'],silence_ms=view['silence_ms'],source_update_id=self.last_sequence,
                            observed_mid=view['mid'],scenarios=scenarios,monte_carlo=self.monte_carlo(),
                            history=list(self.history),models=self.models())
         return self.previous

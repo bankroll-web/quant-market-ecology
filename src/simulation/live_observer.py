@@ -82,8 +82,10 @@ class DepthObserver:
         since = (now_ns - self.received_ns) / 1e6 if self.received_ns is not None else None
         age = (self.received_ns - self.event_ms * 1_000_000) / 1e6 if self.received_ns is not None else None
         usable = self.valid and since is not None and age is not None and 0 <= since <= self.max_age_ms and 0 <= age <= self.max_age_ms
-        status = self.reason if not self.valid else 'fresh' if usable else 'stale_or_clock_warning'
+        research_usable = usable and age <= 250 and since <= 250
+        status = self.reason if not self.valid else ('fresh' if research_usable else 'live_delayed') if usable else 'stale_or_clock_warning'
         out = dict(status=status, sequence_valid=self.valid, usable=usable,
+                   research_usable=research_usable, display_max_age_ms=self.max_age_ms,
                    last_update_id=self.sequence, last_received_ns=self.received_ns,
                    receipt_minus_event_ms=age, silence_ms=since,
                    bid=None, ask=None, mid=None, spread=None, top_obi=None,
@@ -99,6 +101,12 @@ class DepthObserver:
                 bids=[[float(p),float(self.bids[p])] for p in sorted(self.bids,reverse=True)[:10]],
                 asks=[[float(p),float(self.asks[p])] for p in sorted(self.asks)[:10]])
         return out
+
+
+class DashboardHandler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store, max-age=0')
+        super().end_headers()
 
 
 class Output:
@@ -147,7 +155,7 @@ def retry_delay(error):
 
 async def live(out, seconds):
     import aiohttp
-    observer = DepthObserver()
+    observer = DepthObserver(max_age_ms=2000)
     deadline = time.monotonic() + seconds
     async with aiohttp.ClientSession(trust_env=True, timeout=aiohttp.ClientTimeout(total=15)) as session:
         while time.monotonic() < deadline:
@@ -231,7 +239,7 @@ def replay(path, out):
     return observer
 
 
-PAGE = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market ecology observer</title><style>body{font:17px system-ui;background:#101827;color:#e8edf6;max-width:1100px;margin:30px auto;padding:20px}.cards{display:flex;flex-wrap:wrap;gap:12px}.card{background:#1c2a40;padding:16px;border-radius:12px;min-width:160px}strong{font-size:25px}canvas{width:100%;height:300px;background:#1c2a40;margin-top:20px}table{display:inline-table;width:48%;padding:12px;text-align:right}p{line-height:1.5;color:#bccadd}</style><h1>Bitcoin market ecology · Read-only observer</h1><p><a href="ecology.html" style="color:#63d0c6">Open the live simulation laboratory →</a></p><p>Recorded or live order-book observations. No trading decisions or orders. Empty prices mean the book is unavailable or stale.</p><div id="status">Waiting for observations…</div><div class="cards" id="cards"></div><canvas id="chart"></canvas><div id="depth"></div><p>This view shows anonymous displayed liquidity. It does not identify institutions or dealers. Depth is limited to the snapshot and received updates; timestamp age includes clock differences.</p><script>const fmt=x=>x==null?'—':Number(x).toFixed(3);async function draw(){try{const r=await fetch('state.json',{cache:'no-store'});if(!r.ok)throw Error('unavailable');const s=await r.json();const pageAge=Date.now()-s.generated_ns/1e6;if(s.mode!=='replay'&&pageAge>2000){document.getElementById('status').textContent='Observer offline · data not current';document.getElementById('cards').textContent='';document.getElementById('depth').textContent='';document.getElementById('chart').getContext('2d').clearRect(0,0,2000,2000);return}document.getElementById('status').textContent=s.status+' · receipt/event age '+fmt(s.receipt_minus_event_ms)+' ms · silence '+fmt(s.silence_ms)+' ms';document.getElementById('cards').innerHTML=[['Midpoint',s.mid],['Spread',s.spread],['Top imbalance',s.top_obi],['Bid depth BTC',s.bid_depth_10bps],['Ask depth BTC',s.ask_depth_10bps]].map(([k,v])=>`<div class="card">${k}<br><strong>${fmt(v)}</strong></div>`).join('');document.getElementById('depth').innerHTML=[['Bids',s.bids],['Asks',s.asks]].map(([label,rows])=>`<table><tr><th>${label}: price</th><th>BTC</th></tr>${rows.map(([p,q])=>`<tr><td>${fmt(p)}</td><td>${fmt(q)}</td></tr>`).join('')}</table>`).join('');let el=document.getElementById('chart');el.width=el.clientWidth;el.height=300;let c=el.getContext('2d'),v=s.history.filter(x=>x.mid!=null);if(!v.length)return;let lo=Math.min(...v.map(x=>x.mid)),hi=Math.max(...v.map(x=>x.mid));if(hi===lo){lo-=.1;hi+=.1}let first=s.history[0].time_ms,last=s.history.at(-1).time_ms;c.strokeStyle='#63d0c6';c.beginPath();let active=false;for(let p of s.history){if(p.mid==null){active=false;continue}let x=20+(p.time_ms-first)/Math.max(1,last-first)*(el.width-40),y=20+(hi-p.mid)/(hi-lo)*260;if(active)c.lineTo(x,y);else c.moveTo(x,y);active=true}c.stroke();c.fillStyle='#e8edf6';c.fillText('Midpoint · '+fmt(lo)+' to '+fmt(hi)+' USDT',20,15)}catch(e){document.getElementById('status').textContent='Cannot load observations';document.getElementById('cards').textContent='';document.getElementById('depth').textContent=''}}draw();setInterval(draw,500)</script></html>'''
+PAGE = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market ecology observer</title><style>body{font:17px system-ui;background:#101827;color:#e8edf6;max-width:1100px;margin:30px auto;padding:20px}.cards{display:flex;flex-wrap:wrap;gap:12px}.card{background:#1c2a40;padding:16px;border-radius:12px;min-width:160px}strong{font-size:25px}canvas{width:100%;height:300px;background:#1c2a40;margin-top:20px}table{display:inline-table;width:48%;padding:12px;text-align:right}p{line-height:1.5;color:#bccadd}</style><h1>Bitcoin market ecology · Read-only observer</h1><p><a href="ecology.html" style="color:#63d0c6">Open the live simulation laboratory →</a></p><p>Live view accepts synchronized updates up to 2 seconds old and labels delay; the stricter research-quality cutoff remains 250 ms. Recorded or live order-book observations. No trading decisions or orders. Empty prices mean the book is unavailable or stale.</p><div id="status">Waiting for observations…</div><div class="cards" id="cards"></div><canvas id="chart"></canvas><div id="depth"></div><p>This view shows anonymous displayed liquidity. It does not identify institutions or dealers. Depth is limited to the snapshot and received updates; timestamp age includes clock differences.</p><script>const fmt=x=>x==null?'—':Number(x).toFixed(3);async function draw(){try{const r=await fetch('state.json',{cache:'no-store'});if(!r.ok)throw Error('unavailable');const s=await r.json();const pageAge=Date.now()-s.generated_ns/1e6;if(s.mode!=='replay'&&pageAge>2000){document.getElementById('status').textContent='Observer offline · data not current';document.getElementById('cards').textContent='';document.getElementById('depth').textContent='';document.getElementById('chart').getContext('2d').clearRect(0,0,2000,2000);return}document.getElementById('status').textContent=(s.usable?'LIVE · '+(s.research_usable?'fast feed':'delayed feed'):s.status)+' · receipt/event age '+fmt(s.receipt_minus_event_ms)+' ms · silence '+fmt(s.silence_ms)+' ms · update '+s.last_update_id;document.getElementById('cards').innerHTML=[['Midpoint',s.mid],['Spread',s.spread],['Top imbalance',s.top_obi],['Bid depth BTC',s.bid_depth_10bps],['Ask depth BTC',s.ask_depth_10bps]].map(([k,v])=>`<div class="card">${k}<br><strong>${fmt(v)}</strong></div>`).join('');document.getElementById('depth').innerHTML=[['Bids',s.bids],['Asks',s.asks]].map(([label,rows])=>`<table><tr><th>${label}: price</th><th>BTC</th></tr>${rows.map(([p,q])=>`<tr><td>${fmt(p)}</td><td>${fmt(q)}</td></tr>`).join('')}</table>`).join('');let el=document.getElementById('chart');el.width=el.clientWidth;el.height=300;let c=el.getContext('2d'),v=s.history.filter(x=>x.mid!=null);if(!v.length)return;let lo=Math.min(...v.map(x=>x.mid)),hi=Math.max(...v.map(x=>x.mid));if(hi===lo){lo-=.1;hi+=.1}let first=s.history[0].time_ms,last=s.history.at(-1).time_ms;c.strokeStyle='#63d0c6';c.beginPath();let active=false;for(let p of s.history){if(p.mid==null){active=false;continue}let x=20+(p.time_ms-first)/Math.max(1,last-first)*(el.width-40),y=20+(hi-p.mid)/(hi-lo)*260;if(active)c.lineTo(x,y);else c.moveTo(x,y);active=true}c.stroke();c.fillStyle='#e8edf6';c.fillText('Midpoint · '+fmt(lo)+' to '+fmt(hi)+' USDT',20,15)}catch(e){document.getElementById('status').textContent='Cannot load observations';document.getElementById('cards').textContent='';document.getElementById('depth').textContent=''}}draw();setInterval(draw,500)</script></html>'''
 
 
 def main():
@@ -248,7 +256,7 @@ def main():
     out=Output(args.out, 'replay' if args.replay else 'live')
     server=None
     if args.serve:
-        server=ThreadingHTTPServer((args.host,args.port),functools.partial(SimpleHTTPRequestHandler,directory=str(args.out)))
+        server=ThreadingHTTPServer((args.host,args.port),functools.partial(DashboardHandler,directory=str(args.out)))
         threading.Thread(target=server.serve_forever,daemon=True).start()
         print(f'Observer: http://{args.host}:{args.port}',flush=True)
     try:

@@ -67,3 +67,16 @@ class ProviderCooldownTest(unittest.TestCase):
         self.assertEqual(retry_delay(SimpleNamespace(status=418,headers={})),300)
         self.assertEqual(retry_delay(SimpleNamespace(status=429,headers={"Retry-After":"nan"})),60)
         self.assertEqual(retry_delay(SimpleNamespace(status=500,headers={})),2)
+
+
+class DisplayFreshnessTest(unittest.TestCase):
+    def test_live_delay_is_visible_but_not_research_quality(self):
+        observer=DepthObserver(max_age_ms=2000);observer.snapshot(snapshot())
+        observer.update(update(),1_424_000_000)
+        view=observer.view(1_430_000_000)
+        self.assertTrue(view["usable"])
+        self.assertFalse(view["research_usable"])
+        self.assertEqual(view["status"],"live_delayed")
+        self.assertEqual(view["mid"],100.5)
+        self.assertIsNone(observer.view(3_500_000_000)["mid"])
+        self.assertFalse(observer.view(3_500_000_000)["usable"])
