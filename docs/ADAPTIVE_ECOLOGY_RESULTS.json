@@ -1,0 +1,377 @@
+{
+  "status": "exploratory_not_promoted",
+  "training_hour": "2026-05-25_12",
+  "half_life_verified_seconds": 30,
+  "formula": "rate_next=(1-a)*rate_previous+a*observed_qty/exposure; a=1-exp(-ln(2)*exposure/30)",
+  "input_sha256": {
+    "2026-05-25_12": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b",
+    "2026-05-25_18": "a9f34efc19fbaa07bbae821750c79d60a67c5e9dfb7bfa8a2689d08ddd47e51e",
+    "2026-05-26_15": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7",
+    "2026-05-26_21": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+  },
+  "scores": {
+    "2026-05-25_12": {
+      "exposure_seconds": 1504.5334821830058,
+      "resets": 166,
+      "intervals": 55555,
+      "observed_btc": {
+        "bid_add_qty": 119653.567999994,
+        "bid_remove_qty": 116406.68999999342,
+        "ask_add_qty": 116652.67699999263,
+        "ask_remove_qty": 113114.10799999238
+      },
+      "predicted_btc": {
+        "constant": {
+          "bid_add_qty": 119653.5680000008,
+          "bid_remove_qty": 116406.68999999945,
+          "ask_add_qty": 116652.677,
+          "ask_remove_qty": 113114.10800000025
+        },
+        "conditional": {
+          "bid_add_qty": 119716.99412888577,
+          "bid_remove_qty": 116487.55112399813,
+          "ask_add_qty": 116455.50199101654,
+          "ask_remove_qty": 112949.53226931345
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 126317.8635775983,
+          "bid_remove_qty": 124608.65101809801,
+          "ask_add_qty": 121982.00242661237,
+          "ask_remove_qty": 120052.77169070965
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 127983.29161715235,
+          "bid_remove_qty": 125856.53810309006,
+          "ask_add_qty": 123549.32737347925,
+          "ask_remove_qty": 121182.56838923098
+        }
+      },
+      "interval_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 146.59120336703864,
+          "bid_remove_qty": 149.13165105961983,
+          "ask_add_qty": 144.47402800198395,
+          "ask_remove_qty": 146.68022555706742
+        },
+        "conditional": {
+          "bid_add_qty": 145.78038062803947,
+          "bid_remove_qty": 148.63614531585335,
+          "ask_add_qty": 143.53312361021753,
+          "ask_remove_qty": 146.145287375527
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 149.4638615038773,
+          "bid_remove_qty": 153.18302855205349,
+          "ask_add_qty": 146.81651986109648,
+          "ask_remove_qty": 150.1575037994168
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 149.91528711038094,
+          "bid_remove_qty": 153.6214812622683,
+          "ask_add_qty": 147.24595676455476,
+          "ask_remove_qty": 150.60390347088318
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 24.553458244644858,
+          "bid_remove_qty": 22.898958233966997,
+          "ask_add_qty": 25.57627167876223,
+          "ask_remove_qty": 18.538240490369056
+        },
+        "conditional": {
+          "bid_add_qty": 3.6196898803673476,
+          "bid_remove_qty": 3.4138106849134506,
+          "ask_add_qty": 4.29117491224288,
+          "ask_remove_qty": 3.2101891590530642
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 22.475081438361816,
+          "bid_remove_qty": 20.013154653871325,
+          "ask_add_qty": 23.421629404007774,
+          "ask_remove_qty": 19.923055090429177
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 8.23557551389555,
+          "bid_remove_qty": 9.688768079710835,
+          "ask_add_qty": 6.703703448338568,
+          "ask_remove_qty": 8.637243394185795
+        }
+      }
+    },
+    "2026-05-25_18": {
+      "exposure_seconds": 1565.2497652819982,
+      "resets": 73,
+      "intervals": 57366,
+      "observed_btc": {
+        "bid_add_qty": 112610.52599999719,
+        "bid_remove_qty": 109841.444999996,
+        "ask_add_qty": 90056.89799999991,
+        "ask_remove_qty": 87981.90300000003
+      },
+      "predicted_btc": {
+        "constant": {
+          "bid_add_qty": 124482.25409740307,
+          "bid_remove_qty": 121104.34653496926,
+          "ask_add_qty": 121360.26047677979,
+          "ask_remove_qty": 117678.89056227043
+        },
+        "conditional": {
+          "bid_add_qty": 121636.049391704,
+          "bid_remove_qty": 120573.86949783268,
+          "ask_add_qty": 118250.35520837018,
+          "ask_remove_qty": 117818.87873460243
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 113078.91178203025,
+          "bid_remove_qty": 111633.79689723413,
+          "ask_add_qty": 98518.42784256658,
+          "ask_remove_qty": 97062.39112400549
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 110973.42491563763,
+          "bid_remove_qty": 111202.74850260816,
+          "ask_add_qty": 97220.44939655402,
+          "ask_remove_qty": 97899.22481818283
+        }
+      },
+      "interval_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 159.02657332904758,
+          "bid_remove_qty": 162.32404705464074,
+          "ask_add_qty": 183.41568748587255,
+          "ask_remove_qty": 183.88848066191983
+        },
+        "conditional": {
+          "bid_add_qty": 156.4359370368041,
+          "bid_remove_qty": 161.89357342111612,
+          "ask_add_qty": 179.62511067251342,
+          "ask_remove_qty": 183.64764597108532
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 151.15183260304056,
+          "bid_remove_qty": 155.36438438023978,
+          "ask_add_qty": 162.8393010533212,
+          "ask_remove_qty": 164.8297685005801
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 149.21740963412068,
+          "bid_remove_qty": 155.01513540408556,
+          "ask_add_qty": 160.93700492749488,
+          "ask_remove_qty": 165.28011469745573
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 29.318120679427118,
+          "bid_remove_qty": 21.267407494583498,
+          "ask_add_qty": 39.77865044305027,
+          "ask_remove_qty": 33.75351810959151
+        },
+        "conditional": {
+          "bid_add_qty": 15.290738386880658,
+          "bid_remove_qty": 19.632009697829858,
+          "ask_add_qty": 31.306271739862066,
+          "ask_remove_qty": 33.91262829880001
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 24.046063930682553,
+          "bid_remove_qty": 18.074040843070705,
+          "ask_add_qty": 19.676305066419648,
+          "ask_remove_qty": 15.486817705480046
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 12.6984698196599,
+          "bid_remove_qty": 16.593601712760798,
+          "ask_add_qty": 11.39978086198737,
+          "ask_remove_qty": 19.78775962058037
+        }
+      }
+    },
+    "2026-05-26_15": {
+      "exposure_seconds": 1369.681951488,
+      "resets": 175,
+      "intervals": 50845,
+      "observed_btc": {
+        "bid_add_qty": 173203.15899999384,
+        "bid_remove_qty": 169417.71199999243,
+        "ask_add_qty": 164618.80499999516,
+        "ask_remove_qty": 160248.8099999951
+      },
+      "predicted_btc": {
+        "constant": {
+          "bid_add_qty": 108929.00321696445,
+          "bid_remove_qty": 105973.14331225093,
+          "ask_add_qty": 106197.08246561009,
+          "ask_remove_qty": 102975.67586297104
+        },
+        "conditional": {
+          "bid_add_qty": 126233.11517549153,
+          "bid_remove_qty": 112741.03447004125,
+          "ask_add_qty": 130394.99869036417,
+          "ask_remove_qty": 114747.18927582707
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 132761.65245515265,
+          "bid_remove_qty": 130323.87593509641,
+          "ask_add_qty": 128083.81157059023,
+          "ask_remove_qty": 125235.09752159467
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 152965.30595009838,
+          "bid_remove_qty": 138380.546934022,
+          "ask_add_qty": 156133.2416870941,
+          "ask_remove_qty": 139173.34883602796
+        }
+      },
+      "interval_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 99.31910064179954,
+          "bid_remove_qty": 103.43074445214837,
+          "ask_add_qty": 101.14312168054808,
+          "ask_remove_qty": 103.57236637310992
+        },
+        "conditional": {
+          "bid_add_qty": 102.75623024567237,
+          "bid_remove_qty": 104.44126112467221,
+          "ask_add_qty": 107.28005892434503,
+          "ask_remove_qty": 106.30998315576139
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 103.06907313551186,
+          "bid_remove_qty": 107.48478139510408,
+          "ask_add_qty": 103.82207755617942,
+          "ask_remove_qty": 106.5904662633371
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 108.12049173305859,
+          "bid_remove_qty": 109.00977077188175,
+          "ask_add_qty": 112.11716596290553,
+          "ask_remove_qty": 110.44842512770362
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 38.36312967802255,
+          "bid_remove_qty": 38.66016735536864,
+          "ask_add_qty": 36.327960119708926,
+          "ask_remove_qty": 36.30348450086496
+        },
+        "conditional": {
+          "bid_add_qty": 27.11846833261818,
+          "bid_remove_qty": 33.45380884966818,
+          "ask_add_qty": 22.08282481998195,
+          "ask_remove_qty": 28.394357951347963
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 29.756244903158905,
+          "bid_remove_qty": 29.432180519437097,
+          "ask_add_qty": 28.495983739507867,
+          "ask_remove_qty": 27.25841045093057
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 23.469348652116413,
+          "bid_remove_qty": 21.37966295400168,
+          "ask_add_qty": 12.49486540050162,
+          "ask_remove_qty": 15.389453737691198
+        }
+      }
+    },
+    "2026-05-26_21": {
+      "exposure_seconds": 1923.6982350639964,
+      "resets": 104,
+      "intervals": 71429,
+      "observed_btc": {
+        "bid_add_qty": 74571.04499999045,
+        "bid_remove_qty": 72726.76099999103,
+        "ask_add_qty": 53625.00999999997,
+        "ask_remove_qty": 52146.102000000836
+      },
+      "predicted_btc": {
+        "constant": {
+          "bid_add_qty": 152989.18921148588,
+          "bid_remove_qty": 148837.727278576,
+          "ask_add_qty": 149152.24653876628,
+          "ask_remove_qty": 144627.82815887753
+        },
+        "conditional": {
+          "bid_add_qty": 188036.98420884376,
+          "bid_remove_qty": 165002.78557915488,
+          "ask_add_qty": 193061.7578090097,
+          "ask_remove_qty": 166387.50605782532
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 121663.09981824899,
+          "bid_remove_qty": 118398.17758019234,
+          "ask_add_qty": 111185.76681365863,
+          "ask_remove_qty": 107696.28439219612
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 149846.39434566937,
+          "bid_remove_qty": 131461.62611459196,
+          "ask_add_qty": 144292.89801484792,
+          "ask_remove_qty": 124055.0553219724
+        }
+      },
+      "interval_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 209.66173959205474,
+          "bid_remove_qty": 213.59096124566284,
+          "ask_add_qty": 274.315364939047,
+          "ask_remove_qty": 276.5821782804892
+        },
+        "conditional": {
+          "bid_add_qty": 246.44464589280688,
+          "bid_remove_qty": 230.57143270688283,
+          "ask_add_qty": 345.3445794563138,
+          "ask_remove_qty": 312.22794781583156
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 177.33579004390526,
+          "bid_remove_qty": 181.07786048421295,
+          "ask_add_qty": 215.28265524853947,
+          "ask_remove_qty": 217.9151837581711
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 205.21109714354327,
+          "bid_remove_qty": 194.11316010458327,
+          "ask_add_qty": 266.1806152655173,
+          "ask_remove_qty": 243.21638739127394
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "constant": {
+          "bid_add_qty": 106.60238074790198,
+          "bid_remove_qty": 106.76320792155956,
+          "ask_add_qty": 178.43034859554328,
+          "ask_remove_qty": 177.58916579604355
+        },
+        "conditional": {
+          "bid_add_qty": 153.5349293418225,
+          "bid_remove_qty": 128.89563136957918,
+          "ask_add_qty": 260.3946209376304,
+          "ask_remove_qty": 219.36251310201527
+        },
+        "adaptive_constant": {
+          "bid_add_qty": 65.90823766083997,
+          "bid_remove_qty": 66.49755220557866,
+          "ask_add_qty": 107.88433019763612,
+          "ask_remove_qty": 107.01166031472607
+        },
+        "adaptive_conditional": {
+          "bid_add_qty": 104.41605020844848,
+          "bid_remove_qty": 84.1819659076801,
+          "ask_add_qty": 169.6757871152303,
+          "ask_remove_qty": 138.41249551598
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Fixed 30-second half life chosen before this run, not optimized; inspected recordings remain exploratory.",
+    "Exposure duration is known only at interval end: this evaluates past-only rates over observed exposure, not an executable interval quantity forecast.",
+    "Adaptation uses verified exposure time and resets at episode changes and gaps; it is not a Hawkes model.",
+    "Activity-level adaptation cannot identify participants, validate uncertainty intervals or establish trading profitability.",
+    "No Binance parameters transferred to Coinbase and no live policy changed."
+  ]
+}
