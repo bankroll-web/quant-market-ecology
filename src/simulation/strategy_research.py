@@ -23,7 +23,8 @@ SLIPPAGE_BPS=.5
 THRESHOLD_BPS=2*(FEE_BPS+SLIPPAGE_BPS)
 
 
-def load(flow_path, book_path):
+def load(flow_path, book_path, horizon_ns=HORIZON, latency_ns=LATENCY, retain_unresolved=False):
+    if not 0 < latency_ns < horizon_ns:raise ValueError('Latency must be positive and less than horizon')
     with Path(book_path).open(newline='') as f: book=list(csv.DictReader(f))
     times=[int(r['received_time_ns']) for r in book]
     if any(b<a for a,b in zip(times,times[1:])): raise ValueError('Backwards book time')
@@ -32,6 +33,7 @@ def load(flow_path, book_path):
     with Path(flow_path).open(newline='') as f: flow=list(csv.DictReader(f))
     rows=[]; audit=dict(decisions=0,stale_decisions=0,missing_entry=0,missing_exit=0,embargoed=0)
     next_start=-1
+    if retain_unresolved:audit['unresolved']=[]
     for r in sorted(flow,key=lambda r:int(r['end_received_ns'])):
         decision=int(r['end_received_ns']); start=int(r['start_received_ns'])
         if start<next_start: audit['embargoed']+=1;continue
@@ -47,14 +49,17 @@ def load(flow_path, book_path):
            math.log1p(float(r['absolute_trade_btc'])),float(r['mid_log_return_bps']),
            float(state['post_spread'])/mid*10000,math.log1p(depth)]
         if not all(math.isfinite(v) for v in x):raise ValueError('Nonfinite features')
-        entry_target=decision+LATENCY;exit_target=decision+HORIZON
+        entry_target=decision+latency_ns;exit_target=decision+horizon_ns
         j=bisect_left(times,entry_target,i+1);k=bisect_left(times,exit_target,i+1)
         def endpoint(index,target):
             return index<len(book) and book[index]['episode']==r['episode'] and times[index]-target<=TOLERANCE
         # An unresolved decision reserves its complete scheduled interval too.
         next_start=exit_target+TOLERANCE
         if not endpoint(j,entry_target):audit['missing_entry']+=1;continue
-        if not endpoint(k,exit_target):audit['missing_exit']+=1;continue
+        if not endpoint(k,exit_target):
+            audit['missing_exit']+=1
+            if retain_unresolved:audit['unresolved'].append(dict(decision_ns=decision,x=x,flow_sign=int(np.sign(float(r['signed_btc'])))))
+            continue
         a,b=book[j],book[k]
         quotes=[float(v[n]) for v in (a,b) for n in ('post_best_bid','post_best_ask')]
         if min(quotes)<=0:raise ValueError('Nonpositive quote')

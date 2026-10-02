@@ -71,3 +71,7 @@ python -m unittest discover -s tests -p 'test_simulation*.py'
 ```
 
 Requires NumPy. Upstream tape preparation requires pyarrow and zstandard. The output includes input SHA-256 hashes, audit counts, model transforms/weights, predictions, RMSE and cost sensitivities. [Committed result snapshot](STRATEGY_RESEARCH_RESULTS.json). Related: [timing audit](TIMING_AND_OBSERVATION_AUDIT.md), [earlier regression](RESPONSE_REGRESSION.md), [live laboratory](LIVE_ECOLOGY_LAB.md).
+
+## Extended quantitative study
+
+The [horizon/regime analysis](REGIME_RESEARCH.md) compares 260 fixed candidate/configuration combinations, preserves unresolved-exit diagnostics and tests 5/10 bps cost assumptions. It also selects no trading; it does not promote a policy.
