@@ -40,6 +40,32 @@ def score(rows,model):
     result['quantity_rates']={k:dict(observed_btc_per_second=observed[k]/seconds,
                      conditional_predicted_btc_per_second=predicted[k]/seconds,
                      constant_predicted_btc_per_second=model['global_quantity_btc_per_second'][k]) for k in QUANTITIES}
+    # Diagnose held-out state totals with the frozen training rates.
+    groups={name:dict(exposure_seconds=0.,intervals=0,
+                     observed={k:0. for k in QUANTITIES},
+                     conditional={k:0. for k in QUANTITIES},
+                     constant={k:0. for k in QUANTITIES}) for name in model['state_rates']}
+    for r in rows:
+        name=bucket(r['pre_obi_top'],r['pre_bid_depth_10bps']+r['pre_ask_depth_10bps'],model['depth_cutoffs_btc'])
+        g=groups[name];g['exposure_seconds']+=r['exposure_seconds'];g['intervals']+=1
+        for k in QUANTITIES:
+            g['observed'][k]+=r[k]
+            g['conditional'][k]+=model['state_quantity_btc_per_second'][name][k]*r['exposure_seconds']
+            g['constant'][k]+=model['global_quantity_btc_per_second'][k]*r['exposure_seconds']
+    result['state_quantity_diagnostics']={}
+    for name,g in groups.items():
+        if not g['exposure_seconds']:continue
+        train=model['state_rates'][name]['seconds']
+        result['state_quantity_diagnostics'][name]=dict(
+            exposure_seconds=g['exposure_seconds'],intervals=g['intervals'],
+            training_exposure_seconds=train,
+            prior_weight=model['prior_exposure_seconds']/(train+model['prior_exposure_seconds']),
+            quantities={k:dict(observed_btc=g['observed'][k],conditional_expected_btc=g['conditional'][k],
+                              constant_expected_btc=g['constant'][k],
+                              conditional_bias_pct=100*(g['conditional'][k]/g['observed'][k]-1) if g['observed'][k] else None)
+                        for k in QUANTITIES})
+    result['state_total_quantity_wape_pct']={k:{method:100*sum(abs(g[method][k]-g['observed'][k]) for g in groups.values())/observed[k]
+                                      if observed[k] else None for method in ('conditional','constant')} for k in QUANTITIES}
     c=result['poisson_nll_per_exposure_second'];result['conditional_count_improvement_pct']=100*(1-c['conditional']/c['constant']) if c['constant'] else None
     return result
 
@@ -55,7 +81,8 @@ def run(book_dir,out):
                         'Poisson counts are a diagnostic likelihood; updates bundle multiple changed levels and can be overdispersed.',
                         'Near-touch changes are measured against the pre-update midpoint, not private order identities.',
                         'Receipt delay and verified-episode censoring remain unresolved.',
-                        'Binance historical parameters are not deployed on the Kraken live feed.'])
+                        'Binance historical parameters are not deployed on the Coinbase/Kraken live feeds.',
+                        'State-total quantity error is an aggregate diagnostic, not an interval-level forecast or profit metric.'])
     out=Path(out);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(result,indent=2)+'\n');return result
 
 if __name__=='__main__':

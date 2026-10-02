@@ -197,6 +197,314 @@
           "constant_predicted_btc_per_second": 75.18218061579947
         }
       },
+      "state_quantity_diagnostics": {
+        "obi0_depth0": {
+          "exposure_seconds": 132.226070718,
+          "intervals": 4863,
+          "training_exposure_seconds": 132.226070718,
+          "prior_weight": 0.1849271197115379,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 13704.710999999967,
+              "conditional_expected_btc": 13114.988476374989,
+              "constant_expected_btc": 10515.765405947026,
+              "conditional_bias_pct": -4.303064279319568
+            },
+            "bid_remove_qty": {
+              "observed_btc": 11592.274000000052,
+              "conditional_expected_btc": 11340.429008252184,
+              "constant_expected_btc": 10230.413218624655,
+              "conditional_bias_pct": -2.172524491293659
+            },
+            "ask_add_qty": {
+              "observed_btc": 19783.168000000078,
+              "conditional_expected_btc": 18020.602436792156,
+              "constant_expected_btc": 10252.031809930739,
+              "conditional_bias_pct": -8.909420185927319
+            },
+            "ask_remove_qty": {
+              "observed_btc": 16625.21500000007,
+              "conditional_expected_btc": 15389.130570491578,
+              "constant_expected_btc": 9941.044330838147,
+              "conditional_bias_pct": -7.43499816097708
+            }
+          }
+        },
+        "obi0_depth1": {
+          "exposure_seconds": 142.2828108569999,
+          "intervals": 5292,
+          "training_exposure_seconds": 142.2828108569999,
+          "prior_weight": 0.17413228778175052,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 10264.648000000014,
+              "conditional_expected_btc": 10447.646531918524,
+              "constant_expected_btc": 11315.564715387573,
+              "conditional_bias_pct": 1.7828037738703895
+            },
+            "bid_remove_qty": {
+              "observed_btc": 9861.790000000008,
+              "conditional_expected_btc": 10061.470881192037,
+              "constant_expected_btc": 11008.509449539039,
+              "conditional_bias_pct": 2.024793482643905
+            },
+            "ask_add_qty": {
+              "observed_btc": 14145.671000000064,
+              "conditional_expected_btc": 13603.440693641116,
+              "constant_expected_btc": 11031.772289621207,
+              "conditional_bias_pct": -3.833189011386917
+            },
+            "ask_remove_qty": {
+              "observed_btc": 14497.644000000035,
+              "conditional_expected_btc": 13835.852147977179,
+              "constant_expected_btc": 10697.131984374577,
+              "conditional_bias_pct": -4.564823443194321
+            }
+          }
+        },
+        "obi0_depth2": {
+          "exposure_seconds": 222.40217827999945,
+          "intervals": 8166,
+          "training_exposure_seconds": 222.40217827999945,
+          "prior_weight": 0.11885792826526183,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 10715.42500000002,
+              "conditional_expected_btc": 11544.093867730946,
+              "constant_expected_btc": 17687.352576270016,
+              "conditional_bias_pct": 7.733420445114647
+            },
+            "bid_remove_qty": {
+              "observed_btc": 12189.087999999996,
+              "conditional_expected_btc": 12785.553534212737,
+              "constant_expected_btc": 17207.394670141162,
+              "conditional_bias_pct": 4.8934385756566945
+            },
+            "ask_add_qty": {
+              "observed_btc": 15182.255000000041,
+              "conditional_expected_btc": 15427.28083328225,
+              "constant_expected_btc": 17243.756801842785,
+              "conditional_bias_pct": 1.6138961786783756
+            },
+            "ask_remove_qty": {
+              "observed_btc": 16502.854000000054,
+              "conditional_expected_btc": 16528.744434656295,
+              "constant_expected_btc": 16720.680736794202,
+              "conditional_bias_pct": 0.15688458890954493
+            }
+          }
+        },
+        "obi1_depth0": {
+          "exposure_seconds": 164.11050105999993,
+          "intervals": 6027,
+          "training_exposure_seconds": 164.11050105999993,
+          "prior_weight": 0.15455114399363146,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 12138.085000000085,
+              "conditional_expected_btc": 12279.253126741554,
+              "constant_expected_btc": 13051.492193849605,
+              "conditional_bias_pct": 1.1630181098704506
+            },
+            "bid_remove_qty": {
+              "observed_btc": 10137.096000000103,
+              "conditional_expected_btc": 10532.783309651035,
+              "constant_expected_btc": 12697.33139798115,
+              "conditional_bias_pct": 3.9033595977677304
+            },
+            "ask_add_qty": {
+              "observed_btc": 12974.68100000013,
+              "conditional_expected_btc": 12935.963157146583,
+              "constant_expected_btc": 12724.16300412505,
+              "conditional_bias_pct": -0.29841074977909887
+            },
+            "ask_remove_qty": {
+              "observed_btc": 10986.004000000074,
+              "conditional_expected_btc": 11194.985171692206,
+              "constant_expected_btc": 12338.185331642246,
+              "conditional_bias_pct": 1.9022491862567215
+            }
+          }
+        },
+        "obi1_depth1": {
+          "exposure_seconds": 135.12993388399997,
+          "intervals": 5012,
+          "training_exposure_seconds": 135.12993388399997,
+          "prior_weight": 0.18167511664526143,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 11495.811000000065,
+              "conditional_expected_btc": 11359.71722946223,
+              "constant_expected_btc": 10746.70582230222,
+              "conditional_bias_pct": -1.1838553238030292
+            },
+            "bid_remove_qty": {
+              "observed_btc": 11772.038000000082,
+              "conditional_expected_btc": 11532.780758089548,
+              "constant_expected_btc": 10455.086915401722,
+              "conditional_bias_pct": -2.03241989119074
+            },
+            "ask_add_qty": {
+              "observed_btc": 8976.641000000043,
+              "conditional_expected_btc": 9249.251648757905,
+              "constant_expected_btc": 10477.18028018221,
+              "conditional_bias_pct": 3.036889285846023
+            },
+            "ask_remove_qty": {
+              "observed_btc": 9494.260000000022,
+              "conditional_expected_btc": 9615.092682522954,
+              "constant_expected_btc": 10159.363095867931,
+              "conditional_bias_pct": 1.272691947797222
+            }
+          }
+        },
+        "obi1_depth2": {
+          "exposure_seconds": 135.25777606899976,
+          "intervals": 5003,
+          "training_exposure_seconds": 135.25777606899976,
+          "prior_weight": 0.18153457412784108,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 5003.580000000014,
+              "conditional_expected_btc": 6048.001584248553,
+              "constant_expected_btc": 10756.872943045806,
+              "conditional_bias_pct": 20.873486268802253
+            },
+            "bid_remove_qty": {
+              "observed_btc": 5862.280000000023,
+              "conditional_expected_btc": 6697.828847529796,
+              "constant_expected_btc": 10464.978144659462,
+              "conditional_bias_pct": 14.25296723339331
+            },
+            "ask_add_qty": {
+              "observed_btc": 5164.041000000032,
+              "conditional_expected_btc": 6130.358871007063,
+              "constant_expected_btc": 10487.09241127825,
+              "conditional_bias_pct": 18.712436074907714
+            },
+            "ask_remove_qty": {
+              "observed_btc": 5859.174000000027,
+              "conditional_expected_btc": 6641.551807440343,
+              "constant_expected_btc": 10168.974550110916,
+              "conditional_bias_pct": 13.353039309641801
+            }
+          }
+        },
+        "obi2_depth0": {
+          "exposure_seconds": 205.17108402399964,
+          "intervals": 7658,
+          "training_exposure_seconds": 205.17108402399964,
+          "prior_weight": 0.12756670372339843,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 23219.077000000132,
+              "conditional_expected_btc": 22338.600043757684,
+              "constant_expected_btc": 16316.986324744012,
+              "conditional_bias_pct": -3.792041157546633
+            },
+            "bid_remove_qty": {
+              "observed_btc": 20158.29100000017,
+              "conditional_expected_btc": 19611.785444779205,
+              "constant_expected_btc": 15874.214205118493,
+              "conditional_bias_pct": -2.711070870149457
+            },
+            "ask_add_qty": {
+              "observed_btc": 17929.909000000185,
+              "conditional_expected_btc": 17671.95000298709,
+              "constant_expected_btc": 15907.759101289616,
+              "conditional_bias_pct": -1.4387077871566012
+            },
+            "ask_remove_qty": {
+              "observed_btc": 14981.482000000125,
+              "conditional_expected_btc": 15038.086854045907,
+              "constant_expected_btc": 15425.209496231739,
+              "conditional_bias_pct": 0.3778321400097928
+            }
+          }
+        },
+        "obi2_depth1": {
+          "exposure_seconds": 224.07709364400037,
+          "intervals": 8219,
+          "training_exposure_seconds": 224.07709364400037,
+          "prior_weight": 0.11807439848172399,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 20329.183000000157,
+              "conditional_expected_btc": 20032.97842214166,
+              "constant_expected_btc": 17820.556391122966,
+              "conditional_bias_pct": -1.4570412291457835
+            },
+            "bid_remove_qty": {
+              "observed_btc": 20812.68600000019,
+              "conditional_expected_btc": 20402.2945666772,
+              "constant_expected_btc": 17336.983912163592,
+              "conditional_bias_pct": -1.9718331085328833
+            },
+            "ask_add_qty": {
+              "observed_btc": 15161.018000000106,
+              "conditional_expected_btc": 15422.269636984483,
+              "constant_expected_btc": 17373.6198878244,
+              "conditional_bias_pct": 1.723180046250028
+            },
+            "ask_remove_qty": {
+              "observed_btc": 15660.789000000019,
+              "conditional_expected_btc": 15800.803454967121,
+              "constant_expected_btc": 16846.60452620666,
+              "conditional_bias_pct": 0.8940447059666123
+            }
+          }
+        },
+        "obi2_depth2": {
+          "exposure_seconds": 143.87603364700018,
+          "intervals": 5315,
+          "training_exposure_seconds": 143.87603364700018,
+          "prior_weight": 0.17253671693998626,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 12783.047999999995,
+              "conditional_expected_btc": 12551.714846508954,
+              "constant_expected_btc": 11442.271627330694,
+              "conditional_bias_pct": -1.80968696582412
+            },
+            "bid_remove_qty": {
+              "observed_btc": 14021.147000000039,
+              "conditional_expected_btc": 13522.624773614018,
+              "constant_expected_btc": 11131.778086370821,
+              "conditional_bias_pct": -3.555502459149884
+            },
+            "ask_add_qty": {
+              "observed_btc": 7335.292999999997,
+              "conditional_expected_btc": 7994.384710418412,
+              "constant_expected_btc": 11155.301413905827,
+              "conditional_bias_pct": 8.9852131389764
+            },
+            "ask_remove_qty": {
+              "observed_btc": 8506.685999999972,
+              "conditional_expected_btc": 8905.28514551945,
+              "constant_expected_btc": 10816.913947933594,
+              "conditional_bias_pct": 4.685715982927774
+            }
+          }
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "bid_add_qty": {
+          "conditional": 3.6196898803673476,
+          "constant": 24.553458244644858
+        },
+        "bid_remove_qty": {
+          "conditional": 3.4138106849134506,
+          "constant": 22.898958233966997
+        },
+        "ask_add_qty": {
+          "conditional": 4.29117491224288,
+          "constant": 25.57627167876223
+        },
+        "ask_remove_qty": {
+          "conditional": 3.2101891590530642,
+          "constant": 18.538240490369056
+        }
+      },
       "conditional_count_improvement_pct": 1.8457033277202717
     },
     "2026-05-25_18": {
@@ -228,6 +536,314 @@
           "observed_btc_per_second": 56.20949764790353,
           "conditional_predicted_btc_per_second": 75.27161565386082,
           "constant_predicted_btc_per_second": 75.18218061579947
+        }
+      },
+      "state_quantity_diagnostics": {
+        "obi0_depth0": {
+          "exposure_seconds": 93.45426335200001,
+          "intervals": 3378,
+          "training_exposure_seconds": 132.226070718,
+          "prior_weight": 0.1849271197115379,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 7961.55900000001,
+              "conditional_expected_btc": 9269.364054109645,
+              "constant_expected_btc": 7432.29458652776,
+              "conditional_bias_pct": 16.42649453592735
+            },
+            "bid_remove_qty": {
+              "observed_btc": 5505.066000000031,
+              "conditional_expected_btc": 8015.147340512999,
+              "constant_expected_btc": 7230.61440109011,
+              "conditional_bias_pct": 45.595844636793714
+            },
+            "ask_add_qty": {
+              "observed_btc": 9505.921999999999,
+              "conditional_expected_btc": 12736.536121392975,
+              "constant_expected_btc": 7245.893910752981,
+              "conditional_bias_pct": 33.985279085952705
+            },
+            "ask_remove_qty": {
+              "observed_btc": 6850.423000000005,
+              "conditional_expected_btc": 10876.67396666623,
+              "constant_expected_btc": 7026.095306646543,
+              "conditional_bias_pct": 58.77375698794398
+            }
+          }
+        },
+        "obi0_depth1": {
+          "exposure_seconds": 279.3958946519999,
+          "intervals": 10275,
+          "training_exposure_seconds": 142.2828108569999,
+          "prior_weight": 0.17413228778175052,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 17052.805000000204,
+              "conditional_expected_btc": 20515.686555609118,
+              "constant_expected_btc": 22219.987840455167,
+              "conditional_bias_pct": 20.30681495278268
+            },
+            "bid_remove_qty": {
+              "observed_btc": 16076.191000000275,
+              "conditional_expected_btc": 19757.366623794194,
+              "constant_expected_btc": 21617.0339053127,
+              "conditional_bias_pct": 22.898307340301294
+            },
+            "ask_add_qty": {
+              "observed_btc": 19796.284000000203,
+              "conditional_expected_btc": 26712.611734703423,
+              "constant_expected_btc": 21662.714349617574,
+              "conditional_bias_pct": 34.93750511309672
+            },
+            "ask_remove_qty": {
+              "observed_btc": 18679.185000000187,
+              "conditional_expected_btc": 27168.990167350847,
+              "constant_expected_btc": 21005.592615039455,
+              "conditional_bias_pct": 45.4506187895809
+            }
+          }
+        },
+        "obi0_depth2": {
+          "exposure_seconds": 172.14049610500004,
+          "intervals": 6263,
+          "training_exposure_seconds": 222.40217827999945,
+          "prior_weight": 0.11885792826526183,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 8337.405000000046,
+              "conditional_expected_btc": 8935.19146638951,
+              "constant_expected_btc": 13690.107132988367,
+              "conditional_bias_pct": 7.169934366741937
+            },
+            "bid_remove_qty": {
+              "observed_btc": 10860.325000000103,
+              "conditional_expected_btc": 9896.088003173783,
+              "constant_expected_btc": 13318.617102137452,
+              "conditional_bias_pct": -8.878528007461195
+            },
+            "ask_add_qty": {
+              "observed_btc": 9827.284000000103,
+              "conditional_expected_btc": 11940.799306600939,
+              "constant_expected_btc": 13346.761589925154,
+              "conditional_bias_pct": 21.506606572078436
+            },
+            "ask_remove_qty": {
+              "observed_btc": 12748.553000000145,
+              "conditional_expected_btc": 12793.338127256797,
+              "constant_expected_btc": 12941.897869459392,
+              "conditional_bias_pct": 0.3512957686778284
+            }
+          }
+        },
+        "obi1_depth0": {
+          "exposure_seconds": 76.84613642000004,
+          "intervals": 2822,
+          "training_exposure_seconds": 164.11050105999993,
+          "prior_weight": 0.15455114399363146,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 6315.612000000028,
+              "conditional_expected_btc": 5749.864602316339,
+              "constant_expected_btc": 6111.472106507336,
+              "conditional_bias_pct": -8.957918847511316
+            },
+            "bid_remove_qty": {
+              "observed_btc": 4659.825000000011,
+              "conditional_expected_btc": 4932.065272287613,
+              "constant_expected_btc": 5945.633304857638,
+              "conditional_bias_pct": 5.842285328045627
+            },
+            "ask_add_qty": {
+              "observed_btc": 4063.5939999999882,
+              "conditional_expected_btc": 6057.374653525313,
+              "constant_expected_btc": 5958.197432398402,
+              "conditional_bias_pct": 49.06446494224892
+            },
+            "ask_remove_qty": {
+              "observed_btc": 2675.471999999993,
+              "conditional_expected_btc": 5242.1469203193055,
+              "constant_expected_btc": 5777.460107954791,
+              "conditional_bias_pct": 95.93353697289
+            }
+          }
+        },
+        "obi1_depth1": {
+          "exposure_seconds": 217.3421274790003,
+          "intervals": 7960,
+          "training_exposure_seconds": 135.12993388399997,
+          "prior_weight": 0.18167511664526143,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 14965.451000000246,
+              "conditional_expected_btc": 18270.897048840437,
+              "constant_expected_btc": 17284.933394662792,
+              "conditional_bias_pct": 22.087179656932076
+            },
+            "bid_remove_qty": {
+              "observed_btc": 11484.56300000015,
+              "conditional_expected_btc": 18549.251329196893,
+              "constant_expected_btc": 16815.895396810545,
+              "conditional_bias_pct": 61.514646479771606
+            },
+            "ask_add_qty": {
+              "observed_btc": 11161.81800000008,
+              "conditional_expected_btc": 14876.437611931087,
+              "constant_expected_btc": 16851.4302244135,
+              "conditional_bias_pct": 33.279700600126084
+            },
+            "ask_remove_qty": {
+              "observed_btc": 9686.944000000083,
+              "conditional_expected_btc": 15464.854007264077,
+              "constant_expected_btc": 16340.255083548289,
+              "conditional_bias_pct": 59.64636532702103
+            }
+          }
+        },
+        "obi1_depth2": {
+          "exposure_seconds": 186.5642191169998,
+          "intervals": 6857,
+          "training_exposure_seconds": 135.25777606899976,
+          "prior_weight": 0.18153457412784108,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 8510.021000000088,
+              "conditional_expected_btc": 8342.150267265266,
+              "constant_expected_btc": 14837.206843740865,
+              "conditional_bias_pct": -1.9726241889981289
+            },
+            "bid_remove_qty": {
+              "observed_btc": 13464.749000000204,
+              "conditional_expected_btc": 9238.47223453719,
+              "constant_expected_btc": 14434.589510320495,
+              "conditional_bias_pct": -31.387712949294112
+            },
+            "ask_add_qty": {
+              "observed_btc": 6135.911000000018,
+              "conditional_expected_btc": 8455.747602215157,
+              "constant_expected_btc": 14465.092236322498,
+              "conditional_bias_pct": 37.80753342437875
+            },
+            "ask_remove_qty": {
+              "observed_btc": 8643.027000000075,
+              "conditional_expected_btc": 9160.847994780806,
+              "constant_expected_btc": 14026.30481809986,
+              "conditional_bias_pct": 5.991199550582538
+            }
+          }
+        },
+        "obi2_depth0": {
+          "exposure_seconds": 135.98014096500015,
+          "intervals": 4998,
+          "training_exposure_seconds": 205.17108402399964,
+          "prior_weight": 0.12756670372339843,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 16790.389000000065,
+              "conditional_expected_btc": 14805.234360196699,
+              "constant_expected_btc": 10814.321672654007,
+              "conditional_bias_pct": -11.823160498564732
+            },
+            "bid_remove_qty": {
+              "observed_btc": 12468.424000000128,
+              "conditional_expected_btc": 12997.998046569091,
+              "constant_expected_btc": 10520.867965332336,
+              "conditional_bias_pct": 4.24732144631077
+            },
+            "ask_add_qty": {
+              "observed_btc": 9949.053000000054,
+              "conditional_expected_btc": 11712.343695817877,
+              "constant_expected_btc": 10543.100336583442,
+              "conditional_bias_pct": 17.7232013521067
+            },
+            "ask_remove_qty": {
+              "observed_btc": 7593.78300000002,
+              "conditional_expected_btc": 9966.71231711126,
+              "constant_expected_btc": 10223.283518192531,
+              "conditional_bias_pct": 31.24831611742438
+            }
+          }
+        },
+        "obi2_depth1": {
+          "exposure_seconds": 251.61865757000015,
+          "intervals": 9232,
+          "training_exposure_seconds": 224.07709364400037,
+          "prior_weight": 0.11807439848172399,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 23873.210000000323,
+              "conditional_expected_btc": 22495.254002697766,
+              "constant_expected_btc": 20010.90072780361,
+              "conditional_bias_pct": -5.771976191314609
+            },
+            "bid_remove_qty": {
+              "observed_btc": 20819.469000000267,
+              "conditional_expected_btc": 22909.963203873707,
+              "constant_expected_btc": 19467.891819508604,
+              "conditional_bias_pct": 10.041054379789482
+            },
+            "ask_add_qty": {
+              "observed_btc": 13903.587000000203,
+              "conditional_expected_btc": 17317.837890675957,
+              "constant_expected_btc": 19509.03076354184,
+              "conditional_bias_pct": 24.556619026987093
+            },
+            "ask_remove_qty": {
+              "observed_btc": 12070.806000000215,
+              "conditional_expected_btc": 17742.897719758526,
+              "constant_expected_btc": 18917.239359732863,
+              "conditional_bias_pct": 46.990165526297176
+            }
+          }
+        },
+        "obi2_depth2": {
+          "exposure_seconds": 151.90782962199992,
+          "intervals": 5581,
+          "training_exposure_seconds": 143.87603364700018,
+          "prior_weight": 0.17253671693998626,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 8804.074000000026,
+              "conditional_expected_btc": 13252.407034277185,
+              "constant_expected_btc": 12081.029792062534,
+              "conditional_bias_pct": 50.52584785494927
+            },
+            "bid_remove_qty": {
+              "observed_btc": 14502.833000000168,
+              "conditional_expected_btc": 14277.517443887473,
+              "constant_expected_btc": 11753.20312959983,
+              "conditional_bias_pct": -1.5535968463037064
+            },
+            "ask_add_qty": {
+              "observed_btc": 5713.445000000018,
+              "conditional_expected_btc": 8440.666591508321,
+              "constant_expected_btc": 11778.03963322553,
+              "conditional_bias_pct": 47.73340062796254
+            },
+            "ask_remove_qty": {
+              "observed_btc": 9033.710000000072,
+              "conditional_expected_btc": 9402.417514093731,
+              "constant_expected_btc": 11420.761883595324,
+              "conditional_bias_pct": 4.0814628108900575
+            }
+          }
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "bid_add_qty": {
+          "conditional": 15.290738386880658,
+          "constant": 29.318120679427118
+        },
+        "bid_remove_qty": {
+          "conditional": 19.632009697829858,
+          "constant": 21.267407494583498
+        },
+        "ask_add_qty": {
+          "conditional": 31.306271739862066,
+          "constant": 39.77865044305027
+        },
+        "ask_remove_qty": {
+          "conditional": 33.91262829880001,
+          "constant": 33.75351810959151
         }
       },
       "conditional_count_improvement_pct": 1.257989281372407
@@ -263,6 +879,314 @@
           "constant_predicted_btc_per_second": 75.18218061579947
         }
       },
+      "state_quantity_diagnostics": {
+        "obi0_depth0": {
+          "exposure_seconds": 380.94673390400135,
+          "intervals": 13849,
+          "training_exposure_seconds": 132.226070718,
+          "prior_weight": 0.1849271197115379,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 38230.08600000026,
+              "conditional_expected_btc": 37784.621430057494,
+              "constant_expected_btc": 30296.192453905016,
+              "conditional_bias_pct": -1.1652199002187946
+            },
+            "bid_remove_qty": {
+              "observed_btc": 37408.17000000041,
+              "conditional_expected_btc": 32672.06964787896,
+              "constant_expected_btc": 29474.085412664677,
+              "conditional_bias_pct": -12.660604226620542
+            },
+            "ask_add_qty": {
+              "observed_btc": 62829.12900000023,
+              "conditional_expected_btc": 51917.82228724968,
+              "constant_expected_btc": 29536.369134058918,
+              "conditional_bias_pct": -17.366636918921017
+            },
+            "ask_remove_qty": {
+              "observed_btc": 58359.67000000059,
+              "conditional_expected_btc": 44336.48369506399,
+              "constant_expected_btc": 28640.40615336957,
+              "conditional_bias_pct": -24.028899246579805
+            }
+          }
+        },
+        "obi0_depth1": {
+          "exposure_seconds": 36.102325642,
+          "intervals": 1315,
+          "training_exposure_seconds": 142.2828108569999,
+          "prior_weight": 0.17413228778175052,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 3513.4839999999967,
+              "conditional_expected_btc": 2650.948031009315,
+              "constant_expected_btc": 2871.1704507203294,
+              "conditional_bias_pct": -24.549306870066367
+            },
+            "bid_remove_qty": {
+              "observed_btc": 3558.8810000000067,
+              "conditional_expected_btc": 2552.96121859281,
+              "constant_expected_btc": 2793.2593585020536,
+              "conditional_bias_pct": -28.265058073231298
+            },
+            "ask_add_qty": {
+              "observed_btc": 6109.000000000006,
+              "conditional_expected_btc": 3451.687823816321,
+              "constant_expected_btc": 2799.161987378621,
+              "conditional_bias_pct": -43.49831684700741
+            },
+            "ask_remove_qty": {
+              "observed_btc": 5991.923000000008,
+              "conditional_expected_btc": 3510.6590653656735,
+              "constant_expected_btc": 2714.25156706725,
+              "conditional_bias_pct": -41.410143865906335
+            }
+          }
+        },
+        "obi0_depth2": {
+          "exposure_seconds": 63.50556748500005,
+          "intervals": 2228,
+          "training_exposure_seconds": 222.40217827999945,
+          "prior_weight": 0.11885792826526183,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 8231.878000000012,
+              "conditional_expected_btc": 3296.344657413317,
+              "constant_expected_btc": 5050.5142141601045,
+              "conditional_bias_pct": -59.95634705211481
+            },
+            "bid_remove_qty": {
+              "observed_btc": 8533.936999999984,
+              "conditional_expected_btc": 3650.835792524442,
+              "constant_expected_btc": 4913.465200371871,
+              "conditional_bias_pct": -57.21979442167843
+            },
+            "ask_add_qty": {
+              "observed_btc": 14118.324000000017,
+              "conditional_expected_btc": 4405.1646959797545,
+              "constant_expected_btc": 4923.848182348607,
+              "conditional_bias_pct": -68.79824619423842
+            },
+            "ask_remove_qty": {
+              "observed_btc": 14790.620000000026,
+              "conditional_expected_btc": 4719.680819923747,
+              "constant_expected_btc": 4774.487044766107,
+              "conditional_bias_pct": -68.0900407155093
+            }
+          }
+        },
+        "obi1_depth0": {
+          "exposure_seconds": 289.68997312500056,
+          "intervals": 11499,
+          "training_exposure_seconds": 164.11050105999993,
+          "prior_weight": 0.15455114399363146,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 21952.664000000197,
+              "conditional_expected_btc": 21675.495993887,
+              "constant_expected_btc": 23038.662355281616,
+              "conditional_bias_pct": -1.2625711672769824
+            },
+            "bid_remove_qty": {
+              "observed_btc": 21387.192000000316,
+              "conditional_expected_btc": 18592.604947252672,
+              "constant_expected_btc": 22413.493150542337,
+              "conditional_bias_pct": -13.06663844766346
+            },
+            "ask_add_qty": {
+              "observed_btc": 21770.39100000021,
+              "conditional_expected_btc": 22834.729009630646,
+              "constant_expected_btc": 22460.856647774497,
+              "conditional_bias_pct": 4.888924639113856
+            },
+            "ask_remove_qty": {
+              "observed_btc": 21328.140000000338,
+              "conditional_expected_btc": 19761.532215032286,
+              "constant_expected_btc": 21779.52388206984,
+              "conditional_bias_pct": -7.345262104281137
+            }
+          }
+        },
+        "obi1_depth1": {
+          "exposure_seconds": 21.869625062999994,
+          "intervals": 789,
+          "training_exposure_seconds": 135.12993388399997,
+          "prior_weight": 0.18167511664526143,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 2265.1719999999996,
+              "conditional_expected_btc": 1838.4731605308375,
+              "constant_expected_btc": 1739.2625026950968,
+              "conditional_bias_pct": -18.837370383757268
+            },
+            "bid_remove_qty": {
+              "observed_btc": 2338.422999999998,
+              "conditional_expected_btc": 1866.4820137462043,
+              "constant_expected_btc": 1692.0664746065272,
+              "conditional_bias_pct": -20.18201951716153
+            },
+            "ask_add_qty": {
+              "observed_btc": 2098.272,
+              "conditional_expected_btc": 1496.912341016258,
+              "constant_expected_btc": 1695.6420969001374,
+              "conditional_bias_pct": -28.659757123182406
+            },
+            "ask_remove_qty": {
+              "observed_btc": 2356.214999999998,
+              "conditional_expected_btc": 1556.1205860818493,
+              "constant_expected_btc": 1644.2061014862818,
+              "conditional_bias_pct": -33.956765996233344
+            }
+          }
+        },
+        "obi1_depth2": {
+          "exposure_seconds": 34.079882288999976,
+          "intervals": 1336,
+          "training_exposure_seconds": 135.25777606899976,
+          "prior_weight": 0.18153457412784108,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 3734.4829999999997,
+              "conditional_expected_btc": 1523.8693705102005,
+              "constant_expected_btc": 2710.3281922195665,
+              "conditional_bias_pct": -59.194636298780836
+            },
+            "bid_remove_qty": {
+              "observed_btc": 3904.5050000000056,
+              "conditional_expected_btc": 1687.6014477662202,
+              "constant_expected_btc": 2636.7816601170093,
+              "conditional_bias_pct": -56.77809484771519
+            },
+            "ask_add_qty": {
+              "observed_btc": 3100.5170000000007,
+              "conditional_expected_btc": 1544.620315261341,
+              "constant_expected_btc": 2642.3536251838523,
+              "conditional_bias_pct": -50.181846599733504
+            },
+            "ask_remove_qty": {
+              "observed_btc": 3442.979000000004,
+              "conditional_expected_btc": 1673.4217461803921,
+              "constant_expected_btc": 2562.1998656167852,
+              "conditional_bias_pct": -51.39610941047301
+            }
+          }
+        },
+        "obi2_depth0": {
+          "exposure_seconds": 461.0286833549976,
+          "intervals": 17263,
+          "training_exposure_seconds": 205.17108402399964,
+          "prior_weight": 0.12756670372339843,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 76117.2079999997,
+              "conditional_expected_btc": 50195.842241409,
+              "constant_expected_btc": 36665.00451271322,
+              "conditional_bias_pct": -34.05454093716994
+            },
+            "bid_remove_qty": {
+              "observed_btc": 71754.25799999961,
+              "conditional_expected_btc": 44068.56680052298,
+              "constant_expected_btc": 35670.07558153231,
+              "conditional_bias_pct": -38.584039430073645
+            },
+            "ask_add_qty": {
+              "observed_btc": 44429.03900000047,
+              "conditional_expected_btc": 39709.669035230756,
+              "constant_expected_btc": 35745.452476812774,
+              "conditional_bias_pct": -10.622264336551746
+            },
+            "ask_remove_qty": {
+              "observed_btc": 43927.595000000474,
+              "conditional_expected_btc": 33791.25969665345,
+              "constant_expected_btc": 34661.14174105986,
+              "conditional_bias_pct": -23.075097335392293
+            }
+          }
+        },
+        "obi2_depth1": {
+          "exposure_seconds": 34.12927991300005,
+          "intervals": 1088,
+          "training_exposure_seconds": 224.07709364400037,
+          "prior_weight": 0.11807439848172399,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 7278.7050000000045,
+              "conditional_expected_btc": 3051.2316852279546,
+              "constant_expected_btc": 2714.2567202532127,
+              "conditional_bias_pct": -58.08001993173302
+            },
+            "bid_remove_qty": {
+              "observed_btc": 7168.92199999999,
+              "conditional_expected_btc": 3107.4823883599097,
+              "constant_expected_btc": 2640.603584967333,
+              "conditional_bias_pct": -56.65342169492269
+            },
+            "ask_add_qty": {
+              "observed_btc": 3377.9600000000005,
+              "conditional_expected_btc": 2348.972618194694,
+              "constant_expected_btc": 2646.183626407011,
+              "conditional_bias_pct": -30.46179889061168
+            },
+            "ask_remove_qty": {
+              "observed_btc": 3395.047,
+              "conditional_expected_btc": 2406.627269191691,
+              "constant_expected_btc": 2565.913686706341,
+              "conditional_bias_pct": -29.113580189267154
+            }
+          }
+        },
+        "obi2_depth2": {
+          "exposure_seconds": 48.32988071200001,
+          "intervals": 1478,
+          "training_exposure_seconds": 143.87603364700018,
+          "prior_weight": 0.17253671693998626,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 11879.479000000016,
+              "conditional_expected_btc": 4216.288605447411,
+              "constant_expected_btc": 3843.611815015624,
+              "conditional_bias_pct": -64.507798654744
+            },
+            "bid_remove_qty": {
+              "observed_btc": 13363.42399999999,
+              "conditional_expected_btc": 4542.430213397298,
+              "constant_expected_btc": 3739.312888946704,
+              "conditional_bias_pct": -66.00848544955768
+            },
+            "ask_add_qty": {
+              "observed_btc": 6786.173000000009,
+              "conditional_expected_btc": 2685.420563985744,
+              "constant_expected_btc": 3747.2146887454405,
+              "conditional_bias_pct": -60.42805622571454
+            },
+            "ask_remove_qty": {
+              "observed_btc": 6656.6209999999965,
+              "conditional_expected_btc": 2991.404182334259,
+              "constant_expected_btc": 3633.5458208296272,
+              "conditional_bias_pct": -55.061221266251145
+            }
+          }
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "bid_add_qty": {
+          "conditional": 27.11846833261818,
+          "constant": 38.36312967802255
+        },
+        "bid_remove_qty": {
+          "conditional": 33.45380884966818,
+          "constant": 38.66016735536864
+        },
+        "ask_add_qty": {
+          "conditional": 22.08282481998195,
+          "constant": 36.327960119708926
+        },
+        "ask_remove_qty": {
+          "conditional": 28.394357951347963,
+          "constant": 36.30348450086496
+        }
+      },
       "conditional_count_improvement_pct": 4.216975297771652
     },
     "2026-05-26_21": {
@@ -296,6 +1220,314 @@
           "constant_predicted_btc_per_second": 75.18218061579947
         }
       },
+      "state_quantity_diagnostics": {
+        "obi0_depth0": {
+          "exposure_seconds": 630.4988106409982,
+          "intervals": 23415,
+          "training_exposure_seconds": 132.226070718,
+          "prior_weight": 0.1849271197115379,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 22544.296000001275,
+              "conditional_expected_btc": 62536.71905263021,
+              "constant_expected_btc": 50142.740727504635,
+              "conditional_bias_pct": 177.39486321784753
+            },
+            "bid_remove_qty": {
+              "observed_btc": 22044.467000001143,
+              "conditional_expected_btc": 54075.0168483101,
+              "constant_expected_btc": 48782.08458954627,
+              "conditional_bias_pct": 145.29972463524427
+            },
+            "ask_add_qty": {
+              "observed_btc": 22253.718000000983,
+              "conditional_expected_btc": 85928.35241745634,
+              "constant_expected_btc": 48885.16937480996,
+              "conditional_bias_pct": 286.1303195153841
+            },
+            "ask_remove_qty": {
+              "observed_btc": 21155.403000001057,
+              "conditional_expected_btc": 73380.60088155663,
+              "constant_expected_btc": 47402.275459658136,
+              "conditional_bias_pct": 246.86458528609907
+            }
+          }
+        },
+        "obi0_depth1": {
+          "exposure_seconds": 19.192473377999995,
+          "intervals": 634,
+          "training_exposure_seconds": 142.2828108569999,
+          "prior_weight": 0.17413228778175052,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 1106.977999999998,
+              "conditional_expected_btc": 1409.27900368884,
+              "constant_expected_btc": 1526.3521520908175,
+              "conditional_bias_pct": 27.308673134320884
+            },
+            "bid_remove_qty": {
+              "observed_btc": 921.9489999999989,
+              "conditional_expected_btc": 1357.187919381767,
+              "constant_expected_btc": 1484.9335859275727,
+              "conditional_bias_pct": 47.208567868913406
+            },
+            "ask_add_qty": {
+              "observed_btc": 949.475999999999,
+              "conditional_expected_btc": 1834.9628587553668,
+              "constant_expected_btc": 1488.071501437423,
+              "conditional_bias_pct": 93.26058360141477
+            },
+            "ask_remove_qty": {
+              "observed_btc": 1110.719000000001,
+              "conditional_expected_btc": 1866.312750026271,
+              "constant_expected_btc": 1442.9319999687186,
+              "conditional_bias_pct": 68.0274443874886
+            }
+          }
+        },
+        "obi0_depth2": {
+          "exposure_seconds": 36.04557196300001,
+          "intervals": 1380,
+          "training_exposure_seconds": 222.40217827999945,
+          "prior_weight": 0.11885792826526183,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 1721.0219999999943,
+              "conditional_expected_btc": 1870.9954618027355,
+              "constant_expected_btc": 2866.6569053124667,
+              "conditional_bias_pct": 8.714209452449872
+            },
+            "bid_remove_qty": {
+              "observed_btc": 1759.6079999999993,
+              "conditional_expected_btc": 2072.20357987698,
+              "constant_expected_btc": 2788.8682911074425,
+              "conditional_bias_pct": 17.765069258436018
+            },
+            "ask_add_qty": {
+              "observed_btc": 1360.6159999999973,
+              "conditional_expected_btc": 2500.358430704684,
+              "constant_expected_btc": 2794.7616409168427,
+              "conditional_bias_pct": 83.76664912838663
+            },
+            "ask_remove_qty": {
+              "observed_btc": 1600.147,
+              "conditional_expected_btc": 2678.876850870367,
+              "constant_expected_btc": 2709.9847017220645,
+              "conditional_bias_pct": 67.41442197937859
+            }
+          }
+        },
+        "obi1_depth0": {
+          "exposure_seconds": 323.9526848640005,
+          "intervals": 12150,
+          "training_exposure_seconds": 164.11050105999993,
+          "prior_weight": 0.15455114399363146,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 8853.718000000066,
+              "conditional_expected_btc": 24239.13761056793,
+              "constant_expected_btc": 25763.53073307167,
+              "conditional_bias_pct": 173.77354474772915
+            },
+            "bid_remove_qty": {
+              "observed_btc": 8336.841000000051,
+              "conditional_expected_btc": 20791.621561161905,
+              "constant_expected_btc": 25064.420438763533,
+              "conditional_bias_pct": 149.3944836079011
+            },
+            "ask_add_qty": {
+              "observed_btc": 6629.214000000029,
+              "conditional_expected_btc": 25535.47743131507,
+              "constant_expected_btc": 25117.385793164147,
+              "conditional_bias_pct": 285.1961549486102
+            },
+            "ask_remove_qty": {
+              "observed_btc": 6298.436000000014,
+              "conditional_expected_btc": 22098.802209228725,
+              "constant_expected_btc": 24355.469264418447,
+              "conditional_bias_pct": 250.86174106125196
+            }
+          }
+        },
+        "obi1_depth1": {
+          "exposure_seconds": 3.831481675999999,
+          "intervals": 148,
+          "training_exposure_seconds": 135.12993388399997,
+          "prior_weight": 0.18167511664526143,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 121.40700000000004,
+              "conditional_expected_btc": 322.09405538959976,
+              "constant_expected_btc": 304.712695788486,
+              "conditional_bias_pct": 165.30105792054798
+            },
+            "bid_remove_qty": {
+              "observed_btc": 143.17300000000003,
+              "conditional_expected_btc": 327.0011083249529,
+              "constant_expected_btc": 296.4441170506056,
+              "conditional_bias_pct": 128.39579272974154
+            },
+            "ask_add_qty": {
+              "observed_btc": 68.04799999999997,
+              "conditional_expected_btc": 262.2537967002208,
+              "constant_expected_btc": 297.07055354683206,
+              "conditional_bias_pct": 285.3953043443171
+            },
+            "ask_remove_qty": {
+              "observed_btc": 81.42199999999998,
+              "conditional_expected_btc": 272.6268737595408,
+              "constant_expected_btc": 288.0591473911581,
+              "conditional_bias_pct": 234.83195421328494
+            }
+          }
+        },
+        "obi1_depth2": {
+          "exposure_seconds": 12.282642177,
+          "intervals": 485,
+          "training_exposure_seconds": 135.25777606899976,
+          "prior_weight": 0.18153457412784108,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 477.573,
+              "conditional_expected_btc": 549.2138160497211,
+              "constant_expected_btc": 976.8223694250621,
+              "conditional_bias_pct": 15.001018912233555
+            },
+            "bid_remove_qty": {
+              "observed_btc": 420.30199999999974,
+              "conditional_expected_btc": 608.2240702747415,
+              "constant_expected_btc": 950.315654128497,
+              "conditional_bias_pct": 44.7112005830907
+            },
+            "ask_add_qty": {
+              "observed_btc": 218.47899999999984,
+              "conditional_expected_btc": 556.6926103440094,
+              "constant_expected_btc": 952.3238316379874,
+              "conditional_bias_pct": 154.80371584637874
+            },
+            "ask_remove_qty": {
+              "observed_btc": 249.2709999999998,
+              "conditional_expected_btc": 603.1136007232777,
+              "constant_expected_btc": 923.43582259045,
+              "conditional_bias_pct": 141.9509693158363
+            }
+          }
+        },
+        "obi2_depth0": {
+          "exposure_seconds": 867.5413388999996,
+          "intervals": 32107,
+          "training_exposure_seconds": 205.17108402399964,
+          "prior_weight": 0.12756670372339843,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 36960.870000000825,
+              "conditional_expected_btc": 94456.09298845631,
+              "constant_expected_btc": 68994.42107215009,
+              "conditional_bias_pct": 155.55700660848677
+            },
+            "bid_remove_qty": {
+              "observed_btc": 36091.632000000965,
+              "conditional_expected_btc": 82926.08426727976,
+              "constant_expected_btc": 67122.21223085676,
+              "conditional_bias_pct": 129.7654045327669
+            },
+            "ask_add_qty": {
+              "observed_btc": 21056.91900000093,
+              "conditional_expected_btc": 74723.72259227281,
+              "constant_expected_btc": 67264.0528039377,
+              "conditional_bias_pct": 254.86541308474196
+            },
+            "ask_remove_qty": {
+              "observed_btc": 20525.688000000882,
+              "conditional_expected_btc": 63586.74793728383,
+              "constant_expected_btc": 65223.64963285183,
+              "conditional_bias_pct": 209.79106735560381
+            }
+          }
+        },
+        "obi2_depth1": {
+          "exposure_seconds": 2.5169968390000004,
+          "intervals": 83,
+          "training_exposure_seconds": 224.07709364400037,
+          "prior_weight": 0.11807439848172399,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 738.356,
+              "conditional_expected_btc": 225.02497932428017,
+              "constant_expected_btc": 200.1734464520477,
+              "conditional_bias_pct": -69.52351178506301
+            },
+            "bid_remove_qty": {
+              "observed_btc": 961.9700000000001,
+              "conditional_expected_btc": 229.17340678409127,
+              "constant_expected_btc": 194.74160876987074,
+              "conditional_bias_pct": -76.1766576105189
+            },
+            "ask_add_qty": {
+              "observed_btc": 273.18100000000004,
+              "conditional_expected_btc": 173.23414587020181,
+              "constant_expected_btc": 195.15313068597771,
+              "conditional_bias_pct": -36.586312419164656
+            },
+            "ask_remove_qty": {
+              "observed_btc": 251.28400000000005,
+              "conditional_expected_btc": 177.48611294020793,
+              "constant_expected_btc": 189.23331095909435,
+              "conditional_bias_pct": -29.368319136830078
+            }
+          }
+        },
+        "obi2_depth2": {
+          "exposure_seconds": 27.83623462600003,
+          "intervals": 1027,
+          "training_exposure_seconds": 143.87603364700018,
+          "prior_weight": 0.17253671693998626,
+          "quantities": {
+            "bid_add_qty": {
+              "observed_btc": 2046.8249999999955,
+              "conditional_expected_btc": 2428.427240935101,
+              "constant_expected_btc": 2213.77910969011,
+              "conditional_bias_pct": 18.64361833254462
+            },
+            "bid_remove_qty": {
+              "observed_btc": 2046.8189999999959,
+              "conditional_expected_btc": 2616.2728177593763,
+              "constant_expected_btc": 2153.7067624274523,
+              "conditional_bias_pct": 27.82140569143543
+            },
+            "ask_add_qty": {
+              "observed_btc": 815.3589999999989,
+              "conditional_expected_btc": 1546.703525589957,
+              "constant_expected_btc": 2158.2579086319283,
+              "conditional_bias_pct": 89.69601434337011
+            },
+            "ask_remove_qty": {
+              "observed_btc": 873.7319999999994,
+              "conditional_expected_btc": 1722.9388414356,
+              "constant_expected_btc": 2092.788819315702,
+              "conditional_bias_pct": 97.19305707420594
+            }
+          }
+        }
+      },
+      "state_total_quantity_wape_pct": {
+        "bid_add_qty": {
+          "conditional": 153.5349293418225,
+          "constant": 106.60238074790198
+        },
+        "bid_remove_qty": {
+          "conditional": 128.89563136957918,
+          "constant": 106.76320792155956
+        },
+        "ask_add_qty": {
+          "conditional": 260.3946209376304,
+          "constant": 178.43034859554328
+        },
+        "ask_remove_qty": {
+          "conditional": 219.36251310201527,
+          "constant": 177.58916579604355
+        }
+      },
       "conditional_count_improvement_pct": -2.9400792202161075
     }
   },
@@ -304,6 +1536,7 @@
     "Poisson counts are a diagnostic likelihood; updates bundle multiple changed levels and can be overdispersed.",
     "Near-touch changes are measured against the pre-update midpoint, not private order identities.",
     "Receipt delay and verified-episode censoring remain unresolved.",
-    "Binance historical parameters are not deployed on the Kraken live feed."
+    "Binance historical parameters are not deployed on the Coinbase/Kraken live feeds.",
+    "State-total quantity error is an aggregate diagnostic, not an interval-level forecast or profit metric."
   ]
 }
