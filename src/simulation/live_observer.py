@@ -116,23 +116,29 @@ class DashboardHandler(SimpleHTTPRequestHandler):
 
 
 class Output:
-    def __init__(self, directory, mode='live'):
+    def __init__(self, directory, mode='live', archive_directory=None):
         from .live_ecology import LiveEcology
         from .ecology_dashboard import PAGE as ECOLOGY_PAGE
         self.ecology = LiveEcology()
         self.mode = mode
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
+        from .capture_archive import CaptureArchive
+        archive_path = Path(archive_directory or self.directory.parent / (self.directory.name + '-archive'))
+        if archive_path.resolve().is_relative_to(self.directory.resolve()):
+            raise ValueError('archive must be outside the public dashboard directory')
+        self.archive = CaptureArchive(archive_path)
         self.history = deque(maxlen=600)
         (self.directory/'index.html').write_text(PAGE)
         (self.directory/'ecology.html').write_text(ECOLOGY_PAGE)
 
     def capture(self, kind, payload, received_ns):
-        with (self.directory/'capture.jsonl').open('a') as handle:
-            handle.write(json.dumps(dict(kind=kind, received_ns=received_ns, payload=payload))+'\n')
+        return self.archive.append(kind, payload, received_ns)
 
     def publish(self, observer, now_ns):
         view = observer.view(now_ns)
+        view['archive'] = self.archive.view()
+        view['capture_persistence'] = view['archive']['persistence']
         self.history.append(dict(time_ms=now_ns//1_000_000, mid=view['mid']))
         market=dict(provider=observer.provider,symbol=observer.symbol,product=observer.product,quote_currency=observer.quote_currency,validation=observer.validation)
         content = dict(mode=self.mode, **market, read_only=True,
@@ -141,7 +147,7 @@ class Output:
         tmp.write_text(json.dumps(content))
         tmp.replace(self.directory/'state.json')
         ecology = dict(mode=self.mode, **market, generated_ns=now_ns, **self.ecology.update(observer,now_ns))
-        for key in ('trade_subscription_active','captured_trade_messages','captured_trade_events','last_trade_received_ns','capture_persistence','mechanics'):
+        for key in ('trade_subscription_active','captured_trade_messages','captured_trade_events','last_trade_received_ns','capture_persistence','mechanics','archive'):
             if key in view:ecology[key]=view[key]
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
@@ -255,6 +261,7 @@ PAGE = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewp
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,required=True)
+    parser.add_argument('--archive',type=Path,default=os.environ.get('CAPTURE_ARCHIVE_DIR'))
     parser.add_argument('--seconds',type=float,default=60)
     parser.add_argument('--replay',type=Path)
     parser.add_argument('--provider',choices=('binance','kraken'),default='binance')
@@ -264,7 +271,7 @@ def main():
     args=parser.parse_args()
     if not math.isfinite(args.seconds) or args.seconds<=0:
         parser.error('seconds must be positive and finite')
-    out=Output(args.out, 'replay' if args.replay else 'live')
+    out=Output(args.out, 'replay' if args.replay else 'live', args.archive)
     server=None
     if args.serve:
         server=ThreadingHTTPServer((args.host,args.port),functools.partial(DashboardHandler,directory=str(args.out)))
@@ -280,6 +287,7 @@ def main():
             else:
                 asyncio.run(live(out,args.seconds))
     finally:
+        out.archive.close()
         if server: server.shutdown()
 
 

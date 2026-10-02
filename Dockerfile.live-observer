@@ -3,8 +3,8 @@ WORKDIR /app
 COPY requirements-live-observer.txt .
 RUN pip install --no-cache-dir -r requirements-live-observer.txt
 COPY src/simulation/ src/simulation/
-RUN mkdir -p /app/data/live && useradd --uid 10001 --create-home observer && chown -R observer:observer /app/data
+RUN mkdir -p /app/storage /app/data/live && useradd --uid 10001 --create-home observer && chown -R observer:observer /app/data /app/storage
 USER observer
-ENV PORT=10000
+ENV PORT=10000 CAPTURE_ARCHIVE_DIR=/app/storage/capture
 EXPOSE 10000
 CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "86400", "--provider", "kraken", "--serve", "--host", "0.0.0.0"]
