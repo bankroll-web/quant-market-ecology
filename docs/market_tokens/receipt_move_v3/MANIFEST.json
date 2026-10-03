@@ -1,0 +1,14 @@
+{
+  "receipt_move_benchmark.py": "241c9372d65c6dbb7120b33584a0dfc67fb767fa7223fbaee3634403d5efc1e0",
+  "tests/test_receipt_move_benchmark.py": "f52207a36d363dccfcbc663f55f7cd61803d4e2468a9e4cad2b5d62983dedbf3",
+  "data/frozen/2026-05-25_04_d09_joint_flow_liquidity_tape.csv": "3477f18e2975536f4a7af596b9431abe5163da14a940ecab19f6e54d8b3c1ec3",
+  "data/frozen/2026-05-25_04_d09b_touch_distance_book_events.csv": "adbad41a25a6523bfda6c6dbcce92c866d9fa693beb83d9f3e1511bbbfe2e08e",
+  "data/frozen/2026-05-25_12_d09_joint_flow_liquidity_tape.csv": "96198a82f3055ea5fcf86cdd56889bc24c73141a8dde4ef26037781f0e1edaa3",
+  "data/frozen/2026-05-25_12_d09b_touch_distance_book_events.csv": "7f288cc1df449b1d67e6741859f970361c432d32df229702598e1dbfd65c998b",
+  "data/frozen/2026-05-25_18_d09_joint_flow_liquidity_tape.csv": "913346cc711220de67370630603c614115e49ce9cc2694e1b2683fe4dec3900d",
+  "data/frozen/2026-05-25_18_d09b_touch_distance_book_events.csv": "b20632fda735ddbb42ea0d13e367dee30d0f18d279e687081ff6d708c5e3c28f",
+  "data/frozen/2026-05-26_15_d09_joint_flow_liquidity_tape.csv": "7a9e08f459ecb5d0cde2324aef37aa673aca80437993125db34efe90e4456fb7",
+  "data/frozen/2026-05-26_15_d09b_touch_distance_book_events.csv": "a2b5b0cab4cbbbd8aec3a7e9633d05aa136312cf45e06a7e495adbc2383babb9",
+  "data/frozen/2026-05-26_21_d09_joint_flow_liquidity_tape.csv": "dd3f4c77c2f62428feb52d584207391e47e29c63b6a24dd825bd51fb9ba7dbab",
+  "data/frozen/2026-05-26_21_d09b_touch_distance_book_events.csv": "779207c7bddb1e47cc722833832672eaf9c40439a732e5a59ef39096cc19e482"
+}

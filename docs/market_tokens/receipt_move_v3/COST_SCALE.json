@@ -1,0 +1,32 @@
+[
+  {
+    "horizon_ms": 100,
+    "n": 16221,
+    "n_endpoint_moves": 193,
+    "perfect_direction_mean_gross_bps": 0.004727122989055259,
+    "perfect_direction_conditional_move_mean_gross_bps": 0.39729876686769616,
+    "assumed_round_trip_cost_bps": 6.0,
+    "oracle_all_decisions_mean_after_cost_bps": -5.995272877010945,
+    "scope": "Oracle scale diagnostic only, NOT strategy P/L or executable fills; 6 bp is an unverified cost scenario inherited from the supplied benchmark."
+  },
+  {
+    "horizon_ms": 1000,
+    "n": 11805,
+    "n_endpoint_moves": 985,
+    "perfect_direction_mean_gross_bps": 0.052670820580607125,
+    "perfect_direction_conditional_move_mean_gross_bps": 0.63124775325286,
+    "assumed_round_trip_cost_bps": 6.0,
+    "oracle_all_decisions_mean_after_cost_bps": -5.947329179419393,
+    "scope": "Oracle scale diagnostic only, NOT strategy P/L or executable fills; 6 bp is an unverified cost scenario inherited from the supplied benchmark."
+  },
+  {
+    "horizon_ms": 10000,
+    "n": 809,
+    "n_endpoint_moves": 278,
+    "perfect_direction_mean_gross_bps": 0.24693604605807015,
+    "perfect_direction_conditional_move_mean_gross_bps": 0.718601659212154,
+    "assumed_round_trip_cost_bps": 6.0,
+    "oracle_all_decisions_mean_after_cost_bps": -5.75306395394193,
+    "scope": "Oracle scale diagnostic only, NOT strategy P/L or executable fills; 6 bp is an unverified cost scenario inherited from the supplied benchmark."
+  }
+]
