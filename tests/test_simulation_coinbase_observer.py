@@ -30,3 +30,18 @@ class CoinbaseTests(unittest.TestCase):
         self.assertEqual(o.mechanics.totals['taker_buy_btc'],2)
         event['trade_id']=13
         with self.assertRaises(RuntimeError):o.observe_match(event,4)
+
+    def test_full_book_features_and_reset(self):
+        o=CoinbaseObserver()
+        o.update_coinbase(dict(type='snapshot',product_id='BTC-USD',bids=[['100','2'],['99.99','4']],asks=[['100.01','3']]),1000000000)
+        self.assertIsNone(o.model_observation)
+        self.update(o,[['buy','100','1']])
+        m=o.view(1100000000)['model_observation']
+        self.assertEqual(m['best_quote_ofi_btc'],-1)
+        self.assertAlmostEqual(m['depth_btc'],8)
+        self.assertAlmostEqual(m['features'][0],-.5)
+        self.assertAlmostEqual(m['features'][1],.25)
+        self.assertAlmostEqual(m['features'][4],-.125)
+        m['features'][0]=99
+        self.assertNotEqual(o.model_observation['features'][0],99)
+        o.invalidate('reset');self.assertIsNone(o.model_observation)

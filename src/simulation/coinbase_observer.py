@@ -4,6 +4,7 @@ import copy
 from datetime import datetime
 from decimal import Decimal
 import json
+import math
 import time
 from .kraken_observer import KrakenObserver
 
@@ -18,10 +19,12 @@ class CoinbaseObserver(KrakenObserver):
     def __init__(self):
         super().__init__()
         self.last_trade_id = None
+        self.model_observation = None
 
     def invalidate(self, reason):
         super().invalidate(reason)
         self.last_trade_id = None
+        self.model_observation = None
 
     def update_coinbase(self, event, received_ns):
         if event.get('product_id') != self.symbol:
@@ -42,6 +45,7 @@ class CoinbaseObserver(KrakenObserver):
                 return False
             levels = event['changes']
         mid = (max(self.bids) + min(self.asks)) / 2 if self.valid else None
+        before = (max(self.bids), self.bids[max(self.bids)], min(self.asks), self.asks[min(self.asks)]) if self.valid else None
         changes = {}
         for side, price, size in levels:
             if side not in ('buy', 'sell'):
@@ -71,7 +75,27 @@ class CoinbaseObserver(KrakenObserver):
         self.reason = 'ordered_batched_book'
         if event_ms is not None:
             self.mechanics.record(received_ns, changes, float((max(self.bids) + min(self.asks)) / 2))
+        if kind == 'l2update' and before is not None:
+            bid,ask=max(self.bids),min(self.asks);qb,qa=self.bids[bid],self.asks[ask]
+            old_bid,old_qb,old_ask,old_qa=before
+            ofi=(qb if bid>=old_bid else 0)-(old_qb if bid<=old_bid else 0)-(qa if ask<=old_ask else 0)+(old_qa if ask>=old_ask else 0)
+            midpoint=(bid+ask)/2
+            db=sum(q for p,q in self.bids.items() if p>=midpoint*Decimal('.999'))
+            da=sum(q for p,q in self.asks.items() if p<=midpoint*Decimal('1.001'))
+            depth=db+da
+            self.model_observation=None
+            if depth>0:
+                self.model_observation=dict(provider=self.provider,symbol=self.symbol,source_update_id=self.sequence,
+                    event_ns=event_ms*1_000_000,available_ns=received_ns,
+                    features=[float((qb-qa)/(qb+qa)),float((db-da)/depth),math.log(float(depth)),float((ask-bid)/midpoint*10000),float(ofi/depth)],
+                    midpoint=float(midpoint),best_quote_ofi_btc=float(ofi),depth_btc=float(depth),
+                    feature_scope='Full retained Coinbase snapshot and received absolute L2 bundles; no checksum/independent sequence verification')
         return True
+
+    def view(self, now_ns):
+        result=super().view(now_ns)
+        result['model_observation']=copy.deepcopy(self.model_observation) if self.valid else None
+        return result
 
     def observe_match(self, event, received_ns):
         if event.get('product_id') != self.symbol or event.get('type') not in ('last_match', 'match'):
@@ -145,6 +169,8 @@ async def live_coinbase(out, seconds):
                         if kind in ('snapshot', 'l2update') and event.get('product_id') == observer.symbol:
                             if not observer.update_coinbase(event, received):
                                 raise RuntimeError(observer.reason)
+                            if observer.model_observation is not None:
+                                out.capture('coinbase_model_observation', observer.model_observation, received)
                             failures = 0
                         if time.monotonic() - connected > 30 and (observer.received_ns is None or received - observer.received_ns > 30_000_000_000):
                             raise RuntimeError('book_updates_silent_30_seconds')

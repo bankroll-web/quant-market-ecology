@@ -147,7 +147,7 @@ class Output:
         tmp.write_text(json.dumps(content))
         tmp.replace(self.directory/'state.json')
         ecology = dict(mode=self.mode, **market, generated_ns=now_ns, **self.ecology.update(observer,now_ns))
-        for key in ('trade_subscription_active','captured_trade_messages','captured_trade_events','last_trade_received_ns','capture_persistence','mechanics','archive'):
+        for key in ('trade_subscription_active','captured_trade_messages','captured_trade_events','last_trade_received_ns','capture_persistence','mechanics','archive','model_observation'):
             if key in view:ecology[key]=view[key]
         from .live_model_status import assess
         ecology['model_status']=assess(market,view,now_ns)
