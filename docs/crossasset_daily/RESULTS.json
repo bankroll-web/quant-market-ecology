@@ -1,0 +1,583 @@
+{
+  "source_audit_sha256": "97a011f71b9afca577d7b1f99797ac46740e11cd389ab534eee3036598666436",
+  "status": "daily_crossasset_development_and_chronological_evaluation",
+  "qualified": false,
+  "orders_enabled": false,
+  "rolling_window": 714,
+  "selection": {
+    "btc_only": {
+      "alpha": 5.0,
+      "training_fold_scores": {
+        "0.1": {
+          "mse": 73665.1485232445,
+          "fold_mse": [
+            62224.46566969195,
+            58545.6548399521,
+            99662.54396463536,
+            83047.40973213337,
+            64845.668409809725
+          ],
+          "solver_attempt_limits": [
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        },
+        "1.0": {
+          "mse": 71452.92023134537,
+          "fold_mse": [
+            57094.92358397618,
+            56706.93939959508,
+            97451.90270480167,
+            81746.34295451661,
+            64264.49251383737
+          ],
+          "solver_attempt_limits": [
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        },
+        "5.0": {
+          "mse": 65379.196166123846,
+          "fold_mse": [
+            43176.27179423698,
+            50734.313050085264,
+            93140.02677051967,
+            77607.76860138089,
+            62237.60061439646
+          ],
+          "solver_attempt_limits": [
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        }
+      },
+      "initial_feature_first": "2023-01-08",
+      "initial_feature_last": "2024-12-21",
+      "initial_max_label_available_ns": 1734998400000000000
+    },
+    "crossasset": {
+      "alpha": 5.0,
+      "training_fold_scores": {
+        "0.1": {
+          "mse": 516111.5667365345,
+          "fold_mse": [
+            340201.19536825165,
+            617734.4307155153,
+            412836.01142483554,
+            206015.30884759198,
+            1003770.8873264783
+          ],
+          "solver_attempt_limits": [
+            [
+              10000,
+              100000
+            ],
+            [
+              10000,
+              100000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        },
+        "1.0": {
+          "mse": 311165.30920107756,
+          "fold_mse": [
+            287270.2591966902,
+            239030.00493645653,
+            190535.86791724866,
+            140281.94856887797,
+            698708.4653861145
+          ],
+          "solver_attempt_limits": [
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        },
+        "5.0": {
+          "mse": 152984.81558204498,
+          "fold_mse": [
+            186034.22177875688,
+            98972.8996873745,
+            104798.35162762931,
+            94656.21557919886,
+            280462.3892372654
+          ],
+          "solver_attempt_limits": [
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ],
+            [
+              10000
+            ]
+          ]
+        }
+      },
+      "initial_feature_first": "2023-01-08",
+      "initial_feature_last": "2024-12-21",
+      "initial_max_label_available_ns": 1734998400000000000
+    }
+  },
+  "final_model": {
+    "btc_only": {
+      "nonzero": 15,
+      "intercept_bps": 3.5311041071250386
+    },
+    "crossasset": {
+      "nonzero": 69,
+      "intercept_bps": 3.5311041071250355
+    }
+  },
+  "segments": {
+    "development": {
+      "btc_only": {
+        "outside_training_range_days": 7,
+        "days": 181,
+        "first": "2025-01-01",
+        "last": "2025-06-30",
+        "forecast_mse": 60998.442594292246,
+        "zero_mse": 59288.44432559915,
+        "training_mean_mse": 59450.0365160505,
+        "forecast_range_bps": [
+          -42.462271830045786,
+          110.58265606547769
+        ],
+        "cost_per_side_bps": {
+          "5": {
+            "strategy": {
+              "net_return_pct": -0.507630288970562,
+              "max_drawdown_pct": -28.394648764257713,
+              "annualized_daily_sharpe": 0.19565488122938898,
+              "executed_sides": 14,
+              "long_exposure_fraction": 0.8895027624309392
+            },
+            "buy_and_hold": {
+              "net_return_pct": 14.38765311257968,
+              "max_drawdown_pct": -28.095276766937495,
+              "annualized_daily_sharpe": 0.8112317871396642,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": -0.507630288970562
+              }
+            }
+          },
+          "10": {
+            "strategy": {
+              "net_return_pct": -1.2021640853488558,
+              "max_drawdown_pct": -28.680712214148418,
+              "annualized_daily_sharpe": 0.16369670544639728,
+              "executed_sides": 14,
+              "long_exposure_fraction": 0.8895027624309392
+            },
+            "buy_and_hold": {
+              "net_return_pct": 14.273236862560923,
+              "max_drawdown_pct": -28.09527676693756,
+              "annualized_daily_sharpe": 0.8069082787709544,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": -1.2021640853488447
+              }
+            }
+          },
+          "25": {
+            "strategy": {
+              "net_return_pct": -3.2588473323816314,
+              "max_drawdown_pct": -29.532911735381816,
+              "annualized_daily_sharpe": 0.06785782069719944,
+              "executed_sides": 14,
+              "long_exposure_fraction": 0.8895027624309392
+            },
+            "buy_and_hold": {
+              "net_return_pct": 13.930331618884706,
+              "max_drawdown_pct": -28.09527676693755,
+              "annualized_daily_sharpe": 0.793916815049356,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": -3.2588473323816203
+              }
+            }
+          }
+        }
+      },
+      "crossasset": {
+        "outside_training_range_days": 34,
+        "days": 181,
+        "first": "2025-01-01",
+        "last": "2025-06-30",
+        "forecast_mse": 63916.54843775253,
+        "zero_mse": 59288.44432559915,
+        "training_mean_mse": 59450.0365160505,
+        "forecast_range_bps": [
+          -163.7843338882517,
+          304.8804932304177
+        ],
+        "cost_per_side_bps": {
+          "5": {
+            "strategy": {
+              "net_return_pct": 16.29970347951506,
+              "max_drawdown_pct": -13.981770320990039,
+              "annualized_daily_sharpe": 1.0369785042195094,
+              "executed_sides": 54,
+              "long_exposure_fraction": 0.5524861878453039
+            },
+            "buy_and_hold": {
+              "net_return_pct": 14.38765311257968,
+              "max_drawdown_pct": -28.095276766937495,
+              "annualized_daily_sharpe": 0.8112317871396642,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": 16.29970347951508
+              }
+            }
+          },
+          "10": {
+            "strategy": {
+              "net_return_pct": 13.199329673737846,
+              "max_drawdown_pct": -14.539492554827472,
+              "annualized_daily_sharpe": 0.8830560446005111,
+              "executed_sides": 54,
+              "long_exposure_fraction": 0.5524861878453039
+            },
+            "buy_and_hold": {
+              "net_return_pct": 14.273236862560923,
+              "max_drawdown_pct": -28.09527676693756,
+              "annualized_daily_sharpe": 0.8069082787709544,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": 13.199329673737846
+              }
+            }
+          },
+          "25": {
+            "strategy": {
+              "net_return_pct": 4.3768836940771605,
+              "max_drawdown_pct": -16.192694666281525,
+              "annualized_daily_sharpe": 0.41957202791454984,
+              "executed_sides": 54,
+              "long_exposure_fraction": 0.5524861878453039
+            },
+            "buy_and_hold": {
+              "net_return_pct": 13.930331618884706,
+              "max_drawdown_pct": -28.09527676693755,
+              "annualized_daily_sharpe": 0.793916815049356,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 181,
+                "strategy_net_return_pct": 4.3768836940771605
+              }
+            }
+          }
+        }
+      },
+      "crossasset_minus_btc_squared_error": {
+        "mean": 2918.105843460276,
+        "stationary_bootstrap_95_ci": [
+          -262.9475058858659,
+          5930.313167641835
+        ],
+        "block_length_mean_days": 7,
+        "resamples": 5000,
+        "seed": 91
+      },
+      "cash_net_return_pct": 0.0
+    },
+    "evaluation": {
+      "btc_only": {
+        "outside_training_range_days": 36,
+        "days": 426,
+        "first": "2025-07-01",
+        "last": "2026-08-30",
+        "forecast_mse": 50250.77162164161,
+        "zero_mse": 49376.08287777775,
+        "training_mean_mse": 49721.02719187241,
+        "forecast_range_bps": [
+          -101.10969085969921,
+          226.73414959445174
+        ],
+        "cost_per_side_bps": {
+          "5": {
+            "strategy": {
+              "net_return_pct": -26.649164214630428,
+              "max_drawdown_pct": -52.47469204651223,
+              "annualized_daily_sharpe": -0.47534756464636724,
+              "executed_sides": 52,
+              "long_exposure_fraction": 0.8732394366197183
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.5717543945201,
+              "max_drawdown_pct": -52.97176591351058,
+              "annualized_daily_sharpe": -0.4408308661362619,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -9.895101644249749
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": -18.593953132528473
+              }
+            }
+          },
+          "10": {
+            "strategy": {
+              "net_return_pct": -28.533101545100592,
+              "max_drawdown_pct": -53.27638981874793,
+              "annualized_daily_sharpe": -0.531545386625316,
+              "executed_sides": 52,
+              "long_exposure_fraction": 0.8732394366197183
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.64420074718258,
+              "max_drawdown_pct": -52.97176591351062,
+              "annualized_daily_sharpe": -0.44281237437100696,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -10.389688174751688
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": -20.247015104389867
+              }
+            }
+          },
+          "25": {
+            "strategy": {
+              "net_return_pct": -33.90470066818094,
+              "max_drawdown_pct": -55.603519770939755,
+              "annualized_daily_sharpe": -0.6996763785190978,
+              "executed_sides": 52,
+              "long_exposure_fraction": 0.8732394366197183
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.86132230298507,
+              "max_drawdown_pct": -52.97176591351065,
+              "annualized_daily_sharpe": -0.44874942361107023,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -11.858676783868205
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": -25.012131744668274
+              }
+            }
+          }
+        }
+      },
+      "crossasset": {
+        "outside_training_range_days": 199,
+        "days": 426,
+        "first": "2025-07-01",
+        "last": "2026-08-30",
+        "forecast_mse": 69668.2391128586,
+        "zero_mse": 49376.08287777775,
+        "training_mean_mse": 49721.02719187241,
+        "forecast_range_bps": [
+          -658.1107005746078,
+          1991.3094705689832
+        ],
+        "cost_per_side_bps": {
+          "5": {
+            "strategy": {
+              "net_return_pct": 0.09263111906436805,
+              "max_drawdown_pct": -28.73302580866731,
+              "annualized_daily_sharpe": 0.16672225859428547,
+              "executed_sides": 134,
+              "long_exposure_fraction": 0.6572769953051644
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.5717543945201,
+              "max_drawdown_pct": -52.97176591351058,
+              "annualized_daily_sharpe": -0.4408308661362619,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -6.741488244666128
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": 7.328145426189137
+              }
+            }
+          },
+          "10": {
+            "strategy": {
+              "net_return_pct": -6.398558940251942,
+              "max_drawdown_pct": -31.680093878935878,
+              "annualized_daily_sharpe": -0.006024972869201194,
+              "executed_sides": 134,
+              "long_exposure_fraction": 0.6572769953051644
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.64420074718258,
+              "max_drawdown_pct": -52.97176591351062,
+              "annualized_daily_sharpe": -0.44281237437100696,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -9.454436236068275
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": 3.3749608139649556
+              }
+            }
+          },
+          "25": {
+            "strategy": {
+              "net_return_pct": -23.469192301714948,
+              "max_drawdown_pct": -39.96216148887589,
+              "annualized_daily_sharpe": -0.5249119344054427,
+              "executed_sides": 134,
+              "long_exposure_fraction": 0.6572769953051644
+            },
+            "buy_and_hold": {
+              "net_return_pct": -27.86132230298507,
+              "max_drawdown_pct": -52.97176591351065,
+              "annualized_daily_sharpe": -0.44874942361107023,
+              "executed_sides": 2,
+              "long_exposure_fraction": 1.0
+            },
+            "year_contributions": {
+              "2025": {
+                "days": 184,
+                "strategy_net_return_pct": -17.136222228970908
+              },
+              "2026": {
+                "days": 242,
+                "strategy_net_return_pct": -7.64262774772777
+              }
+            }
+          }
+        }
+      },
+      "crossasset_minus_btc_squared_error": {
+        "mean": 19417.467491216976,
+        "stationary_bootstrap_95_ci": [
+          945.6635662625276,
+          55244.304274010545
+        ],
+        "block_length_mean_days": 7,
+        "resamples": 5000,
+        "seed": 91
+      },
+      "cash_net_return_pct": 0.0
+    }
+  },
+  "limits": [
+    "Binance daily USDT spot klines differ from source marketwide USD series; adaptation, not faithful replication.",
+    "Daily market-state features are not identified participant behavior. No causal interpretation.",
+    "Chronological evaluation is new to this recipe but some dates were inspected in earlier project research. Rolling fits learn prior resolved evaluation outcomes by the fixed protocol.",
+    "Ideal daily open fills and per-side fee proxy omit actual spread, impact, size and stablecoin risk. Long/flat only.",
+    "Training-range exceedances are diagnostic only; primary signals were not retrospectively filtered. No joint distribution support qualification.",
+    "No rule tuning after evaluation. Two models and three cost sensitivities disclosed. No independent live validation or strategy qualification."
+  ]
+}

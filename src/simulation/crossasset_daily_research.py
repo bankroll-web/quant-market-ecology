@@ -13,7 +13,11 @@ ALPHAS=(.1,1.,5.)
 
 def load(root):
     series={}
+    audit=json.loads((Path(root)/'docs/crossasset_daily/DATA_AUDIT.json').read_text())
+    hashes={r['symbol']:r['csv_sha256'] for r in audit['symbols']}
     for s in SYMBOLS:
+        path=Path(root)/'data/processed/crossasset_daily'/(s+'.csv')
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=hashes[s]:raise ValueError('Data changed after audit: '+s)
         with (Path(root)/'data/processed/crossasset_daily'/(s+'.csv')).open() as f:rows=list(csv.DictReader(f))
         series[s]=rows
     dates=[r['date'] for r in series[SYMBOLS[0]]]
@@ -28,19 +32,22 @@ def load(root):
     return dates,ns,indices,x,y,btc_open
 
 def fit_model(x,y,alpha):
-    scaler=StandardScaler().fit(x);model=Lasso(alpha=alpha,max_iter=10000,tol=1e-5)
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter('always',ConvergenceWarning);model.fit(scaler.transform(x),y)
-    if any(issubclass(w.category,ConvergenceWarning) for w in caught):raise ValueError('LASSO did not converge; no result promotion')
-    return scaler,model
+    scaler=StandardScaler().fit(x);model=Lasso(alpha=alpha,max_iter=10000,tol=1e-5,warm_start=True)
+    z=scaler.transform(x);model.solver_attempt_limits=[]
+    for limit in (10000,100000,1000000):
+        model.set_params(max_iter=limit);model.solver_attempt_limits.append(limit)
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter('always',ConvergenceWarning);model.fit(z,y)
+        if not any(issubclass(w.category,ConvergenceWarning) for w in caught):return scaler,model
+    raise ValueError('LASSO did not converge; no result promotion')
 
 def choose_alpha(x,y):
     scores={}
     for a in ALPHAS:
-        mse=[]
+        mse=[];attempts=[]
         for tr,te in TimeSeriesSplit(n_splits=5,gap=2).split(x):
-            scaler,model=fit_model(x[tr],y[tr],a);p=model.predict(scaler.transform(x[te]));mse.append(float(np.mean((p-y[te])**2)))
-        scores[str(a)]=dict(mse=float(np.mean(mse)),fold_mse=mse)
+            scaler,model=fit_model(x[tr],y[tr],a);p=model.predict(scaler.transform(x[te]));mse.append(float(np.mean((p-y[te])**2)));attempts.append(model.solver_attempt_limits)
+        scores[str(a)]=dict(mse=float(np.mean(mse)),fold_mse=mse,solver_attempt_limits=attempts)
     return min(ALPHAS,key=lambda a:scores[str(a)]['mse']),scores
 
 def train_indices(i,indices,ns):
@@ -75,16 +82,16 @@ def run(root):
     configurations={'btc_only':np.arange(28),'crossasset':np.arange(280)}
     predictions={};selection={};coefficients={}
     for name,columns in configurations.items():
-        a,scores=choose_alpha(x[:WINDOW,columns],y[:WINDOW]);selection[name]=dict(alpha=a,training_fold_scores=scores)
+        a,scores=choose_alpha(x[:WINDOW,columns],y[:WINDOW]);selection[name]=dict(alpha=a,training_fold_scores=scores,initial_feature_first=dates[indices[0]],initial_feature_last=dates[indices[WINDOW-1]],initial_max_label_available_ns=int(ns[indices[WINDOW-1]+3]))
         pred=[];rows=[]
         for k,i in enumerate(indices):
             date=dates[i+2]
             if not('2025-01-01'<=date<='2026-08-30'):continue
             tr=train_indices(i,indices,ns);scaler,model=fit_model(x[tr][:,columns],y[tr],a)
-            p=float(model.predict(scaler.transform(x[k:k+1,columns]))[0]);pred.append(dict(execution_date=date,feature_date=dates[i],observation_available_ns=int(ns[i+1]),execution_ns=int(ns[i+2]),target_available_ns=int(ns[i+3]),max_training_label_available_ns=int(ns[indices[tr[-1]]+3]),forecast_bps=p,target_log_return_bps=float(y[k]),target_simple_return=float(opens[i+3]/opens[i+2]-1),training_mean_bps=float(y[tr].mean())))
+            p=float(model.predict(scaler.transform(x[k:k+1,columns]))[0]);pred.append(dict(execution_date=date,feature_date=dates[i],observation_available_ns=int(ns[i+1]),execution_ns=int(ns[i+2]),target_available_ns=int(ns[i+3]),max_training_label_available_ns=int(ns[indices[tr[-1]]+3]),outside_training_range_features=int(np.sum((x[k,columns]<x[tr][:,columns].min(axis=0))|(x[k,columns]>x[tr][:,columns].max(axis=0)))),forecast_bps=p,target_log_return_bps=float(y[k]),target_simple_return=float(opens[i+3]/opens[i+2]-1),training_mean_bps=float(y[tr].mean())))
             if k==len(indices)-1:coefficients[name]=dict(nonzero=int(np.sum(model.coef_!=0)),intercept_bps=float(model.intercept_))
         predictions[name]=pred
-    report=dict(status='daily_crossasset_development_and_chronological_evaluation',qualified=False,orders_enabled=False,rolling_window=WINDOW,selection=selection,final_model=coefficients,segments={})
+    report=dict(source_audit_sha256=hashlib.sha256((root/'docs/crossasset_daily/DATA_AUDIT.json').read_bytes()).hexdigest(),status='daily_crossasset_development_and_chronological_evaluation',qualified=False,orders_enabled=False,rolling_window=WINDOW,selection=selection,final_model=coefficients,segments={})
     for name,start,end in [('development','2025-01-01','2025-06-30'),('evaluation','2025-07-01','2026-08-30')]:
         selected={m:[r for r in rows if start<=r['execution_date']<=end] for m,rows in predictions.items()};section={}
         for model,rows in selected.items():
@@ -99,12 +106,12 @@ def run(root):
                     mask=np.array([r['execution_date'].startswith(year) for r in rows]);ds=daily[mask]
                     years[year]=dict(days=int(mask.sum()),strategy_net_return_pct=float(100*(np.prod(1+ds)-1)))
                 costs[str(cost)]=dict(strategy=strategy,buy_and_hold=buyhold,year_contributions=years)
-            section[model]=dict(days=len(rows),first=rows[0]['execution_date'],last=rows[-1]['execution_date'],forecast_mse=float(np.mean((p-yhat)**2)),zero_mse=float(np.mean(yhat*yhat)),training_mean_mse=float(np.mean((mean-yhat)**2)),forecast_range_bps=[float(p.min()),float(p.max())],cost_per_side_bps=costs)
+            section[model]=dict(outside_training_range_days=sum(r['outside_training_range_features']>0 for r in rows),days=len(rows),first=rows[0]['execution_date'],last=rows[-1]['execution_date'],forecast_mse=float(np.mean((p-yhat)**2)),zero_mse=float(np.mean(yhat*yhat)),training_mean_mse=float(np.mean((mean-yhat)**2)),forecast_range_bps=[float(p.min()),float(p.max())],cost_per_side_bps=costs)
         a=selected['btc_only'];b=selected['crossasset'];d=np.array([(rb['forecast_bps']-rb['target_log_return_bps'])**2-(ra['forecast_bps']-ra['target_log_return_bps'])**2 for ra,rb in zip(a,b)])
         section['crossasset_minus_btc_squared_error']=dict(mean=float(d.mean()),stationary_bootstrap_95_ci=stationary_ci(d),block_length_mean_days=7,resamples=5000,seed=91)
         section['cash_net_return_pct']=0.
         report['segments'][name]=section
-    report['limits']=['Binance daily USDT spot klines differ from source marketwide USD series; adaptation, not faithful replication.','Daily market-state features are not identified participant behavior. No causal interpretation.','Chronological evaluation is new to this recipe but some dates were inspected in earlier project research. Rolling fits learn prior resolved evaluation outcomes by the fixed protocol.','Ideal daily open fills and per-side fee proxy omit actual spread, impact, size and stablecoin risk. Long/flat only.','No rule tuning after evaluation. Two models and three cost sensitivities disclosed. No independent live validation or strategy qualification.']
+    report['limits']=['Binance daily USDT spot klines differ from source marketwide USD series; adaptation, not faithful replication.','Daily market-state features are not identified participant behavior. No causal interpretation.','Chronological evaluation is new to this recipe but some dates were inspected in earlier project research. Rolling fits learn prior resolved evaluation outcomes by the fixed protocol.','Ideal daily open fills and per-side fee proxy omit actual spread, impact, size and stablecoin risk. Long/flat only.','Training-range exceedances are diagnostic only; primary signals were not retrospectively filtered. No joint distribution support qualification.', 'No rule tuning after evaluation. Two models and three cost sensitivities disclosed. No independent live validation or strategy qualification.']
     out=root/'docs/crossasset_daily';(out/'RESULTS.json').write_text(json.dumps(report,indent=2)+'\n')
     for model,rows in predictions.items():
         with (out/(model+'_predictions.csv')).open('w') as f:

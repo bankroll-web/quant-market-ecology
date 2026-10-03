@@ -40,7 +40,15 @@ def run(root):
     out=root/'data/processed/crossasset_daily';out.mkdir(parents=True,exist_ok=True)
     doc=root/'docs/crossasset_daily';doc.mkdir(parents=True,exist_ok=True)
     jobs=[(s,m) for s in SYMBOLS for m in months()];results={};errors=[]
-    def task(job):return job,fetch(*job,cache)
+    references={}
+    for symbol in SYMBOLS:
+        saved=doc/(symbol+'_SOURCES.json')
+        if saved.exists():
+            for item in json.loads(saved.read_text()):references[symbol,item['month']]=item['sha256']
+    def task(job):
+        value=fetch(*job,cache)
+        if job in references and value[1]['sha256']!=references[job]:raise ValueError('Archive changed against frozen manifest: '+str(job))
+        return job,value
     with ThreadPoolExecutor(max_workers=8) as ex:
         futures=[ex.submit(task,j) for j in jobs]
         for f,j in zip(futures,jobs):

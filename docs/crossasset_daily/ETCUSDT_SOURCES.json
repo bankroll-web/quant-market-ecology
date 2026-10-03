@@ -1,0 +1,354 @@
+[
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-01.zip",
+    "sha256": "3b58d04f7b2b4e7ba3c5ce513d334f0fcb9ef986d73c2eaa9f1b6f54401d8a25",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-02.zip",
+    "sha256": "20c8bb172a91aa3927c3df44ae3c78b9c44034340efbff6d85a1d2262edc00a6",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-03.zip",
+    "sha256": "445c0f3a5396192d679248593400886fcb9bbbb7737285206eac98bd6c3d5872",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-04.zip",
+    "sha256": "a993115b4f38ed14fa65f101a0d50d48425d76f4095954643d61ab9e67d801ee",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-05.zip",
+    "sha256": "2ee56731ceaa931602e890e6eb392006a067e21baf7789eefadd3395a64e81fb",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-06.zip",
+    "sha256": "2a34ce9fe5652c840f901348fc222b4eb1deff3523bbc5640e1060005aba4a52",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-07.zip",
+    "sha256": "0ce40b5b48cf74cb371d2ad05a70fec992f257be69046ac6dad22cfd62a9431d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-08.zip",
+    "sha256": "7d299319d6f34c1013652a4e29aa94cd99abc8d1f17e62785e0625ea2eabb023",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-09.zip",
+    "sha256": "593d4778a8ffea17a701e3e6aa09c5951d641e8ab7bef3ca571605f21c061cff",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-10.zip",
+    "sha256": "7385f2395c117a9116b1c1454c59aaded38b2caa6922b966ca779dd7d7236718",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-11.zip",
+    "sha256": "25d91602ba96b5ce750fdb7a7394f20f882370f4f5288b7a8270fbc97ac51c50",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2023-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2023-12.zip",
+    "sha256": "7e9b3e171cf9c264dfd02216b8f2b535b265429ae75c72ae175450ab3b00f8ef",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-01.zip",
+    "sha256": "e3a5a37b862c8a4d2584773e11d6dda3223626f2c5ff449e4f10b7156f2a8d7b",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-02.zip",
+    "sha256": "e166649b550f0af60afc9330502f28a67e6cd9af9e435a0f5db017cbbb4211ad",
+    "checksum_verified": true,
+    "rows": 29
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-03.zip",
+    "sha256": "a2e1b81a90907dc508af208876e861b3fb3eb1dec066a4bc3254a1b771873b60",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-04.zip",
+    "sha256": "2b9848c7a7e8fe4d6db509d8abe1bc12489f4fe360fd7645adbd58a996eeeda4",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-05.zip",
+    "sha256": "68e4e4e43d87da5b6ff552070013d6a06457a9aee6999e60e6ba11086241beb3",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-06.zip",
+    "sha256": "d402abdb861a280e5509919e88826d616bf37c3b107b8ad31bc497868a2ea7b0",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-07.zip",
+    "sha256": "ba30d5639bdde68cf455ac99b76ec9184a52def35590973788287f8c657ecd4c",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-08.zip",
+    "sha256": "9a24ee9dd453cccd5295e7a38ef09303b61746d0db772a11c17ff2c1bf32eb32",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-09.zip",
+    "sha256": "bfbe3d6cab9a306d86f10352cee946dd92cc93a2cc590fddca64747aa65a5d3b",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-10.zip",
+    "sha256": "e4b76f2d564eeb710eec808035b1af8f7ccca4811de731b80aa8849c99adcb44",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-11.zip",
+    "sha256": "48fb7e9ba98acbefe269b6b9e62264d41f3c1d725028f41089d648fc32baa49c",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2024-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2024-12.zip",
+    "sha256": "b9f5da38cd42a4f67d83f7c8382ab5c495e0e82e9f1e9a54761e22425b5d77d4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-01.zip",
+    "sha256": "134c5e1723bfc06e1e854667648939a122a2d046eb423acc060e548db9141e13",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-02.zip",
+    "sha256": "08b3ffaf872a4f8e7aa60001c2f9838d4e805ec89c6915af77afafb94cb8d4ac",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-03.zip",
+    "sha256": "2c51c22030ca4a816f50c6e192422522fa038ab54208920cddf1d5252a529f29",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-04.zip",
+    "sha256": "e151879af318f556dda6b4f7fb66adc8ae9192c9a6c1552d7566759be701a365",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-05.zip",
+    "sha256": "866cbac61330bef073878a40600d013bfbba912ebe2f3fb63c5614d2eeb903ac",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-06.zip",
+    "sha256": "3f827976a66ed23237ddcb4fd6b2b5cce27fef197a4975489517a47d47311d5c",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-07.zip",
+    "sha256": "db4f1371454166d026c557228baf3b6fcfffd1e77eafd4d14a79be02ad735f08",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-08.zip",
+    "sha256": "36b1163dede0aa3bebfe03198690685f407dfb49f0988c5abb833a7c7937df90",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-09.zip",
+    "sha256": "e85243be03719ca033427ac4b3a312fe6a89b31f1352eddfceec10a9b8d0dea2",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-10.zip",
+    "sha256": "ce8de91033a16d74819e436c638e211124d154b0fc60de1865f68747822855b4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-11.zip",
+    "sha256": "e986cccadb74d37fb615e9920bb798a07950d2af69ed1da6647015701a20061a",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2025-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2025-12.zip",
+    "sha256": "cf86ea25091d0a2c96a5e2fa0d07f87a510eddde42608779a9af703bd77a425a",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-01.zip",
+    "sha256": "0b0b769e2dab85817080232df25aa5d7bee657863a92990c9d2b12d0e7117429",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-02.zip",
+    "sha256": "273510652156fdeefbd50918a5a0219b68d47153120a57606deac947738be781",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-03.zip",
+    "sha256": "0394d60436f9a4dd0a3327a7b7dafd24f580129dd1542c651ae209ebf974787f",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-04.zip",
+    "sha256": "40140cc00e7d0d64ac6b0dcce95c8a184af618efa14ce8046c5f7da0b5aa769c",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-05.zip",
+    "sha256": "531fcad0870c4271015009b3b39306d63793ba5f977214520a065aee60741383",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-06.zip",
+    "sha256": "6f7d77c2209c91485db3cf8fb48c41be197a3209d9046f8b64a87fd33c442d41",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-07.zip",
+    "sha256": "0268d6d81136d0c97a0123c295955bf321cd2e8c98b378918f7ac3c076ae123d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "ETCUSDT",
+    "month": "2026-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/ETCUSDT/1d/ETCUSDT-1d-2026-08.zip",
+    "sha256": "f19ed681356ff45e321b4564f00ad92a3ae287c07e6bb4522429d1ded453377f",
+    "checksum_verified": true,
+    "rows": 31
+  }
+]

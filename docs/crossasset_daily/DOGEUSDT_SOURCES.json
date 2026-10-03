@@ -1,0 +1,354 @@
+[
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-01.zip",
+    "sha256": "110be6f38eb88e72747502f63b1cdbea6364614ec8c3142a13fa8e882afc54ec",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-02.zip",
+    "sha256": "61170b6489f01c9b8b57b168fd5f45a1210710fff9515223e52a38e63e895fce",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-03.zip",
+    "sha256": "d5056f06036a390ba38356560e4d5e2f8e4b3de7b64109e9b2d1fa66ba623269",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-04.zip",
+    "sha256": "baa64505114b4a671413edebfbe48e4b5bb51c7faa96118dc6f6b418ca600ca0",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-05.zip",
+    "sha256": "bbc3af49e33377588cd24dda44aa3ff8e59382f864111424dcbbd149cec06d17",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-06.zip",
+    "sha256": "286a6fb905bbada4b9da92842dad5c38dc4cb34dc1b7e01f607acb5863095d29",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-07.zip",
+    "sha256": "62619da6dfb98b80a54fd87f3247f7cfed18b0dc065c1b22d461d933a358b0f1",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-08.zip",
+    "sha256": "035f3c244805deb299c3cb4cd68a1e900d75a263d0ac84bfcc7b9855e6e3d66c",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-09.zip",
+    "sha256": "05e0666a5861e22519d169fc32bbf9abd3ae1557960b28d9d9bc5fbc51971e90",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-10.zip",
+    "sha256": "89ca1a44f1625e6097d99de343d7d0e609a19386dd038bbe70516387f28e5c4f",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-11.zip",
+    "sha256": "6fc04c33f2ec2003e615e0e0f1d2df3b9e9c0f82a0cb1fd8a50aa89a788064b7",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2023-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2023-12.zip",
+    "sha256": "ffef6d265b8cb39530bda23a66787af05fca5002bbb447d58ae89a8878e30471",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-01.zip",
+    "sha256": "4ea01bae6ac81d90de1620ca141691483df5e6ba104d977fd66241f43c2f987a",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-02.zip",
+    "sha256": "ec05eaba605825b3b9d79a6e2879241c126138ca8f84652b21c811347cecda1c",
+    "checksum_verified": true,
+    "rows": 29
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-03.zip",
+    "sha256": "4562390613a728b7b2e951083de57014341b64e96e1a9ca63ce8f8b11457df1b",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-04.zip",
+    "sha256": "54b82b550b147a097a0a0981186c17d654d16f659c14521d699edac9e19946cf",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-05.zip",
+    "sha256": "c831c9c34a3813a7dc7578bb31bf950f7c360c2ad8f5b967b045beba4d47102f",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-06.zip",
+    "sha256": "e66fb26a4801d5321b9c4daacf7baf3e3e6e737901582ce917c77a1b2e8c1b14",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-07.zip",
+    "sha256": "cc31def17f6481b49051706e61fdb29140917dc63ae7db5a1ee29cdaea85b686",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-08.zip",
+    "sha256": "b554b2204be2b6e0f4dd463541137462716503d11cf7530b61d33cf041838a39",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-09.zip",
+    "sha256": "cc07b1e378731f147f62b9c0b186c60bb0b25917616c4d60e7664cbf1d71d868",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-10.zip",
+    "sha256": "3985b83236f69e2f9829f0c064289b375bbef57787f1fff7b4e25268e8bf35f4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-11.zip",
+    "sha256": "611d025b1f914d1b85a5c9e9ad68aa3718b10e33591b29cce536ed246c2c24a6",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2024-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2024-12.zip",
+    "sha256": "fe1b1fa8598ea8dcd7e74346fd2d2a12ca0ed0dd7f3ccc1b90fb9c334d7818f1",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-01.zip",
+    "sha256": "dcdcd48601bf700c01e0612ccf5ee7b0316a964904d45c7c17fe82c901b5f54d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-02.zip",
+    "sha256": "a2c0dd3a5450f12cf0974f19ca248d9f7a61a1a8fe7f7abb1ad285e320a53a6a",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-03.zip",
+    "sha256": "da417dcbd9fed3a8f9dffe25e269dfdf4d1821ea1b87ebcb1ddd1e5d2aa1e67d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-04.zip",
+    "sha256": "f42faa43f436aa4fa2f13946710c2974ed10954ea45890b22d752107a7d8038a",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-05.zip",
+    "sha256": "26c273c7b51ba35ddbcda8b467d80a106eb47eb1b05dd849c3cd6290aeb6b84d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-06.zip",
+    "sha256": "dd07195828ff1fbfbab1f9e8655892a125cd98a9e9a0e0ba8e764cec9c977cc7",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-07.zip",
+    "sha256": "05aeb6968393c612da3fe9a0e5b16fc94f763cd9fe8460ace1b434f752c714da",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-08.zip",
+    "sha256": "eded0b1dd50964e29aef6c76d75470dd49433596966d273b3fa60ad4f61c33a4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-09.zip",
+    "sha256": "c01de100bafdadc9c1c37dc28d73e350822a3fcd0171e349519af1defe5a00ec",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-10.zip",
+    "sha256": "8cb1ccf9b9c9c1e4bf3c1d53ad5346399000325a5e3848db779a9fa42bbc255f",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-11.zip",
+    "sha256": "8134068df1f8988d171c8ab88971bddfe8a0eda87096cc8879295788dae1f441",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2025-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2025-12.zip",
+    "sha256": "59cac647224f6a101bc0ac12a8354f0e96c60b9a2404ba984d9c261d80af73fe",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-01.zip",
+    "sha256": "21ddfebfec7d1fa38bc10d2b52c46158150c7bd4a10954cbcd801c7d318b8ca4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-02.zip",
+    "sha256": "df9ab9a04424bd2d0b75223ab702fd0e3dc2d3684be0ff35991eb5ad32a08596",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-03.zip",
+    "sha256": "d5a42d4bbf77d2890a6ec8600d2622cfb956afaac6d0e75d90b3234d7409e2da",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-04.zip",
+    "sha256": "a3cfbdace0425dd64f9d718ae614fc861269eea7b204504c7b5cbec3ea0dc7ef",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-05.zip",
+    "sha256": "6d2ec870399e910ce1bd46ebe80b1f3e82fe06122c86cc80bf14e389ad77c3b4",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-06.zip",
+    "sha256": "ef829d4ba97b0af6315cf1eeb50e1c2532aeaf9fbc37f48d78b3d32a55a5bcd9",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-07.zip",
+    "sha256": "890fbeb01d7a75045db286160855d2f767281095cbc0e86ced6fee26a0303fa8",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "month": "2026-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/DOGEUSDT/1d/DOGEUSDT-1d-2026-08.zip",
+    "sha256": "3c78237647ca2a9cf116a27d696b9c41a204c8c18bbce0fbaf43dbd5e8742baa",
+    "checksum_verified": true,
+    "rows": 31
+  }
+]

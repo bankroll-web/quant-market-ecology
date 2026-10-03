@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "models": {
+    "btc_only": {
+      "rows": 607,
+      "training_label_timing_pass": true,
+      "initial_selection_timing_pass": true,
+      "nonoverlapping_daily_targets": true,
+      "finite_forecasts": true
+    },
+    "crossasset": {
+      "rows": 607,
+      "training_label_timing_pass": true,
+      "initial_selection_timing_pass": true,
+      "nonoverlapping_daily_targets": true,
+      "finite_forecasts": true
+    }
+  },
+  "software_checks_passed": 6,
+  "profitability_qualified": false
+}

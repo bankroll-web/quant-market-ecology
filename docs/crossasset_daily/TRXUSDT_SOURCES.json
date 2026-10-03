@@ -1,0 +1,354 @@
+[
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-01.zip",
+    "sha256": "02b70d95532d22fca032c3c1bc3180e2b45ee2d5579d178e6b433090e5738239",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-02.zip",
+    "sha256": "bb4e06ac009ae19154745de4e44f9e16a8e6ce04149522f7c5935bcba6e5cae5",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-03.zip",
+    "sha256": "88806f55ced6fb13cac8b99b759588fc39f47005070563f201f9fa5d47d801d3",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-04.zip",
+    "sha256": "188a95c015efa468bac344c7998daac93051874ce4f4a3db857efefb60d2a46b",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-05.zip",
+    "sha256": "9a426abde11957b2a474eedc328899d8f778ee0d01e9a7f88fbb3a2a5e28cb36",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-06.zip",
+    "sha256": "c0c0c1a632d676eb3b8f1e6e3d3e25bb4f1b384d57fcacb3cc46794d36071f39",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-07.zip",
+    "sha256": "a4554328603571f375ba8b530e98a57f7fc591ce5830e959f98cc90e0a5da50a",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-08.zip",
+    "sha256": "8d8c28198925848b3b42504cc37b53067827e1b9f24e0d293bcd00179f6e8422",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-09.zip",
+    "sha256": "3e39ce9a88473fdad22a491576c654eba54c06cb813a39d5d6c4b641a5de9fd7",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-10.zip",
+    "sha256": "80680fbe1a189a1a6ecd205cb6d1a3e1804514b87ebdff9d368d55e072b893ff",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-11.zip",
+    "sha256": "37ac66bffccc021050f29f94710a53ecd09097eb08ba313d70ed4954b4de2ba8",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2023-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2023-12.zip",
+    "sha256": "f2dcbfb35d300b24463dbc1f88e9d72cfeee5981ff902d32b8fed7994e7a485f",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-01.zip",
+    "sha256": "1b4c57a749d58a55d080fc3c8c203f9620e64d3498ba56ee953bdb9481e708d5",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-02.zip",
+    "sha256": "6309f7ce87fcb01473f42c1e0775827a815772e66240d02ddb4531c13e833327",
+    "checksum_verified": true,
+    "rows": 29
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-03.zip",
+    "sha256": "c7ed2401ec7149eac58f4c7a007fb6ef0e90bd8c008969528e137caff10e82f7",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-04.zip",
+    "sha256": "cd6331e859fb71822991b8abf0d87af17a89b45da7bb57277a4eb239ea8508b1",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-05.zip",
+    "sha256": "a9836da6cf600dcdac6152677d1f983d8b1a7d0031701f11bb14273be4e7ea1d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-06.zip",
+    "sha256": "2fdd891a6a8d0a01f9f000899a5ebc107eb7bc05d5ab337dfbd9b087c175bf5d",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-07.zip",
+    "sha256": "9017f8665e7afb2c5ae3b86eea1886275eec372a5a959c38d3496d2cf9de66ac",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-08.zip",
+    "sha256": "2d4d31e1f018685f251f8614fe25c35287051d3b4e25821daea5b78ed8c09c59",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-09.zip",
+    "sha256": "a3a1acfb9ad4691a1373406535ae7a23f7b211b7b3b0dfbbe187ea009e489cce",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-10.zip",
+    "sha256": "7d3349c088190dc069ee6768e1f2ba6b7ed937ad107165d09ef03bd22a33cc38",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-11.zip",
+    "sha256": "c4d2292c80cab260d9ec24bab68a833fce2fbfdec32226bb54e629446ce1b86f",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2024-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2024-12.zip",
+    "sha256": "8a41a988fd7b47f7d4cd4c8bd6035df3abad2e2dc84f984514cea9f2df0b4c6c",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-01.zip",
+    "sha256": "ae922546c6e9575fa29d7acdf643d4a6f8d52be68d2582ec43a5022a05d91433",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-02.zip",
+    "sha256": "70c309a73f656e00fb1b10d54160db21ea7edbd38d19f00682de8174a70d947f",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-03.zip",
+    "sha256": "fc38db85110d0eec6b1c5a27b74d1273329525f9b9e9df52e7f10a861be5eb27",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-04.zip",
+    "sha256": "9feafe15bdeb4956c0579398a3281936148bb0e111d54513393d5f6e6b118be0",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-05.zip",
+    "sha256": "77c31cab33755ce63e64b117857e3a7d1247201b6ea161cbb7335cd47362dd44",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-06.zip",
+    "sha256": "e0e32320bcdd9b3a5fc987d9bdb3854d07c631de5ec1fc881dc86d027ac0dea3",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-07.zip",
+    "sha256": "d1be70a9723fcc451e76dcfb5f21747810aa5f50e4d254e482a9192ca3d7a16d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-08.zip",
+    "sha256": "f9b303f0d15d58d2561d4973a376ad033a42df3c8db921e57eb05733d47bfb02",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-09",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-09.zip",
+    "sha256": "fe809dfade11bcf4d1bb3aa4229328d9395497f4c5536a21926410a806ea05c6",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-10",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-10.zip",
+    "sha256": "4ccda214aa7fce5025f9f627147e6014f3c0e1b9d432228f9e773b4401779071",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-11",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-11.zip",
+    "sha256": "74485b6c6697fbf0951b65b514b3fb856b9350f4374b3db07a7d9305226b2ada",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2025-12",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2025-12.zip",
+    "sha256": "0b56c467a55f38e5471c376a1f3b2870f19218858cf90bf7338715db7703a0d6",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-01",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-01.zip",
+    "sha256": "b43d87c58d51d31da00da4fd7b571f011577bea088ce243543bfcb5b804135ee",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-02",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-02.zip",
+    "sha256": "e9fd0bd5e121f2e5075bbc4b441cc2accf21f00a02fb371302aa30ebd88373e9",
+    "checksum_verified": true,
+    "rows": 28
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-03",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-03.zip",
+    "sha256": "52993088a3b4bc26c7a47e90744def7e70318745d7eed14353ecb4ab694ffff2",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-04",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-04.zip",
+    "sha256": "1c158e60a27382005d375d4d036dc3ce9c38e8e31e6982f8349d0d9b450f515a",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-05",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-05.zip",
+    "sha256": "5b9d58dc828ac262c0cfbe1269709cdd3ba1e9667b4f7556ac684894526d480d",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-06",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-06.zip",
+    "sha256": "1f251dd0b9bbf6c3b51d18edfb862abffc75cab5a239902ddc3c3a34f43a7288",
+    "checksum_verified": true,
+    "rows": 30
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-07",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-07.zip",
+    "sha256": "d89f6c57a830244c3836ad018f0d6168600f6f261fd32f4549d81f8e6ab6a496",
+    "checksum_verified": true,
+    "rows": 31
+  },
+  {
+    "symbol": "TRXUSDT",
+    "month": "2026-08",
+    "url": "https://data.binance.vision/data/spot/monthly/klines/TRXUSDT/1d/TRXUSDT-1d-2026-08.zip",
+    "sha256": "416d5fc96586579f05bd2fe18be50c64b0b8aea1f8d495233ec7cb3e5f75bb40",
+    "checksum_verified": true,
+    "rows": 31
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "status": "verified_synchronized_daily_bars",
+  "archives": 440,
+  "symbols": [
+    {
+      "symbol": "BTCUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "5982c249350fcd990470d01513ee026d3ff5dfb9cb24739371b0fb4726d017ad"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "51cc08e83dd33c993bd9958e347fff0cb6aa39ca9e5403991ccd32f117ce00d5"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "5bb4badd921df0fed73b33b2871a4ab2fea61d47ddd638a0be0a698e17ac66a5"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "e366e204cf15651999b8a94faa190ca21a7fbae0da880587c1b8ffcaa477f2b5"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "bc82fccb1c8712988552e6794f560f9a5bdff1965118bd5b459e16eca1ecb9db"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "4c316e15dcc7553a40b3b5ffa5e7a07bc71436980a203c961842849dc61844d6"
+    },
+    {
+      "symbol": "LTCUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "ce2d5d4abafa3fa32cad49668c3297c4ba998348e7716f63c242ed854cd2ef45"
+    },
+    {
+      "symbol": "TRXUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "96b449626a09a0123057b25c1e15f179efa6a584d089ea56fdcc795961fc6f1a"
+    },
+    {
+      "symbol": "LINKUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "e453ed106e467a7d7e20b356cd33d43ce2d8a9fcd32ae79ffcf329b45a2e0767"
+    },
+    {
+      "symbol": "ETCUSDT",
+      "rows": 1339,
+      "first": "2023-01-01",
+      "last": "2026-08-31",
+      "csv_sha256": "ce542bc02a0f313413391ba132188ec4c8afa179f4695b6ef8bed1df2960d76b"
+    }
+  ],
+  "missing_dates": 0,
+  "duplicates": 0,
+  "normalization": "pre2025 milliseconds / post2025 microseconds to ns",
+  "source": "https://github.com/binance/binance-public-data"
+}

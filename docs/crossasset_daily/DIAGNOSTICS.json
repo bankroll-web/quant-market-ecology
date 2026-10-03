@@ -1,0 +1,180 @@
+{
+  "status": "post_result_diagnostics_not_candidate_selection",
+  "qualified": false,
+  "models": {
+    "btc_only": {
+      "execution_date": "2025-10-15",
+      "forecast_bps": 226.73414959445174,
+      "target_bps": -202.4141434230504,
+      "intercept_bps": 16.892824703876776,
+      "sum_contributions_bps": 209.84132489057495,
+      "outside_training_range_features": 1,
+      "top_contributions": [
+        {
+          "feature": "BTCUSDT:lag3:parkinson_variance",
+          "contribution_bps": 220.27778804852642,
+          "training_standard_deviations": 11.693010758129528
+        },
+        {
+          "feature": "BTCUSDT:lag2:log_quote_volume",
+          "contribution_bps": -29.33138874423798,
+          "training_standard_deviations": 1.3530794984199173
+        },
+        {
+          "feature": "BTCUSDT:lag6:return_bps",
+          "contribution_bps": 6.755778589320922,
+          "training_standard_deviations": -1.1569276273308788
+        },
+        {
+          "feature": "BTCUSDT:lag3:log_quote_volume",
+          "contribution_bps": 6.582856370968299,
+          "training_standard_deviations": 2.4222571384319265
+        },
+        {
+          "feature": "BTCUSDT:lag4:return_bps",
+          "contribution_bps": 4.949221358017003,
+          "training_standard_deviations": -0.6121432183790676
+        },
+        {
+          "feature": "BTCUSDT:lag1:parkinson_variance",
+          "contribution_bps": 3.1922814664152495,
+          "training_standard_deviations": 0.36813119204559225
+        },
+        {
+          "feature": "BTCUSDT:lag4:parkinson_variance",
+          "contribution_bps": 2.39244828767165,
+          "training_standard_deviations": -0.27805351963446895
+        },
+        {
+          "feature": "BTCUSDT:lag4:amihud",
+          "contribution_bps": -1.8853746549079238,
+          "training_standard_deviations": -0.5037425884226246
+        },
+        {
+          "feature": "BTCUSDT:lag6:log_quote_volume",
+          "contribution_bps": -1.6183902348966308,
+          "training_standard_deviations": 0.6635599551649107
+        },
+        {
+          "feature": "BTCUSDT:lag0:parkinson_variance",
+          "contribution_bps": -1.4834284931828052,
+          "training_standard_deviations": -0.514106851377936
+        }
+      ],
+      "daily_log_return_uncertainty": {
+        "5": {
+          "mean_bps": -7.275030210808702,
+          "stationary_bootstrap_95_ci_bps": [
+            -28.351280262983963,
+            12.46264609131489
+          ],
+          "resamples": 5000,
+          "mean_block_days": 7,
+          "seed": 91
+        },
+        "25": {
+          "mean_bps": -9.720013055284873,
+          "stationary_bootstrap_95_ci_bps": [
+            -30.941616609767063,
+            10.147310755928709
+          ],
+          "resamples": 5000,
+          "mean_block_days": 7,
+          "seed": 91
+        }
+      },
+      "evaluation_zero_cost_return_pct": -24.716544124677252,
+      "evaluation_break_even_cost_per_side_bps": null
+    },
+    "crossasset": {
+      "execution_date": "2025-10-15",
+      "forecast_bps": 1991.3094705689832,
+      "target_bps": -202.4141434230504,
+      "intercept_bps": 16.89282470387674,
+      "sum_contributions_bps": 1974.416645865106,
+      "outside_training_range_features": 14,
+      "top_contributions": [
+        {
+          "feature": "DOGEUSDT:lag3:parkinson_variance",
+          "contribution_bps": 1627.659556888709,
+          "training_standard_deviations": 63.39300265615958
+        },
+        {
+          "feature": "ETCUSDT:lag3:parkinson_variance",
+          "contribution_bps": 695.0696490184683,
+          "training_standard_deviations": 125.38150734228262
+        },
+        {
+          "feature": "ADAUSDT:lag3:parkinson_variance",
+          "contribution_bps": -419.35081278263954,
+          "training_standard_deviations": 65.25498836846873
+        },
+        {
+          "feature": "XRPUSDT:lag3:parkinson_variance",
+          "contribution_bps": 128.0749112893804,
+          "training_standard_deviations": 47.76639671914369
+        },
+        {
+          "feature": "BNBUSDT:lag1:return_bps",
+          "contribution_bps": -81.22511812458491,
+          "training_standard_deviations": 4.761125978340508
+        },
+        {
+          "feature": "BTCUSDT:lag3:parkinson_variance",
+          "contribution_bps": 43.64208021887456,
+          "training_standard_deviations": 11.693010758129528
+        },
+        {
+          "feature": "DOGEUSDT:lag3:return_bps",
+          "contribution_bps": 36.16657898407881,
+          "training_standard_deviations": -5.042937613562271
+        },
+        {
+          "feature": "ETHUSDT:lag3:parkinson_variance",
+          "contribution_bps": -29.121517046182895,
+          "training_standard_deviations": 8.763618464700674
+        },
+        {
+          "feature": "BNBUSDT:lag3:return_bps",
+          "contribution_bps": -28.620331013202247,
+          "training_standard_deviations": -4.730817157745333
+        },
+        {
+          "feature": "BNBUSDT:lag6:return_bps",
+          "contribution_bps": -27.649949279947705,
+          "training_standard_deviations": 2.220873555683829
+        }
+      ],
+      "daily_log_return_uncertainty": {
+        "5": {
+          "mean_bps": 0.02173432932371085,
+          "stationary_bootstrap_95_ci_bps": [
+            -16.27146747155931,
+            16.1199894822399
+          ],
+          "resamples": 5000,
+          "mean_block_days": 7,
+          "seed": 91
+        },
+        "25": {
+          "mean_bps": -6.278798385287918,
+          "stationary_bootstrap_95_ci_bps": [
+            -22.76620044490911,
+            10.064165587210955
+          ],
+          "resamples": 5000,
+          "mean_block_days": 7,
+          "seed": 91
+        }
+      },
+      "evaluation_zero_cost_return_pct": 7.030391196051888,
+      "evaluation_break_even_cost_per_side_bps": 5.069060917227697
+    }
+  },
+  "limits": [
+    "Attributions describe the fitted linear formula, not causal effects of a cryptocurrency on BTC.",
+    "Break-even cost assumes the same idealized daily open fills and signal path; includes no measured venue spread or impact.",
+    "Return intervals are exploratory, conditional on the fitted forecast path; bootstrap does not refit the models or adjust for model/cost comparisons.",
+    "No model feature, penalty or strategy rule is changed after seeing these outcomes."
+  ]
+}

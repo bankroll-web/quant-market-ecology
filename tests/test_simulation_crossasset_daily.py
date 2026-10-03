@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from src.simulation.crossasset_daily_data import normalize_ns
-from src.simulation.crossasset_daily_research import portfolio,train_indices
+from src.simulation.crossasset_daily_research import portfolio,train_indices,fit_model
 
 class DailyResearchTests(unittest.TestCase):
     def test_timestamp_units(self):
@@ -23,6 +23,11 @@ class DailyResearchTests(unittest.TestCase):
         self.assertEqual(indices[tr[-1]],798)
         self.assertTrue(np.all(ns[indices[tr]+3]<=ns[801]))
         self.assertFalse(np.any(indices[tr]>=799))
+    def test_planted_linear_signal(self):
+        x=np.linspace(-2,2,200)[:,None];y=100*x[:,0]
+        scaler,model=fit_model(x,y,.1)
+        p=model.predict(scaler.transform(np.array([[-1.],[1.]])))
+        self.assertLess(p[0],-95);self.assertGreater(p[1],95)
     def test_wait_is_cash(self):
         r=portfolio([0,0,0],[1,-.5,2],25)
         self.assertEqual(r['net_return_pct'],0)
