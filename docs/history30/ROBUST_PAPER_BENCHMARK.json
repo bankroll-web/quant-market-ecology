@@ -1,0 +1,122 @@
+{
+  "status": "exploratory_robust_regression_comparison",
+  "qualified": false,
+  "training_examples": 459,
+  "cutoff_ns": 1779669395080756640,
+  "model": {
+    "center": [
+      -0.17324632952691682,
+      -0.0038935016317911365,
+      5.871517609403384,
+      0.012963787604651247,
+      0.0
+    ],
+    "scale": [
+      0.8606145162118489,
+      0.17931532043758697,
+      0.18361532199305586,
+      8.30071429696981e-06,
+      1.1631694039913367e-06
+    ],
+    "weights": [
+      -4.127709615954372e-05,
+      0.002521601574825599,
+      0.0002642601627818262,
+      -0.000392597481958495,
+      0.00040565922173612935,
+      0.00031581838935801663
+    ],
+    "delta_bps": 0.01,
+    "iterations": 5,
+    "clip": 5,
+    "ridge": 0.1
+  },
+  "reports": [
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv",
+      "examples": 458,
+      "clipped_feature_rows": 165,
+      "robust_mse": 0.1353156974949983,
+      "ordinary_mse": 0.1233087148458732,
+      "zero_mse": 0.13566395148975588,
+      "max_absolute_forecast_bps": 0.005618597987956818,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+      "examples": 547,
+      "clipped_feature_rows": 149,
+      "robust_mse": 0.039333695711200586,
+      "ordinary_mse": 0.046747727962814734,
+      "zero_mse": 0.03952947659089938,
+      "max_absolute_forecast_bps": 0.006500147422728921,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv",
+      "examples": 1120,
+      "clipped_feature_rows": 420,
+      "robust_mse": 0.07573435908945055,
+      "ordinary_mse": 15217.227552281793,
+      "zero_mse": 0.07598790112365589,
+      "max_absolute_forecast_bps": 0.006985800367432307,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv",
+      "examples": 1151,
+      "clipped_feature_rows": 1151,
+      "robust_mse": 0.024681313643822735,
+      "ordinary_mse": 0.13380739387813262,
+      "zero_mse": 0.024796183916607276,
+      "max_absolute_forecast_bps": 0.006884917182786523,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv",
+      "examples": 937,
+      "clipped_feature_rows": 920,
+      "robust_mse": 1.0002692771805857,
+      "ordinary_mse": 40170.81613881791,
+      "zero_mse": 1.0014970420261158,
+      "max_absolute_forecast_bps": 0.007951474943569977,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv",
+      "examples": 1551,
+      "clipped_feature_rows": 1551,
+      "robust_mse": 0.06834321501217426,
+      "ordinary_mse": 3.7768487447684347,
+      "zero_mse": 0.06860480379005976,
+      "max_absolute_forecast_bps": 0.007990891885688417,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_03_observed_changes.csv",
+      "examples": 1215,
+      "clipped_feature_rows": 1215,
+      "robust_mse": 0.113767133424741,
+      "ordinary_mse": 30.063879331635736,
+      "zero_mse": 0.11408752124417748,
+      "max_absolute_forecast_bps": 0.006839980971818621,
+      "threshold_8_bps_crossings": 0
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_09_observed_changes.csv",
+      "examples": 1153,
+      "clipped_feature_rows": 1153,
+      "robust_mse": 0.05218309241990499,
+      "ordinary_mse": 0.21344437192225194,
+      "zero_mse": 0.05237821574267554,
+      "max_absolute_forecast_bps": 0.006840778834620707,
+      "threshold_8_bps_crossings": 0
+    }
+  ],
+  "limits": [
+    "Method chosen after observing ordinary-regression failures on these samples; no independent evaluation.",
+    "Feature clipping bounds extrapolation numerically but does not qualify clipped states for trading.",
+    "Huber loss reduces sensitivity to large residuals; it cannot manufacture information or an edge.",
+    "Historical labels can overlap; samples are not independent. No costs/portfolio evaluation or live model replacement."
+  ]
+}
