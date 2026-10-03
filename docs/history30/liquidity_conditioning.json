@@ -1,0 +1,211 @@
+{
+  "status": "exploratory_liquidity_conditioning",
+  "qualified": false,
+  "input_sha256": {
+    "data/processed/ecology_price_mechanics/2026-05-25_00_windows.csv": "9134d5235f8c06aaeb83371f667656d9e93854ee01c473c7cecff60b2aec865f",
+    "data/processed/ecology_price_mechanics/2026-05-25_04_windows.csv": "4669363474b12f980b9ae418f73ecf9681cb723ef4755188a6a2042b8a0b8b42",
+    "data/processed/ecology_price_mechanics/2026-05-25_12_windows.csv": "c5e156004010cf1a614dc393bfd683caba1832629a1f9c17bb7589130f3e8a68",
+    "data/processed/ecology_price_mechanics/2026-05-25_18_windows.csv": "03b357c8b6de0f9acb70b308d1060efd3d79188aeba17fff773d411439774e90",
+    "data/processed/ecology_price_mechanics/2026-05-26_15_windows.csv": "0f975c389de9c8bfd2a89f7d27781ac0d48d4bc7d1fc97fc37286c0880fa5e1b",
+    "data/processed/ecology_price_mechanics/2026-05-26_21_windows.csv": "c373c0605709ce163263c120adfcfb4bd410210bf61d6bc34eda99467f8681cb",
+    "data/processed/mechanics_replication/2026-05-26_03_windows.csv": "7f828db5f95e1a57aa6a04383b60450f7817d22f86dfd482fbfafcf213e29e85",
+    "data/processed/mechanics_replication/2026-05-26_09_windows.csv": "928cd1d48c0d30b394f7f5bca0c615d719c038707596c7a0ea3179153d2bffd0"
+  },
+  "thresholds": {
+    "high_trade_pressure": 0.0010578000616062236,
+    "thin_depth_btc": 364.226
+  },
+  "results": [
+    {
+      "horizon_seconds": 1,
+      "subset": "training",
+      "state": "reinforcing",
+      "depth": "thin",
+      "observations": 38,
+      "hours": 1,
+      "mean_aligned_forward_bps": 0.14124439239129663,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "training",
+      "state": "reinforcing",
+      "depth": "thick",
+      "observations": 38,
+      "hours": 1,
+      "mean_aligned_forward_bps": 0.07406841424081075,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "training",
+      "state": "opposing",
+      "depth": "thin",
+      "observations": 17,
+      "hours": 1,
+      "mean_aligned_forward_bps": -0.14340722004890924,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "training",
+      "state": "opposing",
+      "depth": "thick",
+      "observations": 12,
+      "hours": 1,
+      "mean_aligned_forward_bps": -0.03240959505913414,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "later_hours",
+      "state": "reinforcing",
+      "depth": "thin",
+      "observations": 83,
+      "hours": 6,
+      "mean_aligned_forward_bps": 0.026566146140505068,
+      "hour_cluster_95": [
+        -0.1805058687097892,
+        0.09222448720194262
+      ]
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "later_hours",
+      "state": "reinforcing",
+      "depth": "thick",
+      "observations": 342,
+      "hours": 7,
+      "mean_aligned_forward_bps": 0.09978800224911061,
+      "hour_cluster_95": [
+        0.06608027836946277,
+        0.17002738815017146
+      ]
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "later_hours",
+      "state": "opposing",
+      "depth": "thin",
+      "observations": 47,
+      "hours": 4,
+      "mean_aligned_forward_bps": 0.0056571074005777496,
+      "hour_cluster_95": [
+        0.0,
+        0.009000591100024078
+      ]
+    },
+    {
+      "horizon_seconds": 1,
+      "subset": "later_hours",
+      "state": "opposing",
+      "depth": "thick",
+      "observations": 115,
+      "hours": 7,
+      "mean_aligned_forward_bps": -0.010114642944677765,
+      "hour_cluster_95": [
+        -0.02797145711179256,
+        0.009449411651827187
+      ]
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "training",
+      "state": "reinforcing",
+      "depth": "thin",
+      "observations": 14,
+      "hours": 1,
+      "mean_aligned_forward_bps": 0.04268738837409664,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "training",
+      "state": "reinforcing",
+      "depth": "thick",
+      "observations": 17,
+      "hours": 1,
+      "mean_aligned_forward_bps": 0.04273724805860761,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "training",
+      "state": "opposing",
+      "depth": "thin",
+      "observations": 8,
+      "hours": 1,
+      "mean_aligned_forward_bps": -0.10537898893423744,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "training",
+      "state": "opposing",
+      "depth": "thick",
+      "observations": 6,
+      "hours": 1,
+      "mean_aligned_forward_bps": -0.3306613627952478,
+      "hour_cluster_95": null
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "later_hours",
+      "state": "reinforcing",
+      "depth": "thin",
+      "observations": 28,
+      "hours": 4,
+      "mean_aligned_forward_bps": -0.14077418611562542,
+      "hour_cluster_95": [
+        -2.0462086008988174,
+        0.24976321090792247
+      ]
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "later_hours",
+      "state": "reinforcing",
+      "depth": "thick",
+      "observations": 129,
+      "hours": 7,
+      "mean_aligned_forward_bps": 0.10643852644482542,
+      "hour_cluster_95": [
+        0.02147977714035386,
+        0.20706833785813672
+      ]
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "later_hours",
+      "state": "opposing",
+      "depth": "thin",
+      "observations": 12,
+      "hours": 4,
+      "mean_aligned_forward_bps": 0.4419165480164165,
+      "hour_cluster_95": [
+        -0.2028669542912611,
+        2.0372068722998735
+      ]
+    },
+    {
+      "horizon_seconds": 5,
+      "subset": "later_hours",
+      "state": "opposing",
+      "depth": "thick",
+      "observations": 49,
+      "hours": 7,
+      "mean_aligned_forward_bps": -0.24588216700615417,
+      "hour_cluster_95": [
+        -0.4431080630496692,
+        -0.04586118115038327
+      ]
+    }
+  ],
+  "limits": [
+    "All eight selected hours have previously been inspected; no untouched evaluation.",
+    "Anonymous net display changes are not measured cancellations or participant identity.",
+    "Receipt timing filters inherited from audited window construction; sparse forward labels constrain coverage.",
+    "Nonoverlapping target spacing enforced; hour resampling over few disconnected hours is weak uncertainty evidence.",
+    "Forward midpoint responses omit executable spread, fills, fees and latency."
+  ]
+}
