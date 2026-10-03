@@ -1,0 +1,118 @@
+{
+  "status": "canonical_trade_set_receipt_reconciliation",
+  "qualified": false,
+  "orders_enabled": false,
+  "reports": [
+    {
+      "hour": "2026-05-25_04",
+      "intervals": 23627,
+      "future_trade_event_at_receipt": 0,
+      "zero_quantity_trade_records": 109,
+      "trade_count_mismatch": 0,
+      "signed_flow_mismatch": 0,
+      "late_trade_intervals": 201,
+      "late_trade_fraction": 0.008507216320311508,
+      "feature_delay_ms_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 0.0,
+        "1": 245.154811
+      },
+      "future_book_event_at_receipt": 0,
+      "model_eligible_contexts": 2204,
+      "ten_event_target_already_available_at_feature_decision": 1,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "intervals": 55577,
+      "future_trade_event_at_receipt": 0,
+      "zero_quantity_trade_records": 122,
+      "trade_count_mismatch": 0,
+      "signed_flow_mismatch": 0,
+      "late_trade_intervals": 291,
+      "late_trade_fraction": 0.005235978912139914,
+      "feature_delay_ms_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 0.0,
+        "1": 656.895356
+      },
+      "future_book_event_at_receipt": 0,
+      "model_eligible_contexts": 5207,
+      "ten_event_target_already_available_at_feature_decision": 1,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "intervals": 57396,
+      "future_trade_event_at_receipt": 0,
+      "zero_quantity_trade_records": 66,
+      "trade_count_mismatch": 0,
+      "signed_flow_mismatch": 0,
+      "late_trade_intervals": 187,
+      "late_trade_fraction": 0.0032580667642344414,
+      "feature_delay_ms_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 0.0,
+        "1": 575.066276
+      },
+      "future_book_event_at_receipt": 0,
+      "model_eligible_contexts": 5566,
+      "ten_event_target_already_available_at_feature_decision": 2,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "intervals": 50852,
+      "future_trade_event_at_receipt": 0,
+      "zero_quantity_trade_records": 324,
+      "trade_count_mismatch": 0,
+      "signed_flow_mismatch": 0,
+      "late_trade_intervals": 1882,
+      "late_trade_fraction": 0.037009360497128926,
+      "feature_delay_ms_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 1169.3311642499998,
+        "1": 7613.61345
+      },
+      "future_book_event_at_receipt": 0,
+      "model_eligible_contexts": 4697,
+      "ten_event_target_already_available_at_feature_decision": 167,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "intervals": 71465,
+      "future_trade_event_at_receipt": 0,
+      "zero_quantity_trade_records": 176,
+      "trade_count_mismatch": 0,
+      "signed_flow_mismatch": 0,
+      "late_trade_intervals": 312,
+      "late_trade_fraction": 0.004365773455537676,
+      "feature_delay_ms_quantiles": {
+        "0.5": 0.0,
+        "0.9": 0.0,
+        "0.99": 0.0,
+        "1": 591.713916
+      },
+      "future_book_event_at_receipt": 0,
+      "model_eligible_contexts": 6939,
+      "ten_event_target_already_available_at_feature_decision": 5,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "all_counts_match": true,
+  "all_signed_flow_match": true,
+  "correction": "D09B contains receipt timestamps and the tokenizer join retains them. Plain D09 lacks latest contributing trade receipt, reconstructed here.",
+  "limits": [
+    "Not a full live or sequence-validity qualification. Canonical sets can contain missing raw payloads; audit separately.",
+    "Max contributing receipt is offline provenance; knowing a set is complete online also requires an explicit watermark/buffering rule.",
+    "Price-target start must move to the valid book available at decision time before executable training; merely changing the timestamp is insufficient.",
+    "Context receipt maxima must be used; event-time context may not arrive in event-time order.",
+    "Endpoint stride restarts per hour; eligibility counts differ slightly from the prior concatenated model sample phase.",
+    "No new model trained or larger pretrained weights installed in this audit."
+  ]
+}
