@@ -1,0 +1,38 @@
+{
+  "live_commit": "c4387150f20a326b3de157f56651bb900def55ce",
+  "url": "https://market-ecology-live-observer.onrender.com/river.html",
+  "tests": {
+    "river_live": 5,
+    "existing_observer": 16,
+    "all_passed": true
+  },
+  "model": "River 0.26.1 linear regression on 12 categorical fields plus 16-update token frequency context",
+  "policy_versions": [
+    "coinbase-receipt-fixed-bins-v2",
+    "kraken-receipt-fixed-bins-v2"
+  ],
+  "forecast_horizon_seconds": 30,
+  "venue_weights_separate": true,
+  "receipt_quality": "Forecast inputs and outcomes require event/receipt age 0..250ms. Excluded intermediate rows rebuild context; disconnects/invalid clocks/gaps over 2s discard pending endpoints.",
+  "hosting_plan": "Render free, no paid changes",
+  "always_on_durable": false,
+  "qualified": false,
+  "software_tests_are_not_profitability_tests": true,
+  "checkpoint_download_verified": true,
+  "primary_provider": "Kraken",
+  "live_ui_check": {
+    "status": "learning after delayed outcomes",
+    "session": "8fb269c332a4",
+    "book_updates": 2916,
+    "tokens": 34992,
+    "forecasts": 62,
+    "learned_outcomes": 36,
+    "pending": 26,
+    "discarded_labels": 0,
+    "model_mse_bps2": 0.6988,
+    "zero_baseline_mse_bps2": 0.6669,
+    "prior_mean_mse_bps2": 1.1783,
+    "skill_vs_zero_percent": -4.79,
+    "interpretation": "Early monitoring only. Model worse than zero-return baseline; no profitability evidence."
+  }
+}
