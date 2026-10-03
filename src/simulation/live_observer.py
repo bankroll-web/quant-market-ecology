@@ -135,6 +135,9 @@ class Output:
         self.history = deque(maxlen=600)
         (self.directory/'index.html').write_text(PAGE)
         (self.directory/'ecology.html').write_text(ECOLOGY_PAGE)
+        token_lab = Path(__file__).with_name('bitcoin_token_lab.html')
+        if token_lab.exists():
+            (self.directory/'tokens.html').write_text(token_lab.read_text())
 
     def capture(self, kind, payload, received_ns):
         self.training.record(kind,payload)
