@@ -7,4 +7,4 @@ RUN mkdir -p /app/storage /app/data/live && useradd --uid 10001 --create-home ob
 USER observer
 ENV PORT=10000 CAPTURE_ARCHIVE_DIR=/app/storage/capture
 EXPOSE 10000
-CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "0", "--provider", "coinbase", "--serve", "--host", "0.0.0.0"]
+CMD ["python", "-m", "src.simulation.live_observer", "--out", "/app/data/live", "--seconds", "0", "--provider", "kraken", "--serve", "--host", "0.0.0.0"]
