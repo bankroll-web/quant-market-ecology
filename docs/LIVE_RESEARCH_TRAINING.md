@@ -27,3 +27,11 @@ An observed live page reported about 49 seconds of engine-to-receipt delay despi
 Coinbase depth calculations now reuse an exact Decimal cache when midpoint is unchanged, and the displayed top-100 copies use bounded heaps instead of sorting the full retained book. These reduce processing overhead without truncating the authoritative Coinbase book. They do not establish whether the observed delay was caused by processing, transport or clocks.
 
 Kraken received-book features use its subscribed depth. Switching venues clears the rolling fitting buffer; pending fits from another venue are discarded. Offline fitting rejects mixed-venue examples. Raw recordings remain private. The two feeds are never combined as one book or one fitted model.
+
+## Audited example retention
+
+The raw feature ring holds 20,000 bundles. Previously a fit used only that ring, so valid one-second labels vanished when old bundles rolled out. The trainer now retains up to 20,000 already audited examples separately and merges each new audit without repeating a decision or introducing decisions less than one second apart. Receipt gaps, session boundaries, venue identity and the 250 ms timing gates remain enforced before retention. This fixes collection capacity; it does not repair a delayed feed.
+
+Retained examples reset on venue changes and process restart. An epoch guard discards a pending result even if a venue switches away and back while fitting. Successive fits reuse observations, so their evaluation scores remain development comparisons, not independent validation. The next qualification step is a frozen model evaluated prospectively with explicit spread, fees, latency and inventory assumptions.
+
+On 3 October the deployed pre-fix dashboard showed a full 20,000-bundle ring, only 87 usable examples, and a stale/clock warning. No model fit or profitable signal was demonstrated by that observation.

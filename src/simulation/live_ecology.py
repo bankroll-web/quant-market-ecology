@@ -156,6 +156,6 @@ class LiveEcology:
                     participants='Scenario roles only. Anonymous L2 cannot identify retail, institutions or dealers.',
                     gamma='Assumed signed gamma ±0.05 BTC/USDT, one hedge round; measured GEX unavailable.',
                     options='Black-Scholes utility available offline with explicit inputs; option chain/surface/positions absent.',
-                    learning='Existing synthetic tabular policy remains unpromoted; no live training or policy orders.',
+                    learning='Venue-specific background research fitting is active; synthetic tabular policy remains unpromoted. No policy orders.',
                     hawkes='Existing stationary synthetic Hawkes environment remains separate; depth deletions are not trade prints.',
                     macro_auction='Macro bubble and venue auction branches remain separate.')
