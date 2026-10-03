@@ -1,0 +1,9 @@
+{
+  "version": "strategy-evidence-v1",
+  "minimum_validation_trades": 30,
+  "minimum_active_validation_days": 7,
+  "required_validation_mean_net_bps_day": 0,
+  "required_daily_bootstrap_lower_bps_day": 0,
+  "require_log_loss_below_constant_baseline": true,
+  "scope": "Prospective screening convention, not a proof of independence or profitability. Applied retrospectively to v1 only as a diagnostic."
+}

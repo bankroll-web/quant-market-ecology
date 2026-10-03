@@ -1,0 +1,358 @@
+{
+  "rules": {
+    "version": "strategy-evidence-v1",
+    "minimum_validation_trades": 30,
+    "minimum_active_validation_days": 7,
+    "required_validation_mean_net_bps_day": 0,
+    "required_daily_bootstrap_lower_bps_day": 0,
+    "require_log_loss_below_constant_baseline": true,
+    "scope": "Prospective screening convention, not a proof of independence or profitability. Applied retrospectively to v1 only as a diagnostic."
+  },
+  "source": "docs/long_horizon_flow/RESULTS.json",
+  "candidate_count": 18,
+  "passing_candidates": 0,
+  "candidates": [
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "numeric",
+        "threshold": 6,
+        "validation_bps_day": -23.591485577451767,
+        "validation_trades": 36
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "numeric",
+        "threshold": 10,
+        "validation_bps_day": -18.592253505020437,
+        "validation_trades": 20
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "numeric",
+        "threshold": 20,
+        "validation_bps_day": 0.0,
+        "validation_trades": 0
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "tokens",
+        "threshold": 6,
+        "validation_bps_day": -17.580757490009088,
+        "validation_trades": 24
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "tokens",
+        "threshold": 10,
+        "validation_bps_day": -6.6515004112653395,
+        "validation_trades": 5
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 5,
+        "model": "tokens",
+        "threshold": 20,
+        "validation_bps_day": 0.0,
+        "validation_trades": 0
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "numeric",
+        "threshold": 6,
+        "validation_bps_day": -102.38206158069916,
+        "validation_trades": 67
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "numeric",
+        "threshold": 10,
+        "validation_bps_day": -72.39179684906635,
+        "validation_trades": 38
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "numeric",
+        "threshold": 20,
+        "validation_bps_day": -23.67764380597682,
+        "validation_trades": 14
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "tokens",
+        "threshold": 6,
+        "validation_bps_day": -37.99235955508205,
+        "validation_trades": 48
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "tokens",
+        "threshold": 10,
+        "validation_bps_day": -33.004176101279505,
+        "validation_trades": 22
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 15,
+        "model": "tokens",
+        "threshold": 20,
+        "validation_bps_day": 8.823793044157314,
+        "validation_trades": 2
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "numeric",
+        "threshold": 6,
+        "validation_bps_day": -69.8720732859006,
+        "validation_trades": 96
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "numeric",
+        "threshold": 10,
+        "validation_bps_day": -31.399675910240777,
+        "validation_trades": 61
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "numeric",
+        "threshold": 20,
+        "validation_bps_day": -38.27308193291225,
+        "validation_trades": 22
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "tokens",
+        "threshold": 6,
+        "validation_bps_day": -153.12668011611316,
+        "validation_trades": 95
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "tokens",
+        "threshold": 10,
+        "validation_bps_day": -106.08480413683053,
+        "validation_trades": 67
+      },
+      "passed_screen": false,
+      "reasons": [
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    },
+    {
+      "candidate": {
+        "horizon": 60,
+        "model": "tokens",
+        "threshold": 20,
+        "validation_bps_day": -80.2687051859317,
+        "validation_trades": 21
+      },
+      "passed_screen": false,
+      "reasons": [
+        "too_few_validation_trades",
+        "insufficient_active_day_evidence",
+        "nonpositive_validation_net_return",
+        "missing_validation_uncertainty_estimate",
+        "forecast_does_not_beat_constant_baseline"
+      ],
+      "qualified": false,
+      "orders_enabled": false
+    }
+  ],
+  "status": "WAIT",
+  "qualified": false,
+  "orders_enabled": false,
+  "limits": [
+    "This audit does not retrain models or reinterpret August evaluation as untouched.",
+    "Prior run omitted active-day and uncertainty evidence for validation candidates; absent evidence fails the screen.",
+    "Thirty trades and seven active days are screening conventions, not adequate evidence on their own.",
+    "Passing this screen would permit independent evaluation, never real-money execution."
+  ]
+}
