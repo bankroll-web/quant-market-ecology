@@ -1,0 +1,109 @@
+{
+  "status": "D09_12_field_development_comparison",
+  "qualified": false,
+  "orders_enabled": false,
+  "train_events": 136600,
+  "test_events": 122317,
+  "training_samples": 12986,
+  "evaluation_samples": 11629,
+  "context_events": 16,
+  "target_events": 10,
+  "epochs": 5,
+  "seed": 91,
+  "training_losses": [
+    1.9662176826420952,
+    1.6310763101951748,
+    1.5784834611649607,
+    1.5184159489238964,
+    1.472731196412853
+  ],
+  "field_scores": {
+    "dt": {
+      "transformer_bits": 0.987233579158783,
+      "bigram_bits": 1.0273674139449696,
+      "prior_bits": 1.0574559703501465
+    },
+    "ntr": {
+      "transformer_bits": 0.8888759613037109,
+      "bigram_bits": 0.898839014298033,
+      "prior_bits": 0.939928703065818
+    },
+    "flow": {
+      "transformer_bits": 1.160134196281433,
+      "bigram_bits": 1.16541150885284,
+      "prior_bits": 1.1980296277775195
+    },
+    "bid_add": {
+      "transformer_bits": 1.4360883235931396,
+      "bigram_bits": 1.4346619493978738,
+      "prior_bits": 1.490937941046763
+    },
+    "bid_rem": {
+      "transformer_bits": 1.2927696704864502,
+      "bigram_bits": 1.3107753544632013,
+      "prior_bits": 1.3829574948980106
+    },
+    "ask_add": {
+      "transformer_bits": 1.5871199369430542,
+      "bigram_bits": 1.5799246110584078,
+      "prior_bits": 1.645894807319257
+    },
+    "ask_rem": {
+      "transformer_bits": 1.4791415929794312,
+      "bigram_bits": 1.4654883130658454,
+      "prior_bits": 1.5541156599282748
+    },
+    "bid_deep": {
+      "transformer_bits": 3.8604445457458496,
+      "bigram_bits": 3.8130016951445396,
+      "prior_bits": 3.883378296216447
+    },
+    "ask_deep": {
+      "transformer_bits": 3.933250904083252,
+      "bigram_bits": 3.8606849044374045,
+      "prior_bits": 3.947771395437813
+    },
+    "mid": {
+      "transformer_bits": 0.1868373453617096,
+      "bigram_bits": 0.19234661043740953,
+      "prior_bits": 0.22301478676516676
+    },
+    "obi": {
+      "transformer_bits": 0.8490648865699768,
+      "bigram_bits": 0.5136828449272667,
+      "prior_bits": 3.003684122376773
+    },
+    "wide": {
+      "transformer_bits": 0.015352271497249603,
+      "bigram_bits": 0.019352156030386477,
+      "prior_bits": 0.022013321351019625
+    }
+  },
+  "return_pinball_bps": 0.03858390652779953,
+  "baseline_return_pinball_bps": 0.0382671923845175,
+  "coverage_80": 0.8741938257803766,
+  "flow_mse": 0.8402578509523342,
+  "baseline_flow_mse": 0.8346369769503629,
+  "flow_evaluation_samples": 7532,
+  "vol_mse": 0.0011296653801265036,
+  "baseline_vol_mse": 0.0011731130711164714,
+  "source_sha256": {
+    "2026-05-25_04_d09_joint_flow_liquidity_tape.csv": "3477f18e2975536f4a7af596b9431abe5163da14a940ecab19f6e54d8b3c1ec3",
+    "2026-05-25_04_d09b_touch_distance_book_events.csv": "adbad41a25a6523bfda6c6dbcce92c866d9fa693beb83d9f3e1511bbbfe2e08e",
+    "2026-05-25_12_d09_joint_flow_liquidity_tape.csv": "96198a82f3055ea5fcf86cdd56889bc24c73141a8dde4ef26037781f0e1edaa3",
+    "2026-05-25_12_d09b_touch_distance_book_events.csv": "7f288cc1df449b1d67e6741859f970361c432d32df229702598e1dbfd65c998b",
+    "2026-05-25_18_d09_joint_flow_liquidity_tape.csv": "913346cc711220de67370630603c614115e49ce9cc2694e1b2683fe4dec3900d",
+    "2026-05-25_18_d09b_touch_distance_book_events.csv": "b20632fda735ddbb42ea0d13e367dee30d0f18d279e687081ff6d708c5e3c28f",
+    "2026-05-26_15_d09_joint_flow_liquidity_tape.csv": "7a9e08f459ecb5d0cde2324aef37aa673aca80437993125db34efe90e4456fb7",
+    "2026-05-26_15_d09b_touch_distance_book_events.csv": "a2b5b0cab4cbbbd8aec3a7e9633d05aa136312cf45e06a7e495adbc2383babb9",
+    "2026-05-26_21_d09_joint_flow_liquidity_tape.csv": "dd3f4c77c2f62428feb52d584207391e47e29c63b6a24dd825bd51fb9ba7dbab",
+    "2026-05-26_21_d09b_touch_distance_book_events.csv": "779207c7bddb1e47cc722833832672eaf9c40439a732e5a59ef39096cc19e482"
+  },
+  "limits": [
+    "Event-time D09 tapes have no receipt availability timestamps. No live timing qualification.",
+    "All five recording hours already examined. Development comparison, not untouched evidence.",
+    "Ten-event targets have variable elapsed time; contexts overlap. No PnL or cost replay.",
+    "Fixed five epochs; no evaluation checkpoint selection. Missing no-trade flow labels excluded rather than set to zero.",
+    "Hard-coded 0.1 tick inherited from uploaded tokenizer; mid rounding can discard half-tick moves. Reset/sweep attribution not established."
+  ]
+}

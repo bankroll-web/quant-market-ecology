@@ -1,0 +1,7 @@
+{
+  "later_nonzero_mid_targets": 248,
+  "later_zero_mid_targets": 11381,
+  "moving_target_transformer_bits": 7.41148042678833,
+  "moving_target_bigram_bits": 7.940268892293149,
+  "note": "Conditional diagnostic only; rare outcomes must not be selected by model forecasts or confused with unconditional performance."
+}

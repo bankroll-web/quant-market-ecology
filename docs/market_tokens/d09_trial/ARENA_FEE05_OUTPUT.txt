@@ -1,0 +1,23 @@
+
+=== training token-driven ecology (60000 steps, fee 0.5) ===
+  [tokens] t= 15000 alive= 80 births= 130 deaths=  90 mean_h=1.48 max_gen=7 injected=0
+  [tokens] t= 30000 alive= 80 births= 188 deaths= 148 mean_h=1.37 max_gen=9 injected=0
+  [tokens] t= 45000 alive= 48 births= 268 deaths= 260 mean_h=1.62 max_gen=10 injected=0
+  [tokens] t= 60000 alive= 43 births= 341 deaths= 338 mean_h=1.61 max_gen=11 injected=0
+  champions' TRAIN pnl (selected on it, so optimistic): [37. 30. 25. 24. 20.] ...
+
+=== training token-blind ecology (60000 steps, fee 0.5) ===
+  [blind ] t= 15000 alive= 80 births= 102 deaths=  62 mean_h=1.50 max_gen=6 injected=0
+  [blind ] t= 30000 alive= 80 births= 109 deaths=  69 mean_h=1.48 max_gen=6 injected=0
+  [blind ] t= 45000 alive= 66 births= 179 deaths= 153 mean_h=1.50 max_gen=6 injected=0
+  [blind ] t= 60000 alive= 71 births= 222 deaths= 191 mean_h=1.43 max_gen=7 injected=0
+  champions' TRAIN pnl (selected on it, so optimistic): [44. 42. 39. 37. 34.] ...
+
+=== FRESH-WORLD TEST: mean pnl per agent in ticks over 30000 steps, 6 new seeds ===
+ecology           wide fixed  tight+skew    evolved   evolved wins/seed  evolved survival
+token-driven            40.7       513.4      207.8   0/6               68%
+               per-seed evolved: [279.3 257.  106.3 290.8  46.  267. ]
+token-blind             -8.3       612.3      370.5   0/6               88%
+               per-seed evolved: [368.  421.4 335.6 428.5 299.2 370.2]
+
+Read it: evolved must beat BOTH baselines on most fresh seeds. Token-driven must beat token-blind to justify tokens. Profit in this toy is not evidence of profit on real BTC.

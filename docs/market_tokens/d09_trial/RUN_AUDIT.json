@@ -1,0 +1,24 @@
+{
+  "rows": 11629,
+  "saved_npz_loaded_without_pickle": true,
+  "max_training_target_before_first_eval_decision": true,
+  "max_training_target_event_ms": 1779735377482,
+  "first_eval_decision_event_ms": 1779807601310,
+  "time_basis": "exchange event-time only; receipt-time qualification missing",
+  "artifacts": {
+    "SOURCE_MANIFEST.json": "d931c348f09b3569f99e72d365b573c4b7f864380aad96481b870e68c41e827a",
+    "RARE_MOVE_DIAGNOSTICS.json": "46e5eab2ad014cf871c4f47203d36ef7605c98d5ead25b9af3c5de0e057a397a",
+    "ARENA_FEE0_OUTPUT.txt": "9d78dea4f6dfcbb791c3ebfee5bb06212409731b0f162625f01e0539d4e5aa19",
+    "PREDICTIONS.csv.gz": "19dae3833112f481fea434b8ef1f62efba47b0f6894cdda4a93e3b2526933030",
+    "REPORT.md": "558445c737ce7cb033f97497c6ab80fad0e62de4683184d4bcb86f1ee9859ab5",
+    "ARENA_FEE05_OUTPUT.txt": "8561d13d96c1065ba57b5a4f2ce57daae8717f4c184d0be20114ccb8a5a3ca05",
+    "TOKENIZER_OUTPUT.txt": "f0fe6045be7a38ef38fd2f7e588480761667d743dabcd2c68ad5f73aeade08f2",
+    "RESULTS.json": "0c0a0e84ff7976f37a091f390e97085240398e4c157855ce118a56c069ca1801",
+    "WEIGHTS.npz": "1c5bdf50449ab8a1c325b656990eacc020a017f0c2d3e71b32b1b573997eaf2e",
+    "PREPROCESSING.json": "ad1670d5c6f1f8033948c9fca3565fec29cbe2dba717f9876d4c44d945763ae0"
+  },
+  "upload_sha256": {
+    "tokenizer_v1.py": "856583fd48e182c021dd0179ad5d713583a2046f756547e47b9c8e431a848689",
+    "ecology_arena.py": "73154ae45b723838279aa79d82cebe153e8ff4e9db562cacc811dd213266bd71"
+  }
+}

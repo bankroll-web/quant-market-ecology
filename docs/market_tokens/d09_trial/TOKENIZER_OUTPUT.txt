@@ -1,0 +1,30 @@
+train events 136,600 (hours: ['2026-05-25_04', '2026-05-25_12', '2026-05-25_18'])
+test  events 122,317 (hours: ['2026-05-26_15', '2026-05-26_21'])
+
+field     vocab  H_train     PSI  CE_marg  CE_prev   gain
+dt            3     0.97   0.110    1.066    1.032  0.034
+ntr           7     0.48   0.077    0.963    0.914  0.049
+flow         19     0.62   0.079    1.223    1.178  0.045
+bid_add      10     1.17   0.038    1.486    1.424  0.062
+bid_rem      10     1.08   0.055    1.422    1.332  0.090
+ask_add      10     1.06   0.086    1.669    1.597  0.072
+ask_rem      10     1.02   0.082    1.559    1.472  0.087
+bid_deep     19     3.67   0.097    3.882    3.792  0.090
+ask_deep     19     3.75   0.111    3.957    3.869  0.088
+mid          11     0.07   0.021    0.221    0.184  0.037
+obi           8     3.00   0.083    3.000    0.535  2.465
+wide          2     0.00   0.002    0.022    0.017  0.005
+
+reconstruction on test (decoded vs true):
+  flow      corr=0.851  sum_true=  -1043.75  sum_decoded=   -925.19
+  bid_add   corr=0.934  sum_true=  66836.93  sum_decoded=  57982.37
+  bid_rem   corr=0.934  sum_true=  42106.75  sum_decoded=  40032.16
+  ask_add   corr=0.889  sum_true=  59097.64  sum_decoded=  52967.39
+  ask_rem   corr=0.894  sum_true=  36298.99  sum_decoded=  35479.19
+  bid_deep  corr=0.786  sum_true= 303206.85  sum_decoded= 260271.57
+  ask_deep  corr=0.887  sum_true= 245636.59  sum_decoded= 228507.10
+
+mid-move token shares on test (0=none, 1-5 down, 6-10 up; buckets 1,2,3-5,6-20,21+ ticks):
+[9.789e-01 5.000e-04 3.000e-04 6.000e-04 2.900e-03 6.300e-03 5.000e-04
+ 4.000e-04 7.000e-04 2.800e-03 6.100e-03]
+note: bin edges came from train hours only; PSI > 0.1 means the token distribution drifted.
