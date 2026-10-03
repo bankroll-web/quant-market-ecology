@@ -1,0 +1,20 @@
+{
+  "2026-05-26_15": {
+    "samples": 4687,
+    "return_pinball_bps": 0.07793297921609026,
+    "baseline_return_pinball_bps": 0.07777998061074244,
+    "flow_mse": 0.7969182303285106,
+    "baseline_flow_mse": 0.7771032131647433,
+    "vol_mse": 0.0024637938892057547,
+    "baseline_vol_mse": 0.00262654157568884
+  },
+  "2026-05-26_21": {
+    "samples": 6921,
+    "return_pinball_bps": 0.0122495667704124,
+    "baseline_return_pinball_bps": 0.01146673145492645,
+    "flow_mse": 0.8947824334098554,
+    "baseline_flow_mse": 0.9176542405487327,
+    "vol_mse": 0.00018228035933200612,
+    "baseline_vol_mse": 0.0001882718842196298
+  }
+}

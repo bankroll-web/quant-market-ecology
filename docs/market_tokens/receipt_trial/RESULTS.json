@@ -1,0 +1,180 @@
+{
+  "status": "receipt_window_v1_development",
+  "qualified": false,
+  "orders_enabled": false,
+  "policy": {
+    "version": "receipt_window_v1",
+    "trade_window": "[previous_book_receipt_ns, current_book_receipt_ns)",
+    "decision": "current_book_receipt_ns",
+    "processing_latency_ms": 0,
+    "tie_policy": "exclude current-receipt trade ties; include them in next window",
+    "book_order": "original reconstructed episode sequence; reject receipt reversals/ties",
+    "dt_token": "elapsed book receipt milliseconds",
+    "target": "next 10 contiguous book updates, all strictly after decision receipt"
+  },
+  "receipt_audit": [
+    {
+      "hour": "2026-05-25_04",
+      "rows": 23627,
+      "valid_receipt_rows": 23548,
+      "invalid_receipt_rows": 79,
+      "changed_trade_count_rows": 449,
+      "changed_signed_flow_rows": 448,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "rows": 55577,
+      "valid_receipt_rows": 55403,
+      "invalid_receipt_rows": 174,
+      "changed_trade_count_rows": 2507,
+      "changed_signed_flow_rows": 2525,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "rows": 57396,
+      "valid_receipt_rows": 57302,
+      "invalid_receipt_rows": 94,
+      "changed_trade_count_rows": 1717,
+      "changed_signed_flow_rows": 1711,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "rows": 50852,
+      "valid_receipt_rows": 50677,
+      "invalid_receipt_rows": 175,
+      "changed_trade_count_rows": 13526,
+      "changed_signed_flow_rows": 13894,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "rows": 71465,
+      "valid_receipt_rows": 71342,
+      "invalid_receipt_rows": 123,
+      "changed_trade_count_rows": 2930,
+      "changed_signed_flow_rows": 2925,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "train_events": 136600,
+  "test_events": 122317,
+  "training_samples": 12953,
+  "evaluation_samples": 11608,
+  "context_events": 16,
+  "target_events": 10,
+  "epochs": 5,
+  "seed": 91,
+  "model_parameters": 17802,
+  "training_losses": [
+    2.1472573595888473,
+    1.7182094045713836,
+    1.6521653451171576,
+    1.5888132862016267,
+    1.5463890702116723
+  ],
+  "field_scores": {
+    "dt": {
+      "transformer_bits": 2.269317150115967,
+      "bigram_bits": 2.1944569099419673,
+      "prior_bits": 2.585024688445156
+    },
+    "ntr": {
+      "transformer_bits": 0.8073977828025818,
+      "bigram_bits": 0.8085226486100394,
+      "prior_bits": 0.847303273438598
+    },
+    "flow": {
+      "transformer_bits": 1.0571109056472778,
+      "bigram_bits": 1.063349941698851,
+      "prior_bits": 1.0854257308917172
+    },
+    "bid_add": {
+      "transformer_bits": 1.4301140308380127,
+      "bigram_bits": 1.4348523337000616,
+      "prior_bits": 1.4919298876903009
+    },
+    "bid_rem": {
+      "transformer_bits": 1.3008852005004883,
+      "bigram_bits": 1.309934977571399,
+      "prior_bits": 1.3815797824566738
+    },
+    "ask_add": {
+      "transformer_bits": 1.5930225849151611,
+      "bigram_bits": 1.5792911534838028,
+      "prior_bits": 1.6453411654905334
+    },
+    "ask_rem": {
+      "transformer_bits": 1.4466331005096436,
+      "bigram_bits": 1.464990554481986,
+      "prior_bits": 1.5536967256052778
+    },
+    "bid_deep": {
+      "transformer_bits": 3.8686890602111816,
+      "bigram_bits": 3.8149151109015187,
+      "prior_bits": 3.884532980642894
+    },
+    "ask_deep": {
+      "transformer_bits": 3.9334704875946045,
+      "bigram_bits": 3.8621534222259224,
+      "prior_bits": 3.94859943308444
+    },
+    "mid": {
+      "transformer_bits": 0.18036283552646637,
+      "bigram_bits": 0.19303137713548824,
+      "prior_bits": 0.22383943225149613
+    },
+    "obi": {
+      "transformer_bits": 0.8085240125656128,
+      "bigram_bits": 0.5151866984538063,
+      "prior_bits": 3.0036580919277487
+    },
+    "wide": {
+      "transformer_bits": 0.016606193035840988,
+      "bigram_bits": 0.01938187943897137,
+      "prior_bits": 0.022046597173426993
+    }
+  },
+  "return_pinball_bps": 0.03877077232975872,
+  "baseline_return_pinball_bps": 0.03824224823588006,
+  "coverage_80": 0.8469159200551344,
+  "flow_mse": 0.8406151049500219,
+  "baseline_flow_mse": 0.839859976395297,
+  "flow_evaluation_samples": 7225,
+  "vol_mse": 0.0011034945146144199,
+  "baseline_vol_mse": 0.0011727799858664413,
+  "minimum_target_delay_ms": 2.338213,
+  "median_target_delay_ms": 269.660595,
+  "future_targets_strictly_after_decision": true,
+  "last_training_target_receipt_ns": 1779735377610266890,
+  "first_evaluation_decision_receipt_ns": 1779807603155820644,
+  "source_sha256": {
+    "2026-05-25_04_d09_joint_flow_liquidity_tape.csv": "3477f18e2975536f4a7af596b9431abe5163da14a940ecab19f6e54d8b3c1ec3",
+    "2026-05-25_04_d09b_touch_distance_book_events.csv": "adbad41a25a6523bfda6c6dbcce92c866d9fa693beb83d9f3e1511bbbfe2e08e",
+    "2026-05-25_12_d09_joint_flow_liquidity_tape.csv": "96198a82f3055ea5fcf86cdd56889bc24c73141a8dde4ef26037781f0e1edaa3",
+    "2026-05-25_12_d09b_touch_distance_book_events.csv": "7f288cc1df449b1d67e6741859f970361c432d32df229702598e1dbfd65c998b",
+    "2026-05-25_18_d09_joint_flow_liquidity_tape.csv": "913346cc711220de67370630603c614115e49ce9cc2694e1b2683fe4dec3900d",
+    "2026-05-25_18_d09b_touch_distance_book_events.csv": "b20632fda735ddbb42ea0d13e367dee30d0f18d279e687081ff6d708c5e3c28f",
+    "2026-05-26_15_d09_joint_flow_liquidity_tape.csv": "7a9e08f459ecb5d0cde2324aef37aa673aca80437993125db34efe90e4456fb7",
+    "2026-05-26_15_d09b_touch_distance_book_events.csv": "a2b5b0cab4cbbbd8aec3a7e9633d05aa136312cf45e06a7e495adbc2383babb9",
+    "2026-05-26_21_d09_joint_flow_liquidity_tape.csv": "dd3f4c77c2f62428feb52d584207391e47e29c63b6a24dd825bd51fb9ba7dbab",
+    "2026-05-26_21_d09b_touch_distance_book_events.csv": "779207c7bddb1e47cc722833832672eaf9c40439a732e5a59ef39096cc19e482"
+  },
+  "code_sha256": {
+    "receipt_tokens.py": "1d6a5d65ce9861de17b8c5fea76119d19df2a1a72d046d9293aeb15e2cf228c7",
+    "train_receipt.py": "0eb37cc0609f0f87dff0d38072684f2a0241f5af64a98434a87ffeae6ad8daea",
+    "train_real.py": "9308084548edb738265fa9bf048d18d1fb2a7a03bfcea6db7662c2432faf07ac",
+    "tokenizer_v1.py": "856583fd48e182c021dd0179ad5d713583a2046f756547e47b9c8e431a848689"
+  },
+  "limits": [
+    "All five hours were previously examined: development evidence, not an untouched evaluation period.",
+    "Zero processing latency is an idealized diagnostic. No fees, queue, execution or net PnL tested.",
+    "Frozen book reconstruction/provenance is inherited, not rebuilt from raw book messages here.",
+    "Trade features now represent arrival windows, not complete exchange-event-time intervals; old metrics are not directly comparable.",
+    "Raw trade files must contain every message received in these windows. Hour-file spillover and duplicate payloads are not independently verified.",
+    "Tick 0.1 remains inherited; half-tick rounding and sweep/reset attribution remain unresolved.",
+    "Context windows overlap and the ten-update horizon has variable elapsed time. Two evaluation hours cannot establish robustness."
+  ]
+}

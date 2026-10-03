@@ -1,0 +1,19 @@
+{
+  "policy_version": "receipt_window_v1",
+  "decision_receipt_ns": 1779832799974972073,
+  "anchor_mid": 75863.95,
+  "horizon": "next 10 contiguous book updates",
+  "return_quantiles_bps": {
+    "0.1": -0.010893651284277439,
+    "0.25": -0.005259228404611349,
+    "0.5": -0.003418195294216275,
+    "0.75": -0.0013297611149027944,
+    "0.9": 0.0012850055936723948
+  },
+  "flow_forecast": -0.07610946893692017,
+  "vol_forecast_bps": 0.0016271626809611917,
+  "action": "WAIT",
+  "qualified": false,
+  "orders_enabled": false,
+  "reason": "Development forecast; no validated executable policy"
+}

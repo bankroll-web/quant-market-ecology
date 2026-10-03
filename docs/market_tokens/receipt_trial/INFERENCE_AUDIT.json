@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "hour": "2026-05-26_15",
+      "max_absolute_forecast_difference": 2.028312684476674e-08,
+      "invalid_context_rejected": true
+    },
+    {
+      "hour": "2026-05-26_21",
+      "max_absolute_forecast_difference": 7.45471313476874e-09,
+      "invalid_context_rejected": true
+    }
+  ],
+  "trained_artifact_and_code_hashes_verified": true,
+  "inference_code_sha256": "f2c913a6b60e14e4aa7d45744f9cb8ab10c02ec3ead22058ed0b32fcc22784ab",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "torch": "2.14.1+cpu",
+    "pyarrow": "25.0.1",
+    "zstandard": "0.25.0"
+  },
+  "example_note": "EXAMPLE_FORECAST is a historical replay sample, not a current market signal."
+}

@@ -1,0 +1,12 @@
+{
+  "saved_model_max_absolute_forecast_difference": 0.0,
+  "all_targets_after_decision": true,
+  "artifacts_sha256": {
+    "BASELINES.npz": "fe8b2bb35dbf4e744640ce97d9125cc759813813bae13645e73b5bfd72744a58",
+    "PER_HOUR.json": "7bfd02c2cd13b64f42d425a5785f54d42177df1b0843d6f56ab19a09691749a2",
+    "PREDICTIONS.csv.gz": "b8ecf5b060ad5c49b6c78b600b284dc86e2fb0e16295a04d5514202585387713",
+    "PREPROCESSING.json": "90961dd256b73f9d5a54f9120b93d080f2b7e3b79be029552878b66898dfdf5a",
+    "RESULTS.json": "d3af1e9960599fc94efa574aa75d6fcfe6eb8feece78566fb63266ba7a8642be",
+    "WEIGHTS.npz": "c7986ff934947be0da98c1098669d064516d493b1872fbcd62246148d21d5ced"
+  }
+}
