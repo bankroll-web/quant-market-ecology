@@ -149,6 +149,8 @@ class Output:
         ecology = dict(mode=self.mode, **market, generated_ns=now_ns, **self.ecology.update(observer,now_ns))
         for key in ('trade_subscription_active','captured_trade_messages','captured_trade_events','last_trade_received_ns','capture_persistence','mechanics','archive'):
             if key in view:ecology[key]=view[key]
+        from .live_model_status import assess
+        ecology['model_status']=assess(market,view,now_ns)
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))
