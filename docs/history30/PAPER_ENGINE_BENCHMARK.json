@@ -1,0 +1,105 @@
+{
+  "status": "historical_paper_engine_development_check",
+  "qualified": false,
+  "training_examples": 459,
+  "cutoff_ns": 1779669395080756640,
+  "entry_threshold_bps": 8,
+  "reports": [
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv",
+      "examples": 458,
+      "supported_examples": 284,
+      "model_mse": 0.1233087148458732,
+      "zero_mse": 0.13566395148975588,
+      "max_absolute_estimate_bps": 0.7495181828562768,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+      "examples": 547,
+      "supported_examples": 229,
+      "model_mse": 0.046747727962814734,
+      "zero_mse": 0.03952947659089938,
+      "max_absolute_estimate_bps": 0.4886248008575756,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv",
+      "examples": 1120,
+      "supported_examples": 0,
+      "model_mse": 15217.227552281793,
+      "zero_mse": 0.07598790112365589,
+      "max_absolute_estimate_bps": 4115.947440157074,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv",
+      "examples": 1151,
+      "supported_examples": 0,
+      "model_mse": 0.13380739387813262,
+      "zero_mse": 0.024796183916607276,
+      "max_absolute_estimate_bps": 0.7713189410406123,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv",
+      "examples": 937,
+      "supported_examples": 0,
+      "model_mse": 40170.81613881791,
+      "zero_mse": 1.0014970420261158,
+      "max_absolute_estimate_bps": 4783.74790782547,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv",
+      "examples": 1551,
+      "supported_examples": 0,
+      "model_mse": 3.7768487447684347,
+      "zero_mse": 0.06860480379005976,
+      "max_absolute_estimate_bps": 64.16289483350866,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_03_observed_changes.csv",
+      "examples": 1215,
+      "supported_examples": 0,
+      "model_mse": 30.063879331635736,
+      "zero_mse": 0.11408752124417748,
+      "max_absolute_estimate_bps": 189.11075752692517,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_09_observed_changes.csv",
+      "examples": 1153,
+      "supported_examples": 0,
+      "model_mse": 0.21344437192225194,
+      "zero_mse": 0.05237821574267554,
+      "max_absolute_estimate_bps": 0.8328895844242576,
+      "threshold_candidates": 0,
+      "quote_proxy_mean_net_bps": null,
+      "input_sha256": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36"
+    }
+  ],
+  "limits": [
+    "All historical samples previously inspected; no independent validation.",
+    "This frozen first-half-hour model differs from current venue-specific live fits.",
+    "Historical Binance futures model is not loaded into Kraken or Coinbase.",
+    "Immediate top-quote proxies omit execution latency, order size and funding; 6 bps fees/slippage assumed.",
+    "Historical labels can overlap by up to 250 ms; counts are not independent observations.",
+    "Offline check does not apply every live freshness or age eligibility gate. No candidate promotion."
+  ]
+}
