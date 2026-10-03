@@ -1,0 +1,41 @@
+{
+  "version": "long-flow-v1",
+  "data": "Binance BTCUSDT spot 1-minute public aggregates, June-August 2024",
+  "features": "completed-minute taker buy fraction, trade intensity, volume and mean trade size; 1/5/15/60-minute summaries; no participant identities or book depth",
+  "train": "June-July 2024",
+  "validation": "August 1-14 2024",
+  "evaluation": "August 15-31 2024, new to this recipe but not claimed globally untouched",
+  "horizons_minutes": [
+    5,
+    15,
+    60
+  ],
+  "decision_stride_minutes": 60,
+  "entry": "open two rows after feature minute (one complete minute delay after close)",
+  "exit": "open horizon minutes after entry",
+  "purge": "training and validation label exit strictly before next split",
+  "models": [
+    "training class-frequency and mean-return baselines",
+    "numeric gradient boosting",
+    "16-bin training-only token gradient boosting"
+  ],
+  "thresholds_bps": [
+    6,
+    10,
+    20
+  ],
+  "primary_round_trip_cost_bps": 6,
+  "cost_scenarios_bps": [
+    6,
+    12,
+    20
+  ],
+  "selection": "validation mean net bps/day at primary cost, choose one model/horizon/threshold once; stay flat if no candidate positive",
+  "trading": "long/flat only, nonoverlapping hourly decisions, constant unit notional; cost scenarios include assumed total friction, not verified executable fills",
+  "limitations": [
+    "Aggregated historical trade flow, not event tokens or a transformer.",
+    "No receipt timestamps, book spreads, queues, actual fees or slippage; execution is a delayed price proxy.",
+    "Prior project has inspected 2024 daily data; evaluation is not guaranteed untouched project-wide.",
+    "No funding or short selling. Bootstrap by day is exploratory with 17 evaluation days."
+  ]
+}

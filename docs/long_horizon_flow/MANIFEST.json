@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "long_horizon_flow.py": "60e7354bba8482cc51c73db167c66aac19543a9fbd2c3d6faba3b2851b0ffbb8",
+    "tests/test_long_horizon_flow.py": "cfd84845f88adc61cfaad1e9955a2a0e5e62c2cd4c3a1f816b2f4a5d80d6a28b",
+    "docs/long_horizon_flow/bins_15.json": "85ca773d3f54099417db5e9c8c4365d3339f96b683d8015f5fbd16f36c72453d",
+    "docs/long_horizon_flow/bins_5.json": "85ca773d3f54099417db5e9c8c4365d3339f96b683d8015f5fbd16f36c72453d",
+    "docs/long_horizon_flow/REPORT.md": "5dc33de3fac0b9067ee6f4b545d480fda5b73fdac25a7dece69cec836cdab54b",
+    "docs/long_horizon_flow/SPEC.json": "2baf4c18b559d80732581307619e5f6ec2ddaca714d4b793679dd7d1061e2370",
+    "docs/long_horizon_flow/predictions.csv.gz": "f7a291e2be0dfecc9fa7f67296cdbc5392646db8b054aac28168f78fda2f0031",
+    "docs/long_horizon_flow/RESULTS.json": "8c306d1a4f83a854c28ad537d7eea0bc86e0c9c08f002ad28c3ca65e32a23914",
+    "docs/long_horizon_flow/bins_60.json": "9a8f177a3acee323cf78bc3f74c4670772ab8742316d425a733024607ae0d947"
+  },
+  "tests_passed": 3
+}

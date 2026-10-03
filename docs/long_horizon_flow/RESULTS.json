@@ -1,0 +1,419 @@
+{
+  "spec": {
+    "version": "long-flow-v1",
+    "data": "Binance BTCUSDT spot 1-minute public aggregates, June-August 2024",
+    "features": "completed-minute taker buy fraction, trade intensity, volume and mean trade size; 1/5/15/60-minute summaries; no participant identities or book depth",
+    "train": "June-July 2024",
+    "validation": "August 1-14 2024",
+    "evaluation": "August 15-31 2024, new to this recipe but not claimed globally untouched",
+    "horizons_minutes": [
+      5,
+      15,
+      60
+    ],
+    "decision_stride_minutes": 60,
+    "entry": "open two rows after feature minute (one complete minute delay after close)",
+    "exit": "open horizon minutes after entry",
+    "purge": "training and validation label exit strictly before next split",
+    "models": [
+      "training class-frequency and mean-return baselines",
+      "numeric gradient boosting",
+      "16-bin training-only token gradient boosting"
+    ],
+    "thresholds_bps": [
+      6,
+      10,
+      20
+    ],
+    "primary_round_trip_cost_bps": 6,
+    "cost_scenarios_bps": [
+      6,
+      12,
+      20
+    ],
+    "selection": "validation mean net bps/day at primary cost, choose one model/horizon/threshold once; stay flat if no candidate positive",
+    "trading": "long/flat only, nonoverlapping hourly decisions, constant unit notional; cost scenarios include assumed total friction, not verified executable fills",
+    "limitations": [
+      "Aggregated historical trade flow, not event tokens or a transformer.",
+      "No receipt timestamps, book spreads, queues, actual fees or slippage; execution is a delayed price proxy.",
+      "Prior project has inspected 2024 daily data; evaluation is not guaranteed untouched project-wide.",
+      "No funding or short selling. Bootstrap by day is exploratory with 17 evaluation days."
+    ]
+  },
+  "sources": [
+    {
+      "file": "BTCUSDT-1m-2024-06.zip",
+      "sha256": "90f4fc3f55918787848c71f4cd0f2f1a5851bbffaf6392e76e9ab555b7479d2b",
+      "rows": 43200,
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-06.zip"
+    },
+    {
+      "file": "BTCUSDT-1m-2024-07.zip",
+      "sha256": "9cfd749fd2027a0c6f261bed607b49dd1256369fb41b784934544a3676f8162e",
+      "rows": 44640,
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-07.zip"
+    },
+    {
+      "file": "BTCUSDT-1m-2024-08.zip",
+      "sha256": "6a1cac2a5482132dc5a030534aa028e2becc560877f2b93b7add90194f576c42",
+      "rows": 44640,
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2024-08.zip"
+    }
+  ],
+  "model_fits": 12,
+  "policy_candidates": 18,
+  "metrics": [
+    {
+      "horizon": 5,
+      "model": "numeric",
+      "split": "validation",
+      "n": 335,
+      "log_loss": 0.730716447567428,
+      "baseline_log_loss": 0.6927313812866578,
+      "mse": 725.1190050765878,
+      "baseline_mse": 662.7465277384844
+    },
+    {
+      "horizon": 5,
+      "model": "numeric",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.7111430233814452,
+      "baseline_log_loss": 0.700546775260059,
+      "mse": 190.03600804875558,
+      "baseline_mse": 177.29746048936536
+    },
+    {
+      "horizon": 5,
+      "model": "tokens",
+      "split": "validation",
+      "n": 335,
+      "log_loss": 0.7262310496372872,
+      "baseline_log_loss": 0.6927313812866578,
+      "mse": 690.179074954224,
+      "baseline_mse": 662.7465277384844
+    },
+    {
+      "horizon": 5,
+      "model": "tokens",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.7314545154486024,
+      "baseline_log_loss": 0.700546775260059,
+      "mse": 185.38715378493865,
+      "baseline_mse": 177.29746048936536
+    },
+    {
+      "horizon": 15,
+      "model": "numeric",
+      "split": "validation",
+      "n": 335,
+      "log_loss": 0.7266957825375016,
+      "baseline_log_loss": 0.6900878916122046,
+      "mse": 2436.0729078943787,
+      "baseline_mse": 2192.2431750373544
+    },
+    {
+      "horizon": 15,
+      "model": "numeric",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.6982111165573796,
+      "baseline_log_loss": 0.6964100815474534,
+      "mse": 959.8715706992579,
+      "baseline_mse": 932.6925612618319
+    },
+    {
+      "horizon": 15,
+      "model": "tokens",
+      "split": "validation",
+      "n": 335,
+      "log_loss": 0.7182523675781916,
+      "baseline_log_loss": 0.6900878916122046,
+      "mse": 2285.3853519577883,
+      "baseline_mse": 2192.2431750373544
+    },
+    {
+      "horizon": 15,
+      "model": "tokens",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.703237935523147,
+      "baseline_log_loss": 0.6964100815474534,
+      "mse": 943.7753266446701,
+      "baseline_mse": 932.6925612618319
+    },
+    {
+      "horizon": 60,
+      "model": "numeric",
+      "split": "validation",
+      "n": 334,
+      "log_loss": 0.7199427703202296,
+      "baseline_log_loss": 0.6934757692548078,
+      "mse": 9287.912881830776,
+      "baseline_mse": 9034.825586655626
+    },
+    {
+      "horizon": 60,
+      "model": "numeric",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.7118496448271746,
+      "baseline_log_loss": 0.6929382622950877,
+      "mse": 2794.5869050868914,
+      "baseline_mse": 2768.1637158547883
+    },
+    {
+      "horizon": 60,
+      "model": "tokens",
+      "split": "validation",
+      "n": 334,
+      "log_loss": 0.7186040458753807,
+      "baseline_log_loss": 0.6934757692548078,
+      "mse": 9547.9172596173,
+      "baseline_mse": 9034.825586655626
+    },
+    {
+      "horizon": 60,
+      "model": "tokens",
+      "split": "evaluation",
+      "n": 406,
+      "log_loss": 0.70436421613058,
+      "baseline_log_loss": 0.6929382622950877,
+      "mse": 2846.2339184338884,
+      "baseline_mse": 2768.1637158547883
+    }
+  ],
+  "validation_candidates": [
+    {
+      "horizon": 5,
+      "model": "numeric",
+      "threshold": 6,
+      "validation_bps_day": -23.591485577451767,
+      "validation_trades": 36
+    },
+    {
+      "horizon": 5,
+      "model": "numeric",
+      "threshold": 10,
+      "validation_bps_day": -18.592253505020437,
+      "validation_trades": 20
+    },
+    {
+      "horizon": 5,
+      "model": "numeric",
+      "threshold": 20,
+      "validation_bps_day": 0.0,
+      "validation_trades": 0
+    },
+    {
+      "horizon": 5,
+      "model": "tokens",
+      "threshold": 6,
+      "validation_bps_day": -17.580757490009088,
+      "validation_trades": 24
+    },
+    {
+      "horizon": 5,
+      "model": "tokens",
+      "threshold": 10,
+      "validation_bps_day": -6.6515004112653395,
+      "validation_trades": 5
+    },
+    {
+      "horizon": 5,
+      "model": "tokens",
+      "threshold": 20,
+      "validation_bps_day": 0.0,
+      "validation_trades": 0
+    },
+    {
+      "horizon": 15,
+      "model": "numeric",
+      "threshold": 6,
+      "validation_bps_day": -102.38206158069916,
+      "validation_trades": 67
+    },
+    {
+      "horizon": 15,
+      "model": "numeric",
+      "threshold": 10,
+      "validation_bps_day": -72.39179684906635,
+      "validation_trades": 38
+    },
+    {
+      "horizon": 15,
+      "model": "numeric",
+      "threshold": 20,
+      "validation_bps_day": -23.67764380597682,
+      "validation_trades": 14
+    },
+    {
+      "horizon": 15,
+      "model": "tokens",
+      "threshold": 6,
+      "validation_bps_day": -37.99235955508205,
+      "validation_trades": 48
+    },
+    {
+      "horizon": 15,
+      "model": "tokens",
+      "threshold": 10,
+      "validation_bps_day": -33.004176101279505,
+      "validation_trades": 22
+    },
+    {
+      "horizon": 15,
+      "model": "tokens",
+      "threshold": 20,
+      "validation_bps_day": 8.823793044157314,
+      "validation_trades": 2
+    },
+    {
+      "horizon": 60,
+      "model": "numeric",
+      "threshold": 6,
+      "validation_bps_day": -69.8720732859006,
+      "validation_trades": 96
+    },
+    {
+      "horizon": 60,
+      "model": "numeric",
+      "threshold": 10,
+      "validation_bps_day": -31.399675910240777,
+      "validation_trades": 61
+    },
+    {
+      "horizon": 60,
+      "model": "numeric",
+      "threshold": 20,
+      "validation_bps_day": -38.27308193291225,
+      "validation_trades": 22
+    },
+    {
+      "horizon": 60,
+      "model": "tokens",
+      "threshold": 6,
+      "validation_bps_day": -153.12668011611316,
+      "validation_trades": 95
+    },
+    {
+      "horizon": 60,
+      "model": "tokens",
+      "threshold": 10,
+      "validation_bps_day": -106.08480413683053,
+      "validation_trades": 67
+    },
+    {
+      "horizon": 60,
+      "model": "tokens",
+      "threshold": 20,
+      "validation_bps_day": -80.2687051859317,
+      "validation_trades": 21
+    }
+  ],
+  "selected": {
+    "horizon": 15,
+    "model": "tokens",
+    "threshold": 20,
+    "validation_bps_day": 8.823793044157314,
+    "validation_trades": 2
+  },
+  "qualified": false,
+  "orders_enabled": false,
+  "selected_evaluation": [
+    {
+      "cost_bps": 6,
+      "mean_bps_day": 0.7814769692610685,
+      "total_bps": 13.285108477438165,
+      "positive_days": 1,
+      "days": 17,
+      "trades": 1,
+      "bootstrap_mean_95_ci": [
+        0.0,
+        2.3444309077832055
+      ],
+      "daily_bps": {
+        "2024-08-15": 13.285108477438165,
+        "2024-08-16": 0.0,
+        "2024-08-17": 0.0,
+        "2024-08-18": 0.0,
+        "2024-08-19": 0.0,
+        "2024-08-20": 0.0,
+        "2024-08-21": 0.0,
+        "2024-08-22": 0.0,
+        "2024-08-23": 0.0,
+        "2024-08-24": 0.0,
+        "2024-08-25": 0.0,
+        "2024-08-26": 0.0,
+        "2024-08-27": 0.0,
+        "2024-08-28": 0.0,
+        "2024-08-29": 0.0,
+        "2024-08-30": 0.0,
+        "2024-08-31": 0.0
+      }
+    },
+    {
+      "cost_bps": 12,
+      "mean_bps_day": 0.42853579279048026,
+      "total_bps": 7.285108477438165,
+      "positive_days": 1,
+      "days": 17,
+      "trades": 1,
+      "bootstrap_mean_95_ci": [
+        0.0,
+        1.2856073783714408
+      ],
+      "daily_bps": {
+        "2024-08-15": 7.285108477438165,
+        "2024-08-16": 0.0,
+        "2024-08-17": 0.0,
+        "2024-08-18": 0.0,
+        "2024-08-19": 0.0,
+        "2024-08-20": 0.0,
+        "2024-08-21": 0.0,
+        "2024-08-22": 0.0,
+        "2024-08-23": 0.0,
+        "2024-08-24": 0.0,
+        "2024-08-25": 0.0,
+        "2024-08-26": 0.0,
+        "2024-08-27": 0.0,
+        "2024-08-28": 0.0,
+        "2024-08-29": 0.0,
+        "2024-08-30": 0.0,
+        "2024-08-31": 0.0
+      }
+    },
+    {
+      "cost_bps": 20,
+      "mean_bps_day": -0.04205244250363737,
+      "total_bps": -0.7148915225618353,
+      "positive_days": 0,
+      "days": 17,
+      "trades": 1,
+      "bootstrap_mean_95_ci": [
+        -0.1261573275109121,
+        0.0
+      ],
+      "daily_bps": {
+        "2024-08-15": -0.7148915225618353,
+        "2024-08-16": 0.0,
+        "2024-08-17": 0.0,
+        "2024-08-18": 0.0,
+        "2024-08-19": 0.0,
+        "2024-08-20": 0.0,
+        "2024-08-21": 0.0,
+        "2024-08-22": 0.0,
+        "2024-08-23": 0.0,
+        "2024-08-24": 0.0,
+        "2024-08-25": 0.0,
+        "2024-08-26": 0.0,
+        "2024-08-27": 0.0,
+        "2024-08-28": 0.0,
+        "2024-08-29": 0.0,
+        "2024-08-30": 0.0,
+        "2024-08-31": 0.0
+      }
+    }
+  ]
+}
