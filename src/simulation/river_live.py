@@ -17,7 +17,7 @@ EDGES = ([10,25,50,100,250,500,1000], [0,1,2,4,8,16,32],
          [-1,-.1,-.01,0,.01,.1,1], *([0,.001,.01,.1,1,10,100],)*4,
          [-2,-.5,-.1,0,.1,.5,2], *([-.75,-.5,-.25,0,.25,.5,.75],)*2,
          [.1,1,5,10,25,50,100], [.01,.05,.1,.25,.5,1,2])
-VERSION = 'coinbase-receipt-fixed-bins-v1'
+VERSION = 'coinbase-receipt-fixed-bins-v2'
 HORIZON_NS = 30_000_000_000
 
 
@@ -28,7 +28,7 @@ class RiverLive:
             l2=.0001, clip_gradient=10)
         self.checkpoint = Path(checkpoint) if checkpoint else None
         self.provider,self.symbol=provider,symbol
-        self.version=VERSION if provider=='Coinbase Exchange' else 'kraken-receipt-fixed-bins-v1'
+        self.version=VERSION if provider=='Coinbase Exchange' else 'kraken-receipt-fixed-bins-v2'
         self.session = uuid.uuid4().hex[:12]
         self.context = deque(maxlen=16)
         self.pending = deque()
@@ -97,8 +97,15 @@ class RiverLive:
         if obs.get('provider')!=self.provider or obs.get('symbol')!=self.symbol:
             self.reset('paused: venue mismatch');return
         event_ns=obs.get('event_ns')
-        if not isinstance(event_ns,int) or not 0<=received_ns-event_ns<=250_000_000:
-            self.reset('paused: event/receipt age outside 250 ms research cutoff');return
+        if not isinstance(event_ns,int) or not 0<=received_ns-event_ns<=2_000_000_000:
+            self.reset('paused: invalid clock or more than 2 seconds of feed delay');return
+        if received_ns-event_ns>250_000_000:
+            # A delayed intermediate row is not an input or a target. Return
+            # labels need valid endpoints, not every intermediate book state.
+            # Preserve pending endpoints until a real continuity gap occurs.
+            self.context.clear();self.latest=None
+            self.status='paused: intermediate row outside 250 ms cutoff; rebuilding context'
+            return
         if self.last_ns is not None and (received_ns<=self.last_ns or received_ns-self.last_ns>2_000_000_000):
             self.reset('paused: book receipt gap or reversed timestamp')
         try:
@@ -143,7 +150,7 @@ class RiverLive:
             # Predeclared guard against unstable research output, not a learned bin.
             prediction=max(-100.,min(100.,prediction))
             direction='buy flow' if vals[2]>.01 else 'sell flow' if vals[2]<-.01 else 'balanced flow'
-            liquidity='ask withdrawal' if vals[6]-vals[5]>vals[4]-vals[3] else 'bid withdrawal'
+            liquidity='ask net reduction > bid' if vals[6]-vals[5]>vals[4]-vals[3] else 'bid net reduction >= ask'
             self.pending.append(dict(x=x,mid=mid,decision_ns=received_ns,
                 due_ns=received_ns+HORIZON_NS,forecast_bps=prediction,
                 baseline_bps=self.target_sum/self.updates if self.updates else 0.,

@@ -36,7 +36,7 @@ class Tests(unittest.TestCase):
         m.record('coinbase_verified_match',{'qty':2.,'side':'buy'},t+1)
         m.observe(obs(t+100_000_000),t+100_000_000)
         self.assertEqual(m.latest['values']['signed_flow_btc'],2)
-        bad=obs(t+200_000_000);bad['event_ns']=t-1_000_000_000
+        bad=obs(t+200_000_000);bad['event_ns']=t-3_000_000_000
         m.observe(bad,t+200_000_000)
         self.assertEqual(len(m.context),0)
         self.assertEqual(len(m.pending),0)
@@ -59,6 +59,28 @@ class Tests(unittest.TestCase):
             self.assertFalse(restored.pending)
             self.assertFalse(restored.context)
             self.assertEqual(restored.snapshot()['version'],VERSION)
+
+    def test_delayed_intermediate_row_cannot_be_target_but_keeps_valid_endpoints(self):
+        m=RiverLive();decision=self.warm(m)
+        for i in range(1,301):
+            t=decision+i*100_000_000
+            sample=obs(t,101)
+            if i==150:sample['event_ns']=t-500_000_000
+            m.observe(sample,t)
+        self.assertEqual(m.updates,1)
+        self.assertAlmostEqual(m.recent[0]['actual_bps'],100.)
+        self.assertEqual(m.recent[0]['decision_ns'],decision)
+
+    def test_venue_models_do_not_share_weights(self):
+        coinbase=RiverLive();kraken=RiverLive(provider='Kraken',symbol='BTC/USD')
+        t=self.warm(coinbase)
+        kraken.observe(obs(t),t)
+        self.assertEqual(kraken.events,0)
+        sample=obs(t);sample.update(provider='Kraken',symbol='BTC/USD')
+        kraken.observe(sample,t)
+        self.assertEqual(kraken.events,1)
+        self.assertNotEqual(coinbase.snapshot()['version'],kraken.snapshot()['version'])
+        self.assertFalse(kraken.model.weights)
 
 
 if __name__=='__main__':unittest.main()

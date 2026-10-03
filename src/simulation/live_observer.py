@@ -160,7 +160,7 @@ class Output:
         selected=self.rivers.get(observer.provider,self.rivers['Coinbase Exchange'])
         for model in self.rivers.values():
             if model is not selected:model.reset('paused: another venue is active')
-        river=selected.view(now_ns,market,view.get('research_usable',False) and self.mode=='live',view.get('trade_subscription_active',False))
+        river=selected.view(now_ns,market,view.get('usable',False) and self.mode=='live',view.get('trade_subscription_active',False))
         river_tmp=self.directory/'river_live.tmp'
         river_tmp.write_text(json.dumps(river,allow_nan=False));river_tmp.replace(self.directory/'river_live.json')
         checkpoint_tmp=self.directory/'river_checkpoint.tmp'

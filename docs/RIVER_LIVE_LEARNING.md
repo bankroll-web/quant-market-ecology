@@ -8,13 +8,13 @@ This deployment starts separate fresh Coinbase BTC-USD and Kraken BTC/USD River 
 
 The 30-second return target is computed from midpoint prices at decision receipt and first accepted book receipt at/after the deadline, with a maximum two-second target delay. Decisions occur no more than once per second. Predictions are bounded to ±100 bp by a fixed research guard. The model scores its stored prediction against the later outcome **before** learning from that outcome. SGD uses constant rate 0.005, L2 0.0001 and gradient clipping 10. The comparison forecasts are zero return and the mean of already observed targets at the decision time.
 
-Only verified new Coinbase match messages enter trade tokens; historical subscription seeds, duplicates and gaps do not become new examples. Coinbase's maker side is inverted to obtain aggressor side. Book observations must meet the existing 250 ms event/receipt research cutoff. Missing trade subscription, a receipt gap over two seconds, reversed receipt time, disconnect, stale feed or venue change discards pending labels and context. Kraken fallback trains its own model from its checksum-validated subscribed depth (100 levels per side) and valid, deduplicated trade updates. It does not train the Coinbase model. Coinbase L2 has no independent sequence/checksum validation; the page must not imply one.
+Only verified new Coinbase match messages enter trade tokens; historical subscription seeds, duplicates and gaps do not become new examples. Coinbase's maker side is inverted to obtain aggressor side. Forecast inputs and target endpoints must meet the existing 250 ms event/receipt research cutoff. Delayed intermediate rows up to two seconds old reset feature context and are excluded from inputs/targets, but do not discard otherwise valid return endpoints. This is appropriate for endpoint returns, not path-dependent volatility labels. Missing trade subscription, a receipt gap over two seconds, reversed receipt time, disconnect, stale feed or venue change discards pending labels and context. Kraken fallback trains its own model from its checksum-validated subscribed depth (100 levels per side) and valid, deduplicated trade updates. It does not train the Coinbase model. Coinbase L2 has no independent sequence/checksum validation; the page must not imply one.
 
 ## How to interpret the page
 
 * **Learned outcomes** should increase after 16 valid updates and approximately 30 seconds of continuous research-quality data. Repeated pauses can extend this indefinitely.
 * **Skill vs no change** is `1 - model_squared_error / zero_forecast_squared_error`. Positive values indicate a better forecast under that loss, not a profitable strategy. Compare the prior-mean baseline too.
-* **Flow and later price response** groups decisions into six fixed anonymous-flow/liquidity states. Means are descriptive, not causal. Ties use the bid-withdrawal state. Overlapping outcomes are correlated, so outcome counts cannot be treated as independent trials or used to claim conventional significance.
+* **Flow and later price response** groups decisions into six fixed anonymous-flow/liquidity states. Means are descriptive, not causal. Net reduction is removals minus adds; the two liquidity categories compare side reductions, even when both are negative. Overlapping outcomes are correlated, so outcome counts cannot be treated as independent trials or used to claim conventional significance.
 * **WAIT** remains the trading status. This module has no order endpoint, execution model, fee model, paper profit qualification or authorized real-money trading.
 
 The first hours establish whether data and learning work. Investigating repeatability requires independent periods and multiple market conditions. Freeze a candidate model before testing on new periods, then include venue fees, slippage and latency. The current adaptive prequential scores are not an untouched holdout. No fixed number of hours, days or tokens guarantees profitability.
@@ -27,7 +27,7 @@ The existing Render free service can sleep after 15 minutes without inbound traf
 
 ## Validation
 
-Three targeted tests cover delayed scoring before learning, trade/timing/venue gates and checkpoint prediction equivalence. Sixteen existing Coinbase, Kraken and observer tests also pass. These verify software behavior, not trading profitability. Run with the live requirements installed:
+Five targeted tests cover delayed scoring before learning, trade/timing/venue gates, checkpoint prediction equivalence, skipped intermediate rows and venue separation. Sixteen existing Coinbase, Kraken and observer tests also pass. These verify software behavior, not trading profitability. Run with the live requirements installed:
 
 ```
 python -m unittest discover -s tests -p test_river_live.py -v
