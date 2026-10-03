@@ -1,0 +1,177 @@
+{
+  "status": "exploratory_descriptive_followup",
+  "qualified": false,
+  "flow_edges": [
+    -0.3675910693691004,
+    -0.25459356038760633,
+    -0.16271172085023836,
+    -0.08791941031089844,
+    -0.01275965201375815,
+    0.062100070549454225,
+    0.14172489132880664,
+    0.22943715771090187,
+    0.34382053282171676
+  ],
+  "test_flow_deciles": [
+    {
+      "training_flow_decile": 1,
+      "rows": 146,
+      "mean_flow": -0.5030438558491449,
+      "same_window_mean_bps": -7.448567709919875,
+      "next_window_mean_bps": 0.46815697221672214,
+      "same_daily_mean_95": [
+        -10.184930761858348,
+        -6.175191013762687
+      ],
+      "next_daily_mean_95": [
+        -0.47615923027261414,
+        2.3720774302950196
+      ]
+    },
+    {
+      "training_flow_decile": 2,
+      "rows": 156,
+      "mean_flow": -0.30865009094457724,
+      "same_window_mean_bps": -6.6736546025093295,
+      "next_window_mean_bps": 2.944343686213401,
+      "same_daily_mean_95": [
+        -10.715006738280845,
+        -3.414609618707414
+      ],
+      "next_daily_mean_95": [
+        1.1769954841019308,
+        4.892696543970338
+      ]
+    },
+    {
+      "training_flow_decile": 3,
+      "rows": 141,
+      "mean_flow": -0.2068052553234165,
+      "same_window_mean_bps": -5.531282512028161,
+      "next_window_mean_bps": -0.34747071550417746,
+      "same_daily_mean_95": [
+        -7.572219430128065,
+        -3.056616170172823
+      ],
+      "next_daily_mean_95": [
+        -3.0707216441506113,
+        1.4322056385112378
+      ]
+    },
+    {
+      "training_flow_decile": 4,
+      "rows": 136,
+      "mean_flow": -0.12512669927790043,
+      "same_window_mean_bps": -3.0228878680527536,
+      "next_window_mean_bps": -0.8396906567015143,
+      "same_daily_mean_95": [
+        -3.9565652203850687,
+        -1.836492231218775
+      ],
+      "next_daily_mean_95": [
+        -1.7446063137734313,
+        0.5534574237184422
+      ]
+    },
+    {
+      "training_flow_decile": 5,
+      "rows": 150,
+      "mean_flow": -0.05000682544310754,
+      "same_window_mean_bps": -0.989485872182265,
+      "next_window_mean_bps": -0.041763636678338115,
+      "same_daily_mean_95": [
+        -2.633356738410305,
+        0.17212748165804242
+      ],
+      "next_daily_mean_95": [
+        -0.7922713150617835,
+        0.5801575059605838
+      ]
+    },
+    {
+      "training_flow_decile": 6,
+      "rows": 155,
+      "mean_flow": 0.027165137260065315,
+      "same_window_mean_bps": 1.3361460532826321,
+      "next_window_mean_bps": -1.8626309981693367,
+      "same_daily_mean_95": [
+        0.8756199524700644,
+        1.8308351346116023
+      ],
+      "next_daily_mean_95": [
+        -3.232628619222564,
+        0.1985985419267991
+      ]
+    },
+    {
+      "training_flow_decile": 7,
+      "rows": 121,
+      "mean_flow": 0.10180934599301356,
+      "same_window_mean_bps": 3.1254031772938555,
+      "next_window_mean_bps": -1.1563576910475333,
+      "same_daily_mean_95": [
+        1.279747434965489,
+        4.8864821998392225
+      ],
+      "next_daily_mean_95": [
+        -1.7002873259350413,
+        -0.44598637486632586
+      ]
+    },
+    {
+      "training_flow_decile": 8,
+      "rows": 127,
+      "mean_flow": 0.17985370986059854,
+      "same_window_mean_bps": 5.133454242618565,
+      "next_window_mean_bps": 0.6434270330074728,
+      "same_daily_mean_95": [
+        3.5643376057237135,
+        7.035476087105598
+      ],
+      "next_daily_mean_95": [
+        -0.009289858046453636,
+        1.5932366893063326
+      ]
+    },
+    {
+      "training_flow_decile": 9,
+      "rows": 149,
+      "mean_flow": 0.2816135977412191,
+      "same_window_mean_bps": 5.652349753713069,
+      "next_window_mean_bps": -0.2304696557390095,
+      "same_daily_mean_95": [
+        3.7525969609949277,
+        7.059931393134593
+      ],
+      "next_daily_mean_95": [
+        -0.6631203966363094,
+        0.1378313093069939
+      ]
+    },
+    {
+      "training_flow_decile": 10,
+      "rows": 158,
+      "mean_flow": 0.46067971822212633,
+      "same_window_mean_bps": 8.405108410917839,
+      "next_window_mean_bps": -0.13706168852056924,
+      "same_daily_mean_95": [
+        6.089078789475347,
+        14.64009359326877
+      ],
+      "next_daily_mean_95": [
+        -1.7902077620551453,
+        0.3908703450611385
+      ]
+    }
+  ],
+  "log_absolute_return_forecast": {
+    "model_mse": 0.6075479996518734,
+    "constant_mse": 0.7256897355997858
+  },
+  "notes": [
+    "Follow-up designed after primary test results; not an independent confirmatory test.",
+    "Day-equal bootstrap intervals use five days and are weak uncertainty estimates; no multiple-comparison correction.",
+    "Contemporaneous association is not causality or a tradable forward signal.",
+    "Trade-count and volume describe anonymous activity, not participant identity."
+  ]
+}

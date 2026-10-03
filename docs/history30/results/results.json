@@ -1,0 +1,206 @@
+{
+  "status": "historical_trade_flow_development_study",
+  "qualified": false,
+  "features": [
+    "imbalance",
+    "return_bps",
+    "log_volume",
+    "log_count",
+    "range_bps"
+  ],
+  "audit": {
+    "aggregate_trades": 36036629,
+    "aggregate_id_gaps": 0,
+    "first_ms": 1788220800003,
+    "last_ms": 1790812799591
+  },
+  "source_sha256": "252e92894886c2f752744656e4f1d7a278a75e1456aa32442451b07ee9703b80",
+  "dates": [
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
+    "2026-09-05",
+    "2026-09-06",
+    "2026-09-07",
+    "2026-09-08",
+    "2026-09-09",
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-12",
+    "2026-09-13",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-19",
+    "2026-09-20",
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-26",
+    "2026-09-27",
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30"
+  ],
+  "splits": {
+    "training_rows": 5759,
+    "validation_rows": 1439,
+    "test_rows": 1439
+  },
+  "model": {
+    "mean": [
+      -0.01272226457351603,
+      0.056340999772770003,
+      5.6660585135300146,
+      7.903755532208065,
+      13.387536623547163
+    ],
+    "std": [
+      0.27294480661293313,
+      10.962729992308493,
+      0.9326532809243363,
+      0.7932995123914905,
+      11.342935587032363
+    ],
+    "weights": [
+      0.06079148018319423,
+      0.01740358164769178,
+      -0.2449024120257773,
+      -0.0471557804543669,
+      0.07822490347131791,
+      0.19919737179597882
+    ],
+    "ridge": 0.1
+  },
+  "validation_candidates": {
+    "0": {
+      "trades": 0,
+      "sum_trade_return_bps": 0.0,
+      "mean_trade_net_bps": null,
+      "positive_days": 0,
+      "days": 5,
+      "daily_sum_bps": {
+        "2026-09-21": 0.0,
+        "2026-09-22": 0.0,
+        "2026-09-23": 0.0,
+        "2026-09-24": 0.0,
+        "2026-09-25": 0.0
+      }
+    },
+    "2": {
+      "trades": 0,
+      "sum_trade_return_bps": 0.0,
+      "mean_trade_net_bps": null,
+      "positive_days": 0,
+      "days": 5,
+      "daily_sum_bps": {
+        "2026-09-21": 0.0,
+        "2026-09-22": 0.0,
+        "2026-09-23": 0.0,
+        "2026-09-24": 0.0,
+        "2026-09-25": 0.0
+      }
+    },
+    "5": {
+      "trades": 0,
+      "sum_trade_return_bps": 0.0,
+      "mean_trade_net_bps": null,
+      "positive_days": 0,
+      "days": 5,
+      "daily_sum_bps": {
+        "2026-09-21": 0.0,
+        "2026-09-22": 0.0,
+        "2026-09-23": 0.0,
+        "2026-09-24": 0.0,
+        "2026-09-25": 0.0
+      }
+    }
+  },
+  "selected_buffer_bps": 0,
+  "policy_enabled_by_validation": false,
+  "test": {
+    "model_mse": 104.58813555451047,
+    "zero_mse": 104.47435275382635,
+    "training_mean_mse": 104.48182468664572,
+    "mse_difference_daily_bootstrap_95": [
+      -0.0356939430698479,
+      0.2571942081080012
+    ],
+    "policy": {
+      "trades": 0,
+      "sum_trade_return_bps": 0.0,
+      "mean_trade_net_bps": null,
+      "positive_days": 0,
+      "days": 5,
+      "daily_sum_bps": {
+        "2026-09-26": 0.0,
+        "2026-09-27": 0.0,
+        "2026-09-28": 0.0,
+        "2026-09-29": 0.0,
+        "2026-09-30": 0.0
+      }
+    },
+    "cost_sensitivity": {
+      "2": {
+        "trades": 0,
+        "sum_trade_return_bps": 0.0,
+        "mean_trade_net_bps": null,
+        "positive_days": 0,
+        "days": 5,
+        "daily_sum_bps": {
+          "2026-09-26": 0.0,
+          "2026-09-27": 0.0,
+          "2026-09-28": 0.0,
+          "2026-09-29": 0.0,
+          "2026-09-30": 0.0
+        }
+      },
+      "6": {
+        "trades": 0,
+        "sum_trade_return_bps": 0.0,
+        "mean_trade_net_bps": null,
+        "positive_days": 0,
+        "days": 5,
+        "daily_sum_bps": {
+          "2026-09-26": 0.0,
+          "2026-09-27": 0.0,
+          "2026-09-28": 0.0,
+          "2026-09-29": 0.0,
+          "2026-09-30": 0.0
+        }
+      },
+      "12": {
+        "trades": 0,
+        "sum_trade_return_bps": 0.0,
+        "mean_trade_net_bps": null,
+        "positive_days": 0,
+        "days": 5,
+        "daily_sum_bps": {
+          "2026-09-26": 0.0,
+          "2026-09-27": 0.0,
+          "2026-09-28": 0.0,
+          "2026-09-29": 0.0,
+          "2026-09-30": 0.0
+        }
+      }
+    }
+  },
+  "associations": {
+    "training_contemporaneous_flow_return": 0.4970514241136039,
+    "training_forward_flow_return": -0.009287208554370235
+  },
+  "limitations": [
+    "Trade-flow only: no order book, maker cancellation or queue reconstruction.",
+    "Exchange event times only; no historical receipt timestamps.",
+    "First next-block trade and last trade are idealized execution proxies, not executable bid/ask fills.",
+    "Costs 2 bps per side fees plus 1 bp per side slippage are assumptions; funding and market impact omitted.",
+    "Sum of trade bps is an additive unit-exposure research score, not account return.",
+    "Five test days give weak regime coverage and bootstrap uncertainty.",
+    "Data inspected during this run; future independent replication still required."
+  ]
+}
