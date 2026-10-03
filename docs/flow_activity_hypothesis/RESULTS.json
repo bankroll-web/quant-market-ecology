@@ -1,0 +1,396 @@
+{
+  "spec": {
+    "version": "flow-activity-v1",
+    "primary_horizon_minutes": 15,
+    "secondary_horizons_minutes": [
+      5,
+      60
+    ],
+    "flow_window_minutes": 15,
+    "pressure_threshold": 0.2,
+    "activity_reference": "mean trades/minute over strictly prior 1440 completed minutes",
+    "activity_window_minutes": 15,
+    "busy_ratio": 1.5,
+    "quiet_ratio": 0.6666666666666666,
+    "decision_spacing_minutes": 60,
+    "entry_delay": "one complete minute after feature minute end",
+    "development": "June-July 2024",
+    "diagnostic_validation": "August 2024, already inspected",
+    "evaluation": "September 2024, new to this recipe but not guaranteed globally untouched",
+    "primary_hypothesis": "signed return following strong buying/selling pressure differs between busy and quiet periods",
+    "fixed_paper_rule": "long/flat: strong positive pressure (>0.20), busy activity (>1.5 times prior-day mean), hold 15 minutes",
+    "roundtrip_cost_scenarios_bps": [
+      6,
+      12,
+      20
+    ],
+    "no_threshold_selection": true,
+    "no_live_orders": true,
+    "limits": [
+      "Trade aggregates lack order-book liquidity and participant identity.",
+      "Observational response is not causal; signed response is not an executable short strategy.",
+      "Hourly examples can remain dependent across days; day bootstrap is an exploratory estimate.",
+      "Fixed thresholds are research choices, not optimized or established economic constants."
+    ]
+  },
+  "sources": [
+    {
+      "file": "BTCUSDT-1m-2024-06.zip",
+      "sha256": "90f4fc3f55918787848c71f4cd0f2f1a5851bbffaf6392e76e9ab555b7479d2b",
+      "rows": 43200
+    },
+    {
+      "file": "BTCUSDT-1m-2024-07.zip",
+      "sha256": "9cfd749fd2027a0c6f261bed607b49dd1256369fb41b784934544a3676f8162e",
+      "rows": 44640
+    },
+    {
+      "file": "BTCUSDT-1m-2024-08.zip",
+      "sha256": "6a1cac2a5482132dc5a030534aa028e2becc560877f2b93b7add90194f576c42",
+      "rows": 44640
+    },
+    {
+      "file": "BTCUSDT-1m-2024-09.zip",
+      "sha256": "1e30f6091b05eeb7b0449735d749354b81ab429ab1449bae82a21e316db8eac3",
+      "rows": 43200
+    }
+  ],
+  "rows": 175680,
+  "hypothesis_comparisons": [
+    {
+      "period": "development",
+      "horizon": 15,
+      "groups": {
+        "busy": {
+          "n": 64,
+          "active_days": 40,
+          "mean_signed_bps": -5.387825389290423,
+          "equal_day_mean_signed_bps": -5.313263405528187,
+          "day_bootstrap_95_ci": [
+            -14.850994029826447,
+            4.970357887523715
+          ]
+        },
+        "quiet": {
+          "n": 207,
+          "active_days": 56,
+          "mean_signed_bps": -0.35972347167506824,
+          "equal_day_mean_signed_bps": -0.8256433827294438,
+          "day_bootstrap_95_ci": [
+            -3.799643727384655,
+            1.7287059672211738
+          ]
+        }
+      },
+      "paired_days": 38,
+      "paired_busy_minus_quiet_bps": -4.480288177561977,
+      "paired_day_bootstrap_95_ci": [
+        -13.554693740449034,
+        5.735828168444249
+      ]
+    },
+    {
+      "period": "diagnostic_validation",
+      "horizon": 15,
+      "groups": {
+        "busy": {
+          "n": 31,
+          "active_days": 18,
+          "mean_signed_bps": 4.174130586685178,
+          "equal_day_mean_signed_bps": 13.683405050315823,
+          "day_bootstrap_95_ci": [
+            -24.537727610873254,
+            63.6116386916583
+          ]
+        },
+        "quiet": {
+          "n": 110,
+          "active_days": 30,
+          "mean_signed_bps": 1.7083055210511326,
+          "equal_day_mean_signed_bps": 6.285214309519546,
+          "day_bootstrap_95_ci": [
+            -0.20821548948624058,
+            13.509752109588533
+          ]
+        }
+      },
+      "paired_days": 17,
+      "paired_busy_minus_quiet_bps": 8.59151717954326,
+      "paired_day_bootstrap_95_ci": [
+        -26.250527899096422,
+        58.44895037302124
+      ]
+    },
+    {
+      "period": "evaluation",
+      "horizon": 15,
+      "groups": {
+        "busy": {
+          "n": 32,
+          "active_days": 22,
+          "mean_signed_bps": 0.2875739286030452,
+          "equal_day_mean_signed_bps": 0.96085390195705,
+          "day_bootstrap_95_ci": [
+            -11.919138027855873,
+            16.292160804688216
+          ]
+        },
+        "quiet": {
+          "n": 147,
+          "active_days": 30,
+          "mean_signed_bps": -0.22656841898705327,
+          "equal_day_mean_signed_bps": -2.8380114135846615,
+          "day_bootstrap_95_ci": [
+            -8.46693792709937,
+            1.771983999572704
+          ]
+        }
+      },
+      "paired_days": 22,
+      "paired_busy_minus_quiet_bps": 4.7658422749485085,
+      "paired_day_bootstrap_95_ci": [
+        -8.384500973136868,
+        20.699755220229378
+      ]
+    },
+    {
+      "period": "development",
+      "horizon": 5,
+      "groups": {
+        "busy": {
+          "n": 64,
+          "active_days": 40,
+          "mean_signed_bps": -3.4983291532808334,
+          "equal_day_mean_signed_bps": -1.7280838727037533,
+          "day_bootstrap_95_ci": [
+            -8.859730043956311,
+            6.015687711598427
+          ]
+        },
+        "quiet": {
+          "n": 207,
+          "active_days": 56,
+          "mean_signed_bps": 0.6788579574960595,
+          "equal_day_mean_signed_bps": 0.9093721659597234,
+          "day_bootstrap_95_ci": [
+            -0.7570457850879878,
+            2.664634356861793
+          ]
+        }
+      },
+      "paired_days": 38,
+      "paired_busy_minus_quiet_bps": -2.7734039902342986,
+      "paired_day_bootstrap_95_ci": [
+        -10.407702864327556,
+        5.387022099131958
+      ]
+    },
+    {
+      "period": "diagnostic_validation",
+      "horizon": 5,
+      "groups": {
+        "busy": {
+          "n": 31,
+          "active_days": 18,
+          "mean_signed_bps": 2.8588069154383215,
+          "equal_day_mean_signed_bps": 4.4979583025747045,
+          "day_bootstrap_95_ci": [
+            -5.0011980147223705,
+            14.502388336843431
+          ]
+        },
+        "quiet": {
+          "n": 110,
+          "active_days": 30,
+          "mean_signed_bps": 1.1003672328779126,
+          "equal_day_mean_signed_bps": 2.3313041266782806,
+          "day_bootstrap_95_ci": [
+            -1.0897469657958803,
+            5.700527117449627
+          ]
+        }
+      },
+      "paired_days": 17,
+      "paired_busy_minus_quiet_bps": 1.6559682272934377,
+      "paired_day_bootstrap_95_ci": [
+        -7.105807151788892,
+        10.454604898038571
+      ]
+    },
+    {
+      "period": "evaluation",
+      "horizon": 5,
+      "groups": {
+        "busy": {
+          "n": 32,
+          "active_days": 22,
+          "mean_signed_bps": 1.7211247386393032,
+          "equal_day_mean_signed_bps": 2.071058878032574,
+          "day_bootstrap_95_ci": [
+            -9.655232694512842,
+            17.403745311736614
+          ]
+        },
+        "quiet": {
+          "n": 147,
+          "active_days": 30,
+          "mean_signed_bps": -0.4293459707674051,
+          "equal_day_mean_signed_bps": -1.5107958094050047,
+          "day_bootstrap_95_ci": [
+            -5.710318932144513,
+            1.6225444386834524
+          ]
+        }
+      },
+      "paired_days": 22,
+      "paired_busy_minus_quiet_bps": 3.8323511054657726,
+      "paired_day_bootstrap_95_ci": [
+        -8.73699103680432,
+        18.960160291113713
+      ]
+    },
+    {
+      "period": "development",
+      "horizon": 60,
+      "groups": {
+        "busy": {
+          "n": 64,
+          "active_days": 40,
+          "mean_signed_bps": -5.698264119443003,
+          "equal_day_mean_signed_bps": -5.2137989360673895,
+          "day_bootstrap_95_ci": [
+            -23.726278796936775,
+            13.323965486759016
+          ]
+        },
+        "quiet": {
+          "n": 207,
+          "active_days": 56,
+          "mean_signed_bps": 1.3259372228456523,
+          "equal_day_mean_signed_bps": -0.7162868332482974,
+          "day_bootstrap_95_ci": [
+            -6.274513316922108,
+            4.295758700427834
+          ]
+        }
+      },
+      "paired_days": 38,
+      "paired_busy_minus_quiet_bps": -2.317637116846924,
+      "paired_day_bootstrap_95_ci": [
+        -21.79778891778777,
+        17.28765108734584
+      ]
+    },
+    {
+      "period": "diagnostic_validation",
+      "horizon": 60,
+      "groups": {
+        "busy": {
+          "n": 31,
+          "active_days": 18,
+          "mean_signed_bps": -3.2350362061048346,
+          "equal_day_mean_signed_bps": -4.155913284621046,
+          "day_bootstrap_95_ci": [
+            -47.48946198462782,
+            33.826855050471266
+          ]
+        },
+        "quiet": {
+          "n": 109,
+          "active_days": 30,
+          "mean_signed_bps": 6.123455662842986,
+          "equal_day_mean_signed_bps": 6.678486009977664,
+          "day_bootstrap_95_ci": [
+            -4.159315524683139,
+            19.088505452683666
+          ]
+        }
+      },
+      "paired_days": 17,
+      "paired_busy_minus_quiet_bps": -24.83770942523691,
+      "paired_day_bootstrap_95_ci": [
+        -67.2767098635136,
+        11.61566984379494
+      ]
+    },
+    {
+      "period": "evaluation",
+      "horizon": 60,
+      "groups": {
+        "busy": {
+          "n": 32,
+          "active_days": 22,
+          "mean_signed_bps": -17.32294448079866,
+          "equal_day_mean_signed_bps": -9.656806094898963,
+          "day_bootstrap_95_ci": [
+            -33.563425688887456,
+            14.119451724874857
+          ]
+        },
+        "quiet": {
+          "n": 147,
+          "active_days": 30,
+          "mean_signed_bps": -0.5346585530639492,
+          "equal_day_mean_signed_bps": -8.104672319474208,
+          "day_bootstrap_95_ci": [
+            -24.05315304945301,
+            3.8580426192571697
+          ]
+        }
+      },
+      "paired_days": 22,
+      "paired_busy_minus_quiet_bps": 1.6746766396946235,
+      "paired_day_bootstrap_95_ci": [
+        -27.3857381913796,
+        28.587082105254645
+      ]
+    }
+  ],
+  "fixed_rule_evaluation": [
+    {
+      "cost_bps": 6,
+      "trades": 18,
+      "active_days": 14,
+      "positive_days": 3,
+      "total_bps": -203.22040870203222,
+      "mean_bps_day": -6.774013623401074,
+      "day_bootstrap_95_ci": [
+        -13.213538882332905,
+        -0.6887906979716238
+      ]
+    },
+    {
+      "cost_bps": 12,
+      "trades": 18,
+      "active_days": 14,
+      "positive_days": 3,
+      "total_bps": -311.22040870203216,
+      "mean_bps_day": -10.374013623401073,
+      "day_bootstrap_95_ci": [
+        -17.728237552619515,
+        -3.6857920734576886
+      ]
+    },
+    {
+      "cost_bps": 20,
+      "trades": 18,
+      "active_days": 14,
+      "positive_days": 1,
+      "total_bps": -455.2204087020322,
+      "mean_bps_day": -15.174013623401073,
+      "day_bootstrap_95_ci": [
+        -23.92873947051156,
+        -7.289949651328672
+      ]
+    }
+  ],
+  "qualified": false,
+  "orders_enabled": false,
+  "primary_interaction_test_count": 1,
+  "secondary_interaction_test_count": 2,
+  "notes": [
+    "Intervals are nominal, not multiplicity-adjusted; exploratory secondary horizons.",
+    "No September tuning or model selection.",
+    "No ML model trained here: test information content before increasing model complexity."
+  ]
+}

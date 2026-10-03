@@ -1,0 +1,11 @@
+{
+  "tests_passed": 3,
+  "sha256": {
+    "flow_activity_hypothesis.py": "791064d25a012f7106b160059a3a9deda5be5a492e8189eb87e58dedccaea4c8",
+    "tests/test_flow_activity_hypothesis.py": "d87a73c2160d0deae014fd5cc9b6a454329c943b073a6596c631a40eecd6aa5a",
+    "docs/flow_activity_hypothesis/REPORT.md": "14db321d481a0da9edb0865b8fc3a635d34cae725d2568553e51f1dc69cd947e",
+    "docs/flow_activity_hypothesis/SPEC.json": "7c90dde9a98ce47a49f25ef2d8da27a67babb85c3142de4a6e4093156366f939",
+    "docs/flow_activity_hypothesis/evaluation_observations.csv.gz": "26400c6ccb12be8886f9840d9137c73b26a40e37d2b28c75ab861ca8b5803175",
+    "docs/flow_activity_hypothesis/RESULTS.json": "faf8672e57cb443eaa5f2978216738a8dc02c28e97629f51693db710171b2ac3"
+  }
+}

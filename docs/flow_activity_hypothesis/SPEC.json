@@ -1,0 +1,34 @@
+{
+  "version": "flow-activity-v1",
+  "primary_horizon_minutes": 15,
+  "secondary_horizons_minutes": [
+    5,
+    60
+  ],
+  "flow_window_minutes": 15,
+  "pressure_threshold": 0.2,
+  "activity_reference": "mean trades/minute over strictly prior 1440 completed minutes",
+  "activity_window_minutes": 15,
+  "busy_ratio": 1.5,
+  "quiet_ratio": 0.6666666666666666,
+  "decision_spacing_minutes": 60,
+  "entry_delay": "one complete minute after feature minute end",
+  "development": "June-July 2024",
+  "diagnostic_validation": "August 2024, already inspected",
+  "evaluation": "September 2024, new to this recipe but not guaranteed globally untouched",
+  "primary_hypothesis": "signed return following strong buying/selling pressure differs between busy and quiet periods",
+  "fixed_paper_rule": "long/flat: strong positive pressure (>0.20), busy activity (>1.5 times prior-day mean), hold 15 minutes",
+  "roundtrip_cost_scenarios_bps": [
+    6,
+    12,
+    20
+  ],
+  "no_threshold_selection": true,
+  "no_live_orders": true,
+  "limits": [
+    "Trade aggregates lack order-book liquidity and participant identity.",
+    "Observational response is not causal; signed response is not an executable short strategy.",
+    "Hourly examples can remain dependent across days; day bootstrap is an exploratory estimate.",
+    "Fixed thresholds are research choices, not optimized or established economic constants."
+  ]
+}
