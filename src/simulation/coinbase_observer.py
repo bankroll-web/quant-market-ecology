@@ -223,7 +223,7 @@ async def live_coinbase(out, seconds):
                 if 'sustained_engine_receipt_delay' in str(error):
                     print('Switching delayed Coinbase connection to public Kraken feed',flush=True)
                     from .kraken_observer import live_kraken
-                    await live_kraken(out,max(1,int(deadline-time.monotonic())))
+                    await live_kraken(out,max(1.,deadline-time.monotonic()))
                     return
                 delay = min(60, 2**min(failures, 6))
                 print(f'Coinbase unavailable: {error}; retry in {delay}s', flush=True)
