@@ -73,3 +73,5 @@ Training liquidity-response benchmark: [Displayed liquidity response](ECOLOGY_LI
 Joint trade/book integration: [Receipt-order event audit](ECOLOGY_JOINT_EVENT_AUDIT.md).
 
 October 3 supplied-paper review and evaluation components: [Research integration](OCTOBER_3_RESEARCH_INTEGRATION.md).
+
+Executable observation environment and measured baselines: [Observed ecology environment](OBSERVED_ECOLOGY_ENVIRONMENT.md).
