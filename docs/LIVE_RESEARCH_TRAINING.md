@@ -35,3 +35,7 @@ The raw feature ring holds 20,000 bundles. Previously a fit used only that ring,
 Retained examples reset on venue changes and process restart. An epoch guard discards a pending result even if a venue switches away and back while fitting. Successive fits reuse observations, so their evaluation scores remain development comparisons, not independent validation. The next qualification step is a frozen model evaluated prospectively with explicit spread, fees, latency and inventory assumptions.
 
 On 3 October the deployed pre-fix dashboard showed a full 20,000-bundle ring, only 87 usable examples, and a stale/clock warning. No model fit or profitable signal was demonstrated by that observation.
+
+## Sustained display-delay failover
+
+The original ten-second, three-failure trigger allowed Coinbase to remain connected while frequently exceeding the laboratory's two-second display boundary. The observer now switches to Kraken when timestamped book updates continuously exceed that boundary (or indicate negative clock age) for five monotonic seconds. A healthy update resets the timer. It invalidates Coinbase and records a disconnect before changing venues; models and labels remain isolated. Kraken can also experience network delays, so the same display and research freshness checks still apply. No guarantee of uninterrupted free hosting or a signal deadline is implied.

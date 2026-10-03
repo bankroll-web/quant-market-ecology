@@ -146,6 +146,18 @@ def publish_coinbase(out, observer, now_ns):
     out.publish(display, now_ns)
 
 
+class FeedDelayGuard:
+    """Fail over after sustained display-breaking lag, not isolated spikes."""
+    def __init__(self):
+        self.delayed_since=None
+    def update(self,age_ns,monotonic_now):
+        if 0<=age_ns<=2_000_000_000:
+            self.delayed_since=None
+            return False
+        if self.delayed_since is None:self.delayed_since=monotonic_now
+        return monotonic_now-self.delayed_since>=5
+
+
 async def live_coinbase(out, seconds):
     import aiohttp
     observer = CoinbaseObserver()
@@ -162,6 +174,7 @@ async def live_coinbase(out, seconds):
                     await ws.send_json(dict(type='subscribe', product_ids=[observer.symbol],
                                             channels=['level2_batch', 'matches', 'heartbeat']))
                     connected = time.monotonic()
+                    delay_guard=FeedDelayGuard()
                     while time.monotonic() < deadline:
                         try:
                             message = await ws.receive(timeout=1)
@@ -188,8 +201,8 @@ async def live_coinbase(out, seconds):
                                 raise RuntimeError(observer.reason)
                             if observer.model_observation is not None:
                                 out.capture('coinbase_model_observation', observer.model_observation, received)
-                            if observer.event_ms is not None and received-observer.event_ms*1_000_000>10_000_000_000:
-                                raise RuntimeError('engine_receipt_delay_over_10_seconds')
+                            if observer.event_ms is not None and delay_guard.update(received-observer.event_ms*1_000_000,time.monotonic()):
+                                raise RuntimeError('sustained_engine_receipt_delay')
                             failures = 0
                         if time.monotonic() - connected > 30 and (observer.received_ns is None or received - observer.received_ns > 30_000_000_000):
                             raise RuntimeError('book_updates_silent_30_seconds')
@@ -201,7 +214,7 @@ async def live_coinbase(out, seconds):
                 observer.invalidate('reconnecting')
                 out.capture('coinbase_disconnect', dict(error=str(error)), time.time_ns())
                 failures += 1
-                if failures>=3 and 'engine_receipt_delay_over_10_seconds' in str(error):
+                if 'sustained_engine_receipt_delay' in str(error):
                     print('Switching delayed Coinbase connection to public Kraken feed',flush=True)
                     from .kraken_observer import live_kraken
                     await live_kraken(out,max(1,int(deadline-time.monotonic())))
