@@ -1,0 +1,560 @@
+{
+  "status": "backward_cross_period_replication",
+  "qualified": false,
+  "archive_sha256": "0f154421a06dc63f31fc98769c71c621685be67522cc3a595b44ddb004db1c66",
+  "audit": {
+    "aggregate_trades": 35676321,
+    "aggregate_id_gaps": 0,
+    "first_ms": 1785542400081,
+    "last_ms": 1788220799466
+  },
+  "thresholds": {
+    "flow_extreme": 0.35773492930775475,
+    "activity_high": 8.36217538736668,
+    "count_center": 7.903639160660568,
+    "volume_center": 5.665924278503076,
+    "low_move": 1.9832417418143073
+  },
+  "results": [
+    {
+      "horizon_minutes": 5,
+      "trades": 274,
+      "active_days": 29,
+      "gross_mean_bps": 2.4105746202162863,
+      "net_mean_bps": -3.5894253797837132,
+      "net_mean_95": [
+        -4.891549928125724,
+        -2.413746292435808
+      ],
+      "net_win_fraction": 0.40875912408759124,
+      "centered_bootstrap_one_sided_p": 1.0,
+      "cost_sensitivity_mean_bps": {
+        "2": 0.4105746202162863,
+        "6": -3.5894253797837137,
+        "12": -9.589425379783714
+      },
+      "daily": {
+        "2026-08-01": {
+          "gross_sum_bps": -6.405923966061098,
+          "net_sum_bps": -24.4059239660611,
+          "trades": 3
+        },
+        "2026-08-02": {
+          "gross_sum_bps": -18.6731092551394,
+          "net_sum_bps": -42.6731092551394,
+          "trades": 4
+        },
+        "2026-08-03": {
+          "gross_sum_bps": 52.92827675147331,
+          "net_sum_bps": -1.071723248526693,
+          "trades": 9
+        },
+        "2026-08-04": {
+          "gross_sum_bps": -16.282092362739416,
+          "net_sum_bps": -46.28209236273942,
+          "trades": 5
+        },
+        "2026-08-05": {
+          "gross_sum_bps": 28.527197549334605,
+          "net_sum_bps": -1.4728024506653945,
+          "trades": 5
+        },
+        "2026-08-06": {
+          "gross_sum_bps": 23.47388261888591,
+          "net_sum_bps": 5.47388261888591,
+          "trades": 3
+        },
+        "2026-08-07": {
+          "gross_sum_bps": 28.1575180788668,
+          "net_sum_bps": -1.8424819211331993,
+          "trades": 5
+        },
+        "2026-08-08": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-09": {
+          "gross_sum_bps": 14.370952034931266,
+          "net_sum_bps": 8.370952034931266,
+          "trades": 1
+        },
+        "2026-08-10": {
+          "gross_sum_bps": 20.584778738843184,
+          "net_sum_bps": -9.415221261156814,
+          "trades": 5
+        },
+        "2026-08-11": {
+          "gross_sum_bps": -13.921944481375808,
+          "net_sum_bps": -31.92194448137581,
+          "trades": 3
+        },
+        "2026-08-12": {
+          "gross_sum_bps": 4.258727921516921,
+          "net_sum_bps": -1.741272078483079,
+          "trades": 1
+        },
+        "2026-08-13": {
+          "gross_sum_bps": -7.967890620211778,
+          "net_sum_bps": -49.967890620211776,
+          "trades": 7
+        },
+        "2026-08-14": {
+          "gross_sum_bps": 22.70216739301154,
+          "net_sum_bps": -13.297832606988463,
+          "trades": 6
+        },
+        "2026-08-15": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-16": {
+          "gross_sum_bps": 6.841140129334803,
+          "net_sum_bps": -5.158859870665197,
+          "trades": 2
+        },
+        "2026-08-17": {
+          "gross_sum_bps": 8.92641235906124,
+          "net_sum_bps": -45.07358764093876,
+          "trades": 9
+        },
+        "2026-08-18": {
+          "gross_sum_bps": -41.57147162453382,
+          "net_sum_bps": -47.57147162453382,
+          "trades": 1
+        },
+        "2026-08-19": {
+          "gross_sum_bps": 48.93808176672914,
+          "net_sum_bps": -5.0619182332708546,
+          "trades": 9
+        },
+        "2026-08-20": {
+          "gross_sum_bps": 30.556600526589236,
+          "net_sum_bps": -125.44339947341075,
+          "trades": 26
+        },
+        "2026-08-21": {
+          "gross_sum_bps": -59.19022305977103,
+          "net_sum_bps": -125.19022305977103,
+          "trades": 11
+        },
+        "2026-08-22": {
+          "gross_sum_bps": 15.635649026310059,
+          "net_sum_bps": -68.36435097368994,
+          "trades": 14
+        },
+        "2026-08-23": {
+          "gross_sum_bps": 89.8861991968339,
+          "net_sum_bps": -12.113800803166107,
+          "trades": 17
+        },
+        "2026-08-24": {
+          "gross_sum_bps": 104.46723538292967,
+          "net_sum_bps": 8.46723538292967,
+          "trades": 16
+        },
+        "2026-08-25": {
+          "gross_sum_bps": 24.602001658402813,
+          "net_sum_bps": -89.39799834159719,
+          "trades": 19
+        },
+        "2026-08-26": {
+          "gross_sum_bps": 97.09542287288093,
+          "net_sum_bps": -52.90457712711907,
+          "trades": 25
+        },
+        "2026-08-27": {
+          "gross_sum_bps": 116.70869035633908,
+          "net_sum_bps": -9.291309643660927,
+          "trades": 21
+        },
+        "2026-08-28": {
+          "gross_sum_bps": -13.691204826750702,
+          "net_sum_bps": -175.6912048267507,
+          "trades": 27
+        },
+        "2026-08-29": {
+          "gross_sum_bps": -3.985214091544518,
+          "net_sum_bps": -21.98521409154452,
+          "trades": 3
+        },
+        "2026-08-30": {
+          "gross_sum_bps": 28.77276720050436,
+          "net_sum_bps": -1.2272327994956385,
+          "trades": 5
+        },
+        "2026-08-31": {
+          "gross_sum_bps": 74.75281866461125,
+          "net_sum_bps": 2.752818664611259,
+          "trades": 12
+        }
+      },
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "horizon_minutes": 15,
+      "trades": 100,
+      "active_days": 25,
+      "gross_mean_bps": 2.1717236896355,
+      "net_mean_bps": -3.8282763103644997,
+      "net_mean_95": [
+        -8.020130127948299,
+        0.10090174363375047
+      ],
+      "net_win_fraction": 0.42,
+      "centered_bootstrap_one_sided_p": 0.9626074785042992,
+      "cost_sensitivity_mean_bps": {
+        "2": 0.1717236896354999,
+        "6": -3.8282763103645,
+        "12": -9.828276310364501
+      },
+      "daily": {
+        "2026-08-01": {
+          "gross_sum_bps": -3.42690924036664,
+          "net_sum_bps": -9.42690924036664,
+          "trades": 1
+        },
+        "2026-08-02": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-03": {
+          "gross_sum_bps": 87.11426854567395,
+          "net_sum_bps": 63.11426854567395,
+          "trades": 4
+        },
+        "2026-08-04": {
+          "gross_sum_bps": 4.60724063333453,
+          "net_sum_bps": -1.3927593666654703,
+          "trades": 1
+        },
+        "2026-08-05": {
+          "gross_sum_bps": 9.006328956894134,
+          "net_sum_bps": -2.993671043105867,
+          "trades": 2
+        },
+        "2026-08-06": {
+          "gross_sum_bps": 1.637829539598852,
+          "net_sum_bps": -4.362170460401148,
+          "trades": 1
+        },
+        "2026-08-07": {
+          "gross_sum_bps": 7.122578643705673,
+          "net_sum_bps": 1.1225786437056726,
+          "trades": 1
+        },
+        "2026-08-08": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-09": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-10": {
+          "gross_sum_bps": 14.814690622653522,
+          "net_sum_bps": -3.185309377346478,
+          "trades": 3
+        },
+        "2026-08-11": {
+          "gross_sum_bps": -6.473765178903249,
+          "net_sum_bps": -18.473765178903246,
+          "trades": 2
+        },
+        "2026-08-12": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-13": {
+          "gross_sum_bps": -3.6571766219615127,
+          "net_sum_bps": -9.657176621961513,
+          "trades": 1
+        },
+        "2026-08-14": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-15": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-16": {
+          "gross_sum_bps": -5.827676256693414,
+          "net_sum_bps": -11.827676256693415,
+          "trades": 1
+        },
+        "2026-08-17": {
+          "gross_sum_bps": 25.271815990961834,
+          "net_sum_bps": 7.271815990961835,
+          "trades": 3
+        },
+        "2026-08-18": {
+          "gross_sum_bps": -53.75920121863178,
+          "net_sum_bps": -59.75920121863178,
+          "trades": 1
+        },
+        "2026-08-19": {
+          "gross_sum_bps": 20.19851082729915,
+          "net_sum_bps": 2.1985108272991454,
+          "trades": 3
+        },
+        "2026-08-20": {
+          "gross_sum_bps": -106.50016231955901,
+          "net_sum_bps": -184.50016231955902,
+          "trades": 13
+        },
+        "2026-08-21": {
+          "gross_sum_bps": -0.7746294820210906,
+          "net_sum_bps": -24.77462948202109,
+          "trades": 4
+        },
+        "2026-08-22": {
+          "gross_sum_bps": 14.032762171653586,
+          "net_sum_bps": -9.967237828346413,
+          "trades": 4
+        },
+        "2026-08-23": {
+          "gross_sum_bps": 6.611455101065346,
+          "net_sum_bps": -29.388544898934654,
+          "trades": 6
+        },
+        "2026-08-24": {
+          "gross_sum_bps": -9.449763875502049,
+          "net_sum_bps": -33.44976387550204,
+          "trades": 4
+        },
+        "2026-08-25": {
+          "gross_sum_bps": 32.67189740882758,
+          "net_sum_bps": -9.32810259117242,
+          "trades": 7
+        },
+        "2026-08-26": {
+          "gross_sum_bps": 67.3604825712874,
+          "net_sum_bps": 1.3604825712874025,
+          "trades": 11
+        },
+        "2026-08-27": {
+          "gross_sum_bps": 22.259536111814704,
+          "net_sum_bps": -31.740463888185296,
+          "trades": 9
+        },
+        "2026-08-28": {
+          "gross_sum_bps": 85.110246233589,
+          "net_sum_bps": 13.11024623358899,
+          "trades": 12
+        },
+        "2026-08-29": {
+          "gross_sum_bps": 3.8863119581519356,
+          "net_sum_bps": -2.1136880418480644,
+          "trades": 1
+        },
+        "2026-08-30": {
+          "gross_sum_bps": -18.962922197218305,
+          "net_sum_bps": -30.962922197218305,
+          "trades": 2
+        },
+        "2026-08-31": {
+          "gross_sum_bps": 24.298620037895866,
+          "net_sum_bps": 6.298620037895862,
+          "trades": 3
+        }
+      },
+      "holm_adjusted_p": 1.0
+    },
+    {
+      "horizon_minutes": 30,
+      "trades": 46,
+      "active_days": 19,
+      "gross_mean_bps": -0.5282327593804247,
+      "net_mean_bps": -6.528232759380424,
+      "net_mean_95": [
+        -12.138332098544478,
+        0.13457222574492467
+      ],
+      "net_win_fraction": 0.45652173913043476,
+      "centered_bootstrap_one_sided_p": 0.9876024795040992,
+      "cost_sensitivity_mean_bps": {
+        "2": -2.528232759380425,
+        "6": -6.528232759380424,
+        "12": -12.528232759380424
+      },
+      "daily": {
+        "2026-08-01": {
+          "gross_sum_bps": -13.89163475569143,
+          "net_sum_bps": -19.891634755691427,
+          "trades": 1
+        },
+        "2026-08-02": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-03": {
+          "gross_sum_bps": 41.44647020566052,
+          "net_sum_bps": 29.44647020566052,
+          "trades": 2
+        },
+        "2026-08-04": {
+          "gross_sum_bps": -13.964924569163085,
+          "net_sum_bps": -19.964924569163085,
+          "trades": 1
+        },
+        "2026-08-05": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-06": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-07": {
+          "gross_sum_bps": 12.417802906269161,
+          "net_sum_bps": 6.417802906269161,
+          "trades": 1
+        },
+        "2026-08-08": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-09": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-10": {
+          "gross_sum_bps": 34.57236264248447,
+          "net_sum_bps": 22.572362642484475,
+          "trades": 2
+        },
+        "2026-08-11": {
+          "gross_sum_bps": -8.766644713663728,
+          "net_sum_bps": -20.766644713663727,
+          "trades": 2
+        },
+        "2026-08-12": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-13": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-14": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-15": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-16": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-17": {
+          "gross_sum_bps": -0.04067784331744306,
+          "net_sum_bps": -12.040677843317443,
+          "trades": 2
+        },
+        "2026-08-18": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-19": {
+          "gross_sum_bps": 17.235350557231936,
+          "net_sum_bps": 5.235350557231936,
+          "trades": 2
+        },
+        "2026-08-20": {
+          "gross_sum_bps": 4.947252400234671,
+          "net_sum_bps": -7.0527475997653255,
+          "trades": 2
+        },
+        "2026-08-21": {
+          "gross_sum_bps": -54.22919191379306,
+          "net_sum_bps": -66.22919191379306,
+          "trades": 2
+        },
+        "2026-08-22": {
+          "gross_sum_bps": -14.40047624972346,
+          "net_sum_bps": -26.40047624972346,
+          "trades": 2
+        },
+        "2026-08-23": {
+          "gross_sum_bps": 26.39329882701405,
+          "net_sum_bps": 8.39329882701405,
+          "trades": 3
+        },
+        "2026-08-24": {
+          "gross_sum_bps": 30.12057122739786,
+          "net_sum_bps": 18.12057122739786,
+          "trades": 2
+        },
+        "2026-08-25": {
+          "gross_sum_bps": -5.660087744169543,
+          "net_sum_bps": -23.660087744169545,
+          "trades": 3
+        },
+        "2026-08-26": {
+          "gross_sum_bps": 48.9003819565162,
+          "net_sum_bps": 12.900381956516192,
+          "trades": 6
+        },
+        "2026-08-27": {
+          "gross_sum_bps": -160.76804446905496,
+          "net_sum_bps": -190.76804446905496,
+          "trades": 5
+        },
+        "2026-08-28": {
+          "gross_sum_bps": 46.64548403179792,
+          "net_sum_bps": 10.64548403179792,
+          "trades": 6
+        },
+        "2026-08-29": {
+          "gross_sum_bps": 0.0,
+          "net_sum_bps": 0.0,
+          "trades": 0
+        },
+        "2026-08-30": {
+          "gross_sum_bps": -26.167061407684436,
+          "net_sum_bps": -32.167061407684436,
+          "trades": 1
+        },
+        "2026-08-31": {
+          "gross_sum_bps": 10.91106198015482,
+          "net_sum_bps": 4.91106198015482,
+          "trades": 1
+        }
+      },
+      "holm_adjusted_p": 1.0
+    }
+  ],
+  "bootstrap": {
+    "draws": 5000,
+    "mean_day_block": 3,
+    "seed": 91
+  },
+  "limits": [
+    "August precedes September development: not forward or live validation.",
+    "Last-trade proxy fills, no spread/funding/impact/receipt latency. Costs assumed.",
+    "Thirty-one days may not support stationary-bootstrap assumptions across regimes.",
+    "Holm controls only three frozen horizons, not all previous research searches.",
+    "Linear bps scores are not compounded account returns. No trading promotion."
+  ]
+}

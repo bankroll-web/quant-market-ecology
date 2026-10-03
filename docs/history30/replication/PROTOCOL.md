@@ -1,0 +1,7 @@
+# Frozen cross-period reversal replication
+
+Registered 3 October 2026 before inspecting August trade outcomes. Use the September training thresholds already stored in conditional_responses.json unchanged. Condition: absolute trade imbalance >= September training 80th percentile and log aggregate-trade count >= September training 75th percentile. Candidate: fade flow direction for 5, 15 or 30 minutes. All three horizons are reported, without selecting the winner.
+
+August 2026 is a separate earlier calendar period. This is backward cross-period replication, not chronological forward testing or evidence a September-fitted model could have traded in August. No threshold fitting, policy fitting or parameter selection on August.
+
+Use close-to-close returns as idealized proxies. Subsample on a fixed clock at each horizon to prevent target overlap. Costs: fixed 6 bps roundtrip; sensitivities 2/6/12 bps with unchanged decisions. Whole-day stationary bootstrap, mean block length 3 days, 5,000 draws and fixed seed 91. Bootstrap means recompute paired daily return sums and trade counts. Report one-sided centered-bootstrap p-values for positive net mean, Holm-adjusted across the three horizons. Small monthly sample, stationarity assumptions and the broader history of exploratory searches limit inference. Actual executable fills, funding and receipt latency remain absent; no profitable strategy promotion.
