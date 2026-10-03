@@ -1,0 +1,20 @@
+{
+  "deployment_commit": "316e9e2e9c5f4eb6124976c3accfa918528c8eb0",
+  "render_deploy_id": "dep-db0husmq1p3s73ecc110",
+  "render_status": "live",
+  "verified_url": "https://market-ecology-live-observer.onrender.com/tokens.html",
+  "browser_checks": {
+    "page_loaded": true,
+    "saved_metrics_visible": true,
+    "playback_advanced_contexts": true,
+    "recording_selector_changed_hour": true,
+    "later_outcome_reveal_worked": true,
+    "default_context_has_visible_price_history": true
+  },
+  "mode": "historical research replay",
+  "charted_contexts": 683,
+  "evaluation_samples": 11608,
+  "live_model_feed_integration": false,
+  "orders_enabled": false,
+  "screenshot": "TOKEN_LAB_SCREENSHOT.jpg"
+}
