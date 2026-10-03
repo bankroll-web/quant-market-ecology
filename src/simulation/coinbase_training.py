@@ -13,6 +13,11 @@ def dataset(manifests):
         meta=json.loads(Path(path).read_text())
         for row in verify_segment(path):
             if row['kind']=='coinbase_model_observation':records.append(dict(row['payload'],session=meta['session']))
+    return dataset_records(records)
+
+
+def dataset_records(records):
+    records=list(records)
     records.sort(key=lambda r:r['available_ns'])
     if any(b['available_ns']<=a['available_ns'] for a,b in zip(records,records[1:])):raise ValueError('Duplicate or unordered feature receipts')
     times=[r['available_ns'] for r in records];out=[];next_time=-1;bad=[0]
@@ -31,20 +36,26 @@ def dataset(manifests):
 
 
 def train(manifests,out):
-    data=dataset(manifests)
+    result=train_examples(dataset(manifests))
+    Path(out).write_text(json.dumps(result,indent=2)+'\n');return result
+
+
+def train_examples(data):
     if len(data)<400:
         result=dict(status='insufficient_data',usable_examples=len(data),required_minimum=400,qualified=False,
                     note='400 is an engineering floor, not sufficient evidence of robustness or profitability.')
     else:
         cut=data[len(data)//2]['decision_ns'];training=[r for r in data if r['label_available_ns']<=cut];evaluation=[r for r in data if r['decision_ns']>cut]
         gate_training(cut,training);x=np.array([r['features'] for r in training]);y=np.array([int(r['return_bps']>0) for r in training])
+        if min(int(y.sum()),int(len(y)-y.sum()))<10:
+            return dict(status='insufficient_class_support',qualified=False,usable_examples=len(data))
         model=fit(x,y);p=predict(np.array([r['features'] for r in evaluation]),model).tolist()
         targets=[r['return_bps'] for r in evaluation];interval=list(map(float,np.quantile([r['return_bps'] for r in training],[.1,.9])))
         result=dict(status='offline_development_fit',venue='Coinbase Exchange',symbol='BTC-USD',qualified=False,model=model,
             training_examples=len(training),evaluation_examples=len(evaluation),cutoff_ns=cut,
             scores=score(p,targets,[interval]*len(targets)),baseline=score([float(y.mean())]*len(targets),targets,[interval]*len(targets)),
             limitations=['Receipt-batched feed lacks independent sequence verification.','Chronological second-half comparison only; no untouched-day validation.','No fill, fee, latency, inventory or profit evaluation. Artifact is not loaded automatically into live trading.'])
-    Path(out).write_text(json.dumps(result,indent=2)+'\n');return result
+    return result
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser();ap.add_argument('manifests',nargs='+');ap.add_argument('--out',required=True);a=ap.parse_args();train(a.manifests,a.out)

@@ -1,6 +1,6 @@
 # Coinbase training pipeline
 
-The live Coinbase feature adapter deployment was confirmed live before this change. This addition supplies an offline venue-specific fitting pipeline and live feature-capture counters. It does not automatically train on the server or enable BUY/SELL orders.
+The live Coinbase feature adapter deployment was confirmed live before this change. This addition supplies an offline venue-specific fitting pipeline and live feature-capture counters. This offline entry point does not enable BUY/SELL orders. A subsequent [service-side research path](LIVE_RESEARCH_TRAINING.md) now also fits directly received features in the background, without reading private segments.
 
 `coinbase_training.dataset` reads only completed capture segments with verified byte hashes and record counts. Feature inputs must be Coinbase Exchange BTC-USD. Targets span approximately one second, at most 250ms endpoint lag. Session changes, update-counter resets, receipt gaps above 250ms and receipt/event age outside 0–250ms reject an interval. Decisions are separated by at least one second; endpoint lag can still overlap targets. Hash verification establishes stored-byte integrity, not exchange feed completeness.
 

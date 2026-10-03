@@ -77,3 +77,5 @@ October 3 supplied-paper review and evaluation components: [Research integration
 Executable observation environment and measured baselines: [Observed ecology environment](OBSERVED_ECOLOGY_ENVIRONMENT.md).
 
 Fixed book-feature probability experiment: [Model comparison](ECOLOGY_PROBABILITY_MODEL.md).
+
+Automatic Coinbase research fitting and visible readiness: [Live research training](LIVE_RESEARCH_TRAINING.md).

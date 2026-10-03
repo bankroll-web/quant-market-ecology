@@ -120,6 +120,8 @@ class Output:
         from .live_ecology import LiveEcology
         from .ecology_dashboard import PAGE as ECOLOGY_PAGE
         self.ecology = LiveEcology()
+        from .live_training import LiveTraining
+        self.training = LiveTraining()
         self.mode = mode
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
@@ -133,6 +135,7 @@ class Output:
         (self.directory/'ecology.html').write_text(ECOLOGY_PAGE)
 
     def capture(self, kind, payload, received_ns):
+        self.training.record(kind,payload)
         return self.archive.append(kind, payload, received_ns)
 
     def publish(self, observer, now_ns):
@@ -151,6 +154,7 @@ class Output:
             if key in view:ecology[key]=view[key]
         from .live_model_status import assess
         ecology['model_status']=assess(market,view,now_ns)
+        ecology['live_training']=self.training.status(now_ns)
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))
