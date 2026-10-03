@@ -38,3 +38,7 @@ python -m unittest discover -s tests -p test_simulation_market_tokens.py
 ```
 
 The tests verify field identity, explicit extreme-value tokens, discontinuity/episode resets and rejection of future-event contexts. They verify encoding behavior, not alpha.
+
+## Event-language extension
+
+See [EVENT_DESIGN.md](EVENT_DESIGN.md) for the implemented relative-price/log-size/time-gap encoder and available-at multi-scale join, plus explicit requirements for participant estimates, derivative data, multi-output learning and simulator validation. This extension has six targeted checks and no trained event model or live promotion.
