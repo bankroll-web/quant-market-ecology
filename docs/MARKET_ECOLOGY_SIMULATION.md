@@ -71,3 +71,5 @@ Recorded-flow development diagnostic: [Empirical trade flow](EMPIRICAL_ECOLOGY_F
 Training liquidity-response benchmark: [Displayed liquidity response](ECOLOGY_LIQUIDITY_RESPONSE.md).
 
 Joint trade/book integration: [Receipt-order event audit](ECOLOGY_JOINT_EVENT_AUDIT.md).
+
+October 3 supplied-paper review and evaluation components: [Research integration](OCTOBER_3_RESEARCH_INTEGRATION.md).
