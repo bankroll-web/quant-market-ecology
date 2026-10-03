@@ -20,11 +20,15 @@ class CoinbaseObserver(KrakenObserver):
         super().__init__()
         self.last_trade_id = None
         self.model_observation = None
+        self.feature_samples = 0
+        self.feature_first_ns = None
 
     def invalidate(self, reason):
         super().invalidate(reason)
         self.last_trade_id = None
         self.model_observation = None
+        self.feature_samples = 0
+        self.feature_first_ns = None
 
     def update_coinbase(self, event, received_ns):
         if event.get('product_id') != self.symbol:
@@ -90,11 +94,15 @@ class CoinbaseObserver(KrakenObserver):
                     features=[float((qb-qa)/(qb+qa)),float((db-da)/depth),math.log(float(depth)),float((ask-bid)/midpoint*10000),float(ofi/depth)],
                     midpoint=float(midpoint),best_quote_ofi_btc=float(ofi),depth_btc=float(depth),
                     feature_scope='Full retained Coinbase snapshot and received absolute L2 bundles; no checksum/independent sequence verification')
+        if self.model_observation is not None:
+            self.feature_samples += 1
+            if self.feature_first_ns is None:self.feature_first_ns = received_ns
         return True
 
     def view(self, now_ns):
         result=super().view(now_ns)
         result['model_observation']=copy.deepcopy(self.model_observation) if self.valid else None
+        result['training_capture']=dict(status='collecting' if self.valid else 'paused',feature_bundles=self.feature_samples,first_received_ns=self.feature_first_ns,usable_labeled_examples=None,qualified=False,reason='Feature count is not labeled sample count; offline integrity and continuity audit required')
         return result
 
     def observe_match(self, event, received_ns):
