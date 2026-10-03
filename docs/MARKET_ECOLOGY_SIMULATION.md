@@ -75,3 +75,5 @@ Joint trade/book integration: [Receipt-order event audit](ECOLOGY_JOINT_EVENT_AU
 October 3 supplied-paper review and evaluation components: [Research integration](OCTOBER_3_RESEARCH_INTEGRATION.md).
 
 Executable observation environment and measured baselines: [Observed ecology environment](OBSERVED_ECOLOGY_ENVIRONMENT.md).
+
+Fixed book-feature probability experiment: [Model comparison](ECOLOGY_PROBABILITY_MODEL.md).

@@ -1,0 +1,242 @@
+{
+  "status": "exploratory_logistic_comparison_not_trading_strategy",
+  "features": [
+    "top_imbalance",
+    "depth_imbalance",
+    "log_depth",
+    "spread_bps",
+    "last_bundle_ofi_per_depth"
+  ],
+  "input_sha256": {
+    "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815",
+    "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019",
+    "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac",
+    "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2",
+    "BTCUSDT_orderbook_2026-05-26_03_observed_changes.csv": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8",
+    "BTCUSDT_orderbook_2026-05-26_09_observed_changes.csv": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36",
+    "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6",
+    "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+  },
+  "baseline_sha256": "c6cd3a1d1ebc188e654d1d22f3539a2a18e7e0c4096c960be74b413dbf67a697",
+  "training_examples": 459,
+  "training_cutoff_ns": 1779669395080756640,
+  "model": {
+    "center": [
+      -0.1935857058320305,
+      -0.014383365271108315,
+      5.8337618920186,
+      0.012963061292546985,
+      -0.00010143699993782161
+    ],
+    "scale": [
+      0.527770436204322,
+      0.12423773384659761,
+      0.15775085493869334,
+      5.15889772610641e-06,
+      0.012298324466038936
+    ],
+    "weights": [
+      -2.2006429934751868,
+      0.36901539047997867,
+      0.14764344195166965,
+      -0.067984601005639,
+      -0.06580111874281067,
+      0.24269504623925983
+    ],
+    "ridge": 0.1,
+    "iterations": 6
+  },
+  "reports": {
+    "BTCUSDT_orderbook_2026-05-25_00_observed_changes": {
+      "model": {
+        "observations": 458,
+        "brier": 0.05939678246547765,
+        "winkler": 1.2060774609689415,
+        "interval_coverage": 0.8820960698689956,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 458,
+        "brier": 0.0632918216615451,
+        "winkler": 1.2060774609689415,
+        "interval_coverage": 0.8820960698689956,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": -0.003895039196067443,
+      "mean_probability": 0.10621404437919361,
+      "actual_positive_fraction": 0.06550218340611354
+    },
+    "BTCUSDT_orderbook_2026-05-25_04_observed_changes": {
+      "model": {
+        "observations": 547,
+        "brier": 0.06086718119146924,
+        "winkler": 0.8175538412825639,
+        "interval_coverage": 0.9159049360146252,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 547,
+        "brier": 0.06495587604667433,
+        "winkler": 0.8175538412825639,
+        "interval_coverage": 0.9159049360146252,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": -0.004088694855205084,
+      "mean_probability": 0.11902031655834461,
+      "actual_positive_fraction": 0.06764168190127971
+    },
+    "BTCUSDT_orderbook_2026-05-25_12_observed_changes": {
+      "model": {
+        "observations": 1120,
+        "brier": 0.05976212121493022,
+        "winkler": 0.9564069848333292,
+        "interval_coverage": 0.9142857142857143,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 1120,
+        "brier": 0.054706790123456785,
+        "winkler": 0.9564069848333292,
+        "interval_coverage": 0.9142857142857143,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": 0.005055331091473436,
+      "mean_probability": 0.172737944644304,
+      "actual_positive_fraction": 0.054464285714285715
+    },
+    "BTCUSDT_orderbook_2026-05-25_18_observed_changes": {
+      "model": {
+        "observations": 1151,
+        "brier": 0.07638085425060319,
+        "winkler": 0.681892327117142,
+        "interval_coverage": 0.9600347523892268,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 1151,
+        "brier": 0.029239201553131464,
+        "winkler": 0.681892327117142,
+        "interval_coverage": 0.9600347523892268,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": 0.047141652697471725,
+      "mean_probability": 0.25309397339649975,
+      "actual_positive_fraction": 0.021720243266724587
+    },
+    "BTCUSDT_orderbook_2026-05-26_03_observed_changes": {
+      "model": {
+        "observations": 1215,
+        "brier": 0.05846401429671829,
+        "winkler": 1.174467789992792,
+        "interval_coverage": 0.8814814814814815,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 1215,
+        "brier": 0.06227709190672153,
+        "winkler": 1.174467789992792,
+        "interval_coverage": 0.8814814814814815,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": -0.0038130776100032404,
+      "mean_probability": 0.03915953794901856,
+      "actual_positive_fraction": 0.06419753086419754
+    },
+    "BTCUSDT_orderbook_2026-05-26_09_observed_changes": {
+      "model": {
+        "observations": 1153,
+        "brier": 0.042078388056671356,
+        "winkler": 0.8705452585841452,
+        "interval_coverage": 0.9167389418907199,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 1153,
+        "brier": 0.048772391935155736,
+        "winkler": 0.8705452585841452,
+        "interval_coverage": 0.9167389418907199,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": -0.0066940038784843794,
+      "mean_probability": 0.0419167136945889,
+      "actual_positive_fraction": 0.046834345186470075
+    },
+    "BTCUSDT_orderbook_2026-05-26_15_observed_changes": {
+      "model": {
+        "observations": 937,
+        "brier": 0.21093169135003445,
+        "winkler": 4.613999010078594,
+        "interval_coverage": 0.5688367129135539,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 937,
+        "brier": 0.201602171363822,
+        "winkler": 4.613999010078594,
+        "interval_coverage": 0.5688367129135539,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": 0.009329519986212453,
+      "mean_probability": 0.05819862232314329,
+      "actual_positive_fraction": 0.24332977588046958
+    },
+    "BTCUSDT_orderbook_2026-05-26_21_observed_changes": {
+      "model": {
+        "observations": 1551,
+        "brier": 0.05344479016085962,
+        "winkler": 0.9550428329127313,
+        "interval_coverage": 0.9110251450676983,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "baseline": {
+        "observations": 1551,
+        "brier": 0.055973446044368026,
+        "winkler": 0.9550428329127313,
+        "interval_coverage": 0.9110251450676983,
+        "nominal_coverage": 0.8,
+        "target": "positive return; zero return is class 0",
+        "return_units": "same units as supplied intervals"
+      },
+      "brier_difference": -0.002528655883508403,
+      "mean_probability": 0.014607352866847126,
+      "actual_positive_fraction": 0.05609284332688588
+    }
+  },
+  "limitations": [
+    "Fixed ridge 0.1 and five features chosen for development; no tuning on later scores.",
+    "Transforms and coefficients fit only resolved first-half training labels. These previously inspected recordings are not untouched validation.",
+    "Binary target treats zero return as nonpositive; class imbalance can dominate Brier improvement.",
+    "Intervals are unchanged frozen baseline intervals; the logistic model does not improve volatility or interval calibration.",
+    "No confidence intervals, execution model, transaction costs or profitability qualification."
+  ]
+}
