@@ -1,0 +1,44 @@
+{
+  "status": "first_real_book_change_six_field_trial",
+  "qualified": false,
+  "orders_enabled": false,
+  "training_cutoff_ns": 1779669395080756640,
+  "training_samples": 402,
+  "evaluation_samples": 7597,
+  "training_raw_codec_frames": 21821,
+  "vocabulary_size": 129,
+  "context_receipts": 8,
+  "epochs": 5,
+  "seed": 91,
+  "training_losses": [
+    0.5758541710071351,
+    0.5482012659393569,
+    0.533223064542337,
+    0.5299767204375269,
+    0.5113794055168029
+  ],
+  "pinball_bps": 0.07233151376750017,
+  "baseline_pinball_bps": 0.060276996549736714,
+  "coverage_80": 0.8853494800579176,
+  "volatility_mse": 0.0002997425824715467,
+  "baseline_volatility_mse": 0.00029973562280005385,
+  "flow_head_trained": false,
+  "source_sha256": {
+    "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815",
+    "BTCUSDT_orderbook_2026-05-26_03_observed_changes.csv": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8",
+    "BTCUSDT_orderbook_2026-05-26_09_observed_changes.csv": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36",
+    "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019",
+    "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac",
+    "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2",
+    "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6",
+    "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+  },
+  "limits": [
+    "Eight discontinuous recorded hours already examined; development comparison, no untouched sample or profitability claim.",
+    "Book-change bundles, not individual add/cancel orders. Gross displayed quantity changes are not traded volume.",
+    "Level, side and participant are missing; tick metadata and synchronized trades unavailable in this adapter.",
+    "One-second targets use receipt sampling with up to 250ms lag; outcomes can overlap, sample counts are not independent.",
+    "No trade-flow target, multi-scale integration, rollouts, costs, fills or live promotion.",
+    "Five fixed epochs; evaluation not used for checkpoint selection. Initial frozen codec retrospectively encodes training context; online decisions strictly after cutoff."
+  ]
+}

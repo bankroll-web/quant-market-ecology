@@ -1,0 +1,13 @@
+{
+  "prediction_rows": 7597,
+  "later_decisions_after_training_cutoff": true,
+  "targets_after_decisions": true,
+  "artifact_sha256": {
+    "REPORT.md": "411330e9945701a3d2d1775461389a6b2e2e8001f7337ff15ef4b2683d94b300",
+    "RESULTS.json": "ee1c81ad6a2bfb5a82f207047cd38d1416b2198a771021bfcfde4e8a25665dc4",
+    "PREDICTIONS.csv": "4ac5692d4e80e1645fdd32b1d333b1b3b62729d6f628d5e157181a7294932624",
+    "WEIGHTS.npz": "8f5d32cd60ce3199535b4654cabe0bd76eacfe5a9ac8c1f8ca6f6387742e6e75",
+    "PREPROCESSING.json": "4cdfce28e06fc96f710ead52161f09102bdc3191c9c7da4d3f842797a221148b"
+  },
+  "qualified": false
+}
