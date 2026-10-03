@@ -1,0 +1,20 @@
+{
+  "saved_weight_forecasts_reproduced_all_607_days": {
+    "pretrained_91": 0.0,
+    "pretrained_92": 0.0,
+    "pretrained_93": 0.0,
+    "without_pretraining": 0.0
+  },
+  "chronological_stage_boundaries_pass": true,
+  "prediction_rows": 607,
+  "artifact_sha256": {
+    "pretrained_92_weights.npz": "c5c484a15efa6d2af9d45a31bf81d96a4d2842593daabeae3ce80221e0b8c602",
+    "without_pretraining_weights.npz": "1ec013c01ee1e53c58fae6c2c71c731e26c73cd0584be768890707a7466e7517",
+    "pretrained_93_weights.npz": "e590e94995d02c94298a6899d4fb215b796442343a1e9b8a07e2e0f15e022525",
+    "pretrained_91_weights.npz": "60e626566067608f088880d2ac2fde684b5f2439cb2921e164b354dac27265e4",
+    "RESULTS.json": "3eec2e5de30116fe8c7da041933c2650c1b9605948a3470fb8f2d4dabf98d3db",
+    "PREDICTIONS.csv": "99f6c8d53a1f0ccc7317984740d99e06601c12963eca4a8e071d96e0d9268eea"
+  },
+  "qualification": false,
+  "note": "Engineering checks establish causality and reproducibility, not profitable performance."
+}

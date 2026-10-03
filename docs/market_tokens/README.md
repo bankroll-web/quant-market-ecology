@@ -18,7 +18,7 @@ Contexts contain32 consecutive valid receipts, eight field tokens per receipt an
 
 Tokenizer boundaries are fitted only to valid raw observations before the same first-half-hour cutoff used in the previous book studies. ENCODER_AUDIT.json records the fitted cuts, train ranges, example contexts, range flags and source hashes. It is an encoding/continuity audit, not a forecast or trading result. All eight historical recordings were previously inspected.
 
-No neural sequence predictor has been trained at this stage. The current runtime has no PyTorch installed. The encoder and checks run with the existing numerical research dependencies; no paid service or deployed signal change is involved.
+The intraday encoder has no trained sequence predictor yet. A separate [daily transformer experiment](daily_transformer/REPORT.md) now trains four compact neural models on multi-year crossasset daily states using CPU PyTorch. Its results do not qualify a live signal. The daily experiment does not supply years of intraday order-book data; no paid service or deployed signal change is involved.
 
 ## Next model experiment
 
