@@ -127,6 +127,11 @@ class Output:
         self.mode = mode
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
+        from .river_live import RiverLive
+        from .river_dashboard import PAGE as RIVER_PAGE
+        self.rivers={'Coinbase Exchange':RiverLive(self.directory.parent/'river-coinbase-checkpoint.json'),
+                     'Kraken':RiverLive(self.directory.parent/'river-kraken-checkpoint.json','Kraken','BTC/USD')}
+        (self.directory/'river.html').write_text(RIVER_PAGE)
         from .capture_archive import CaptureArchive
         archive_path = Path(archive_directory or self.directory.parent / (self.directory.name + '-archive'))
         if archive_path.resolve().is_relative_to(self.directory.resolve()):
@@ -140,6 +145,9 @@ class Output:
             (self.directory/'tokens.html').write_text(token_lab.read_text())
 
     def capture(self, kind, payload, received_ns):
+        if self.mode=='live':
+            model=self.rivers.get('Kraken' if kind.startswith('kraken_') else 'Coinbase Exchange' if kind.startswith('coinbase_') else None)
+            if model:model.record(kind,payload,received_ns)
         self.training.record(kind,payload)
         return self.archive.append(kind, payload, received_ns)
 
@@ -149,6 +157,14 @@ class Output:
         view['capture_persistence'] = view['archive']['persistence']
         self.history.append(dict(time_ms=now_ns//1_000_000, mid=view['mid']))
         market=dict(provider=observer.provider,symbol=observer.symbol,product=observer.product,quote_currency=observer.quote_currency,validation=observer.validation)
+        selected=self.rivers.get(observer.provider,self.rivers['Coinbase Exchange'])
+        for model in self.rivers.values():
+            if model is not selected:model.reset('paused: another venue is active')
+        river=selected.view(now_ns,market,view.get('research_usable',False) and self.mode=='live',view.get('trade_subscription_active',False))
+        river_tmp=self.directory/'river_live.tmp'
+        river_tmp.write_text(json.dumps(river,allow_nan=False));river_tmp.replace(self.directory/'river_live.json')
+        checkpoint_tmp=self.directory/'river_checkpoint.tmp'
+        checkpoint_tmp.write_text(json.dumps(selected.snapshot(),allow_nan=False));checkpoint_tmp.replace(self.directory/'river_checkpoint.json')
         content = dict(mode=self.mode, **market, read_only=True,
                        generated_ns=now_ns, **view, history=list(self.history))
         tmp = self.directory/'state.tmp'
@@ -286,8 +302,9 @@ def main():
     parser.add_argument('--port',type=int,default=int(os.environ.get('PORT','8765')))
     parser.add_argument('--host',default='127.0.0.1',help='Use 0.0.0.0 only in an authorized cloud deployment')
     args=parser.parse_args()
-    if not math.isfinite(args.seconds) or args.seconds<=0:
-        parser.error('seconds must be positive and finite')
+    if not math.isfinite(args.seconds) or args.seconds<0:
+        parser.error('seconds must be nonnegative and finite; 0 means run until stopped')
+    if args.seconds==0:args.seconds=math.inf
     out=Output(args.out, 'replay' if args.replay else 'live', args.archive)
     server=None
     if args.serve:

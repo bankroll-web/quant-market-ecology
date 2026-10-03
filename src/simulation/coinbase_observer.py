@@ -102,6 +102,7 @@ class CoinbaseObserver(KrakenObserver):
                     event_ns=event_ms*1_000_000,available_ns=received_ns,
                     features=[float((qb-qa)/(qb+qa)),float((db-da)/depth),math.log(float(depth)),float((ask-bid)/midpoint*10000),float(ofi/depth)],
                     midpoint=float(midpoint),best_quote_ofi_btc=float(ofi),depth_btc=float(depth),
+                    liquidity_changes=changes,trade_subscription_active=self.trade_subscribed,
                     feature_scope='Full retained Coinbase snapshot and received absolute L2 bundles; no checksum/independent sequence verification')
         if self.model_observation is not None:
             self.feature_samples += 1
@@ -195,7 +196,12 @@ async def live_coinbase(out, seconds):
                             raise RuntimeError('subscription_rejected: ' + str(event.get('message')))
                         if kind == 'subscriptions':
                             observer.trade_subscribed = any(c['name'] == 'matches' and observer.symbol in c.get('product_ids', []) for c in event['channels'])
+                        previous_trade_count=observer.trade_events
                         observer.observe_match(event, received)
+                        if observer.trade_events>previous_trade_count:
+                            qty=float(event['size'])
+                            if math.isfinite(qty) and qty>0:
+                                out.capture('coinbase_verified_match',dict(qty=qty,side='buy' if event['side']=='sell' else 'sell',trade_id=event['trade_id']),received)
                         if kind in ('snapshot', 'l2update') and event.get('product_id') == observer.symbol:
                             if not observer.update_coinbase(event, received):
                                 raise RuntimeError(observer.reason)

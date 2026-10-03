@@ -84,16 +84,21 @@ class KrakenObserver(DepthObserver):
         self.mechanics.record(received_ns,changes, float((max(self.bids)+min(self.asks))/2))
         from .venue_features import observation
         self.model_observation=observation(self,before,received_ns)
+        if self.model_observation is not None:
+            self.model_observation.update(liquidity_changes=changes,trade_subscription_active=self.trade_subscribed)
         return True
 
     def observe_trades(self,message,received_ns):
-        if message.get('channel')!='trade' or message.get('type')!='update':return
+        if message.get('channel')!='trade' or message.get('type')!='update':return []
+        accepted=[]
         events=[row for row in message.get('data',[]) if row.get('symbol')==self.symbol]
         if events:
             self.trade_messages+=1
             self.trade_events+=len(events)
             self.last_trade_received_ns=int(received_ns)
-            for row in events:self.mechanics.trade(row,received_ns)
+            for row in events:
+                if self.mechanics.trade(row,received_ns):accepted.append(row)
+        return accepted
 
     def view(self,now_ns):
         result=super().view(now_ns)
@@ -139,7 +144,8 @@ async def live_kraken(out,seconds):
                             observer.trade_subscribed=True
                         if event.get('channel')=='trade':
                             out.capture('kraken_trade_message',dict(raw=message.data),received)
-                            observer.observe_trades(event,received)
+                            for trade in observer.observe_trades(event,received):
+                                out.capture('kraken_verified_match',dict(qty=float(trade['qty']),side=trade['side'],trade_id=trade['trade_id']),received)
                         if event.get('channel')=='book':
                             out.capture('kraken_message',dict(raw=message.data),received)
                             accepted=observer.update_kraken(event,received)
