@@ -1,0 +1,2914 @@
+{
+  "status": "synthetic_simulator_calibration_diagnostic_not_qualified",
+  "states": [
+    "no_signed_flow",
+    "low_pressure",
+    "high_reinforces",
+    "high_opposes",
+    "high_neutral"
+  ],
+  "reports": {
+    "7_normal_before_intervention": {
+      "seed": 7,
+      "withdrawal": false,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            115,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 2,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 118,
+            "runs": 3,
+            "completed_runs": 1,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 34.0,
+            "mean_completed_run_seconds": 34.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2809921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.2702405764787617,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 31.983994058,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.265819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.23290598290598288,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 31.959969169,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.2091102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.1678589609624092,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 31.981906437,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2464912280701754,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.24957264957264957,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 31.980983489499998,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.23226768968456948,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21453736522229674,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 31.9579711855,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24767025089605732,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.24590746879008388,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 31.974888351,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6582857142857143,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5808080808080808,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 32.9809880445,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2682722749886929,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.2478632478632478,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 31.9804080005,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "7_normal_full_intervention_run": {
+      "seed": 7,
+      "withdrawal": false,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            285,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 6,
+            "runs": 6,
+            "completed_runs": 6,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 293,
+            "runs": 8,
+            "completed_runs": 6,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 30.0,
+            "mean_completed_run_seconds": 40.666666666666664,
+            "unchanged_midpoint_fraction": 0.9965870307167235
+          },
+          "high_reinforces": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.0
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2743255295429209,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.26336199083305284,
+            "high_reinforces": 0.2566371681415929,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 27.983994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.2591525423728813,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.226027397260274,
+            "high_reinforces": 0.4042553191489362,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 27.959969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.20244363193174897,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.1609803753167003,
+            "high_reinforces": 0.21348314606741575,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 27.981906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2398245614035088,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.24269406392694068,
+            "high_reinforces": 0.2909090909090909,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 27.980983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.22560102301790283,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.20765877957658782,
+            "high_reinforces": 0.31125827814569534,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 27.9579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24100358422939072,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.239028883144375,
+            "high_reinforces": 0.26041666666666663,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 27.974888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.654952380952381,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5773834232738343,
+            "high_reinforces": 0.7110091743119266,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 28.980988044500002,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.26160560832202623,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.24098466221753892,
+            "high_reinforces": 0.3809523809523809,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 27.9804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "7_withdrawal_before_intervention": {
+      "seed": 7,
+      "withdrawal": true,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            115,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 2,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 118,
+            "runs": 3,
+            "completed_runs": 1,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 34.0,
+            "mean_completed_run_seconds": 34.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2809921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.2702405764787617,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 31.983994058,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.265819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.23290598290598288,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 31.959969169,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.2091102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.1678589609624092,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 31.981906437,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2464912280701754,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.24957264957264957,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 31.980983489499998,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.23226768968456948,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21453736522229674,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 31.9579711855,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24767025089605732,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.24590746879008388,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 31.974888351,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6582857142857143,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5808080808080808,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 32.9809880445,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2682722749886929,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.2478632478632478,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 31.9804080005,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "7_withdrawal_full_intervention_run": {
+      "seed": 7,
+      "withdrawal": true,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            282,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 6,
+            "runs": 6,
+            "completed_runs": 6,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 291,
+            "runs": 9,
+            "completed_runs": 7,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 26.0,
+            "mean_completed_run_seconds": 34.57142857142857,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.0
+          },
+          "high_opposes": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 2,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.5
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2676588628762542,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.25974838667622707,
+            "high_reinforces": 0.9469026548672568,
+            "high_opposes": 0.2727272727272727,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 23.983994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": -0.011840607999999975,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.2524858757062146,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.22241379310344825,
+            "high_reinforces": 0.9148936170212766,
+            "high_opposes": 0.19999999999999996,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 23.959969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": -0.01547598799999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.1957769652650823,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.15736677115987457,
+            "high_reinforces": 0.9887640449438202,
+            "high_opposes": 0.1818181818181818,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 23.981906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": -0.015122299499999992,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.23315789473684212,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.23908045977011494,
+            "high_reinforces": 1.0,
+            "high_opposes": 0.16666666666666663,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 23.980983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": -0.01746718299999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.21893435635123615,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.20404517541976208,
+            "high_reinforces": 0.8940397350993377,
+            "high_opposes": 0.25925925925925924,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 23.9579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": -0.015129276999999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.234336917562724,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.23541527898754924,
+            "high_reinforces": 0.9479166666666667,
+            "high_opposes": 0.23529411764705888,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 23.974888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": -0.010118035999999941,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6482857142857144,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5739115290839428,
+            "high_reinforces": 0.6834862385321101,
+            "high_opposes": 0.7394366197183098,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 24.980988044500002,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": -0.01685859199999995,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2549389416553595,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.23737105806071315,
+            "high_reinforces": 0.9285714285714286,
+            "high_opposes": 0.3061224489795918,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 23.9804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": -0.01810465299999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "19_normal_before_intervention": {
+      "seed": 19,
+      "withdrawal": false,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            109,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 5,
+            "runs": 5,
+            "completed_runs": 5,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 115,
+            "runs": 6,
+            "completed_runs": 4,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 15.5,
+            "mean_completed_run_seconds": 10.75,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2559921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.24347494444997175,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 13.483994058,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.240819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.20614035087719298,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 13.459969169,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.18411029859841563,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.14109332893361928,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 13.481906437,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2214912280701755,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.22280701754385965,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 13.4809834895,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.20726768968456952,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.1877717331935068,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 13.4579711855,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.22267025089605735,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.21914183676129398,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 13.474888351,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6582857142857144,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5808080808080808,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 14.4809880445,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.24327227498869294,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.2210976158344579,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 13.480408000499999,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "19_normal_full_intervention_run": {
+      "seed": 19,
+      "withdrawal": false,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            281,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 8,
+            "runs": 8,
+            "completed_runs": 8,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 291,
+            "runs": 10,
+            "completed_runs": 8,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 24.5,
+            "mean_completed_run_seconds": 30.25,
+            "unchanged_midpoint_fraction": 0.9965635738831615
+          },
+          "high_reinforces": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.0
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2676588628762542,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.25630011081415816,
+            "high_reinforces": 0.2566371681415929,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 22.483994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.25248587570621467,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.21896551724137933,
+            "high_reinforces": 0.4042553191489362,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 22.459969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.19577696526508226,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.15391849529780566,
+            "high_reinforces": 0.21348314606741575,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 22.481906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2331578947368421,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.23563218390804602,
+            "high_reinforces": 0.2909090909090909,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 22.480983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.21893435635123615,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.2005968995576932,
+            "high_reinforces": 0.31125827814569534,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 22.4579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.234336917562724,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.23196700312548038,
+            "high_reinforces": 0.26041666666666663,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 22.474888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.654952380952381,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5773598049460119,
+            "high_reinforces": 0.7110091743119266,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 23.480988044500002,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2549389416553596,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.23392278219864424,
+            "high_reinforces": 0.3809523809523809,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 22.4804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "19_withdrawal_before_intervention": {
+      "seed": 19,
+      "withdrawal": true,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            109,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 5,
+            "runs": 5,
+            "completed_runs": 5,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 115,
+            "runs": 6,
+            "completed_runs": 4,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 15.5,
+            "mean_completed_run_seconds": 10.75,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2559921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.24347494444997175,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 13.483994058,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.240819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.20614035087719298,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 13.459969169,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.18411029859841563,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.14109332893361928,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 13.481906437,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.2214912280701755,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.22280701754385965,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 13.4809834895,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.20726768968456952,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.1877717331935068,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 13.4579711855,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.22267025089605735,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.21914183676129398,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 13.474888351,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6582857142857144,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5808080808080808,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 14.4809880445,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.24327227498869294,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.2210976158344579,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 13.480408000499999,
+            "high_reinforces": null,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "19_withdrawal_full_intervention_run": {
+      "seed": 19,
+      "withdrawal": true,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            7,
+            1,
+            0,
+            0
+          ],
+          [
+            8,
+            279,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 8,
+            "runs": 8,
+            "completed_runs": 8,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 289,
+            "runs": 10,
+            "completed_runs": 8,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 24.5,
+            "mean_completed_run_seconds": 30.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 2,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.5
+          },
+          "high_opposes": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.0
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2609921962095876,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.09302325581395351,
+            "low_pressure": 0.2560845935727788,
+            "high_reinforces": 0.44690265486725667,
+            "high_opposes": 0.2727272727272727,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 22.483994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": -0.011840607999999975,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.24581920903954801,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.29032258064516125,
+            "low_pressure": 0.21875,
+            "high_reinforces": 0.4148936170212766,
+            "high_opposes": 0.19999999999999996,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 22.459969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": -0.01547598799999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.1891102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.1428571428571429,
+            "low_pressure": 0.15370297805642633,
+            "high_reinforces": 0.48876404494382025,
+            "high_opposes": 0.1818181818181818,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 22.481906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": -0.015122299499999992,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.22649122807017547,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.22666666666666666,
+            "low_pressure": 0.2354166666666667,
+            "high_reinforces": 0.5,
+            "high_opposes": 0.16666666666666663,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 22.480983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": -0.01746718299999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.2122676896845695,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.12068965517241381,
+            "low_pressure": 0.20038138231631383,
+            "high_reinforces": 0.39403973509933776,
+            "high_opposes": 0.25925925925925924,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 22.4579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": -0.015129276999999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.22767025089605739,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20168067226890757,
+            "low_pressure": 0.23175148588410102,
+            "high_reinforces": 0.4479166666666667,
+            "high_opposes": 0.23529411764705888,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 22.474888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": -0.010118035999999941,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6482857142857142,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.125,
+            "low_pressure": 0.5773358585858586,
+            "high_reinforces": 0.3944954128440367,
+            "high_opposes": 0.7394366197183098,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 23.480988044500002,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": -0.01685859199999995,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.24827227498869292,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2152777777777778,
+            "low_pressure": 0.23370726495726493,
+            "high_reinforces": 0.4285714285714286,
+            "high_opposes": 0.3061224489795918,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 22.4804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": -0.01810465299999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "43_normal_before_intervention": {
+      "seed": 43,
+      "withdrawal": false,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            115,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 118,
+            "runs": 3,
+            "completed_runs": 1,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 34.0,
+            "mean_completed_run_seconds": 34.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2809921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.2702405764787617,
+            "high_reinforces": 0.2566371681415929,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 31.983994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.265819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.23290598290598288,
+            "high_reinforces": 0.4042553191489362,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 31.959969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.2091102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.1678589609624092,
+            "high_reinforces": 0.21348314606741575,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 31.981906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.24649122807017543,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.2495726495726496,
+            "high_reinforces": 0.2909090909090909,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 31.980983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.23226768968456946,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21453736522229672,
+            "high_reinforces": 0.31125827814569534,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 31.9579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24767025089605732,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.2459074687900839,
+            "high_reinforces": 0.26041666666666663,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 31.974888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.649952380952381,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5722610722610723,
+            "high_reinforces": 0.7110091743119266,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 32.9809880445,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2682722749886929,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.24786324786324782,
+            "high_reinforces": 0.3809523809523809,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 31.9804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "43_normal_full_intervention_run": {
+      "seed": 43,
+      "withdrawal": false,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            289,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 3,
+            "runs": 3,
+            "completed_runs": 3,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 295,
+            "runs": 6,
+            "completed_runs": 4,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 48.5,
+            "mean_completed_run_seconds": 51.25,
+            "unchanged_midpoint_fraction": 0.9966101694915255
+          },
+          "high_reinforces": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 2,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.5
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2809921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.27032779085169034,
+            "high_reinforces": 0.2566371681415929,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 46.483994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.265819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.23299319727891155,
+            "high_reinforces": 0.4042553191489362,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 46.459969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.2091102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.16794617533533787,
+            "high_reinforces": 0.21348314606741575,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 46.481906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.24649122807017543,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.24965986394557824,
+            "high_reinforces": 0.2909090909090909,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 46.4809834895,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.23226768968456948,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21462457959522538,
+            "high_reinforces": 0.31125827814569534,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 46.4579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24767025089605732,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.24599468316301257,
+            "high_reinforces": 0.26041666666666663,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 46.474888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6516190476190477,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5740053597196454,
+            "high_reinforces": 0.7110091743119266,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 47.4809880445,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2682722749886929,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.24795046223617648,
+            "high_reinforces": 0.3809523809523809,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 46.4804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "43_withdrawal_before_intervention": {
+      "seed": 43,
+      "withdrawal": true,
+      "segment": "before_intervention",
+      "summary": {
+        "windows": 120,
+        "eligible_transitions": 119,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            115,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 118,
+            "runs": 3,
+            "completed_runs": 1,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 34.0,
+            "mean_completed_run_seconds": 34.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_opposes": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2809921962095875,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.2702405764787617,
+            "high_reinforces": 0.2566371681415929,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 31.983994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.265819209039548,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.23290598290598288,
+            "high_reinforces": 0.4042553191489362,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 31.959969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.2091102985984156,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.1678589609624092,
+            "high_reinforces": 0.21348314606741575,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 31.981906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.24649122807017543,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.2495726495726496,
+            "high_reinforces": 0.2909090909090909,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 31.980983489499998,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.23226768968456946,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21453736522229672,
+            "high_reinforces": 0.31125827814569534,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 31.9579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24767025089605732,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.2459074687900839,
+            "high_reinforces": 0.26041666666666663,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 31.974888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.649952380952381,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5722610722610723,
+            "high_reinforces": 0.7110091743119266,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 32.9809880445,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.2682722749886929,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.24786324786324782,
+            "high_reinforces": 0.3809523809523809,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 31.9804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": null,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    },
+    "43_withdrawal_full_intervention_run": {
+      "seed": 43,
+      "withdrawal": true,
+      "segment": "full_intervention_run",
+      "summary": {
+        "windows": 300,
+        "eligible_transitions": 299,
+        "excluded_boundaries": 0,
+        "contiguous_segments": 1,
+        "transition_counts": [
+          [
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            286,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 3,
+            "runs": 3,
+            "completed_runs": 3,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 293,
+            "runs": 7,
+            "completed_runs": 5,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 42.0,
+            "mean_completed_run_seconds": 40.6,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "high_reinforces": {
+            "windows": 3,
+            "runs": 3,
+            "completed_runs": 3,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.6666666666666666
+          },
+          "high_opposes": {
+            "windows": 1,
+            "runs": 1,
+            "completed_runs": 1,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": 1.0,
+            "mean_completed_run_seconds": 1.0,
+            "unchanged_midpoint_fraction": 0.0
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "comparisons": {
+        "2026-05-25_00": {
+          "occupancy_total_variation": 0.2743255295429209,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.20930232558139536,
+            "low_pressure": 0.2667866483672994,
+            "high_reinforces": 0.28023598820059,
+            "high_opposes": 0.2727272727272727,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012340293999999918,
+            "low_pressure": 39.983994058,
+            "high_reinforces": -0.01578925099999995,
+            "high_opposes": -0.011840607999999975,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_04": {
+          "occupancy_total_variation": 0.2591525423728813,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3548387096774194,
+            "low_pressure": 0.22945205479452058,
+            "high_reinforces": 0.3191489361702128,
+            "high_opposes": 0.19999999999999996,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012099335999999905,
+            "low_pressure": 39.959969169,
+            "high_reinforces": -0.014000840000000014,
+            "high_opposes": -0.01547598799999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_12": {
+          "occupancy_total_variation": 0.20244363193174897,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.2678571428571429,
+            "low_pressure": 0.16440503285094688,
+            "high_reinforces": 0.32209737827715357,
+            "high_opposes": 0.1818181818181818,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012961256999999948,
+            "low_pressure": 39.981906437,
+            "high_reinforces": -0.012445111499999939,
+            "high_opposes": -0.015122299499999992,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-25_18": {
+          "occupancy_total_variation": 0.23982456140350883,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.25333333333333335,
+            "low_pressure": 0.24611872146118727,
+            "high_reinforces": 0.33333333333333337,
+            "high_opposes": 0.16666666666666663,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.014047847999999918,
+            "low_pressure": 39.9809834895,
+            "high_reinforces": -0.019723546000000036,
+            "high_opposes": -0.01746718299999994,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_03": {
+          "occupancy_total_variation": 0.2256010230179028,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.24137931034482762,
+            "low_pressure": 0.21108343711083438,
+            "high_reinforces": 0.22737306843267108,
+            "high_opposes": 0.25925925925925924,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.010088418999999904,
+            "low_pressure": 39.9579711855,
+            "high_reinforces": -0.016040602999999987,
+            "high_opposes": -0.015129276999999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_09": {
+          "occupancy_total_variation": 0.24100358422939072,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.27731092436974786,
+            "low_pressure": 0.24245354067862157,
+            "high_reinforces": 0.28125,
+            "high_opposes": 0.23529411764705888,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012354311500000215,
+            "low_pressure": 39.974888351,
+            "high_reinforces": -0.01564559700000001,
+            "high_opposes": -0.010118035999999941,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_15": {
+          "occupancy_total_variation": 0.6449523809523809,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.0,
+            "low_pressure": 0.5705341082053411,
+            "high_reinforces": 0.39449541284403666,
+            "high_opposes": 0.7394366197183098,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.02065724499999999,
+            "low_pressure": 40.9809880445,
+            "high_reinforces": -0.02439305100000011,
+            "high_opposes": -0.01685859199999995,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        },
+        "2026-05-26_21": {
+          "occupancy_total_variation": 0.26160560832202623,
+          "transition_row_total_variation": {
+            "no_signed_flow": 0.3055555555555556,
+            "low_pressure": 0.24440931975178548,
+            "high_reinforces": 0.3095238095238095,
+            "high_opposes": 0.3061224489795918,
+            "high_neutral": null
+          },
+          "observed_run_median_difference_seconds": {
+            "no_signed_flow": -0.012447510000000106,
+            "low_pressure": 39.9804080005,
+            "high_reinforces": -0.01400785800000004,
+            "high_opposes": -0.01810465299999997,
+            "high_neutral": null
+          },
+          "interpretation": "Distances 0=matching empirical proportions, 1=disjoint. Sparse rows and unequal coverage limit inference. No pass/fail tolerance has been validated."
+        }
+      }
+    }
+  },
+  "config_sha256": "f9446460148c05679a61e307802587344c6305aabfc11e6d1f69362804f1fd00",
+  "reference_sha256": "d30360a506c04c3bd5df00afef8a138ced10f9c723c74cb00114e6dc2315f405",
+  "limitations": [
+    "Background flow, maker posting/reductions and intervention parameters remain assumed, not fitted.",
+    "Pre-intervention normal and withdrawal runs share identical flow and behavior and are not independent replications.",
+    "Synthetic snapshots are captured per method call; observed real data contains received L2 bundles. Event aggregation and timing differ.",
+    "Regime definitions use matched quantity units and near-touch bands, but unknown real deeper liquidity, coverage and timing differ.",
+    "Forced shock/withdrawal runs are counterfactual stress demonstrations, not samples from natural historical frequencies.",
+    "Distances are descriptive; no statistically validated equivalence tolerance, event simulator qualification or profitable policy is established."
+  ]
+}

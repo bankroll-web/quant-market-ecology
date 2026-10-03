@@ -1,0 +1,1712 @@
+{
+  "status": "observed_regime_dynamics_not_validated_simulator",
+  "training_hour": "2026-05-25_00",
+  "states": [
+    "no_signed_flow",
+    "low_pressure",
+    "high_reinforces",
+    "high_opposes",
+    "high_neutral"
+  ],
+  "pressure_cut": 0.0010578000616062236,
+  "model": {
+    "markov": [
+      [
+        0.07692307692307693,
+        0.7582417582417582,
+        0.12087912087912088,
+        0.03296703296703297,
+        0.01098901098901099
+      ],
+      [
+        0.07055503292568203,
+        0.7102539981185324,
+        0.1495766698024459,
+        0.06867356538099718,
+        0.0009407337723424271
+      ],
+      [
+        0.03896103896103896,
+        0.7316017316017316,
+        0.16883116883116883,
+        0.05627705627705628,
+        0.004329004329004329
+      ],
+      [
+        0.07526881720430108,
+        0.6989247311827957,
+        0.1827956989247312,
+        0.03225806451612903,
+        0.010752688172043012
+      ],
+      [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    ],
+    "iid": [
+      0.06493506493506493,
+      0.721120984278879,
+      0.15242652084757347,
+      0.060833902939166094,
+      0.000683526999316473
+    ],
+    "dirichlet_alpha_per_cell": 0.5
+  },
+  "input_sha256": {
+    "2026-05-25_00": "9134d5235f8c06aaeb83371f667656d9e93854ee01c473c7cecff60b2aec865f",
+    "2026-05-25_04": "4669363474b12f980b9ae418f73ecf9681cb723ef4755188a6a2042b8a0b8b42",
+    "2026-05-25_12": "c5e156004010cf1a614dc393bfd683caba1832629a1f9c17bb7589130f3e8a68",
+    "2026-05-25_18": "03b357c8b6de0f9acb70b308d1060efd3d79188aeba17fff773d411439774e90",
+    "2026-05-26_03": "7f828db5f95e1a57aa6a04383b60450f7817d22f86dfd482fbfafcf213e29e85",
+    "2026-05-26_09": "928cd1d48c0d30b394f7f5bca0c615d719c038707596c7a0ea3179153d2bffd0",
+    "2026-05-26_15": "0f975c389de9c8bfd2a89f7d27781ac0d48d4bc7d1fc97fc37286c0880fa5e1b",
+    "2026-05-26_21": "c373c0605709ce163263c120adfcfb4bd410210bf61d6bc34eda99467f8681cb"
+  },
+  "results": {
+    "2026-05-25_00": {
+      "summary": {
+        "windows": 897,
+        "eligible_transitions": 729,
+        "excluded_boundaries": 167,
+        "contiguous_segments": 168,
+        "transition_counts": [
+          [
+            3,
+            34,
+            5,
+            1,
+            0
+          ],
+          [
+            37,
+            377,
+            79,
+            36,
+            0
+          ],
+          [
+            4,
+            84,
+            19,
+            6,
+            0
+          ],
+          [
+            3,
+            32,
+            8,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 57,
+            "runs": 54,
+            "completed_runs": 37,
+            "boundary_censored_runs": 17,
+            "median_observed_run_seconds": 1.012340294,
+            "mean_completed_run_seconds": 1.0936872857567568,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 630,
+            "runs": 253,
+            "completed_runs": 104,
+            "boundary_censored_runs": 149,
+            "median_observed_run_seconds": 2.016005942,
+            "mean_completed_run_seconds": 2.7233898172211535,
+            "unchanged_midpoint_fraction": 0.9047619047619048
+          },
+          "high_reinforces": {
+            "windows": 148,
+            "runs": 129,
+            "completed_runs": 72,
+            "boundary_censored_runs": 57,
+            "median_observed_run_seconds": 1.015789251,
+            "mean_completed_run_seconds": 1.2296230078194443,
+            "unchanged_midpoint_fraction": 0.40540540540540543
+          },
+          "high_opposes": {
+            "windows": 62,
+            "runs": 61,
+            "completed_runs": 32,
+            "boundary_censored_runs": 29,
+            "median_observed_run_seconds": 1.011840608,
+            "mean_completed_run_seconds": 1.048047990875,
+            "unchanged_midpoint_fraction": 0.5645161290322581
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 729,
+        "markov_log_loss_bits": 1.2492098937841374,
+        "iid_log_loss_bits": 1.252312474029356,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.00310258024521864,
+          "lower": -0.002582433871815532,
+          "upper": 0.009569592841917806,
+          "blocks": 35
+        }
+      },
+      "fresh_summary": {
+        "windows": 807,
+        "eligible_transitions": 621,
+        "excluded_boundaries": 185,
+        "contiguous_segments": 186,
+        "transition_counts": [
+          [
+            3,
+            32,
+            5,
+            1,
+            0
+          ],
+          [
+            35,
+            344,
+            59,
+            29,
+            0
+          ],
+          [
+            2,
+            66,
+            12,
+            3,
+            0
+          ],
+          [
+            2,
+            22,
+            5,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 56,
+            "runs": 53,
+            "completed_runs": 31,
+            "boundary_censored_runs": 22,
+            "median_observed_run_seconds": 1.012495402,
+            "mean_completed_run_seconds": 1.0776063453870965,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 588,
+            "runs": 244,
+            "completed_runs": 69,
+            "boundary_censored_runs": 175,
+            "median_observed_run_seconds": 2.0147061805,
+            "mean_completed_run_seconds": 2.667484626376811,
+            "unchanged_midpoint_fraction": 0.9132653061224489
+          },
+          "high_reinforces": {
+            "windows": 117,
+            "runs": 105,
+            "completed_runs": 51,
+            "boundary_censored_runs": 54,
+            "median_observed_run_seconds": 1.014306245,
+            "mean_completed_run_seconds": 1.192880668490196,
+            "unchanged_midpoint_fraction": 0.49572649572649574
+          },
+          "high_opposes": {
+            "windows": 46,
+            "runs": 45,
+            "completed_runs": 21,
+            "boundary_censored_runs": 24,
+            "median_observed_run_seconds": 1.010087478,
+            "mean_completed_run_seconds": 1.0583779795238095,
+            "unchanged_midpoint_fraction": 0.6304347826086957
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 621,
+        "markov_log_loss_bits": 1.1914889871098844,
+        "iid_log_loss_bits": 1.1943494427308026,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.0028604556209181724,
+          "lower": -0.0034664682425123074,
+          "upper": 0.009512391131162071,
+          "blocks": 33
+        }
+      }
+    },
+    "2026-05-25_04": {
+      "summary": {
+        "windows": 531,
+        "eligible_transitions": 461,
+        "excluded_boundaries": 69,
+        "contiguous_segments": 70,
+        "transition_counts": [
+          [
+            14,
+            40,
+            4,
+            4,
+            0
+          ],
+          [
+            41,
+            249,
+            31,
+            11,
+            0
+          ],
+          [
+            7,
+            28,
+            8,
+            4,
+            0
+          ],
+          [
+            1,
+            16,
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 70,
+            "runs": 56,
+            "completed_runs": 43,
+            "boundary_censored_runs": 13,
+            "median_observed_run_seconds": 1.012099336,
+            "mean_completed_run_seconds": 1.2460595733953488,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 381,
+            "runs": 132,
+            "completed_runs": 57,
+            "boundary_censored_runs": 75,
+            "median_observed_run_seconds": 2.040030831,
+            "mean_completed_run_seconds": 3.34138329791228,
+            "unchanged_midpoint_fraction": 0.952755905511811
+          },
+          "high_reinforces": {
+            "windows": 51,
+            "runs": 43,
+            "completed_runs": 34,
+            "boundary_censored_runs": 9,
+            "median_observed_run_seconds": 1.01400084,
+            "mean_completed_run_seconds": 1.1959501113823532,
+            "unchanged_midpoint_fraction": 0.5098039215686274
+          },
+          "high_opposes": {
+            "windows": 29,
+            "runs": 27,
+            "completed_runs": 13,
+            "boundary_censored_runs": 14,
+            "median_observed_run_seconds": 1.015475988,
+            "mean_completed_run_seconds": 1.095196079230769,
+            "unchanged_midpoint_fraction": 0.5862068965517241
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 461,
+        "markov_log_loss_bits": 1.3313816278928523,
+        "iid_log_loss_bits": 1.3228290510829082,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.008552576809943922,
+          "lower": -0.02328257339388507,
+          "upper": 0.004229766652589324,
+          "blocks": 17
+        }
+      },
+      "fresh_summary": {
+        "windows": 501,
+        "eligible_transitions": 422,
+        "excluded_boundaries": 78,
+        "contiguous_segments": 79,
+        "transition_counts": [
+          [
+            14,
+            37,
+            2,
+            3,
+            0
+          ],
+          [
+            41,
+            239,
+            25,
+            10,
+            0
+          ],
+          [
+            3,
+            23,
+            6,
+            3,
+            0
+          ],
+          [
+            1,
+            13,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 68,
+            "runs": 54,
+            "completed_runs": 36,
+            "boundary_censored_runs": 18,
+            "median_observed_run_seconds": 1.012099336,
+            "mean_completed_run_seconds": 1.1231327275000003,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 370,
+            "runs": 131,
+            "completed_runs": 46,
+            "boundary_censored_runs": 85,
+            "median_observed_run_seconds": 2.0320534840000004,
+            "mean_completed_run_seconds": 3.4789945862391307,
+            "unchanged_midpoint_fraction": 0.9648648648648649
+          },
+          "high_reinforces": {
+            "windows": 40,
+            "runs": 34,
+            "completed_runs": 25,
+            "boundary_censored_runs": 9,
+            "median_observed_run_seconds": 1.014803547,
+            "mean_completed_run_seconds": 1.1331462056,
+            "unchanged_midpoint_fraction": 0.6
+          },
+          "high_opposes": {
+            "windows": 23,
+            "runs": 22,
+            "completed_runs": 12,
+            "boundary_censored_runs": 10,
+            "median_observed_run_seconds": 1.0147996645,
+            "mean_completed_run_seconds": 1.10195186575,
+            "unchanged_midpoint_fraction": 0.6956521739130435
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 422,
+        "markov_log_loss_bits": 1.2785143505067587,
+        "iid_log_loss_bits": 1.2816238686011794,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.0031095180944205247,
+          "lower": -0.0066963566601342915,
+          "upper": 0.016706452324180797,
+          "blocks": 16
+        }
+      }
+    },
+    "2026-05-25_12": {
+      "summary": {
+        "windows": 1094,
+        "eligible_transitions": 816,
+        "excluded_boundaries": 277,
+        "contiguous_segments": 278,
+        "transition_counts": [
+          [
+            6,
+            41,
+            9,
+            0,
+            0
+          ],
+          [
+            39,
+            520,
+            58,
+            21,
+            0
+          ],
+          [
+            5,
+            70,
+            13,
+            1,
+            0
+          ],
+          [
+            1,
+            27,
+            3,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 76,
+            "runs": 70,
+            "completed_runs": 30,
+            "boundary_censored_runs": 40,
+            "median_observed_run_seconds": 1.012961257,
+            "mean_completed_run_seconds": 1.0783804710666665,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 847,
+            "runs": 327,
+            "completed_runs": 52,
+            "boundary_censored_runs": 275,
+            "median_observed_run_seconds": 2.018093563,
+            "mean_completed_run_seconds": 3.082543658480769,
+            "unchanged_midpoint_fraction": 0.9468713105076741
+          },
+          "high_reinforces": {
+            "windows": 127,
+            "runs": 114,
+            "completed_runs": 49,
+            "boundary_censored_runs": 65,
+            "median_observed_run_seconds": 1.0124451115,
+            "mean_completed_run_seconds": 1.19963508877551,
+            "unchanged_midpoint_fraction": 0.5984251968503937
+          },
+          "high_opposes": {
+            "windows": 44,
+            "runs": 42,
+            "completed_runs": 17,
+            "boundary_censored_runs": 25,
+            "median_observed_run_seconds": 1.0151222995,
+            "mean_completed_run_seconds": 1.0722900146470586,
+            "unchanged_midpoint_fraction": 0.6363636363636364
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 816,
+        "markov_log_loss_bits": 1.0286943842162548,
+        "iid_log_loss_bits": 1.021739933223451,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.006954450992804079,
+          "lower": -0.01468201431449284,
+          "upper": -1.6777710494358726e-05,
+          "blocks": 33
+        }
+      },
+      "fresh_summary": {
+        "windows": 894,
+        "eligible_transitions": 616,
+        "excluded_boundaries": 277,
+        "contiguous_segments": 278,
+        "transition_counts": [
+          [
+            6,
+            36,
+            7,
+            0,
+            0
+          ],
+          [
+            35,
+            413,
+            35,
+            12,
+            0
+          ],
+          [
+            2,
+            45,
+            8,
+            0,
+            0
+          ],
+          [
+            1,
+            15,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 68,
+            "runs": 62,
+            "completed_runs": 25,
+            "boundary_censored_runs": 37,
+            "median_observed_run_seconds": 1.0124434084999998,
+            "mean_completed_run_seconds": 1.09095666248,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 715,
+            "runs": 302,
+            "completed_runs": 30,
+            "boundary_censored_runs": 272,
+            "median_observed_run_seconds": 2.0159672239999997,
+            "mean_completed_run_seconds": 2.3280492096999996,
+            "unchanged_midpoint_fraction": 0.965034965034965
+          },
+          "high_reinforces": {
+            "windows": 85,
+            "runs": 77,
+            "completed_runs": 26,
+            "boundary_censored_runs": 51,
+            "median_observed_run_seconds": 1.008426196,
+            "mean_completed_run_seconds": 1.3213290551538461,
+            "unchanged_midpoint_fraction": 0.7058823529411765
+          },
+          "high_opposes": {
+            "windows": 26,
+            "runs": 26,
+            "completed_runs": 8,
+            "boundary_censored_runs": 18,
+            "median_observed_run_seconds": 1.0107702299999999,
+            "mean_completed_run_seconds": 1.0112336177499999,
+            "unchanged_midpoint_fraction": 0.6538461538461539
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 616,
+        "markov_log_loss_bits": 0.9773899745190088,
+        "iid_log_loss_bits": 0.9748938752688137,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.002496099250195275,
+          "lower": -0.008651804836984673,
+          "upper": 0.003018545025116525,
+          "blocks": 33
+        }
+      }
+    },
+    "2026-05-25_18": {
+      "summary": {
+        "windows": 1140,
+        "eligible_transitions": 847,
+        "excluded_boundaries": 292,
+        "contiguous_segments": 293,
+        "transition_counts": [
+          [
+            32,
+            112,
+            4,
+            2,
+            0
+          ],
+          [
+            118,
+            462,
+            40,
+            10,
+            0
+          ],
+          [
+            6,
+            39,
+            10,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 213,
+            "runs": 181,
+            "completed_runs": 82,
+            "boundary_censored_runs": 99,
+            "median_observed_run_seconds": 1.014047848,
+            "mean_completed_run_seconds": 1.1644470504268294,
+            "unchanged_midpoint_fraction": 0.9859154929577465
+          },
+          "low_pressure": {
+            "windows": 840,
+            "runs": 378,
+            "completed_runs": 71,
+            "boundary_censored_runs": 307,
+            "median_observed_run_seconds": 2.0190165105,
+            "mean_completed_run_seconds": 1.9848767741830984,
+            "unchanged_midpoint_fraction": 0.9809523809523809
+          },
+          "high_reinforces": {
+            "windows": 70,
+            "runs": 60,
+            "completed_runs": 34,
+            "boundary_censored_runs": 26,
+            "median_observed_run_seconds": 1.019723546,
+            "mean_completed_run_seconds": 1.2865942477058825,
+            "unchanged_midpoint_fraction": 0.5428571428571428
+          },
+          "high_opposes": {
+            "windows": 17,
+            "runs": 17,
+            "completed_runs": 8,
+            "boundary_censored_runs": 9,
+            "median_observed_run_seconds": 1.017467183,
+            "mean_completed_run_seconds": 1.0164081564999998,
+            "unchanged_midpoint_fraction": 0.7647058823529411
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 847,
+        "markov_log_loss_bits": 1.291932046699749,
+        "iid_log_loss_bits": 1.310153643104054,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.018221596404305034,
+          "lower": 0.009895800678638135,
+          "upper": 0.026686440229988544,
+          "blocks": 32
+        }
+      },
+      "fresh_summary": {
+        "windows": 947,
+        "eligible_transitions": 632,
+        "excluded_boundaries": 314,
+        "contiguous_segments": 315,
+        "transition_counts": [
+          [
+            22,
+            88,
+            3,
+            1,
+            0
+          ],
+          [
+            92,
+            361,
+            24,
+            4,
+            0
+          ],
+          [
+            2,
+            22,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 180,
+            "runs": 158,
+            "completed_runs": 56,
+            "boundary_censored_runs": 102,
+            "median_observed_run_seconds": 1.0136597115,
+            "mean_completed_run_seconds": 1.1412472954107142,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 710,
+            "runs": 349,
+            "completed_runs": 39,
+            "boundary_censored_runs": 310,
+            "median_observed_run_seconds": 1.032685245,
+            "mean_completed_run_seconds": 1.947129053102564,
+            "unchanged_midpoint_fraction": 0.9915492957746479
+          },
+          "high_reinforces": {
+            "windows": 47,
+            "runs": 41,
+            "completed_runs": 15,
+            "boundary_censored_runs": 26,
+            "median_observed_run_seconds": 1.012440302,
+            "mean_completed_run_seconds": 1.283671839733333,
+            "unchanged_midpoint_fraction": 0.723404255319149
+          },
+          "high_opposes": {
+            "windows": 10,
+            "runs": 10,
+            "completed_runs": 2,
+            "boundary_censored_runs": 8,
+            "median_observed_run_seconds": 1.0176274525,
+            "mean_completed_run_seconds": 1.0173768125,
+            "unchanged_midpoint_fraction": 0.8
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 632,
+        "markov_log_loss_bits": 1.237634589570613,
+        "iid_log_loss_bits": 1.2580106861114118,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.020376096540798947,
+          "lower": 0.013422863315504489,
+          "upper": 0.026224148713934574,
+          "blocks": 31
+        }
+      }
+    },
+    "2026-05-26_03": {
+      "summary": {
+        "windows": 1173,
+        "eligible_transitions": 1066,
+        "excluded_boundaries": 106,
+        "contiguous_segments": 107,
+        "transition_counts": [
+          [
+            5,
+            44,
+            7,
+            2,
+            0
+          ],
+          [
+            47,
+            617,
+            108,
+            31,
+            0
+          ],
+          [
+            5,
+            104,
+            26,
+            16,
+            0
+          ],
+          [
+            1,
+            40,
+            10,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 62,
+            "runs": 57,
+            "completed_runs": 50,
+            "boundary_censored_runs": 7,
+            "median_observed_run_seconds": 1.010088419,
+            "mean_completed_run_seconds": 1.1133971481,
+            "unchanged_midpoint_fraction": 0.9838709677419355
+          },
+          "low_pressure": {
+            "windows": 881,
+            "runs": 264,
+            "completed_runs": 137,
+            "boundary_censored_runs": 127,
+            "median_observed_run_seconds": 2.0420288145,
+            "mean_completed_run_seconds": 3.4053626294744523,
+            "unchanged_midpoint_fraction": 0.9284903518728718
+          },
+          "high_reinforces": {
+            "windows": 173,
+            "runs": 147,
+            "completed_runs": 106,
+            "boundary_censored_runs": 41,
+            "median_observed_run_seconds": 1.016040603,
+            "mean_completed_run_seconds": 1.2075548252169812,
+            "unchanged_midpoint_fraction": 0.3988439306358382
+          },
+          "high_opposes": {
+            "windows": 57,
+            "runs": 54,
+            "completed_runs": 46,
+            "boundary_censored_runs": 8,
+            "median_observed_run_seconds": 1.015129277,
+            "mean_completed_run_seconds": 1.061643980543478,
+            "unchanged_midpoint_fraction": 0.6140350877192983
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 1066,
+        "markov_log_loss_bits": 1.1581890576329812,
+        "iid_log_loss_bits": 1.1522725795840552,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.005916478048926393,
+          "lower": -0.010636578240793532,
+          "upper": -0.0007275316862396545,
+          "blocks": 35
+        }
+      },
+      "fresh_summary": {
+        "windows": 1082,
+        "eligible_transitions": 935,
+        "excluded_boundaries": 146,
+        "contiguous_segments": 147,
+        "transition_counts": [
+          [
+            5,
+            43,
+            5,
+            2,
+            0
+          ],
+          [
+            45,
+            587,
+            80,
+            24,
+            0
+          ],
+          [
+            3,
+            82,
+            13,
+            6,
+            0
+          ],
+          [
+            1,
+            31,
+            6,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 59,
+            "runs": 54,
+            "completed_runs": 45,
+            "boundary_censored_runs": 9,
+            "median_observed_run_seconds": 1.010081965,
+            "mean_completed_run_seconds": 1.1242201491777777,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 848,
+            "runs": 261,
+            "completed_runs": 97,
+            "boundary_censored_runs": 164,
+            "median_observed_run_seconds": 2.038361559,
+            "mean_completed_run_seconds": 3.0103739571237114,
+            "unchanged_midpoint_fraction": 0.9363207547169812
+          },
+          "high_reinforces": {
+            "windows": 131,
+            "runs": 118,
+            "completed_runs": 71,
+            "boundary_censored_runs": 47,
+            "median_observed_run_seconds": 1.0165010655,
+            "mean_completed_run_seconds": 1.156508025633803,
+            "unchanged_midpoint_fraction": 0.4961832061068702
+          },
+          "high_opposes": {
+            "windows": 44,
+            "runs": 42,
+            "completed_runs": 29,
+            "boundary_censored_runs": 13,
+            "median_observed_run_seconds": 1.0176715525,
+            "mean_completed_run_seconds": 1.052664340862069,
+            "unchanged_midpoint_fraction": 0.7045454545454546
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 935,
+        "markov_log_loss_bits": 1.0570129858007937,
+        "iid_log_loss_bits": 1.0513878500687657,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.00562513573202795,
+          "lower": -0.011181125558875153,
+          "upper": -0.00027810337960386405,
+          "blocks": 33
+        }
+      }
+    },
+    "2026-05-26_09": {
+      "summary": {
+        "windows": 1116,
+        "eligible_transitions": 922,
+        "excluded_boundaries": 193,
+        "contiguous_segments": 194,
+        "transition_counts": [
+          [
+            23,
+            86,
+            9,
+            1,
+            0
+          ],
+          [
+            81,
+            496,
+            67,
+            29,
+            0
+          ],
+          [
+            8,
+            71,
+            12,
+            5,
+            0
+          ],
+          [
+            4,
+            26,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 137,
+            "runs": 114,
+            "completed_runs": 79,
+            "boundary_censored_runs": 35,
+            "median_observed_run_seconds": 1.0123543115000002,
+            "mean_completed_run_seconds": 1.2276779837468355,
+            "unchanged_midpoint_fraction": 0.9854014598540146
+          },
+          "low_pressure": {
+            "windows": 821,
+            "runs": 325,
+            "completed_runs": 105,
+            "boundary_censored_runs": 220,
+            "median_observed_run_seconds": 2.025111649,
+            "mean_completed_run_seconds": 2.6615439991523817,
+            "unchanged_midpoint_fraction": 0.9561510353227771
+          },
+          "high_reinforces": {
+            "windows": 119,
+            "runs": 107,
+            "completed_runs": 63,
+            "boundary_censored_runs": 44,
+            "median_observed_run_seconds": 1.015645597,
+            "mean_completed_run_seconds": 1.110313232015873,
+            "unchanged_midpoint_fraction": 0.46218487394957986
+          },
+          "high_opposes": {
+            "windows": 39,
+            "runs": 39,
+            "completed_runs": 31,
+            "boundary_censored_runs": 8,
+            "median_observed_run_seconds": 1.010118036,
+            "mean_completed_run_seconds": 1.0160172967096774,
+            "unchanged_midpoint_fraction": 0.717948717948718
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 922,
+        "markov_log_loss_bits": 1.2596092246651645,
+        "iid_log_loss_bits": 1.2678027341779885,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.008193509512823997,
+          "lower": 1.274206465102962e-06,
+          "upper": 0.016383465216257578,
+          "blocks": 31
+        }
+      },
+      "fresh_summary": {
+        "windows": 950,
+        "eligible_transitions": 712,
+        "excluded_boundaries": 237,
+        "contiguous_segments": 238,
+        "transition_counts": [
+          [
+            19,
+            73,
+            6,
+            1,
+            0
+          ],
+          [
+            71,
+            393,
+            48,
+            18,
+            0
+          ],
+          [
+            7,
+            46,
+            4,
+            4,
+            0
+          ],
+          [
+            2,
+            18,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 123,
+            "runs": 104,
+            "completed_runs": 62,
+            "boundary_censored_runs": 42,
+            "median_observed_run_seconds": 1.0100923750000002,
+            "mean_completed_run_seconds": 1.221748046774194,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 713,
+            "runs": 320,
+            "completed_runs": 66,
+            "boundary_censored_runs": 254,
+            "median_observed_run_seconds": 2.0124149669999998,
+            "mean_completed_run_seconds": 2.4823834501515156,
+            "unchanged_midpoint_fraction": 0.9593267882187938
+          },
+          "high_reinforces": {
+            "windows": 84,
+            "runs": 80,
+            "completed_runs": 40,
+            "boundary_censored_runs": 40,
+            "median_observed_run_seconds": 1.0150873255000001,
+            "mean_completed_run_seconds": 1.01224600645,
+            "unchanged_midpoint_fraction": 0.5952380952380952
+          },
+          "high_opposes": {
+            "windows": 30,
+            "runs": 30,
+            "completed_runs": 17,
+            "boundary_censored_runs": 13,
+            "median_observed_run_seconds": 1.00934716,
+            "mean_completed_run_seconds": 1.010648807235294,
+            "unchanged_midpoint_fraction": 0.7333333333333333
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 712,
+        "markov_log_loss_bits": 1.2519793302149753,
+        "iid_log_loss_bits": 1.2587926658838249,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.006813335668849375,
+          "lower": -0.002574775253974758,
+          "upper": 0.015292465999205926,
+          "blocks": 29
+        }
+      }
+    },
+    "2026-05-26_15": {
+      "summary": {
+        "windows": 875,
+        "eligible_transitions": 560,
+        "excluded_boundaries": 314,
+        "contiguous_segments": 315,
+        "transition_counts": [
+          [
+            0,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            82,
+            72,
+            43,
+            0
+          ],
+          [
+            1,
+            63,
+            85,
+            69,
+            0
+          ],
+          [
+            1,
+            37,
+            69,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 3,
+            "runs": 3,
+            "completed_runs": 2,
+            "boundary_censored_runs": 1,
+            "median_observed_run_seconds": 1.020657245,
+            "mean_completed_run_seconds": 1.013786045,
+            "unchanged_midpoint_fraction": 0.6666666666666666
+          },
+          "low_pressure": {
+            "windows": 296,
+            "runs": 214,
+            "completed_runs": 53,
+            "boundary_censored_runs": 161,
+            "median_observed_run_seconds": 1.0190119555,
+            "mean_completed_run_seconds": 1.4633662706415096,
+            "unchanged_midpoint_fraction": 0.7972972972972973
+          },
+          "high_reinforces": {
+            "windows": 345,
+            "runs": 260,
+            "completed_runs": 79,
+            "boundary_censored_runs": 181,
+            "median_observed_run_seconds": 1.024393051,
+            "mean_completed_run_seconds": 1.245024204341772,
+            "unchanged_midpoint_fraction": 0.32753623188405795
+          },
+          "high_opposes": {
+            "windows": 231,
+            "runs": 196,
+            "completed_runs": 65,
+            "boundary_censored_runs": 131,
+            "median_observed_run_seconds": 1.016858592,
+            "mean_completed_run_seconds": 1.3028746464307694,
+            "unchanged_midpoint_fraction": 0.4329004329004329
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 560,
+        "markov_log_loss_bits": 2.3423091446248923,
+        "iid_log_loss_bits": 2.3315662349591317,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.010742909665760459,
+          "lower": -0.03346400695267659,
+          "upper": 0.010098328827960187,
+          "blocks": 36
+        }
+      },
+      "fresh_summary": {
+        "windows": 350,
+        "eligible_transitions": 163,
+        "excluded_boundaries": 186,
+        "contiguous_segments": 187,
+        "transition_counts": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            41,
+            28,
+            14,
+            0
+          ],
+          [
+            0,
+            28,
+            12,
+            12,
+            0
+          ],
+          [
+            0,
+            10,
+            12,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 2,
+            "runs": 2,
+            "completed_runs": 0,
+            "boundary_censored_runs": 2,
+            "median_observed_run_seconds": 1.0150421325,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 165,
+            "runs": 124,
+            "completed_runs": 12,
+            "boundary_censored_runs": 112,
+            "median_observed_run_seconds": 1.01601452,
+            "mean_completed_run_seconds": 1.5212707166666666,
+            "unchanged_midpoint_fraction": 0.8848484848484849
+          },
+          "high_reinforces": {
+            "windows": 114,
+            "runs": 102,
+            "completed_runs": 16,
+            "boundary_censored_runs": 86,
+            "median_observed_run_seconds": 1.017600163,
+            "mean_completed_run_seconds": 1.080788182,
+            "unchanged_midpoint_fraction": 0.5
+          },
+          "high_opposes": {
+            "windows": 69,
+            "runs": 65,
+            "completed_runs": 10,
+            "boundary_censored_runs": 55,
+            "median_observed_run_seconds": 1.014653165,
+            "mean_completed_run_seconds": 1.1152698216,
+            "unchanged_midpoint_fraction": 0.7681159420289855
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 163,
+        "markov_log_loss_bits": 1.858586394606592,
+        "iid_log_loss_bits": 1.8648316245633791,
+        "iid_minus_markov_loss_bits": {
+          "mean": 0.006245229956787589,
+          "lower": -0.02941636262932518,
+          "upper": 0.03416226945345333,
+          "blocks": 27
+        }
+      }
+    },
+    "2026-05-26_21": {
+      "summary": {
+        "windows": 1474,
+        "eligible_transitions": 1138,
+        "excluded_boundaries": 335,
+        "contiguous_segments": 336,
+        "transition_counts": [
+          [
+            27,
+            100,
+            13,
+            4,
+            0
+          ],
+          [
+            95,
+            602,
+            81,
+            41,
+            0
+          ],
+          [
+            18,
+            78,
+            21,
+            9,
+            0
+          ],
+          [
+            4,
+            34,
+            8,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 184,
+            "runs": 157,
+            "completed_runs": 90,
+            "boundary_censored_runs": 67,
+            "median_observed_run_seconds": 1.01244751,
+            "mean_completed_run_seconds": 1.2277816821999998,
+            "unchanged_midpoint_fraction": 0.9891304347826086
+          },
+          "low_pressure": {
+            "windows": 1054,
+            "runs": 452,
+            "completed_runs": 114,
+            "boundary_censored_runs": 338,
+            "median_observed_run_seconds": 2.0195919995000002,
+            "mean_completed_run_seconds": 2.4580990244122805,
+            "unchanged_midpoint_fraction": 0.9601518026565465
+          },
+          "high_reinforces": {
+            "windows": 164,
+            "runs": 143,
+            "completed_runs": 80,
+            "boundary_censored_runs": 63,
+            "median_observed_run_seconds": 1.014007858,
+            "mean_completed_run_seconds": 1.1972795787625,
+            "unchanged_midpoint_fraction": 0.43902439024390244
+          },
+          "high_opposes": {
+            "windows": 72,
+            "runs": 69,
+            "completed_runs": 36,
+            "boundary_censored_runs": 33,
+            "median_observed_run_seconds": 1.018104653,
+            "mean_completed_run_seconds": 1.0544544636666668,
+            "unchanged_midpoint_fraction": 0.6111111111111112
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "scores": {
+        "transitions": 1138,
+        "markov_log_loss_bits": 1.3337519883505597,
+        "iid_log_loss_bits": 1.3321912863872563,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.0015607019633035433,
+          "lower": -0.009205697475264327,
+          "upper": 0.005763722074235269,
+          "blocks": 42
+        }
+      },
+      "fresh_summary": {
+        "windows": 1182,
+        "eligible_transitions": 840,
+        "excluded_boundaries": 341,
+        "contiguous_segments": 342,
+        "transition_counts": [
+          [
+            25,
+            84,
+            8,
+            3,
+            0
+          ],
+          [
+            80,
+            475,
+            50,
+            23,
+            0
+          ],
+          [
+            15,
+            44,
+            7,
+            2,
+            0
+          ],
+          [
+            3,
+            17,
+            2,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "regimes": {
+          "no_signed_flow": {
+            "windows": 159,
+            "runs": 134,
+            "completed_runs": 72,
+            "boundary_censored_runs": 62,
+            "median_observed_run_seconds": 1.012900675,
+            "mean_completed_run_seconds": 1.16663451925,
+            "unchanged_midpoint_fraction": 1.0
+          },
+          "low_pressure": {
+            "windows": 881,
+            "runs": 406,
+            "completed_runs": 61,
+            "boundary_censored_runs": 345,
+            "median_observed_run_seconds": 1.0319684175,
+            "mean_completed_run_seconds": 2.3386002797540986,
+            "unchanged_midpoint_fraction": 0.9829738933030647
+          },
+          "high_reinforces": {
+            "windows": 100,
+            "runs": 93,
+            "completed_runs": 42,
+            "boundary_censored_runs": 51,
+            "median_observed_run_seconds": 1.012202003,
+            "mean_completed_run_seconds": 1.1335269802142858,
+            "unchanged_midpoint_fraction": 0.61
+          },
+          "high_opposes": {
+            "windows": 42,
+            "runs": 40,
+            "completed_runs": 14,
+            "boundary_censored_runs": 26,
+            "median_observed_run_seconds": 1.0181444725,
+            "mean_completed_run_seconds": 1.016888232857143,
+            "unchanged_midpoint_fraction": 0.7380952380952381
+          },
+          "high_neutral": {
+            "windows": 0,
+            "runs": 0,
+            "completed_runs": 0,
+            "boundary_censored_runs": 0,
+            "median_observed_run_seconds": null,
+            "mean_completed_run_seconds": null,
+            "unchanged_midpoint_fraction": null
+          }
+        }
+      },
+      "fresh_scores": {
+        "transitions": 840,
+        "markov_log_loss_bits": 1.2889549419871278,
+        "iid_log_loss_bits": 1.286498039999227,
+        "iid_minus_markov_loss_bits": {
+          "mean": -0.002456901987900905,
+          "lower": -0.011546502920804932,
+          "upper": 0.006237597427162504,
+          "blocks": 37
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Same inspected two-day archive; no untouched final periods.",
+    "States describe relative pressure/liquidity signs, not participant identity or persistent buy/sell direction.",
+    "Exact adjacent endpoints and same episode are required; filtered windows break continuity. No interpolation across missing observations.",
+    "Run lengths are observed segments. Boundary censoring and selected gaps prevent population lifetime estimates.",
+    "Smoothed first-order transition probabilities are a benchmark, not proof of a Markov market or calibrated event intensities.",
+    "Half-count smoothing assigns prior probability to unsupported states; these are not measured occurrences.",
+    "Next-state log loss measures a regime diagnostic, not price prediction, executable profit or live policy qualification."
+  ]
+}

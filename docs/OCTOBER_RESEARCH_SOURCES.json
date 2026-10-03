@@ -1,0 +1,76 @@
+{
+  "reviewed": [
+    {
+      "library_file_id": "libfile_96aef84de41881918e1b2a8f471f4744",
+      "name": "Information-Entropic_Deep_Learning_with_Gaussian_P.pdf",
+      "pages": 27,
+      "text_lines": 1958,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_934e722830708191ae9d61709df204f2",
+      "name": "Quantitative_Trading_Strategy_Backtesting_and_Perf.pdf",
+      "pages": 20,
+      "text_lines": 802,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_213e85426df481919d0d51669d9bf5a1",
+      "name": "Applications_of_machine_learning_in_quantitative_t.pdf",
+      "pages": 6,
+      "text_lines": 290,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_7b98aacfdb848191b51ea9951e395568",
+      "name": "LSTM-augmented_DQN_for_quantitative_trading_in_par.pdf",
+      "pages": 37,
+      "text_lines": 1391,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_bfbc4c6fd1f88191b24c8b0172fbc7e1",
+      "name": "AlphaCrafter_A_Full-Stack_Multi-Agent_Framework_fo.pdf",
+      "pages": 26,
+      "text_lines": 1702,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_2a0aed812d548191b831ae346da2669d",
+      "name": "Adaptive_LLM-based_multi-agent_systems_to_enhance_ (1).pdf",
+      "pages": 18,
+      "text_lines": 716,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_e36cd230c9f88191a17942a53ea27488",
+      "name": "Adaptive_LLM-based_multi-agent_systems_to_enhance_.pdf",
+      "pages": 18,
+      "text_lines": 716,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_128df93b77b88191aa5e8ef80ed6713a",
+      "name": "A_Quantitative_Trading_Strategy_Based_on_A_Positio.pdf",
+      "pages": 12,
+      "text_lines": 692,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_486c9e03f6c4819190ccbddbdd313972",
+      "name": "Qwen34_Verification_of_the_Feasibility_of_the_PPO_.pdf",
+      "pages": 7,
+      "text_lines": 256,
+      "review_scope": "complete extracted text; figures not visually audited"
+    },
+    {
+      "library_file_id": "libfile_3f68b0bd44e08191b9114eac1c8b3239",
+      "name": "Quantitative_Finance_and_Information_Technologies_.pdf",
+      "pages": 12,
+      "text_lines": 974,
+      "review_scope": "complete extracted text; figures not visually audited"
+    }
+  ],
+  "duplicate_extracted_text": [],
+  "limits": "Text review does not independently reproduce claims, inspect all figures or establish transfer to intraday Bitcoin."
+}

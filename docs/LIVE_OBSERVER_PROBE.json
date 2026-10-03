@@ -1,0 +1,12 @@
+{
+  "attempted_seconds": 8,
+  "connected": false,
+  "captured_depth_messages": 0,
+  "captured_snapshots": 0,
+  "errors": [
+    "Cannot connect to host fstream.binance.com:443 ssl:default [Temporary failure in name resolution]",
+    "Cannot connect to host fstream.binance.com:443 ssl:default [Temporary failure in name resolution]",
+    "Cannot connect to host fstream.binance.com:443 ssl:default [Temporary failure in name resolution]",
+    "Cannot connect to host fstream.binance.com:443 ssl:default [Temporary failure in name resolution]"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "not_qualified",
+  "candidate_count": 260,
+  "selection_rule": "Validation equal-unit net bps under 50bps missing-exit stress; at least five resolved validation trades. No-trade if nonpositive. Different horizons have different coverage, so ranking is exploratory.",
+  "selected_configuration": {
+    "horizon_seconds": 1,
+    "latency_ms": 100,
+    "policy": "no_trade"
+  },
+  "input_sha256": {
+    "2026-05-25_12": {
+      "2026-05-25_12_all_messages.csv": "368bbade5a95f10583c350df6d22e8ee3f3da19f2fe31b04760f2d8920b04e26",
+      "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b"
+    },
+    "2026-05-25_18": {
+      "2026-05-25_18_all_messages.csv": "176283b59d05e65a58015002c80b93ce7df5c28bb447ae47e013e63ad6c2c57f",
+      "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "b779543c9cb87e8ef3fcb02bb5361f16059270ca3ab1abfb48fbee5225ebf1a2"
+    },
+    "2026-05-26_15": {
+      "2026-05-26_15_all_messages.csv": "877ed947f4b57bee7677ed24c85bb9abf91c66a65fe756a4cd2bd1d2442a0982",
+      "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7"
+    },
+    "2026-05-26_21": {
+      "2026-05-26_21_all_messages.csv": "26caa5929dd7997cf8974273a13eefaa40adfd2e19f6d8240791293af15b98f9",
+      "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+    }
+  },
+  "limits": [
+    "Previously inspected four hours; adaptive reuse and 260 candidate comparisons make this development research, not pristine validation.",
+    "One-minute intervals are not multiple-testing-adjusted and do not resolve censoring or between-day uncertainty.",
+    "Missing-exit stress values are hypothetical scenarios, not measured losses or guaranteed worst-case bounds.",
+    "Bid/ask paper proxies lack order-size, queue, fill, impact, funding and liquidation modeling.",
+    "Oracle uses future prices and is an optimistic opportunity diagnostic, never a deployable policy.",
+    "Training quantiles use only label-resolved training rows and may inherit censoring selection bias.",
+    "No historical policy is promoted into the Kraken spot live system."
+  ],
+  "configuration_files": [
+    "regime_research/01s_100ms.json",
+    "regime_research/01s_500ms.json",
+    "regime_research/05s_100ms.json",
+    "regime_research/05s_500ms.json",
+    "regime_research/15s_100ms.json",
+    "regime_research/15s_500ms.json",
+    "regime_research/30s_100ms.json",
+    "regime_research/30s_500ms.json",
+    "regime_research/60s_100ms.json",
+    "regime_research/60s_500ms.json"
+  ]
+}

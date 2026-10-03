@@ -1,0 +1,174 @@
+{
+  "target": "forward_1s_return_bps",
+  "feature_names": [
+    "net_flow_over_start_depth",
+    "start_top_obi",
+    "log1p_total_flow"
+  ],
+  "alpha": 1.0,
+  "train_hour": "2026-05-25_12",
+  "evaluation_hours": [
+    "2026-05-25_18",
+    "2026-05-26_15",
+    "2026-05-26_21"
+  ],
+  "label_embargo_ns": 1250000000,
+  "samples": {
+    "all_messages": {
+      "model": {
+        "feature_names": [
+          "net_flow_over_start_depth",
+          "start_top_obi",
+          "log1p_total_flow"
+        ],
+        "center": [
+          -0.00012720322505932252,
+          0.04318523142243122,
+          0.2431268696560812
+        ],
+        "scale": [
+          0.007072072205961423,
+          0.5727088430107319,
+          0.4487496983986712
+        ],
+        "standardized_weights": [
+          0.05751127294348033,
+          0.05354511325237324,
+          -0.10923505947993786
+        ],
+        "intercept_bps": -0.015103698030975962,
+        "alpha": 1.0
+      },
+      "provenance": {
+        "2026-05-25_12": {
+          "flow_sha256": "7a8857cda613db7c8658fd76d400094b274c8c8b3809a04f6131005037b02e50",
+          "changes_sha256": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b"
+        },
+        "2026-05-25_18": {
+          "flow_sha256": "3602b8648df71b017824d3b2901887ee14b68c040324b8442c0bfb00ad5ea97f",
+          "changes_sha256": "a9f34efc19fbaa07bbae821750c79d60a67c5e9dfb7bfa8a2689d08ddd47e51e"
+        },
+        "2026-05-26_15": {
+          "flow_sha256": "5dbc3c280160b27838a355af9bc91a23f7004e0295e27f6dd3e7ed858159ef7b",
+          "changes_sha256": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7"
+        },
+        "2026-05-26_21": {
+          "flow_sha256": "eff3964405bd49c658beac80ffae9f5ff6c36c2c51ce076fe1af7179e22d8fa1",
+          "changes_sha256": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+        }
+      },
+      "scores": {
+        "2026-05-25_12": {
+          "role": "training",
+          "rows": 463,
+          "rmse_bps": 0.3270433047959203,
+          "zero_rmse_bps": 0.3577232116744668,
+          "training_mean_rmse_bps": 0.3574042172057913,
+          "improvement_vs_zero_pct": 8.57643727812263
+        },
+        "2026-05-25_18": {
+          "role": "held_out",
+          "rows": 497,
+          "rmse_bps": 0.18789550027877583,
+          "zero_rmse_bps": 0.17579804622798217,
+          "training_mean_rmse_bps": 0.17670295678104916,
+          "improvement_vs_zero_pct": -6.881449657924632
+        },
+        "2026-05-26_15": {
+          "role": "held_out",
+          "rows": 407,
+          "rmse_bps": 1.1018571741918803,
+          "zero_rmse_bps": 1.099584961912249,
+          "training_mean_rmse_bps": 1.0994007880088679,
+          "improvement_vs_zero_pct": -0.20664272051154065
+        },
+        "2026-05-26_21": {
+          "role": "held_out",
+          "rows": 608,
+          "rmse_bps": 0.31572622202552014,
+          "zero_rmse_bps": 0.3006451320520851,
+          "training_mean_rmse_bps": 0.30070082295896355,
+          "improvement_vs_zero_pct": -5.01624286097615
+        }
+      }
+    },
+    "fresh_250ms": {
+      "model": {
+        "feature_names": [
+          "net_flow_over_start_depth",
+          "start_top_obi",
+          "log1p_total_flow"
+        ],
+        "center": [
+          0.00016532768471470472,
+          0.03893603047431236,
+          0.207462513017204
+        ],
+        "scale": [
+          0.00242182654948704,
+          0.5490247567942667,
+          0.32613229479548866
+        ],
+        "standardized_weights": [
+          0.020385415969984895,
+          0.033084987918820176,
+          -0.02634315598502232
+        ],
+        "intercept_bps": -0.00015335072152114718,
+        "alpha": 1.0
+      },
+      "provenance": {
+        "2026-05-25_12": {
+          "flow_sha256": "2407cef1a7c4bb128b176165e2117f5fde0f7957e985d7b0758dba752b6c97ac",
+          "changes_sha256": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b"
+        },
+        "2026-05-25_18": {
+          "flow_sha256": "767d4fefe7a26c93b415bf7ee930e2acc8eeb2f8947c4be91a88f5806ff0a5bf",
+          "changes_sha256": "a9f34efc19fbaa07bbae821750c79d60a67c5e9dfb7bfa8a2689d08ddd47e51e"
+        },
+        "2026-05-26_15": {
+          "flow_sha256": "1dec093e2eff889ae6fa7981f709d2c6272e938bd0ac530a43fe59fd8d520d07",
+          "changes_sha256": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7"
+        },
+        "2026-05-26_21": {
+          "flow_sha256": "5710e013cfe35e05085b8dc0193a0a8071329f1b6395c98411fecbded8b1f68d",
+          "changes_sha256": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890"
+        }
+      },
+      "scores": {
+        "2026-05-25_12": {
+          "role": "training",
+          "rows": 307,
+          "rmse_bps": 0.16407949687632684,
+          "zero_rmse_bps": 0.16992174925855602,
+          "training_mean_rmse_bps": 0.1699216800606791,
+          "improvement_vs_zero_pct": 3.4382016473591626
+        },
+        "2026-05-25_18": {
+          "role": "held_out",
+          "rows": 330,
+          "rmse_bps": 0.1361406408017668,
+          "zero_rmse_bps": 0.1382867936211412,
+          "training_mean_rmse_bps": 0.13828473282961118,
+          "improvement_vs_zero_pct": 1.5519579008058781
+        },
+        "2026-05-26_15": {
+          "role": "held_out",
+          "rows": 109,
+          "rmse_bps": 0.3606829496818784,
+          "zero_rmse_bps": 0.3678277171877216,
+          "training_mean_rmse_bps": 0.36784203278455513,
+          "improvement_vs_zero_pct": 1.9424222732505103
+        },
+        "2026-05-26_21": {
+          "role": "held_out",
+          "rows": 395,
+          "rmse_bps": 0.2167905421604848,
+          "zero_rmse_bps": 0.21636531768586253,
+          "training_mean_rmse_bps": 0.21636336839656417,
+          "improvement_vs_zero_pct": -0.1965307929987281
+        }
+      }
+    }
+  }
+}

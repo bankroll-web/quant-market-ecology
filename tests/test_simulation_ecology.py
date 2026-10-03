@@ -1,0 +1,83 @@
+"""Invariants and paired-counterfactual check for the isolated simulation module."""
+import json
+import unittest
+from pathlib import Path
+
+from src.simulation.ecology import Book, common_flow, run, SHOCK_SECOND, SHOCK_QTY
+from src.simulation.book_change_rates import fit, score
+from src.simulation.impact_sweep import experiment
+from src.simulation.gamma_scenarios import experiment as gamma_experiment
+
+
+class SimulationEcologyTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = Path(__file__).resolve().parents[1]
+        cls.params = json.loads((root / "configs/simulation_v1_demo.json").read_text())[
+            "calibration_from_valid_samples"
+        ]
+
+    def test_initial_depth_and_uncrossed_book(self):
+        book = Book(self.params)
+        state = book.state(-1, "test")
+        self.assertAlmostEqual(state["bid_depth_btc"], self.params["depth_bid_10bps"])
+        self.assertAlmostEqual(state["ask_depth_btc"], self.params["depth_ask_10bps"])
+        self.assertAlmostEqual(state["spread"], 0.1)
+
+    def test_paired_withdrawal_changes_impact_and_keeps_valid_book(self):
+        flow = common_flow(self.params, 7)
+        normal, normal_shock = run(self.params, flow, False)
+        withdrawn, withdrawn_shock = run(self.params, flow, True)
+        for a, b in zip(normal[:SHOCK_SECOND], withdrawn[:SHOCK_SECOND]):
+            self.assertEqual({k: v for k, v in a.items() if k != "scenario"},
+                             {k: v for k, v in b.items() if k != "scenario"})
+        self.assertAlmostEqual(normal_shock["filled_qty_btc"], SHOCK_QTY)
+        self.assertAlmostEqual(withdrawn_shock["filled_qty_btc"], SHOCK_QTY)
+        self.assertGreater(withdrawn_shock["slippage_vs_pre_ask_bps"],
+                           normal_shock["slippage_vs_pre_ask_bps"])
+        self.assertLess(withdrawn_shock["ask_depth_10s_after_btc"],
+                        normal_shock["ask_depth_10s_after_btc"])
+        for row in normal + withdrawn:
+            self.assertLess(row["bid"], row["ask"])
+            self.assertGreaterEqual(row["bid_depth_btc"], 0)
+            self.assertGreaterEqual(row["ask_depth_btc"], 0)
+
+    def test_smoothed_book_change_rate_fit_and_scoring(self):
+        rows = [{"pre_obi_top": -0.5 if i % 2 else 0.5,
+                 "pre_bid_depth_10bps": 100 + i, "pre_ask_depth_10bps": 100 + i,
+                 "exposure_seconds": .1,
+                 "bid_add_levels": 1 if i % 2 else 4,
+                 "bid_remove_levels": 4 if i % 2 else 1,
+                 "ask_add_levels": 4 if i % 2 else 1,
+                 "ask_remove_levels": 1 if i % 2 else 4}
+                for i in range(90)]
+        model = fit(rows)
+        self.assertEqual(model["training_intervals"], 90)
+        self.assertAlmostEqual(model["global_per_second"]["bid_add_levels"], 25)
+        self.assertGreater(model["state_rates"]["obi2_depth1"]["bid_add_levels_per_second"], 0)
+        self.assertTrue(all(v > 0 for v in score(rows, model)["poisson_nll_per_exposure_second"].values()))
+
+    def test_impact_sweep_uses_paired_size_interventions(self):
+        rows = experiment(self.params, sizes=(5., 80.))
+        self.assertEqual([(r["size_btc"], r["scenario"]) for r in rows],
+                         [(5., "normal"), (5., "withdrawal"),
+                          (80., "normal"), (80., "withdrawal")])
+        self.assertTrue(all(abs(r["filled_btc"] - r["size_btc"]) < 1e-8 for r in rows))
+        self.assertGreater(rows[3]["incremental_move_vs_normal_bps"],
+                           rows[1]["incremental_move_vs_normal_bps"])
+
+    def test_dealer_hedge_sign_changes_book_price_in_hypothetical_run(self):
+        summary, _ = gamma_experiment(self.params)
+        self.assertEqual(len(summary), 6)
+        for i in (0, 3):
+            long, neutral, short = summary[i:i + 3]
+            self.assertEqual((long["hedge_side"], neutral["hedge_side"], short["hedge_side"]),
+                             ("sell", "none", "buy"))
+            self.assertAlmostEqual(long["move_after_initiating_buy_bps"],
+                                   short["move_after_initiating_buy_bps"])
+            self.assertLess(long["move_after_hedge_bps"], neutral["move_after_hedge_bps"])
+            self.assertLess(neutral["move_after_hedge_bps"], short["move_after_hedge_bps"])
+
+
+if __name__ == "__main__":
+    unittest.main()

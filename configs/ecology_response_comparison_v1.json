@@ -1,0 +1,16 @@
+{
+  "status": "exploratory_specified_after_inspecting_previous_failures",
+  "training_hour": "2026-05-25_00",
+  "baseline_summary_sha256": "0fce731298694ce20b8ee626e02728fd56cc6744fc2aee090eca49f60be6d15c",
+  "models": ["original_linear", "training_quantile_clip", "asinh_pressure", "window_average_depth"],
+  "clip_quantiles": [0.01, 0.99],
+  "ridge_alpha": 1.0,
+  "fit_or_select_on_comparison_periods": false,
+  "target": "contemporaneous_midpoint_log_return_bps",
+  "promotion": "none; descriptive research only",
+  "hypotheses": [
+    "Clipping using training-only pressure quantiles reduces extreme linear extrapolation.",
+    "An inverse-hyperbolic-sine transform reduces sensitivity to extreme pressure while retaining its sign.",
+    "Time-weighted best-quote depth within the observed window reduces small-initial-queue denominator instability."
+  ]
+}

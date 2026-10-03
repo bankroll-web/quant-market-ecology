@@ -1,0 +1,628 @@
+{
+  "status": "training_liquidity_benchmark_not_agent_calibration",
+  "training_hour": "2026-05-25_00",
+  "pressure_cut": 0.0010578000616062236,
+  "input_sha256": "9134d5235f8c06aaeb83371f667656d9e93854ee01c473c7cecff60b2aec865f",
+  "groups": {
+    "all": {
+      "no_signed_flow": {
+        "windows": 57,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.030277059797452884,
+              "p50": 0.16692632899024057,
+              "p90": 0.42901688122079257
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.021529118908364394,
+              "p50": 0.13535523729289528,
+              "p90": 0.4272452844026083
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.04342473379940917,
+              "p50": 0.1399202182772674,
+              "p90": 0.38035414540279205
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.02766505231125888,
+              "p50": 0.14605983173830242,
+              "p90": 0.37353936602397936
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.23758885945910907,
+              "p50": 0.6109495409770154,
+              "p90": 1.4845856335889145
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": 0.0
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 0,
+            "quantiles": null
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 0,
+            "quantiles": null
+          },
+          "same_window_move_bps": {
+            "count": 57,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": 0.0
+            }
+          }
+        }
+      },
+      "low_pressure": {
+        "windows": 630,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.03718486991379396,
+              "p50": 0.1864357356149742,
+              "p90": 0.5469210201986088
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.03347212858302856,
+              "p50": 0.17158934265885595,
+              "p90": 0.525874024596394
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.03354096567870173,
+              "p50": 0.1694268404069635,
+              "p90": 0.5024528185934052
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.030347599770670513,
+              "p50": 0.16557044693365808,
+              "p90": 0.47850574047835576
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.19574987988611686,
+              "p50": 0.7347498085640319,
+              "p90": 1.957846818612362
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 630,
+            "quantiles": {
+              "p10": -0.04826321808831734,
+              "p50": 0.002128532053264497,
+              "p90": 0.07394921428803504
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": -0.025729734114025567,
+              "p50": 0.005615942813496546,
+              "p90": 0.06522034843322717
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 630,
+            "quantiles": {
+              "p10": -0.03388695039021626,
+              "p50": 0.002264898848611867,
+              "p90": 0.047692106529984915
+            }
+          },
+          "same_window_move_bps": {
+            "count": 630,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": 0.0
+            }
+          }
+        }
+      },
+      "high_reinforces": {
+        "windows": 148,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.1401236910667971,
+              "p50": 0.4602810127182494,
+              "p90": 1.0801160653409732
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.1447200371565674,
+              "p50": 0.458349957358022,
+              "p90": 1.0056641880972625
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.12172290191242463,
+              "p50": 0.43887246489576653,
+              "p90": 1.1899849008976549
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.10807229830253044,
+              "p50": 0.4218567652759988,
+              "p90": 1.1209022862386802
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.6448898935841321,
+              "p50": 1.8634046230319354,
+              "p90": 3.9998299993022286
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 148,
+            "quantiles": {
+              "p10": 0.010376456888823151,
+              "p50": 0.06205807632446034,
+              "p90": 0.22521439421729317
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": -0.001998357073504355,
+              "p50": 0.048190867808365644,
+              "p90": 0.16587977724564348
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 148,
+            "quantiles": {
+              "p10": -0.10962370864799023,
+              "p50": -0.01864495215807903,
+              "p90": 0.06327643786290192
+            }
+          },
+          "same_window_move_bps": {
+            "count": 148,
+            "quantiles": {
+              "p10": -1.022582060251146,
+              "p50": 0.0,
+              "p90": 0.7635969046092071
+            }
+          }
+        }
+      },
+      "high_opposes": {
+        "windows": 62,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": 0.1217973301096586,
+              "p50": 0.3881511628308062,
+              "p90": 0.9276558543661457
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": 0.10250794555135846,
+              "p50": 0.37347534038114627,
+              "p90": 0.8931343627804897
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": 0.10027453320729596,
+              "p50": 0.3904776325758418,
+              "p90": 1.115339352047456
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": 0.08902455328220173,
+              "p50": 0.360838066925467,
+              "p90": 1.1244885264365616
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": 0.49294505834306845,
+              "p50": 1.6462736643363294,
+              "p90": 3.7003184458796587
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 62,
+            "quantiles": {
+              "p10": -0.15926844474469953,
+              "p50": -0.04985219228805948,
+              "p90": -0.006738384678694024
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": -0.06770329953564198,
+              "p50": -0.011596344646678459,
+              "p90": 0.026396993581721064
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 62,
+            "quantiles": {
+              "p10": -0.002396386751273475,
+              "p50": 0.040539296919826176,
+              "p90": 0.13700199352115008
+            }
+          },
+          "same_window_move_bps": {
+            "count": 62,
+            "quantiles": {
+              "p10": -0.4744667109106142,
+              "p50": 0.0,
+              "p90": 0.5287683489735064
+            }
+          }
+        }
+      },
+      "high_neutral": {
+        "windows": 0,
+        "metrics": {}
+      }
+    },
+    "fresh": {
+      "no_signed_flow": {
+        "windows": 56,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.030272169686683954,
+              "p50": 0.1670901960144505,
+              "p90": 0.4312222168164641
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.02141229630650553,
+              "p50": 0.139951696894855,
+              "p90": 0.42813565659903613
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.04333604707374099,
+              "p50": 0.13884819220221886,
+              "p90": 0.38059769614650196
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.027455209250372873,
+              "p50": 0.1430138112840811,
+              "p90": 0.3796541846666228
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.23675768752258963,
+              "p50": 0.6134094709924592,
+              "p90": 1.49190673841585
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": -0.0
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 0,
+            "quantiles": null
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 0,
+            "quantiles": null
+          },
+          "same_window_move_bps": {
+            "count": 56,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": 0.0
+            }
+          }
+        }
+      },
+      "low_pressure": {
+        "windows": 588,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.03610134658900088,
+              "p50": 0.1742005418874493,
+              "p90": 0.5176153834905793
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.03208979878879631,
+              "p50": 0.16280226333039013,
+              "p90": 0.5006061817451808
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.03174664218065513,
+              "p50": 0.16473888347286544,
+              "p90": 0.47622666942901626
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.027110685313857918,
+              "p50": 0.16084060612811674,
+              "p90": 0.4662833142956745
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.18492865426532484,
+              "p50": 0.7203367758419373,
+              "p90": 1.8100885988987436
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 588,
+            "quantiles": {
+              "p10": -0.04540506073655908,
+              "p50": 0.0027025395342089396,
+              "p90": 0.0741654720013486
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": -0.024168252604521497,
+              "p50": 0.005802529454159237,
+              "p90": 0.06378231975179975
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 588,
+            "quantiles": {
+              "p10": -0.034262422896649186,
+              "p50": 0.001961070208457941,
+              "p90": 0.0458273870838281
+            }
+          },
+          "same_window_move_bps": {
+            "count": 588,
+            "quantiles": {
+              "p10": 0.0,
+              "p50": 0.0,
+              "p90": 0.0
+            }
+          }
+        }
+      },
+      "high_reinforces": {
+        "windows": 117,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.10278537996565505,
+              "p50": 0.4171777296777297,
+              "p90": 1.0249256021314204
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.10573518200198141,
+              "p50": 0.4333258470780158,
+              "p90": 0.9300107974486508
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.10594954961367409,
+              "p50": 0.36890923144541604,
+              "p90": 0.8986898318574579
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.08282659314556975,
+              "p50": 0.34679235327925234,
+              "p90": 0.8258839752936469
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.585701103419706,
+              "p50": 1.6284318474252415,
+              "p90": 3.4656898997559593
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 117,
+            "quantiles": {
+              "p10": 0.009971325637830373,
+              "p50": 0.05930856387091202,
+              "p90": 0.1976372742550852
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": -0.0023736787338624913,
+              "p50": 0.0425408515080691,
+              "p90": 0.15404934724600233
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 117,
+            "quantiles": {
+              "p10": -0.10454522355570807,
+              "p50": -0.014703633921619833,
+              "p90": 0.033312032135791314
+            }
+          },
+          "same_window_move_bps": {
+            "count": 117,
+            "quantiles": {
+              "p10": -0.8220667246045121,
+              "p50": 0.0,
+              "p90": 0.7674361802854868
+            }
+          }
+        }
+      },
+      "high_opposes": {
+        "windows": 46,
+        "metrics": {
+          "bid_added_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": 0.11999836564211977,
+              "p50": 0.34119513525562106,
+              "p90": 0.8859179232590719
+            }
+          },
+          "bid_reduced_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": 0.09874867906415613,
+              "p50": 0.32439835510596776,
+              "p90": 0.886401935976529
+            }
+          },
+          "ask_added_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": 0.1013542880473101,
+              "p50": 0.33959449070637837,
+              "p90": 1.1395598162823695
+            }
+          },
+          "ask_reduced_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": 0.09208678910570682,
+              "p50": 0.3460292467058777,
+              "p90": 1.1223226990441248
+            }
+          },
+          "gross_turnover_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": 0.5446178217910844,
+              "p50": 1.276371996592538,
+              "p90": 3.739770995340804
+            }
+          },
+          "aligned_display_pressure": {
+            "count": 46,
+            "quantiles": {
+              "p10": -0.12707380894944825,
+              "p50": -0.04275495026615836,
+              "p90": -0.006813812039395836
+            }
+          },
+          "support_side_net_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": -0.05276193965624179,
+              "p50": -0.0037957441222599,
+              "p90": 0.024595247779834663
+            }
+          },
+          "resistance_side_net_per_start_depth": {
+            "count": 46,
+            "quantiles": {
+              "p10": -0.0027041332939026323,
+              "p50": 0.03696893992160387,
+              "p90": 0.12237440625897249
+            }
+          },
+          "same_window_move_bps": {
+            "count": 46,
+            "quantiles": {
+              "p10": -0.41487418274944765,
+              "p50": 0.0,
+              "p90": 0.5831799247820776
+            }
+          }
+        }
+      },
+      "high_neutral": {
+        "windows": 0,
+        "metrics": {}
+      }
+    }
+  },
+  "limitations": [
+    "Anonymous L2 changes cannot identify market makers, institutions or retail traders.",
+    "Displayed reductions combine executions, cancellations and receipt aggregation; do not feed these alongside trades as independent cancellation events.",
+    "Quantities use observed moving near-touch bands and are not total venue order arrival sizes.",
+    "Regimes and price moves are classified over the same window; these are descriptive associations, not pre-trade predictors or causal effects.",
+    "Gross turnover can greatly exceed starting depth because quotes repeatedly change within a window.",
+    "Quantiles are empirical training summaries, without independent validation or uncertainty intervals."
+  ]
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "hour": "2026-05-25_12",
+    "state": "post_update_at_receipt",
+    "freshness": "Known by flow-window end; future label ages never select the decision",
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv": "cc3118db7f3383d08117471f891e0efa409b99ce8c141961ad05273a289be71b",
+      "BTCUSDT_trades_2026-05-25_12.parquet": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    "all_messages": {
+      "windows": 1388,
+      "nonzero_flow_windows": 1314,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 160,
+      "mean_direction_aligned_return_bps": 0.4102725760648506,
+      "fraction_zero_mid_return": 0.525,
+      "fraction_direction_aligned_positive_including_zeros": 0.45,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 150,
+      "forward_1s_mean_direction_aligned_return_bps": 0.12852107159496876,
+      "forward_5s_eligible_windows": 139,
+      "forward_5s_mean_direction_aligned_return_bps": 0.08937527882194113
+    },
+    "decision_fresh_250ms": {
+      "windows": 924,
+      "nonzero_flow_windows": 868,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 75,
+      "mean_direction_aligned_return_bps": 0.21788705021984858,
+      "fraction_zero_mid_return": 0.68,
+      "fraction_direction_aligned_positive_including_zeros": 0.30666666666666664,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 71,
+      "forward_1s_mean_direction_aligned_return_bps": 0.06337896414239044,
+      "forward_5s_eligible_windows": 66,
+      "forward_5s_mean_direction_aligned_return_bps": 0.09386424404105802
+    }
+  },
+  {
+    "hour": "2026-05-25_18",
+    "state": "post_update_at_receipt",
+    "freshness": "Known by flow-window end; future label ages never select the decision",
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv": "b779543c9cb87e8ef3fcb02bb5361f16059270ca3ab1abfb48fbee5225ebf1a2",
+      "BTCUSDT_trades_2026-05-25_18.parquet": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    "all_messages": {
+      "windows": 521,
+      "nonzero_flow_windows": 447,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 45,
+      "mean_direction_aligned_return_bps": 0.2666016084122011,
+      "fraction_zero_mid_return": 0.5555555555555556,
+      "fraction_direction_aligned_positive_including_zeros": 0.4,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 40,
+      "forward_1s_mean_direction_aligned_return_bps": 0.08537972369058616,
+      "forward_5s_eligible_windows": 38,
+      "forward_5s_mean_direction_aligned_return_bps": 0.3632508039993617
+    },
+    "decision_fresh_250ms": {
+      "windows": 325,
+      "nonzero_flow_windows": 279,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 24,
+      "mean_direction_aligned_return_bps": 0.17555905790696616,
+      "fraction_zero_mid_return": 0.625,
+      "fraction_direction_aligned_positive_including_zeros": 0.3333333333333333,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 22,
+      "forward_1s_mean_direction_aligned_return_bps": 0.03455498888208692,
+      "forward_5s_eligible_windows": 21,
+      "forward_5s_mean_direction_aligned_return_bps": 0.15955571510829053
+    }
+  },
+  {
+    "hour": "2026-05-26_15",
+    "state": "post_update_at_receipt",
+    "freshness": "Known by flow-window end; future label ages never select the decision",
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv": "d35999721e4ccf3f62995252933a0218fede8e67e196013cb3d0f9af993332e7",
+      "BTCUSDT_trades_2026-05-26_15.parquet": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    "all_messages": {
+      "windows": 1242,
+      "nonzero_flow_windows": 1239,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 557,
+      "mean_direction_aligned_return_bps": 0.6303132897617545,
+      "fraction_zero_mid_return": 0.2585278276481149,
+      "fraction_direction_aligned_positive_including_zeros": 0.585278276481149,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 494,
+      "forward_1s_mean_direction_aligned_return_bps": 0.28741855344579526,
+      "forward_5s_eligible_windows": 410,
+      "forward_5s_mean_direction_aligned_return_bps": 0.4981490887269953
+    },
+    "decision_fresh_250ms": {
+      "windows": 363,
+      "nonzero_flow_windows": 363,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 96,
+      "mean_direction_aligned_return_bps": 0.4787615878930769,
+      "fraction_zero_mid_return": 0.40625,
+      "fraction_direction_aligned_positive_including_zeros": 0.5520833333333334,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 84,
+      "forward_1s_mean_direction_aligned_return_bps": 0.16650042409057608,
+      "forward_5s_eligible_windows": 73,
+      "forward_5s_mean_direction_aligned_return_bps": -0.0005738308863210559
+    }
+  },
+  {
+    "hour": "2026-05-26_21",
+    "state": "post_update_at_receipt",
+    "freshness": "Known by flow-window end; future label ages never select the decision",
+    "sha256": {
+      "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv": "e3154a8823a85fd0bf851c2b6563230c29e85a8c934ca376b02ba290608d8890",
+      "BTCUSDT_trades_2026-05-26_21.parquet": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    },
+    "all_messages": {
+      "windows": 1844,
+      "nonzero_flow_windows": 1639,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 188,
+      "mean_direction_aligned_return_bps": 0.5303418176147877,
+      "fraction_zero_mid_return": 0.2925531914893617,
+      "fraction_direction_aligned_positive_including_zeros": 0.6861702127659575,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 180,
+      "forward_1s_mean_direction_aligned_return_bps": 0.15230603814787413,
+      "forward_5s_eligible_windows": 163,
+      "forward_5s_mean_direction_aligned_return_bps": 0.33881341940434806
+    },
+    "decision_fresh_250ms": {
+      "windows": 1243,
+      "nonzero_flow_windows": 1092,
+      "large_signed_flow_threshold_btc": 1.0,
+      "eligible_windows": 66,
+      "mean_direction_aligned_return_bps": 0.21689871875501807,
+      "fraction_zero_mid_return": 0.48484848484848486,
+      "fraction_direction_aligned_positive_including_zeros": 0.5,
+      "note": "Same-window association, not causal market impact; window coverage requires a verified book episode.",
+      "forward_1s_eligible_windows": 63,
+      "forward_1s_mean_direction_aligned_return_bps": 0.031951323151087646,
+      "forward_5s_eligible_windows": 58,
+      "forward_5s_mean_direction_aligned_return_bps": 0.037369205439223466
+    }
+  }
+]

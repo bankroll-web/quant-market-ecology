@@ -1,0 +1,1548 @@
+{
+  "groups": {
+    "all": {
+      "windows": 1474,
+      "directional_windows": 1290,
+      "aligned_mean_bps": {
+        "mean": 0.06705793929972553,
+        "lower": 0.051692469208692866,
+        "upper": 0.0824446968581542,
+        "blocks": 54
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.5863639009916332
+      },
+      "aligned_probability": {
+        "mean": 0.11627906976744186,
+        "lower": 0.09343105915175985,
+        "upper": 0.14207686898430974,
+        "blocks": 54
+      },
+      "opposite_probability": {
+        "mean": 0.009302325581395349,
+        "lower": 0.004083107336568656,
+        "upper": 0.016084701981648544,
+        "blocks": 54
+      },
+      "unchanged_probability": {
+        "mean": 0.8744186046511628,
+        "lower": 0.8449443235784475,
+        "upper": 0.8991931527672217,
+        "blocks": 54
+      },
+      "signed_trade_btc": -26.544999999999998,
+      "mean_start_depth_btc": 355.5432354138399,
+      "forward_1s": {
+        "available": 1041,
+        "missing": 249,
+        "aligned_mean_bps": {
+          "mean": 0.018656738728089668,
+          "lower": 0.0029416518624008634,
+          "upper": 0.03528790404303668,
+          "blocks": 43
+        }
+      },
+      "forward_5s": {
+        "available": 503,
+        "missing": 787,
+        "aligned_mean_bps": {
+          "mean": 0.07887307970546184,
+          "lower": 0.026316131969498432,
+          "upper": 0.13869267838570584,
+          "blocks": 34
+        }
+      }
+    },
+    "signed_trade_flow": {
+      "windows": 1290,
+      "directional_windows": 1290,
+      "aligned_mean_bps": {
+        "mean": 0.06705793929972553,
+        "lower": 0.051692469208692866,
+        "upper": 0.0824446968581542,
+        "blocks": 54
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.5863639009916332
+      },
+      "aligned_probability": {
+        "mean": 0.11627906976744186,
+        "lower": 0.09343105915175985,
+        "upper": 0.14207686898430974,
+        "blocks": 54
+      },
+      "opposite_probability": {
+        "mean": 0.009302325581395349,
+        "lower": 0.004083107336568656,
+        "upper": 0.016084701981648544,
+        "blocks": 54
+      },
+      "unchanged_probability": {
+        "mean": 0.8744186046511628,
+        "lower": 0.8449443235784475,
+        "upper": 0.8991931527672217,
+        "blocks": 54
+      },
+      "signed_trade_btc": -26.544999999999998,
+      "mean_start_depth_btc": 358.0572852713178,
+      "forward_1s": {
+        "available": 1041,
+        "missing": 249,
+        "aligned_mean_bps": {
+          "mean": 0.018656738728089668,
+          "lower": 0.0029416518624008634,
+          "upper": 0.03528790404303668,
+          "blocks": 43
+        }
+      },
+      "forward_5s": {
+        "available": 503,
+        "missing": 787,
+        "aligned_mean_bps": {
+          "mean": 0.07887307970546184,
+          "lower": 0.026316131969498432,
+          "upper": 0.13869267838570584,
+          "blocks": 34
+        }
+      }
+    },
+    "sell_pressure": {
+      "windows": 636,
+      "directional_windows": 636,
+      "aligned_mean_bps": {
+        "mean": 0.07242363257206902,
+        "lower": 0.05073682727912118,
+        "upper": 0.0963250133338278,
+        "blocks": 46
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -0.0,
+        "0.25": -0.0,
+        "0.5": -0.0,
+        "0.75": 0.0,
+        "0.95": 0.6117114420658714
+      },
+      "aligned_probability": {
+        "mean": 0.11635220125786164,
+        "lower": 0.07986357178788397,
+        "upper": 0.15819522838305744,
+        "blocks": 46
+      },
+      "opposite_probability": {
+        "mean": 0.012578616352201259,
+        "lower": 0.003245584415584416,
+        "upper": 0.02447244177046167,
+        "blocks": 46
+      },
+      "unchanged_probability": {
+        "mean": 0.8710691823899371,
+        "lower": 0.8239424997331951,
+        "upper": 0.910908509662943,
+        "blocks": 46
+      },
+      "signed_trade_btc": -282.238,
+      "mean_start_depth_btc": 366.16124213836474,
+      "forward_1s": {
+        "available": 511,
+        "missing": 125,
+        "aligned_mean_bps": {
+          "mean": 0.019215031869387163,
+          "lower": -0.00519958240553221,
+          "upper": 0.04260158835366026,
+          "blocks": 40
+        }
+      },
+      "forward_5s": {
+        "available": 245,
+        "missing": 391,
+        "aligned_mean_bps": {
+          "mean": 0.08592222999650584,
+          "lower": -0.00557792243127107,
+          "upper": 0.17630135688967294,
+          "blocks": 34
+        }
+      }
+    },
+    "high_trade_pressure": {
+      "windows": 236,
+      "directional_windows": 236,
+      "aligned_mean_bps": {
+        "mean": 0.3105178488355965,
+        "lower": 0.25075570839120304,
+        "upper": 0.3744862501656262,
+        "blocks": 37
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.5662965474170665,
+        "0.95": 1.3066872696262997
+      },
+      "aligned_probability": {
+        "mean": 0.4830508474576271,
+        "lower": 0.4318140941792021,
+        "upper": 0.5347851365015167,
+        "blocks": 37
+      },
+      "opposite_probability": {
+        "mean": 0.025423728813559324,
+        "lower": 0.009389671361502348,
+        "upper": 0.04386071887034659,
+        "blocks": 37
+      },
+      "unchanged_probability": {
+        "mean": 0.4915254237288136,
+        "lower": 0.4437885488883576,
+        "upper": 0.537878952938247,
+        "blocks": 37
+      },
+      "signed_trade_btc": -30.633,
+      "mean_start_depth_btc": 363.9203559322034,
+      "forward_1s": {
+        "available": 182,
+        "missing": 54,
+        "aligned_mean_bps": {
+          "mean": 0.07056570183241641,
+          "lower": 0.032842764900112,
+          "upper": 0.10742775051261871,
+          "blocks": 37
+        }
+      },
+      "forward_5s": {
+        "available": 84,
+        "missing": 152,
+        "aligned_mean_bps": {
+          "mean": 0.18978376238650796,
+          "lower": 0.0854359798337609,
+          "upper": 0.2898881115374306,
+          "blocks": 27
+        }
+      }
+    },
+    "book_agrees": {
+      "windows": 204,
+      "directional_windows": 204,
+      "aligned_mean_bps": {
+        "mean": 0.3847963663214193,
+        "lower": 0.3204890300493985,
+        "upper": 0.4528131412923111,
+        "blocks": 37
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": -0.0,
+        "0.5": 0.09880666359397391,
+        "0.75": 0.6347069275565868,
+        "0.95": 1.3279096789942513
+      },
+      "aligned_probability": {
+        "mean": 0.5588235294117647,
+        "lower": 0.5026973241898615,
+        "upper": 0.6137685036561441,
+        "blocks": 37
+      },
+      "opposite_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 37
+      },
+      "unchanged_probability": {
+        "mean": 0.4411764705882353,
+        "lower": 0.3862314963438559,
+        "upper": 0.49730267581013854,
+        "blocks": 37
+      },
+      "signed_trade_btc": -48.763,
+      "mean_start_depth_btc": 366.2456764705883,
+      "forward_1s": {
+        "available": 155,
+        "missing": 49,
+        "aligned_mean_bps": {
+          "mean": 0.08336709592923144,
+          "lower": 0.03535714250503031,
+          "upper": 0.13146479513666537,
+          "blocks": 37
+        }
+      },
+      "forward_5s": {
+        "available": 71,
+        "missing": 133,
+        "aligned_mean_bps": {
+          "mean": 0.22209298397982236,
+          "lower": 0.11753391357614128,
+          "upper": 0.33128390107732797,
+          "blocks": 27
+        }
+      }
+    },
+    "display_reinforces": {
+      "windows": 164,
+      "directional_windows": 164,
+      "aligned_mean_bps": {
+        "mean": 0.34035066851655404,
+        "lower": 0.27229331814405466,
+        "upper": 0.4164245410056385,
+        "blocks": 36
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.05924812587340944,
+        "0.75": 0.5924621650083414,
+        "0.95": 1.2957359977226806
+      },
+      "aligned_probability": {
+        "mean": 0.5365853658536586,
+        "lower": 0.4732783386686366,
+        "upper": 0.5987654320987654,
+        "blocks": 36
+      },
+      "opposite_probability": {
+        "mean": 0.024390243902439025,
+        "lower": 0.00546448087431694,
+        "upper": 0.05036654220927055,
+        "blocks": 36
+      },
+      "unchanged_probability": {
+        "mean": 0.43902439024390244,
+        "lower": 0.3777738927738928,
+        "upper": 0.5061117886178862,
+        "blocks": 36
+      },
+      "signed_trade_btc": -1.5439999999999972,
+      "mean_start_depth_btc": 367.7225853658536,
+      "forward_1s": {
+        "available": 129,
+        "missing": 35,
+        "aligned_mean_bps": {
+          "mean": 0.10150621075505646,
+          "lower": 0.04959071908372139,
+          "upper": 0.15714473710276428,
+          "blocks": 36
+        }
+      },
+      "forward_5s": {
+        "available": 60,
+        "missing": 104,
+        "aligned_mean_bps": {
+          "mean": 0.27952024378735885,
+          "lower": 0.11794318246747645,
+          "upper": 0.4713084094927092,
+          "blocks": 25
+        }
+      }
+    },
+    "high_pressure_thin": {
+      "windows": 135,
+      "directional_windows": 135,
+      "aligned_mean_bps": {
+        "mean": 0.2920781070169296,
+        "lower": 0.21283163762238194,
+        "upper": 0.37943297891659156,
+        "blocks": 32
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.5792985377312326,
+        "0.95": 1.3072836390786864
+      },
+      "aligned_probability": {
+        "mean": 0.4666666666666667,
+        "lower": 0.3916652097902098,
+        "upper": 0.5470352564102564,
+        "blocks": 32
+      },
+      "opposite_probability": {
+        "mean": 0.037037037037037035,
+        "lower": 0.012506869389998173,
+        "upper": 0.0689709390587725,
+        "blocks": 32
+      },
+      "unchanged_probability": {
+        "mean": 0.4962962962962963,
+        "lower": 0.4130298913043478,
+        "upper": 0.5729294143356642,
+        "blocks": 32
+      },
+      "signed_trade_btc": -1.9010000000000002,
+      "mean_start_depth_btc": 324.5887333333334,
+      "forward_1s": {
+        "available": 101,
+        "missing": 34,
+        "aligned_mean_bps": {
+          "mean": 0.07589446823758114,
+          "lower": 0.025445511727983067,
+          "upper": 0.13399586883300862,
+          "blocks": 30
+        }
+      },
+      "forward_5s": {
+        "available": 46,
+        "missing": 89,
+        "aligned_mean_bps": {
+          "mean": 0.15146781985023228,
+          "lower": 0.01113645310103838,
+          "upper": 0.3271901425860307,
+          "blocks": 18
+        }
+      }
+    },
+    "display_opposes": {
+      "windows": 72,
+      "directional_windows": 72,
+      "aligned_mean_bps": {
+        "mean": 0.24256531511785984,
+        "lower": 0.09202270261681396,
+        "upper": 0.40180094686140155,
+        "blocks": 30
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.4907205023935004,
+        "0.95": 1.3391747482688534
+      },
+      "aligned_probability": {
+        "mean": 0.3611111111111111,
+        "lower": 0.22081238214959145,
+        "upper": 0.5001506024096384,
+        "blocks": 30
+      },
+      "opposite_probability": {
+        "mean": 0.027777777777777776,
+        "lower": 0.0,
+        "upper": 0.06666666666666667,
+        "blocks": 30
+      },
+      "unchanged_probability": {
+        "mean": 0.6111111111111112,
+        "lower": 0.47690476190476194,
+        "upper": 0.7333333333333333,
+        "blocks": 30
+      },
+      "signed_trade_btc": -29.089,
+      "mean_start_depth_btc": 355.2597222222222,
+      "forward_1s": {
+        "available": 53,
+        "missing": 19,
+        "aligned_mean_bps": {
+          "mean": -0.004742329318915076,
+          "lower": -0.04626152128453062,
+          "upper": 0.04857991450723241,
+          "blocks": 28
+        }
+      },
+      "forward_5s": {
+        "available": 24,
+        "missing": 48,
+        "aligned_mean_bps": {
+          "mean": -0.03455744111561918,
+          "lower": -0.20290910756004496,
+          "upper": 0.21459495630674671,
+          "blocks": 13
+        }
+      }
+    },
+    "high_pressure_deep": {
+      "windows": 101,
+      "directional_windows": 101,
+      "aligned_mean_bps": {
+        "mean": 0.3351650284942106,
+        "lower": 0.2553602205519413,
+        "upper": 0.4157455659197834,
+        "blocks": 23
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.01316480625877052,
+        "0.75": 0.5660769813556111,
+        "0.95": 1.2505759247531327
+      },
+      "aligned_probability": {
+        "mean": 0.504950495049505,
+        "lower": 0.4223926639621366,
+        "upper": 0.5778070175438595,
+        "blocks": 23
+      },
+      "opposite_probability": {
+        "mean": 0.009900990099009901,
+        "lower": 0.0,
+        "upper": 0.034482758620689655,
+        "blocks": 23
+      },
+      "unchanged_probability": {
+        "mean": 0.48514851485148514,
+        "lower": 0.4132777777777778,
+        "upper": 0.5612349734414314,
+        "blocks": 23
+      },
+      "signed_trade_btc": -28.731999999999996,
+      "mean_start_depth_btc": 416.49232673267335,
+      "forward_1s": {
+        "available": 81,
+        "missing": 20,
+        "aligned_mean_bps": {
+          "mean": 0.06392119063585296,
+          "lower": -0.0026485449472188486,
+          "upper": 0.11694283691352789,
+          "blocks": 23
+        }
+      },
+      "forward_5s": {
+        "available": 38,
+        "missing": 63,
+        "aligned_mean_bps": {
+          "mean": 0.236166219140947,
+          "lower": 0.07441313812882001,
+          "upper": 0.36188925416782514,
+          "blocks": 13
+        }
+      }
+    },
+    "buy_pressure": {
+      "windows": 654,
+      "directional_windows": 654,
+      "aligned_mean_bps": {
+        "mean": 0.061839925658730956,
+        "lower": 0.04113294545930907,
+        "upper": 0.08274894064892184,
+        "blocks": 49
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.5531994251348104
+      },
+      "aligned_probability": {
+        "mean": 0.1162079510703364,
+        "lower": 0.08452413185773244,
+        "upper": 0.14595478409583126,
+        "blocks": 49
+      },
+      "opposite_probability": {
+        "mean": 0.0061162079510703364,
+        "lower": 0.0014083517961702803,
+        "upper": 0.012006989837178515,
+        "blocks": 49
+      },
+      "unchanged_probability": {
+        "mean": 0.8776758409785933,
+        "lower": 0.8476172019195275,
+        "upper": 0.909760935487891,
+        "blocks": 49
+      },
+      "signed_trade_btc": 255.693,
+      "mean_start_depth_btc": 350.176373088685,
+      "forward_1s": {
+        "available": 530,
+        "missing": 124,
+        "aligned_mean_bps": {
+          "mean": 0.018118459869216046,
+          "lower": -0.0010006897977587114,
+          "upper": 0.03768084826444462,
+          "blocks": 40
+        }
+      },
+      "forward_5s": {
+        "available": 258,
+        "missing": 396,
+        "aligned_mean_bps": {
+          "mean": 0.072179119157765,
+          "lower": -0.024002369150305583,
+          "upper": 0.16087942357802712,
+          "blocks": 33
+        }
+      }
+    },
+    "no_signed_trade_flow": {
+      "windows": 184,
+      "directional_windows": 0,
+      "aligned_mean_bps": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "aligned_quantiles_bps": {},
+      "aligned_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "opposite_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "unchanged_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "signed_trade_btc": 0.0,
+      "mean_start_depth_btc": 337.9175597826087,
+      "forward_1s": {
+        "available": 0,
+        "missing": 0,
+        "aligned_mean_bps": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        }
+      },
+      "forward_5s": {
+        "available": 0,
+        "missing": 0,
+        "aligned_mean_bps": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        }
+      }
+    },
+    "book_opposes": {
+      "windows": 32,
+      "directional_windows": 32,
+      "aligned_mean_bps": {
+        "mean": -0.1630077001365241,
+        "lower": -0.2542111663801204,
+        "upper": -0.04922988281486805,
+        "blocks": 17
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -1.2563771929545122,
+        "0.25": -0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.0
+      },
+      "aligned_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 17
+      },
+      "opposite_probability": {
+        "mean": 0.1875,
+        "lower": 0.08333333333333333,
+        "upper": 0.34486074270557027,
+        "blocks": 17
+      },
+      "unchanged_probability": {
+        "mean": 0.8125,
+        "lower": 0.6551392572944297,
+        "upper": 0.9166666666666666,
+        "blocks": 17
+      },
+      "signed_trade_btc": 18.130000000000003,
+      "mean_start_depth_btc": 349.0964375,
+      "forward_1s": {
+        "available": 27,
+        "missing": 5,
+        "aligned_mean_bps": {
+          "mean": -0.0029237827974476906,
+          "lower": -0.11112383616564647,
+          "upper": 0.14893376053041843,
+          "blocks": 14
+        }
+      },
+      "forward_5s": {
+        "available": 13,
+        "missing": 19,
+        "aligned_mean_bps": {
+          "mean": 0.013325705992252357,
+          "lower": null,
+          "upper": null,
+          "blocks": 5
+        }
+      }
+    }
+  },
+  "fresh_sensitivity": {
+    "windows": 1182,
+    "directional_windows": 1023,
+    "aligned_mean_bps": {
+      "mean": 0.026000292813559013,
+      "lower": 0.01872834441930795,
+      "upper": 0.03309879780332369,
+      "blocks": 50
+    },
+    "aligned_quantiles_bps": {
+      "0.05": 0.0,
+      "0.25": -0.0,
+      "0.5": 0.0,
+      "0.75": 0.0,
+      "0.95": 0.11732073166040607
+    },
+    "aligned_probability": {
+      "mean": 0.06158357771260997,
+      "lower": 0.047457580262689064,
+      "upper": 0.07617730034722221,
+      "blocks": 50
+    },
+    "opposite_probability": {
+      "mean": 0.0019550342130987292,
+      "lower": 0.0,
+      "upper": 0.005181571256969718,
+      "blocks": 50
+    },
+    "unchanged_probability": {
+      "mean": 0.9364613880742912,
+      "lower": 0.920107960404013,
+      "upper": 0.9514368854103953,
+      "blocks": 50
+    },
+    "signed_trade_btc": -6.16,
+    "mean_start_depth_btc": 353.38784602368867,
+    "forward_1s": {
+      "available": 829,
+      "missing": 194,
+      "aligned_mean_bps": {
+        "mean": 0.004620405253189547,
+        "lower": -0.009378425885193713,
+        "upper": 0.018726961266486934,
+        "blocks": 37
+      }
+    },
+    "forward_5s": {
+      "available": 409,
+      "missing": 614,
+      "aligned_mean_bps": {
+        "mean": 0.04583882823581699,
+        "lower": -0.024176293179149433,
+        "upper": 0.12579510625969612,
+        "blocks": 34
+      }
+    }
+  },
+  "fresh_groups": {
+    "all": {
+      "windows": 1182,
+      "directional_windows": 1023,
+      "aligned_mean_bps": {
+        "mean": 0.026000292813559013,
+        "lower": 0.01872834441930795,
+        "upper": 0.03309879780332369,
+        "blocks": 50
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": -0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.11732073166040607
+      },
+      "aligned_probability": {
+        "mean": 0.06158357771260997,
+        "lower": 0.047457580262689064,
+        "upper": 0.07617730034722221,
+        "blocks": 50
+      },
+      "opposite_probability": {
+        "mean": 0.0019550342130987292,
+        "lower": 0.0,
+        "upper": 0.005181571256969718,
+        "blocks": 50
+      },
+      "unchanged_probability": {
+        "mean": 0.9364613880742912,
+        "lower": 0.920107960404013,
+        "upper": 0.9514368854103953,
+        "blocks": 50
+      },
+      "signed_trade_btc": -6.16,
+      "mean_start_depth_btc": 353.38784602368867,
+      "forward_1s": {
+        "available": 829,
+        "missing": 194,
+        "aligned_mean_bps": {
+          "mean": 0.004620405253189547,
+          "lower": -0.009378425885193713,
+          "upper": 0.018726961266486934,
+          "blocks": 37
+        }
+      },
+      "forward_5s": {
+        "available": 409,
+        "missing": 614,
+        "aligned_mean_bps": {
+          "mean": 0.04583882823581699,
+          "lower": -0.024176293179149433,
+          "upper": 0.12579510625969612,
+          "blocks": 34
+        }
+      }
+    },
+    "signed_trade_flow": {
+      "windows": 1023,
+      "directional_windows": 1023,
+      "aligned_mean_bps": {
+        "mean": 0.026000292813559013,
+        "lower": 0.01872834441930795,
+        "upper": 0.03309879780332369,
+        "blocks": 50
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": -0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.11732073166040607
+      },
+      "aligned_probability": {
+        "mean": 0.06158357771260997,
+        "lower": 0.047457580262689064,
+        "upper": 0.07617730034722221,
+        "blocks": 50
+      },
+      "opposite_probability": {
+        "mean": 0.0019550342130987292,
+        "lower": 0.0,
+        "upper": 0.005181571256969718,
+        "blocks": 50
+      },
+      "unchanged_probability": {
+        "mean": 0.9364613880742912,
+        "lower": 0.920107960404013,
+        "upper": 0.9514368854103953,
+        "blocks": 50
+      },
+      "signed_trade_btc": -6.16,
+      "mean_start_depth_btc": 355.8880576735093,
+      "forward_1s": {
+        "available": 829,
+        "missing": 194,
+        "aligned_mean_bps": {
+          "mean": 0.004620405253189547,
+          "lower": -0.009378425885193713,
+          "upper": 0.018726961266486934,
+          "blocks": 37
+        }
+      },
+      "forward_5s": {
+        "available": 409,
+        "missing": 614,
+        "aligned_mean_bps": {
+          "mean": 0.04583882823581699,
+          "lower": -0.024176293179149433,
+          "upper": 0.12579510625969612,
+          "blocks": 34
+        }
+      }
+    },
+    "sell_pressure": {
+      "windows": 488,
+      "directional_windows": 488,
+      "aligned_mean_bps": {
+        "mean": 0.023074412468126183,
+        "lower": 0.011770899706697643,
+        "upper": 0.03607226331462145,
+        "blocks": 41
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": -0.0,
+        "0.5": -0.0,
+        "0.75": 0.0,
+        "0.95": 0.00855228273482287
+      },
+      "aligned_probability": {
+        "mean": 0.05122950819672131,
+        "lower": 0.029458403097801577,
+        "upper": 0.07368636755823986,
+        "blocks": 41
+      },
+      "opposite_probability": {
+        "mean": 0.0020491803278688526,
+        "lower": 0.0,
+        "upper": 0.007177896117040853,
+        "blocks": 41
+      },
+      "unchanged_probability": {
+        "mean": 0.9467213114754098,
+        "lower": 0.9234806644924806,
+        "upper": 0.9681327460606125,
+        "blocks": 41
+      },
+      "signed_trade_btc": -130.347,
+      "mean_start_depth_btc": 362.79629303278693,
+      "forward_1s": {
+        "available": 394,
+        "missing": 94,
+        "aligned_mean_bps": {
+          "mean": 0.006962181842511372,
+          "lower": -0.014926422063135766,
+          "upper": 0.025665750230007972,
+          "blocks": 36
+        }
+      },
+      "forward_5s": {
+        "available": 192,
+        "missing": 296,
+        "aligned_mean_bps": {
+          "mean": 0.047815576433981134,
+          "lower": -0.0685548666421352,
+          "upper": 0.1681853148184434,
+          "blocks": 34
+        }
+      }
+    },
+    "buy_pressure": {
+      "windows": 535,
+      "directional_windows": 535,
+      "aligned_mean_bps": {
+        "mean": 0.028669133203411756,
+        "lower": 0.016767804906745058,
+        "upper": 0.0410656917833526,
+        "blocks": 46
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.2633018140920139
+      },
+      "aligned_probability": {
+        "mean": 0.07102803738317758,
+        "lower": 0.050161229852717606,
+        "upper": 0.09570232148104613,
+        "blocks": 46
+      },
+      "opposite_probability": {
+        "mean": 0.001869158878504673,
+        "lower": 0.0,
+        "upper": 0.00646551724137931,
+        "blocks": 46
+      },
+      "unchanged_probability": {
+        "mean": 0.9271028037383178,
+        "lower": 0.902280749389085,
+        "upper": 0.949483613692311,
+        "blocks": 46
+      },
+      "signed_trade_btc": 124.187,
+      "mean_start_depth_btc": 349.58671401869157,
+      "forward_1s": {
+        "available": 435,
+        "missing": 100,
+        "aligned_mean_bps": {
+          "mean": 0.0024993478366543767,
+          "lower": -0.021356488742934,
+          "upper": 0.02311860583777558,
+          "blocks": 37
+        }
+      },
+      "forward_5s": {
+        "available": 217,
+        "missing": 318,
+        "aligned_mean_bps": {
+          "mean": 0.04408981600518327,
+          "lower": -0.04907093573621706,
+          "upper": 0.14589344599408377,
+          "blocks": 31
+        }
+      }
+    },
+    "no_signed_trade_flow": {
+      "windows": 159,
+      "directional_windows": 0,
+      "aligned_mean_bps": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "aligned_quantiles_bps": {},
+      "aligned_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "opposite_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "unchanged_probability": {
+        "mean": null,
+        "lower": null,
+        "upper": null,
+        "blocks": 0
+      },
+      "signed_trade_btc": 0.0,
+      "mean_start_depth_btc": 337.30157861635223,
+      "forward_1s": {
+        "available": 0,
+        "missing": 0,
+        "aligned_mean_bps": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        }
+      },
+      "forward_5s": {
+        "available": 0,
+        "missing": 0,
+        "aligned_mean_bps": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        }
+      }
+    },
+    "high_trade_pressure": {
+      "windows": 142,
+      "directional_windows": 142,
+      "aligned_mean_bps": {
+        "mean": 0.14355898067617776,
+        "lower": 0.09601451427259677,
+        "upper": 0.19658843210360388,
+        "blocks": 35
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.19750766087236546,
+        "0.95": 0.6966898185205694
+      },
+      "aligned_probability": {
+        "mean": 0.34507042253521125,
+        "lower": 0.27357981539296866,
+        "upper": 0.4191660216718266,
+        "blocks": 35
+      },
+      "opposite_probability": {
+        "mean": 0.007042253521126761,
+        "lower": 0.0,
+        "upper": 0.022222222222222223,
+        "blocks": 35
+      },
+      "unchanged_probability": {
+        "mean": 0.647887323943662,
+        "lower": 0.5737673147795145,
+        "upper": 0.7218239146252728,
+        "blocks": 35
+      },
+      "signed_trade_btc": -9.818,
+      "mean_start_depth_btc": 357.9356478873239,
+      "forward_1s": {
+        "available": 111,
+        "missing": 31,
+        "aligned_mean_bps": {
+          "mean": 0.02561737010213462,
+          "lower": -0.007850885027484026,
+          "upper": 0.0629911565218625,
+          "blocks": 32
+        }
+      },
+      "forward_5s": {
+        "available": 58,
+        "missing": 84,
+        "aligned_mean_bps": {
+          "mean": 0.027867356791607754,
+          "lower": -0.1013616438106475,
+          "upper": 0.1600420318014234,
+          "blocks": 23
+        }
+      }
+    },
+    "book_agrees": {
+      "windows": 123,
+      "directional_windows": 123,
+      "aligned_mean_bps": {
+        "mean": 0.1803999669709994,
+        "lower": 0.12665789742412237,
+        "upper": 0.23540178555223257,
+        "blocks": 35
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.31585610987833934,
+        "0.95": 0.8641626122799198
+      },
+      "aligned_probability": {
+        "mean": 0.3983739837398374,
+        "lower": 0.318159965034965,
+        "upper": 0.48148989898989897,
+        "blocks": 35
+      },
+      "opposite_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 35
+      },
+      "unchanged_probability": {
+        "mean": 0.6016260162601627,
+        "lower": 0.518510101010101,
+        "upper": 0.6818400349650349,
+        "blocks": 35
+      },
+      "signed_trade_btc": -21.023,
+      "mean_start_depth_btc": 360.4149674796748,
+      "forward_1s": {
+        "available": 96,
+        "missing": 27,
+        "aligned_mean_bps": {
+          "mean": 0.043075557446313,
+          "lower": 0.007986390752604404,
+          "upper": 0.08330425910862348,
+          "blocks": 32
+        }
+      },
+      "forward_5s": {
+        "available": 49,
+        "missing": 74,
+        "aligned_mean_bps": {
+          "mean": 0.09698882485641928,
+          "lower": -0.031505104917698444,
+          "upper": 0.21260309384140844,
+          "blocks": 23
+        }
+      }
+    },
+    "display_reinforces": {
+      "windows": 100,
+      "directional_windows": 100,
+      "aligned_mean_bps": {
+        "mean": 0.15512778705659083,
+        "lower": 0.0960601351802342,
+        "upper": 0.21392257335386694,
+        "blocks": 33
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": -0.0,
+        "0.75": 0.26317460759546196,
+        "0.95": 0.7065871050208302
+      },
+      "aligned_probability": {
+        "mean": 0.38,
+        "lower": 0.29997126436781607,
+        "upper": 0.4655459770114942,
+        "blocks": 33
+      },
+      "opposite_probability": {
+        "mean": 0.01,
+        "lower": 0.0,
+        "upper": 0.034893980848153205,
+        "blocks": 33
+      },
+      "unchanged_probability": {
+        "mean": 0.61,
+        "lower": 0.5237044817927171,
+        "upper": 0.6923076923076923,
+        "blocks": 33
+      },
+      "signed_trade_btc": -5.094999999999999,
+      "mean_start_depth_btc": 362.75212,
+      "forward_1s": {
+        "available": 82,
+        "missing": 18,
+        "aligned_mean_bps": {
+          "mean": 0.04143215768907161,
+          "lower": -0.0002974022023940742,
+          "upper": 0.08743686825483601,
+          "blocks": 31
+        }
+      },
+      "forward_5s": {
+        "available": 42,
+        "missing": 58,
+        "aligned_mean_bps": {
+          "mean": 0.15240991092074563,
+          "lower": 0.040744984387730214,
+          "upper": 0.2660848814726792,
+          "blocks": 22
+        }
+      }
+    },
+    "high_pressure_deep": {
+      "windows": 55,
+      "directional_windows": 55,
+      "aligned_mean_bps": {
+        "mean": 0.11159904001071969,
+        "lower": 0.06159382958057095,
+        "upper": 0.18378859723862914,
+        "blocks": 20
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": -0.0,
+        "0.5": 0.0,
+        "0.75": 0.03294128356134597,
+        "0.95": 0.5569310028761361
+      },
+      "aligned_probability": {
+        "mean": 0.3090909090909091,
+        "lower": 0.21124907338769458,
+        "upper": 0.44125816993464045,
+        "blocks": 20
+      },
+      "opposite_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 20
+      },
+      "unchanged_probability": {
+        "mean": 0.6909090909090909,
+        "lower": 0.5587418300653595,
+        "upper": 0.7887509266123054,
+        "blocks": 20
+      },
+      "signed_trade_btc": -25.515,
+      "mean_start_depth_btc": 410.2675090909091,
+      "forward_1s": {
+        "available": 42,
+        "missing": 13,
+        "aligned_mean_bps": {
+          "mean": 0.021314365891342817,
+          "lower": -0.026064490623416103,
+          "upper": 0.07417576432635112,
+          "blocks": 17
+        }
+      },
+      "forward_5s": {
+        "available": 22,
+        "missing": 33,
+        "aligned_mean_bps": {
+          "mean": -0.025884820731221093,
+          "lower": -0.2716214299634342,
+          "upper": 0.22562991193984813,
+          "blocks": 10
+        }
+      }
+    },
+    "display_opposes": {
+      "windows": 42,
+      "directional_windows": 42,
+      "aligned_mean_bps": {
+        "mean": 0.11601420357995613,
+        "lower": 0.046956042125205204,
+        "upper": 0.19233111857237037,
+        "blocks": 24
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.00986801854018058,
+        "0.95": 0.6419657399848488
+      },
+      "aligned_probability": {
+        "mean": 0.2619047619047619,
+        "lower": 0.15,
+        "upper": 0.39285714285714285,
+        "blocks": 24
+      },
+      "opposite_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 24
+      },
+      "unchanged_probability": {
+        "mean": 0.7380952380952381,
+        "lower": 0.6071428571428571,
+        "upper": 0.85,
+        "blocks": 24
+      },
+      "signed_trade_btc": -4.723000000000001,
+      "mean_start_depth_btc": 346.46785714285716,
+      "forward_1s": {
+        "available": 29,
+        "missing": 13,
+        "aligned_mean_bps": {
+          "mean": -0.01910030514368722,
+          "lower": -0.05153646832456115,
+          "upper": 0.0,
+          "blocks": 18
+        }
+      },
+      "forward_5s": {
+        "available": 16,
+        "missing": 26,
+        "aligned_mean_bps": {
+          "mean": -0.2990568477973792,
+          "lower": null,
+          "upper": null,
+          "blocks": 9
+        }
+      }
+    },
+    "book_opposes": {
+      "windows": 19,
+      "directional_windows": 19,
+      "aligned_mean_bps": {
+        "mean": -0.09493793060082549,
+        "lower": -0.218644931080689,
+        "upper": 0.0,
+        "blocks": 12
+      },
+      "aligned_quantiles_bps": {
+        "0.05": -0.1803820681415684,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.95": 0.0
+      },
+      "aligned_probability": {
+        "mean": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "blocks": 12
+      },
+      "opposite_probability": {
+        "mean": 0.05263157894736842,
+        "lower": 0.0,
+        "upper": 0.12121212121212122,
+        "blocks": 12
+      },
+      "unchanged_probability": {
+        "mean": 0.9473684210526315,
+        "lower": 0.8787878787878788,
+        "upper": 1.0,
+        "blocks": 12
+      },
+      "signed_trade_btc": 11.205,
+      "mean_start_depth_btc": 341.8853157894736,
+      "forward_1s": {
+        "available": 15,
+        "missing": 4,
+        "aligned_mean_bps": {
+          "mean": -0.08611502890060699,
+          "lower": null,
+          "upper": null,
+          "blocks": 9
+        }
+      },
+      "forward_5s": {
+        "available": 9,
+        "missing": 10,
+        "aligned_mean_bps": {
+          "mean": -0.34846063600569943,
+          "lower": null,
+          "upper": null,
+          "blocks": 5
+        }
+      }
+    },
+    "high_pressure_thin": {
+      "windows": 87,
+      "directional_windows": 87,
+      "aligned_mean_bps": {
+        "mean": 0.16376354086698452,
+        "lower": 0.10185851222663904,
+        "upper": 0.223700989513447,
+        "blocks": 26
+      },
+      "aligned_quantiles_bps": {
+        "0.05": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.31585610987833934,
+        "0.95": 0.8309273882810088
+      },
+      "aligned_probability": {
+        "mean": 0.367816091954023,
+        "lower": 0.27494318181818184,
+        "upper": 0.45745642143040244,
+        "blocks": 26
+      },
+      "opposite_probability": {
+        "mean": 0.011494252873563218,
+        "lower": 0.0,
+        "upper": 0.03390312018489984,
+        "blocks": 26
+      },
+      "unchanged_probability": {
+        "mean": 0.6206896551724138,
+        "lower": 0.5365727935629873,
+        "upper": 0.7128039513677811,
+        "blocks": 26
+      },
+      "signed_trade_btc": 15.697000000000001,
+      "mean_start_depth_btc": 324.8522873563219,
+      "forward_1s": {
+        "available": 69,
+        "missing": 18,
+        "aligned_mean_bps": {
+          "mean": 0.028236590056529634,
+          "lower": -0.011749256415009034,
+          "upper": 0.07998592245548732,
+          "blocks": 23
+        }
+      },
+      "forward_5s": {
+        "available": 36,
+        "missing": 51,
+        "aligned_mean_bps": {
+          "mean": 0.060715909722225375,
+          "lower": -0.08467019638860482,
+          "upper": 0.19288759518232795,
+          "blocks": 15
+        }
+      }
+    }
+  },
+  "fresh_regressions": {
+    "trade_only": {
+      "windows": 1182,
+      "rmse_bps": 0.16824204455614228,
+      "zero_rmse_bps": 0.13479781784984946,
+      "descriptive_r_squared": -0.5587910236383156
+    },
+    "book_only": {
+      "windows": 1182,
+      "rmse_bps": 0.11610140049303799,
+      "zero_rmse_bps": 0.13479781784984946,
+      "descriptive_r_squared": 0.2576755958633802
+    },
+    "joint": {
+      "windows": 1182,
+      "rmse_bps": 0.13915281829713075,
+      "zero_rmse_bps": 0.13479781784984946,
+      "descriptive_r_squared": -0.06635751660153133
+    }
+  },
+  "contrasts": {
+    "book_agrees_minus_book_opposes": {
+      "mean": 0.5478040664579433,
+      "lower": 0.4004327385876095,
+      "upper": 0.6704001496364702,
+      "active_blocks": [
+        37,
+        17
+      ]
+    },
+    "display_reinforces_minus_display_opposes": {
+      "mean": 0.09778535339869421,
+      "lower": -0.07514341497002473,
+      "upper": 0.27104053280994767,
+      "active_blocks": [
+        36,
+        30
+      ]
+    },
+    "high_pressure_thin_minus_high_pressure_deep": {
+      "mean": -0.04308692147728105,
+      "lower": -0.14727472735973174,
+      "upper": 0.06716045565202636,
+      "active_blocks": [
+        32,
+        23
+      ]
+    }
+  },
+  "fresh_contrasts": {
+    "book_agrees_minus_book_opposes": {
+      "mean": 0.27533789757182486,
+      "lower": 0.13457199003142725,
+      "upper": 0.43362377417112413,
+      "active_blocks": [
+        35,
+        12
+      ]
+    },
+    "display_reinforces_minus_display_opposes": {
+      "mean": 0.03911358347663464,
+      "lower": -0.043714667643271095,
+      "upper": 0.1218100830325943,
+      "active_blocks": [
+        33,
+        24
+      ]
+    }
+  },
+  "block_length_sensitivity": {
+    "30": {
+      "mean": 0.09778535339869421,
+      "lower": -0.06729251897658266,
+      "upper": 0.26824526007506183,
+      "active_blocks": [
+        62,
+        42
+      ]
+    },
+    "120": {
+      "mean": 0.09778535339869432,
+      "lower": -0.07798496944046775,
+      "upper": 0.2796145838648073,
+      "active_blocks": [
+        27,
+        23
+      ]
+    }
+  },
+  "regressions": {
+    "trade_only": {
+      "windows": 1474,
+      "rmse_bps": 0.23840599551735106,
+      "zero_rmse_bps": 0.26033740907685726,
+      "descriptive_r_squared": 0.16122843628325434
+    },
+    "book_only": {
+      "windows": 1474,
+      "rmse_bps": 0.18200064151779308,
+      "zero_rmse_bps": 0.26033740907685726,
+      "descriptive_r_squared": 0.5111729952437327
+    },
+    "joint": {
+      "windows": 1474,
+      "rmse_bps": 0.1860930420042365,
+      "zero_rmse_bps": 0.26033740907685726,
+      "descriptive_r_squared": 0.48894266854790847
+    }
+  },
+  "information": {
+    "signed_btc": {
+      "empirical_bits": 0.08570624929472093,
+      "block_shuffle_null_median_bits": 0.0017677581485551212,
+      "block_shuffle_null_95th_bits": 0.004493395887577162,
+      "minute_blocks": 54
+    },
+    "ofi_btc": {
+      "empirical_bits": 0.11219891413310412,
+      "block_shuffle_null_median_bits": 0.001291475004828694,
+      "block_shuffle_null_95th_bits": 0.004094139657913922,
+      "minute_blocks": 54
+    },
+    "display_pressure": {
+      "empirical_bits": 0.010734664844178418,
+      "block_shuffle_null_median_bits": 0.000564297499071566,
+      "block_shuffle_null_95th_bits": 0.0026881851965873745,
+      "minute_blocks": 54
+    }
+  }
+}
