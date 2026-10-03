@@ -155,6 +155,8 @@ class Output:
         from .live_model_status import assess
         ecology['model_status']=assess(market,view,now_ns)
         ecology['live_training']=self.training.status(now_ns)
+        from .paper_signal import assess as assess_paper
+        ecology['paper_signal']=assess_paper(ecology['live_training'],view,now_ns)
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))

@@ -51,9 +51,11 @@ def train_examples(data):
         gate_training(cut,training);x=np.array([r['features'] for r in training]);y=np.array([int(r['return_bps']>0) for r in training])
         if min(int(y.sum()),int(len(y)-y.sum()))<10:
             return dict(status='insufficient_class_support',qualified=False,usable_examples=len(data))
+        from .paper_signal import fit_return
+        return_model=fit_return(x,np.array([r['return_bps'] for r in training]),np.array([r['features'] for r in evaluation]),np.array([r['return_bps'] for r in evaluation]))
         model=fit(x,y);p=predict(np.array([r['features'] for r in evaluation]),model).tolist()
         targets=[r['return_bps'] for r in evaluation];interval=list(map(float,np.quantile([r['return_bps'] for r in training],[.1,.9])))
-        result=dict(status='offline_development_fit',venue=data[0].get('provider','Coinbase Exchange'),symbol=data[0].get('symbol','BTC-USD'),qualified=False,model=model,
+        result=dict(status='offline_development_fit',venue=data[0].get('provider','Coinbase Exchange'),symbol=data[0].get('symbol','BTC-USD'),qualified=False,model=model,return_model=return_model,last_label_ns=max(r['label_available_ns'] for r in data),
             training_examples=len(training),evaluation_examples=len(evaluation),cutoff_ns=cut,
             scores=score(p,targets,[interval]*len(targets)),baseline=score([float(y.mean())]*len(targets),targets,[interval]*len(targets)),
             limitations=['Receipt-batched feed lacks independent sequence verification.','Chronological second-half comparison only; no untouched-day validation.','No fill, fee, latency, inventory or profit evaluation. Artifact is not loaded automatically into live trading.'])
