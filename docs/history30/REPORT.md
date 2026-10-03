@@ -44,3 +44,5 @@ Official source: https://github.com/binance/binance-public-data
 Archive SHA-256: `252e92894886c2f752744656e4f1d7a278a75e1456aa32442451b07ee9703b80`.
 
 See [protocol](PROTOCOL.md), [primary machine-readable results](results/results.json), and [exploratory diagnostics](results/diagnostics.json). The derived CSV is recreated by the runner; the large raw archive is not committed.
+
+Further study: [conditional ecology response models](CONDITIONAL_ECOLOGY.md), including flow/activity combinations, lagged-flow features and 5/15/30-minute price responses.

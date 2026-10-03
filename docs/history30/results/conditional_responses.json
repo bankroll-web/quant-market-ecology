@@ -1,0 +1,324 @@
+{
+  "status": "exploratory_conditional_ecology_response",
+  "qualified": false,
+  "thresholds": {
+    "flow_extreme": 0.35773492930775475,
+    "activity_high": 8.36217538736668,
+    "count_center": 7.903639160660568,
+    "volume_center": 5.665924278503076,
+    "low_move": 1.9832417418143073
+  },
+  "horizons_minutes": {
+    "5": {
+      "training_rows": 5756,
+      "evaluation_rows": 2878,
+      "model_mse": 137.9894710111683,
+      "constant_mse": 137.93629280307522,
+      "loss_difference_day_cluster_95": [
+        -0.23383901053908118,
+        0.37910116673037925
+      ],
+      "conditional_responses": [
+        {
+          "condition": "strong_flow_high_activity",
+          "rows": 117,
+          "days": 10,
+          "mean_aligned_future_bps": -1.3596949012336206,
+          "probability_same_flow_direction": 0.46153846153846156,
+          "aligned_day_cluster_95": [
+            -3.0927923099922894,
+            -0.057986658666541346
+          ],
+          "direction_day_cluster_95": [
+            0.3780487804878049,
+            0.5363651414810355
+          ]
+        },
+        {
+          "condition": "strong_flow_normal_activity",
+          "rows": 391,
+          "days": 10,
+          "mean_aligned_future_bps": -0.33621238147611476,
+          "probability_same_flow_direction": 0.4859335038363171,
+          "aligned_day_cluster_95": [
+            -1.2218047266384953,
+            0.3007733640898598
+          ],
+          "direction_day_cluster_95": [
+            0.4430369438832309,
+            0.5287356321839081
+          ]
+        },
+        {
+          "condition": "strong_flow_low_current_move",
+          "rows": 66,
+          "days": 9,
+          "mean_aligned_future_bps": 0.2565077710184027,
+          "probability_same_flow_direction": 0.5303030303030303,
+          "aligned_day_cluster_95": [
+            -1.8399856414934463,
+            3.222627891585776
+          ],
+          "direction_day_cluster_95": [
+            0.379746835443038,
+            0.6842105263157895
+          ]
+        }
+      ],
+      "model": {
+        "mean": [
+          -0.012882827929565143,
+          -0.012798100296011552,
+          -0.012806518740679791,
+          0.05518740732799225,
+          2.7904699478421513e-05,
+          -3.4411959796745675e-05,
+          13.386044740210192,
+          0.001880246584894491,
+          0.001931251633358226,
+          -0.006040714671214378
+        ],
+        "std": [
+          0.2729199207921807,
+          0.2729180867946197,
+          0.17282768076908492,
+          10.963610263482721,
+          0.7934959945967099,
+          0.9328557965068606,
+          11.345223275043873,
+          0.21785323840622084,
+          0.25339442177952753,
+          0.12006182356644522
+        ],
+        "weights": [
+          0.053072979929268495,
+          -0.14394411555265363,
+          -0.10818982797333448,
+          0.07411269513045206,
+          -0.15872805501167725,
+          0.07107907542405921,
+          -0.050060967959501775,
+          0.1939352879586809,
+          -0.03907138206167493,
+          -0.17062112187319203,
+          0.07206522544903872
+        ],
+        "ridge": 0.1
+      }
+    },
+    "15": {
+      "training_rows": 5754,
+      "evaluation_rows": 959,
+      "model_mse": 408.4089925433769,
+      "constant_mse": 408.7779020260694,
+      "loss_difference_day_cluster_95": [
+        -3.183493265720691,
+        1.7154771545682235
+      ],
+      "conditional_responses": [
+        {
+          "condition": "strong_flow_high_activity",
+          "rows": 46,
+          "days": 9,
+          "mean_aligned_future_bps": -2.8823916416894786,
+          "probability_same_flow_direction": 0.391304347826087,
+          "aligned_day_cluster_95": [
+            -8.664373631735096,
+            3.2163666208625874
+          ],
+          "direction_day_cluster_95": [
+            0.2894736842105263,
+            0.4814980158730156
+          ]
+        },
+        {
+          "condition": "strong_flow_normal_activity",
+          "rows": 123,
+          "days": 10,
+          "mean_aligned_future_bps": -2.0401614116974343,
+          "probability_same_flow_direction": 0.45528455284552843,
+          "aligned_day_cluster_95": [
+            -4.367653920152243,
+            -0.33791333602754264
+          ],
+          "direction_day_cluster_95": [
+            0.3923039215686274,
+            0.5267857142857143
+          ]
+        },
+        {
+          "condition": "strong_flow_low_current_move",
+          "rows": 18,
+          "days": 7,
+          "mean_aligned_future_bps": 0.16025987918918794,
+          "probability_same_flow_direction": 0.5555555555555556,
+          "aligned_day_cluster_95": [
+            -4.8666410824967015,
+            8.270389348063448
+          ],
+          "direction_day_cluster_95": [
+            0.4,
+            0.7777777777777778
+          ]
+        }
+      ],
+      "model": {
+        "mean": [
+          -0.01285153651686607,
+          -0.012840276296355705,
+          -0.012827788372031263,
+          0.05440416436155923,
+          -5.657789372305489e-05,
+          -0.00012860931061615583,
+          13.385776750816836,
+          0.0018882928291137858,
+          0.0019382747965012092,
+          -0.00603139062741533
+        ],
+        "std": [
+          0.2729459503644683,
+          0.2729544300066037,
+          0.17284988676208404,
+          10.965376130220195,
+          0.7936208241191841,
+          0.9330035454908159,
+          11.347185346160293,
+          0.217889611764773,
+          0.25343723317757905,
+          0.12007976068760169
+        ],
+        "weights": [
+          0.15930122033315583,
+          -0.07417614138447638,
+          0.032914822867848484,
+          -0.06551006440003398,
+          0.02621910242742702,
+          0.23354866492022794,
+          0.09639248249899719,
+          0.6328912071327153,
+          -0.11544224299172082,
+          -0.3268689086240715,
+          -0.1049635019929138
+        ],
+        "ridge": 0.1
+      }
+    },
+    "30": {
+      "training_rows": 5751,
+      "evaluation_rows": 479,
+      "model_mse": 793.9348051796653,
+      "constant_mse": 800.0001636705622,
+      "loss_difference_day_cluster_95": [
+        -19.39513248183496,
+        4.092285352899536
+      ],
+      "conditional_responses": [
+        {
+          "condition": "strong_flow_high_activity",
+          "rows": 23,
+          "days": 8,
+          "mean_aligned_future_bps": -11.046989715721365,
+          "probability_same_flow_direction": 0.34782608695652173,
+          "aligned_day_cluster_95": [
+            -24.692849377944707,
+            2.6187808760140907
+          ],
+          "direction_day_cluster_95": [
+            0.17857142857142858,
+            0.5652173913043478
+          ]
+        },
+        {
+          "condition": "strong_flow_normal_activity",
+          "rows": 64,
+          "days": 10,
+          "mean_aligned_future_bps": -4.560840692721017,
+          "probability_same_flow_direction": 0.40625,
+          "aligned_day_cluster_95": [
+            -12.85642239130321,
+            -0.20267621663524968
+          ],
+          "direction_day_cluster_95": [
+            0.35365853658536583,
+            0.48936170212765956
+          ]
+        },
+        {
+          "condition": "strong_flow_low_current_move",
+          "rows": 9,
+          "days": 4,
+          "mean_aligned_future_bps": 3.9265841984844148,
+          "probability_same_flow_direction": 0.6666666666666666,
+          "aligned_day_cluster_95": [
+            -1.9077312763230068,
+            15.11340137492094
+          ],
+          "direction_day_cluster_95": [
+            0.25,
+            1.0
+          ]
+        }
+      ],
+      "model": {
+        "mean": [
+          -0.012832990696309197,
+          -0.012864502938424558,
+          -0.012850649459428574,
+          0.05581962091801479,
+          -9.393373043406883e-06,
+          2.9872934112585705e-05,
+          13.384827147339976,
+          0.0018670051231199317,
+          0.0018954813143479809,
+          -0.006010158659364892
+        ],
+        "std": [
+          0.272948160352569,
+          0.27291022497434364,
+          0.17288592591413632,
+          10.96437251928717,
+          0.7938145319623106,
+          0.9330421014199992,
+          11.349339320425834,
+          0.21794050541426746,
+          0.2534698628581623,
+          0.12008814372602372
+        ],
+        "weights": [
+          0.31501925403292275,
+          -0.29129639186919154,
+          0.018769871790202838,
+          -0.2788426062824613,
+          0.2830333597892362,
+          0.6569895068962474,
+          0.3414671853494356,
+          0.628698351971121,
+          -0.6477294585831229,
+          -0.23557965811222617,
+          -0.0848820572062885
+        ],
+        "ridge": 0.1
+      }
+    }
+  },
+  "feature_names": [
+    "flow",
+    "lag_flow",
+    "three_block_flow_mean",
+    "current_return",
+    "centered_log_count",
+    "centered_log_volume",
+    "range",
+    "flow_x_activity",
+    "flow_x_volume",
+    "signed_squared_flow"
+  ],
+  "limits": [
+    "September was already examined. These models are exploratory, not untouched validation.",
+    "Price response uses last-trade close-to-close returns, not executable profits.",
+    "Five-minute labels do not identify traders, liquidity or cancellations. Low-move flow is not measured replenishment.",
+    "Longer-horizon evaluation is clock-subsampled to avoid overlapping target intervals; serial dependence remains.",
+    "Confidence intervals resample whole days and recompute observation-weighted means; ten days give limited uncertainty resolution.",
+    "No multiple-comparison correction or causal identification; independent replication required."
+  ]
+}
