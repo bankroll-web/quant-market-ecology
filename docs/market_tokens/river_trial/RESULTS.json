@@ -1,0 +1,112 @@
+{
+  "status": "river_receipt_tokens_development",
+  "river_version": "0.26.1",
+  "qualified": false,
+  "orders_enabled": false,
+  "policy": {
+    "version": "receipt_window_v1",
+    "trade_window": "[previous_book_receipt_ns, current_book_receipt_ns)",
+    "decision": "current_book_receipt_ns",
+    "processing_latency_ms": 0,
+    "tie_policy": "exclude current-receipt trade ties; include them in next window",
+    "book_order": "original reconstructed episode sequence; reject receipt reversals/ties",
+    "dt_token": "elapsed book receipt milliseconds",
+    "target": "next 10 contiguous book updates, all strictly after decision receipt"
+  },
+  "tokenizer_fit_hours": [
+    "2026-05-25_04"
+  ],
+  "learning_hours": [
+    "2026-05-25_12",
+    "2026-05-25_18"
+  ],
+  "training_samples": 10748,
+  "matured_training_updates": 10748,
+  "evaluation_samples": 11608,
+  "evaluation_weights_frozen": true,
+  "training_label_rule": "learn only when target receipt < next decision receipt",
+  "scores": {
+    "return": {
+      "model_mse": 0.09987742594026904,
+      "baseline_mse": 0.10002643382825453,
+      "examples": 11608
+    },
+    "flow": {
+      "model_mse": 1.8261390142642124,
+      "baseline_mse": 0.8413076540789262,
+      "examples": 7225
+    },
+    "vol": {
+      "model_mse": 0.0012153953970066875,
+      "baseline_mse": 0.0011745581301520528,
+      "examples": 11608
+    }
+  },
+  "return_error_adwin_alarms": 5,
+  "limits": [
+    "Previously examined five-hour development corpus, not untouched validation.",
+    "Different tokenizer warmup and two-hour learning protocol: not directly comparable with the five-epoch transformer.",
+    "Linear token-frequency/latest-category models, not an LLM or a deep event model.",
+    "Raw volatility head is unconstrained; no execution costs, latency allowance or profit test.",
+    "Drift detection is descriptive; no automatic reset or strategy promotion."
+  ],
+  "raw_trade_sources": [
+    {
+      "hour": "2026-05-25_04",
+      "rows": 23627,
+      "valid_receipt_rows": 23548,
+      "invalid_receipt_rows": 79,
+      "changed_trade_count_rows": 449,
+      "changed_signed_flow_rows": 448,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "rows": 55577,
+      "valid_receipt_rows": 55403,
+      "invalid_receipt_rows": 174,
+      "changed_trade_count_rows": 2507,
+      "changed_signed_flow_rows": 2525,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "rows": 57396,
+      "valid_receipt_rows": 57302,
+      "invalid_receipt_rows": 94,
+      "changed_trade_count_rows": 1717,
+      "changed_signed_flow_rows": 1711,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "rows": 50852,
+      "valid_receipt_rows": 50677,
+      "invalid_receipt_rows": 175,
+      "changed_trade_count_rows": 13526,
+      "changed_signed_flow_rows": 13894,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "rows": 71465,
+      "valid_receipt_rows": 71342,
+      "invalid_receipt_rows": 123,
+      "changed_trade_count_rows": 2930,
+      "changed_signed_flow_rows": 2925,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "source_sha256": {
+    "2026-05-25_04_d09_joint_flow_liquidity_tape.csv": "3477f18e2975536f4a7af596b9431abe5163da14a940ecab19f6e54d8b3c1ec3",
+    "2026-05-25_04_d09b_touch_distance_book_events.csv": "adbad41a25a6523bfda6c6dbcce92c866d9fa693beb83d9f3e1511bbbfe2e08e",
+    "2026-05-25_12_d09_joint_flow_liquidity_tape.csv": "96198a82f3055ea5fcf86cdd56889bc24c73141a8dde4ef26037781f0e1edaa3",
+    "2026-05-25_12_d09b_touch_distance_book_events.csv": "7f288cc1df449b1d67e6741859f970361c432d32df229702598e1dbfd65c998b",
+    "2026-05-25_18_d09_joint_flow_liquidity_tape.csv": "913346cc711220de67370630603c614115e49ce9cc2694e1b2683fe4dec3900d",
+    "2026-05-25_18_d09b_touch_distance_book_events.csv": "b20632fda735ddbb42ea0d13e367dee30d0f18d279e687081ff6d708c5e3c28f",
+    "2026-05-26_15_d09_joint_flow_liquidity_tape.csv": "7a9e08f459ecb5d0cde2324aef37aa673aca80437993125db34efe90e4456fb7",
+    "2026-05-26_15_d09b_touch_distance_book_events.csv": "a2b5b0cab4cbbbd8aec3a7e9633d05aa136312cf45e06a7e495adbc2383babb9",
+    "2026-05-26_21_d09_joint_flow_liquidity_tape.csv": "dd3f4c77c2f62428feb52d584207391e47e29c63b6a24dd825bd51fb9ba7dbab",
+    "2026-05-26_21_d09b_touch_distance_book_events.csv": "779207c7bddb1e47cc722833832672eaf9c40439a732e5a59ef39096cc19e482"
+  }
+}

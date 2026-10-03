@@ -1,0 +1,6 @@
+{
+  "restored_prediction_max_difference": 0.0,
+  "matured_updates_match_samples": true,
+  "training_targets_before_evaluation": true,
+  "code_sha256": "2913d6a4c4f9cfccf0d58e905db686929b4e820a23242bdda32a8d3ef29791aa"
+}
