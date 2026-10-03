@@ -122,6 +122,8 @@ class Output:
         self.ecology = LiveEcology()
         from .live_training import LiveTraining
         self.training = LiveTraining()
+        from .paper_ledger import PaperLedger
+        self.paper_ledger = PaperLedger()
         self.mode = mode
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
@@ -156,7 +158,11 @@ class Output:
         ecology['model_status']=assess(market,view,now_ns)
         ecology['live_training']=self.training.status(now_ns)
         from .paper_signal import assess as assess_paper
-        ecology['paper_signal']=assess_paper(ecology['live_training'],view,now_ns)
+        ecology['paper_ledger']=self.paper_ledger.update(ecology['live_training'],view,now_ns)
+        ecology['paper_signal']=assess_paper(self.paper_ledger.model or ecology['live_training'],view,now_ns)
+        if self.paper_ledger.complete:
+            ecology['paper_signal']['signal']='WAIT'
+            ecology['paper_signal']['reasons'].insert(0,'Frozen evaluation completed; review required before another cycle')
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))

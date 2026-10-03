@@ -9,3 +9,11 @@ Required gates: matching venue/symbol, research-usable feed, feature receipt and
 When any gate fails, the panel shows WAIT with reasons. Binary direction probability is not converted directly into a trade; the panel uses an explicit expected-return estimate. Historical reversal candidates that failed costs are not promoted into this panel.
 
 The next step is to freeze a candidate model for prospective paper evaluation with executable quotes and independent observations. This panel has no paper portfolio, completed-trade ledger or actual execution yet. It does not establish profitability.
+
+## Frozen prospective outcome ledger
+
+The service freezes the first fitted return-model report and evaluates it for ten minutes. The visible paper candidate uses that same frozen model; training may continue separately but cannot alter this evaluation. After the window, the candidate returns to WAIT for review. The ledger does not auto-select or promote a replacement model. Venue mismatch blocks resolution and entries.
+
+Each fresh decision records an expected one-second midpoint move. The first eligible published observation at least one second later, with a feature receipt at or after that horizon, resolves it; observations later than 1.25 seconds invalidate the trial. Feed quality failures also invalidate pending observations, and rejected counts are reported. Decisions are at least 1.25 seconds apart. Forecast MSE is compared with zero-return MSE on resolved observations, conditional on data surviving the freshness filters. Rejection rates can create selection effects.
+
+BUY proxies enter at the displayed ask and exit at the later bid; SELL proxies enter at the bid and exit at the later ask. Deduct 6 bps assumed fee/slippage cost after quote spread, with no actual orders, queue model, inventory or size-dependent execution. SELL does not establish spot borrow availability. Sum of per-entry bps is not an account return. No portfolio drawdown or profitability qualification is supplied. Only twenty latest outcomes plus bounded summary counters are retained; all state is lost on restart. This is a prospective diagnostic ledger, not completed market validation.
