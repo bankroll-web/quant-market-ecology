@@ -19,3 +19,11 @@ Primary sources reviewed:
 - https://docs-legacy.kraken.com/api/docs/websocket-v2/book/
 
 Tests exercise background readiness, insufficient class support and a complete synthetic chronological fit. Synthetic results validate code behavior only. Real-data profitability, fees, latency, queue fills and paper trading remain unqualified.
+
+## Delayed-feed recovery and alternate venue
+
+An observed live page reported about 49 seconds of engine-to-receipt delay despite recent arrivals. The implementation now reconnects Coinbase when that lag exceeds ten seconds. After three consecutive delay failures, it switches the remaining run to the existing public Kraken spot observer. Kraken CRC32 top-ten verification is retained. Failure of that alternate feed is reported through its existing retry/status path; no provider quality is fabricated.
+
+Coinbase depth calculations now reuse an exact Decimal cache when midpoint is unchanged, and the displayed top-100 copies use bounded heaps instead of sorting the full retained book. These reduce processing overhead without truncating the authoritative Coinbase book. They do not establish whether the observed delay was caused by processing, transport or clocks.
+
+Kraken received-book features use its subscribed depth. Switching venues clears the rolling fitting buffer; pending fits from another venue are discarded. Offline fitting rejects mixed-venue examples. Raw recordings remain private. The two feeds are never combined as one book or one fitted model.

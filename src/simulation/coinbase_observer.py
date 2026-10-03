@@ -5,6 +5,7 @@ from datetime import datetime
 from decimal import Decimal
 import json
 import math
+import heapq
 import time
 from .kraken_observer import KrakenObserver
 
@@ -22,6 +23,7 @@ class CoinbaseObserver(KrakenObserver):
         self.model_observation = None
         self.feature_samples = 0
         self.feature_first_ns = None
+        self.feature_depth = None
 
     def invalidate(self, reason):
         super().invalidate(reason)
@@ -29,6 +31,7 @@ class CoinbaseObserver(KrakenObserver):
         self.model_observation = None
         self.feature_samples = 0
         self.feature_first_ns = None
+        self.feature_depth = None
 
     def update_coinbase(self, event, received_ns):
         if event.get('product_id') != self.symbol:
@@ -51,6 +54,7 @@ class CoinbaseObserver(KrakenObserver):
         mid = (max(self.bids) + min(self.asks)) / 2 if self.valid else None
         before = (max(self.bids), self.bids[max(self.bids)], min(self.asks), self.asks[min(self.asks)]) if self.valid else None
         changes = {}
+        net_changes = {'bid':Decimal(0),'ask':Decimal(0)}
         for side, price, size in levels:
             if side not in ('buy', 'sell'):
                 self.invalidate('invalid_side')
@@ -62,6 +66,7 @@ class CoinbaseObserver(KrakenObserver):
             book = self.bids if side == 'buy' else self.asks
             if mid is not None and (p >= mid * Decimal('.999') if side == 'buy' else p <= mid * Decimal('1.001')):
                 delta = q - book.get(p, Decimal(0))
+                net_changes['bid' if side=='buy' else 'ask'] += delta
                 key = ('bid' if side == 'buy' else 'ask') + ('_added_btc' if delta > 0 else '_removed_btc')
                 changes[key] = changes.get(key, 0.) + abs(float(delta))
             if q == 0:
@@ -84,8 +89,12 @@ class CoinbaseObserver(KrakenObserver):
             old_bid,old_qb,old_ask,old_qa=before
             ofi=(qb if bid>=old_bid else 0)-(old_qb if bid<=old_bid else 0)-(qa if ask<=old_ask else 0)+(old_qa if ask>=old_ask else 0)
             midpoint=(bid+ask)/2
-            db=sum(q for p,q in self.bids.items() if p>=midpoint*Decimal('.999'))
-            da=sum(q for p,q in self.asks.items() if p<=midpoint*Decimal('1.001'))
+            if self.feature_depth is not None and midpoint==self.feature_depth[0]:
+                db=self.feature_depth[1]+net_changes['bid'];da=self.feature_depth[2]+net_changes['ask']
+            else:
+                db=sum(q for p,q in self.bids.items() if p>=midpoint*Decimal('.999'))
+                da=sum(q for p,q in self.asks.items() if p<=midpoint*Decimal('1.001'))
+            self.feature_depth=(midpoint,db,da)
             depth=db+da
             self.model_observation=None
             if depth>0:
@@ -131,8 +140,8 @@ class CoinbaseObserver(KrakenObserver):
 def publish_coinbase(out, observer, now_ns):
     # Keep the authoritative full book, but bound display/scenario copies to 100 levels.
     display = copy.copy(observer)
-    display.bids = {p: observer.bids[p] for p in sorted(observer.bids, reverse=True)[:100]}
-    display.asks = {p: observer.asks[p] for p in sorted(observer.asks)[:100]}
+    display.bids = {p: observer.bids[p] for p in heapq.nlargest(100,observer.bids)}
+    display.asks = {p: observer.asks[p] for p in heapq.nsmallest(100,observer.asks)}
     display.validation += '; display and scenarios limited to 100 levels/side'
     out.publish(display, now_ns)
 
@@ -179,6 +188,8 @@ async def live_coinbase(out, seconds):
                                 raise RuntimeError(observer.reason)
                             if observer.model_observation is not None:
                                 out.capture('coinbase_model_observation', observer.model_observation, received)
+                            if observer.event_ms is not None and received-observer.event_ms*1_000_000>10_000_000_000:
+                                raise RuntimeError('engine_receipt_delay_over_10_seconds')
                             failures = 0
                         if time.monotonic() - connected > 30 and (observer.received_ns is None or received - observer.received_ns > 30_000_000_000):
                             raise RuntimeError('book_updates_silent_30_seconds')
@@ -190,6 +201,11 @@ async def live_coinbase(out, seconds):
                 observer.invalidate('reconnecting')
                 out.capture('coinbase_disconnect', dict(error=str(error)), time.time_ns())
                 failures += 1
+                if failures>=3 and 'engine_receipt_delay_over_10_seconds' in str(error):
+                    print('Switching delayed Coinbase connection to public Kraken feed',flush=True)
+                    from .kraken_observer import live_kraken
+                    await live_kraken(out,max(1,int(deadline-time.monotonic())))
+                    return
                 delay = min(60, 2**min(failures, 6))
                 print(f'Coinbase unavailable: {error}; retry in {delay}s', flush=True)
                 until = min(deadline, time.monotonic() + delay)

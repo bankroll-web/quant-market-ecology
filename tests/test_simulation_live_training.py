@@ -16,3 +16,11 @@ class LiveTrainingTests(unittest.TestCase):
         self.assertGreater(r['training_examples'],200);self.assertGreater(r['evaluation_examples'],200)
         rows=[dict(row,return_bps=0) for row in rows]
         self.assertEqual(train_examples(rows)['status'],'insufficient_class_support')
+    def test_venue_switch_clears_buffer_and_mixed_training_rejected(self):
+        engine=LiveTraining()
+        try:
+            engine.record('coinbase_model_observation',dict(provider='Coinbase Exchange',symbol='BTC-USD'))
+            engine.record('kraken_model_observation',dict(provider='Kraken',symbol='BTC/USD'))
+            self.assertEqual(len(engine.records),1);self.assertEqual(engine.records[0]['provider'],'Kraken')
+            self.assertEqual(train_examples([dict(provider='Kraken',symbol='BTC/USD'),dict(provider='Coinbase Exchange',symbol='BTC-USD')])['status'],'mixed_venues_rejected')
+        finally:engine.pool.shutdown(wait=True)

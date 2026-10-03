@@ -45,3 +45,10 @@ class CoinbaseTests(unittest.TestCase):
         m['features'][0]=99
         self.assertNotEqual(o.model_observation['features'][0],99)
         o.invalidate('reset');self.assertIsNone(o.model_observation)
+    def test_depth_cache_reconciles_same_midpoint_updates(self):
+        o=CoinbaseObserver()
+        o.update_coinbase(dict(type='snapshot',product_id='BTC-USD',bids=[['100','2'],['99.99','4']],asks=[['100.01','3']]),1000000000)
+        self.update(o,[['buy','100','1']])
+        self.update(o,[['buy','99.99','2'],['sell','100.01','4']])
+        self.assertEqual(o.model_observation['depth_btc'],7)
+        self.assertAlmostEqual(o.model_observation['features'][1],-1/7)

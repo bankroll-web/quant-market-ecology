@@ -36,9 +36,11 @@ class KrakenObserver(DepthObserver):
         self.last_trade_received_ns=None
         self.trade_subscribed=False
         self.mechanics=MarketMechanics()
+        self.model_observation=None
 
     def invalidate(self,reason):
         super().invalidate(reason)
+        self.model_observation=None
         if hasattr(self,'mechanics'):self.mechanics.reset()
 
     def update_kraken(self,message,received_ns):
@@ -55,6 +57,7 @@ class KrakenObserver(DepthObserver):
         if message['type']=='update' and event_ms is not None and self.event_ms is not None and event_ms<self.event_ms:
             self.invalidate('out_of_order_timestamp');return False
         pre_mid=(max(self.bids)+min(self.asks))/2 if self.bids and self.asks and self.valid else None
+        before=(max(self.bids),self.bids[max(self.bids)],min(self.asks),self.asks[min(self.asks)]) if self.valid else None
         changes={}
         for side,key,reverse in ((self.bids,'bids',True),(self.asks,'asks',False)):
             for level in data.get(key,[]):
@@ -79,6 +82,8 @@ class KrakenObserver(DepthObserver):
         self.valid=True
         self.reason='checksum_verified'
         self.mechanics.record(received_ns,changes, float((max(self.bids)+min(self.asks))/2))
+        from .venue_features import observation
+        self.model_observation=observation(self,before,received_ns)
         return True
 
     def observe_trades(self,message,received_ns):
@@ -92,6 +97,7 @@ class KrakenObserver(DepthObserver):
 
     def view(self,now_ns):
         result=super().view(now_ns)
+        result['model_observation']=self.model_observation if self.valid else None
         result.update(sequence_valid=None,book_validated=self.valid,
                       local_update_count=self.counter,trade_subscription_active=self.trade_subscribed,
                       captured_trade_messages=self.trade_messages,captured_trade_events=self.trade_events,
@@ -139,7 +145,9 @@ async def live_kraken(out,seconds):
                             accepted=observer.update_kraken(event,received)
                             if not accepted and observer.sequence is None:
                                 raise RuntimeError(observer.reason)
-                            if accepted:failures=0
+                            if accepted:
+                                if observer.model_observation is not None:out.capture('kraken_model_observation',observer.model_observation,received)
+                                failures=0
                         # Apply every update; publish/coalesce the human display at 4 Hz.
                         if time.monotonic()-last_publish>=.25:
                             out.publish(observer,time.time_ns())
