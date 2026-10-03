@@ -1,0 +1,210 @@
+{
+  "status": "trade_token_and_flow_target_audit_not_trained_model",
+  "cutoff_ns": 1779669395080756640,
+  "training_codec_trades": 21058,
+  "vocabulary_size": 129,
+  "first_later_trade": {
+    "receipt_ns": 1779669395304031050,
+    "side": "sell",
+    "size": 0.001,
+    "dt": 1.227915829,
+    "relative_price_bps": -0.006481778263142273,
+    "reference_ns": 1779669395292944799,
+    "tokens": [
+      0,
+      7,
+      41,
+      61,
+      109,
+      128
+    ]
+  },
+  "reports": [
+    {
+      "hour": "2026-05-26_03",
+      "counts": {
+        "raw": 73520,
+        "future_timestamp": 0,
+        "missing_payload": 140,
+        "no_fresh_book": 42971,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 30409,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 1127,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 1127,
+      "first_flow_target": {
+        "decision_ns": 1779764463175893380,
+        "label_available_ns": 1779764464187594674,
+        "signed_flow": -0.02158273381294962
+      },
+      "book_sha256": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8",
+      "trade_sha256": "37764125bcec9d95778e7794aedeb2ad9daae3c8706632e37d4c2e234676c5e8"
+    },
+    {
+      "hour": "2026-05-26_09",
+      "counts": {
+        "raw": 56454,
+        "future_timestamp": 0,
+        "missing_payload": 126,
+        "no_fresh_book": 37481,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 18847,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 989,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 989,
+      "first_flow_target": {
+        "decision_ns": 1779786006364669014,
+        "label_available_ns": 1779786007365311408,
+        "signed_flow": -0.9889025893958078
+      },
+      "book_sha256": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36",
+      "trade_sha256": "eb5bb1582bf0255e37a6c0e7e06ccc7385e71f35699a88dcdf62781adb174b38"
+    },
+    {
+      "hour": "2026-05-25_00",
+      "counts": {
+        "raw": 124145,
+        "future_timestamp": 0,
+        "missing_payload": 135,
+        "no_fresh_book": 90000,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 34010,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 840,
+      "training_resolved_flow_targets": 424,
+      "later_flow_targets": 415,
+      "first_flow_target": {
+        "decision_ns": 1779667500236672343,
+        "label_available_ns": 1779667501243230367,
+        "signed_flow": 0.32258064516129026
+      },
+      "book_sha256": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815",
+      "trade_sha256": "17e184557837f27999c1133433f02ba274fb065b6ae40923dd6ccadf523de942"
+    },
+    {
+      "hour": "2026-05-25_04",
+      "counts": {
+        "raw": 77822,
+        "future_timestamp": 0,
+        "missing_payload": 109,
+        "no_fresh_book": 67924,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 9789,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 477,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 477,
+      "first_flow_target": {
+        "decision_ns": 1779682080496234244,
+        "label_available_ns": 1779682081502186314,
+        "signed_flow": 1.0
+      },
+      "book_sha256": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019",
+      "trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "counts": {
+        "raw": 65031,
+        "future_timestamp": 0,
+        "missing_payload": 122,
+        "no_fresh_book": 39392,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 25517,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 1021,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 1021,
+      "first_flow_target": {
+        "decision_ns": 1779710814860815143,
+        "label_available_ns": 1779710815873554172,
+        "signed_flow": -0.45787545787545786
+      },
+      "book_sha256": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac",
+      "trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "counts": {
+        "raw": 34550,
+        "future_timestamp": 0,
+        "missing_payload": 66,
+        "no_fresh_book": 21317,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 13167,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 943,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 943,
+      "first_flow_target": {
+        "decision_ns": 1779732260065524709,
+        "label_available_ns": 1779732261070260611,
+        "signed_flow": -1.0
+      },
+      "book_sha256": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2",
+      "trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "counts": {
+        "raw": 346798,
+        "future_timestamp": 0,
+        "missing_payload": 324,
+        "no_fresh_book": 217240,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 129234,
+      "trade_id_gap_ranges": 5,
+      "flow_targets": 867,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 867,
+      "first_flow_target": {
+        "decision_ns": 1779807602604928389,
+        "label_available_ns": 1779807603643771377,
+        "signed_flow": 0.5831037649219467
+      },
+      "book_sha256": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6",
+      "trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "counts": {
+        "raw": 51018,
+        "future_timestamp": 0,
+        "missing_payload": 176,
+        "no_fresh_book": 21538,
+        "tied_receipts": 0
+      },
+      "book_joined_trades": 29304,
+      "trade_id_gap_ranges": 0,
+      "flow_targets": 1302,
+      "training_resolved_flow_targets": 0,
+      "later_flow_targets": 1302,
+      "first_flow_target": {
+        "decision_ns": 1779829383953208332,
+        "label_available_ns": 1779829384957419890,
+        "signed_flow": -0.9940564635958395
+      },
+      "book_sha256": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99",
+      "trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "qualified": false,
+  "orders_enabled": false,
+  "limits": [
+    "Eight discontinuous recordings already inspected. Counted targets are not independent.",
+    "Trade aggressor is observed; participant identity and tick-level metadata remain missing. Relative price bps is retained numerically, not inserted as a fabricated tick token.",
+    "Strict preceding receipt book join, maximum 250ms age; no exchange execution-order identification.",
+    "Trade ID gaps and missing/future payload records invalidate intersecting flow targets; no-trade windows remain missing, not neutral flow.",
+    "Equal receipt times preserve trade-ID order; time gap may be zero. Cross-feed receipt ties use strictly preceding book only.",
+    "No neural flow training, trade-book attribution, stylized-fact generation, cost replay or live promotion."
+  ]
+}
