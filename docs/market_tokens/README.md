@@ -42,3 +42,5 @@ The tests verify field identity, explicit extreme-value tokens, discontinuity/ep
 ## Event-language extension
 
 See [EVENT_DESIGN.md](EVENT_DESIGN.md) for the implemented relative-price/log-size/time-gap encoder and available-at multi-scale join, plus explicit requirements for participant estimates, derivative data, multi-output learning and simulator validation. This extension has six targeted checks and no trained event model or live promotion.
+
+See [SIX_FIELD_SPEC.md](SIX_FIELD_SPEC.md) for the six-integer-ID event format, summary codec, rolling-fit API, and completed 16/32/64 reconstruction and simple token-context baseline comparison.
