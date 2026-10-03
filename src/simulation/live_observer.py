@@ -124,6 +124,9 @@ class Output:
         self.training = LiveTraining()
         from .paper_ledger import PaperLedger
         self.paper_ledger = PaperLedger()
+        from .research_checkpoint import ResearchCheckpoint
+        self.checkpoint=ResearchCheckpoint()
+        self.checkpoint.initialize(self.training,self.paper_ledger)
         self.mode = mode
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
@@ -163,6 +166,7 @@ class Output:
         if self.paper_ledger.complete:
             ecology['paper_signal']['signal']='WAIT'
             ecology['paper_signal']['reasons'].insert(0,'Frozen evaluation completed; review required before another cycle')
+        ecology['checkpoint']=self.checkpoint.tick(self.training,self.paper_ledger,now_ns)
         ecology['models']={k:v.replace('USDT',observer.quote_currency) for k,v in ecology['models'].items()}
         tmp = self.directory/'ecology.tmp'
         tmp.write_text(json.dumps(ecology))
@@ -309,3 +313,4 @@ def main():
 
 
 if __name__ == '__main__': main()
+
