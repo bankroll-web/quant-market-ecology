@@ -1,0 +1,9 @@
+{
+  "status": "insufficient_training_examples",
+  "qualified": false,
+  "horizon_seconds": 5,
+  "training_examples": 45,
+  "required_training_examples": 80,
+  "cutoff_ns": 1779669395080756640,
+  "reason": "Strict continuity filter leaves too few resolved labels for the fixed minimum leaf size. No relaxed timing gate or threshold tuning."
+}

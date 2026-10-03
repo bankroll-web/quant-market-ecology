@@ -1,0 +1,190 @@
+{
+  "status": "paper_inspired_ecology_tree_development",
+  "qualified": false,
+  "orders_enabled": false,
+  "horizon_seconds": 1,
+  "training_examples": 459,
+  "cutoff_ns": 1779669395080756640,
+  "model": {
+    "max_depth": 4,
+    "min_samples_leaf": 40,
+    "seed": 91,
+    "feature_names": [
+      "top_book_imbalance",
+      "depth_imbalance",
+      "log_depth",
+      "spread_bps",
+      "ofi_over_depth",
+      "bid_display_change_over_depth",
+      "ask_display_change_over_depth"
+    ],
+    "feature_lower": [
+      -0.9994475725061086,
+      -0.6301616879106567,
+      5.384224383957044,
+      0.012950675410853154,
+      -0.11907300598588579,
+      -0.21491011099492574,
+      -0.24730570760536902
+    ],
+    "feature_upper": [
+      0.9859619803634845,
+      0.29868569434002795,
+      6.343896251224439,
+      0.012972482123053172,
+      0.10901101325635698,
+      0.12987745219972474,
+      0.11354942245610107
+    ],
+    "rules": "|--- top_book_imbalance <= -0.338987\n|   |--- log_depth <= 5.955498\n|   |   |--- top_book_imbalance <= -0.876427\n|   |   |   |--- value: [-6.314016, -5.711911]\n|   |   |--- top_book_imbalance >  -0.876427\n|   |   |   |--- bid_display_change_over_depth <= 0.000035\n|   |   |   |   |--- value: [-6.226453, -5.799473]\n|   |   |   |--- bid_display_change_over_depth >  0.000035\n|   |   |   |   |--- value: [-6.073290, -5.952636]\n|   |--- log_depth >  5.955498\n|   |   |--- value: [-5.949080, -6.076848]\n|--- top_book_imbalance >  -0.338987\n|   |--- bid_display_change_over_depth <= 0.000148\n|   |   |--- spread_bps <= 0.012959\n|   |   |   |--- value: [-6.128364, -5.897549]\n|   |   |--- spread_bps >  0.012959\n|   |   |   |--- log_depth <= 5.867185\n|   |   |   |   |--- value: [-5.857640, -6.168290]\n|   |   |   |--- log_depth >  5.867185\n|   |   |   |   |--- value: [-6.007030, -6.018902]\n|   |--- bid_display_change_over_depth >  0.000148\n|   |   |--- top_book_imbalance <= 0.313880\n|   |   |   |--- value: [-5.908667, -6.117260]\n|   |   |--- top_book_imbalance >  0.313880\n|   |   |   |--- value: [-5.710721, -6.315203]\n",
+    "training_leaf_net_bps": {
+      "3": [
+        -6.314016312969068,
+        -5.711911393650397
+      ],
+      "5": [
+        -6.226453426311012,
+        -5.799473021449378
+      ],
+      "6": [
+        -6.073290405845942,
+        -5.95263569840923
+      ],
+      "7": [
+        -5.94908005737963,
+        -6.076847798470421
+      ],
+      "10": [
+        -6.128363954638328,
+        -5.897549037408313
+      ],
+      "12": [
+        -5.857639689055966,
+        -6.168290312548006
+      ],
+      "13": [
+        -6.007029520083855,
+        -6.018901734132971
+      ],
+      "15": [
+        -5.9086667885725195,
+        -6.117259591281346
+      ],
+      "16": [
+        -5.710720559012596,
+        -6.315202857499554
+      ]
+    }
+  },
+  "cost_bps": 6,
+  "net_buffer_bps": 2,
+  "reports": [
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_00_observed_changes.csv",
+      "examples": 458,
+      "supported_examples": 282,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.13967415695468421,
+      "training_constant_mse": 0.13564553740510574,
+      "sha256": "941aff29b4eba0943fe6c4be012a59cc8b1e41e9077603c74bc7c90ae59ed815"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+      "examples": 547,
+      "supported_examples": 228,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.05649738666316503,
+      "training_constant_mse": 0.03983887919658261,
+      "sha256": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv",
+      "examples": 1120,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.0952612499650038,
+      "training_constant_mse": 0.07620902808240447,
+      "sha256": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv",
+      "examples": 1151,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.04320252785016157,
+      "training_constant_mse": 0.024886033075775534,
+      "sha256": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv",
+      "examples": 937,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.9624431806021024,
+      "training_constant_mse": 1.0018364749338637,
+      "sha256": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv",
+      "examples": 1551,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.08124957081709656,
+      "training_constant_mse": 0.06863065321326646,
+      "sha256": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_03_observed_changes.csv",
+      "examples": 1215,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.12265791237162844,
+      "training_constant_mse": 0.11404989991330242,
+      "sha256": "142b2a9ea9f48d960fb54129f3f36f13a19ad44386b1e8b5196ca80ea14da2f8"
+    },
+    {
+      "hour": "BTCUSDT_orderbook_2026-05-26_09_observed_changes.csv",
+      "examples": 1153,
+      "supported_examples": 0,
+      "buy": 0,
+      "sell": 0,
+      "mean_net_bps": null,
+      "positive_fraction": null,
+      "net_target_mse": 0.06327543647330464,
+      "training_constant_mse": 0.05227510719981808,
+      "sha256": "0e03009e9b1d42ad36a2dc3aa8c5303b30720c714a63dc684feb60c8c0012c36"
+    }
+  ],
+  "total_entries": 0,
+  "mean_net_bps": null,
+  "limits": [
+    "All eight recordings previously inspected. Adaptation selected after earlier failures; no independent validation.",
+    "Regression predicts long/short quote net returns, replacing the source equity Gini classifier and technical indicators.",
+    "No depth or threshold tuning on evaluation results. Training labels must resolve before cutoff.",
+    "Seven features describe public displayed liquidity, not participant identity; displayed reductions do not identify cancellations.",
+    "Range guard checks individual features, not full joint distribution. Targets can overlap by up to 250ms.",
+    "Immediate best-quote proxies omit execution latency, size, funding and borrow constraints. SELL assumes hypothetical short access.",
+    "Offline timing gates differ from all live feed gates. No live deployment or promotion."
+  ]
+}
