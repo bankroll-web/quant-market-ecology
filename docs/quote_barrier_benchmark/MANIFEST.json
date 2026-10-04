@@ -1,0 +1,16 @@
+{
+  "sha256": {
+    "quote_barrier_benchmark.py": "a8de5161a8240c83f8715b7bfbb515408a527e8502335b29f1d1cc71f22c778e",
+    "docs/quote_barrier_benchmark/REPORT.md": "202548fc7e496f999ce29c91d626aee07a9ab6dbbef745c2bdd3f4934e4433f3",
+    "docs/quote_barrier_benchmark/predictions.csv.gz": "e72e2a7b77ad0b8bb28030f82b03423c5582119392233878a071ac02f84f5894",
+    "docs/quote_barrier_benchmark/bins_fold_2.json": "a04ab4c115afd2ee6fcf3de942cd4030172cac3619ca8aab0bb2bd275b021922",
+    "docs/quote_barrier_benchmark/RESULTS.json": "8ccbc41fe773846ebbdc585d6b6d29690ec17992f89364c3e1211f5a97711886",
+    "docs/quote_barrier_benchmark/bins_fold_3.json": "85fb067c5930f42a24b9b55bbe3c1f89d568114161e6288e611a3b869d4dca65",
+    "docs/quote_barrier_benchmark/bins_fold_4.json": "223146a993fee7220581257781858137c433841d89dda3c1488072cc7a0e4836",
+    "docs/quote_barrier_benchmark/bins_fold_1.json": "7cdf933f7b442d6b3e1991bc10078f014183bd59afd5eeeaa1e67ba45a05b564",
+    "docs/quote_barrier_benchmark/SUMMARY.json": "9f4c028d5deb82175c006be351d04df8eff20e127c9e8c2488383373068e227f",
+    "docs/quote_barrier_benchmark/CHECKS.json": "f549f3281f4e56f9c5a75feca06146303b6a1b4d5f08bc20600a77455344f353",
+    "docs/quote_barrier_benchmark/labels.csv.gz": "c8a7946926103809f67a74271843c7069fadda8bcadfdb74bd470251a5bf7d21",
+    "docs/quote_barrier_benchmark/SPEC.json": "f95654c61a85bf122d8b3f63322d184bbb6d1dc47a977345d00c297e9be984cb"
+  }
+}

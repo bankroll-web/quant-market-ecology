@@ -1,0 +1,12 @@
+{
+  "version": "quote-barrier-v1",
+  "horizon_ms": 1000,
+  "latency_ms": 50,
+  "profit_bps": 1,
+  "loss_bps": 1,
+  "fee_bps": 0,
+  "max_gap_ms": 250,
+  "spacing_ms": 1000,
+  "context": 4,
+  "scope": "Five previously inspected hours; development only. Spread included, top-quote proxy, zero additional fees; no profit qualification."
+}

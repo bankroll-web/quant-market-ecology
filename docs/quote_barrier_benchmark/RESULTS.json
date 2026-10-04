@@ -1,0 +1,180 @@
+{
+  "spec": {
+    "version": "quote-barrier-v1",
+    "horizon_ms": 1000,
+    "latency_ms": 50,
+    "profit_bps": 1,
+    "loss_bps": 1,
+    "fee_bps": 0,
+    "max_gap_ms": 250,
+    "spacing_ms": 1000,
+    "context": 4,
+    "scope": "Five previously inspected hours; development only. Spread included, top-quote proxy, zero additional fees; no profit qualification."
+  },
+  "input_rows": 258917,
+  "valid_rows": 220923,
+  "observed_labels": 4206,
+  "censored": {
+    "missing_deadline_coverage": 1591,
+    "missing_entry": 107
+  },
+  "label_counts": {
+    "-1": 57,
+    "0": 4105,
+    "1": 44
+  },
+  "fits": 8,
+  "folds": [
+    {
+      "fold": 1,
+      "hour": "2026-05-25_12",
+      "model": "numeric",
+      "train": 523,
+      "test": 947,
+      "trained": true,
+      "log_loss": 0.07998891887958483,
+      "baseline_log_loss": 0.06154891443837076
+    },
+    {
+      "fold": 1,
+      "hour": "2026-05-25_12",
+      "model": "tokens",
+      "train": 523,
+      "test": 947,
+      "trained": true,
+      "log_loss": 0.07889353510658813,
+      "baseline_log_loss": 0.06154891443837076
+    },
+    {
+      "fold": 2,
+      "hour": "2026-05-25_18",
+      "model": "numeric",
+      "train": 1470,
+      "test": 1002,
+      "trained": true,
+      "log_loss": 0.06588051375438896,
+      "baseline_log_loss": 0.052799410123020606
+    },
+    {
+      "fold": 2,
+      "hour": "2026-05-25_18",
+      "model": "tokens",
+      "train": 1470,
+      "test": 1002,
+      "trained": true,
+      "log_loss": 0.06138627891998306,
+      "baseline_log_loss": 0.052799410123020606
+    },
+    {
+      "fold": 3,
+      "hour": "2026-05-26_15",
+      "model": "numeric",
+      "train": 2472,
+      "test": 441,
+      "trained": true,
+      "log_loss": 1.1727471230751696,
+      "baseline_log_loss": 0.7815645814499146
+    },
+    {
+      "fold": 3,
+      "hour": "2026-05-26_15",
+      "model": "tokens",
+      "train": 2472,
+      "test": 441,
+      "trained": true,
+      "log_loss": 1.1182458695491995,
+      "baseline_log_loss": 0.7815645814499146
+    },
+    {
+      "fold": 4,
+      "hour": "2026-05-26_21",
+      "model": "numeric",
+      "train": 2913,
+      "test": 1293,
+      "trained": true,
+      "log_loss": 0.06555712659999346,
+      "baseline_log_loss": 0.07606380152974213
+    },
+    {
+      "fold": 4,
+      "hour": "2026-05-26_21",
+      "model": "tokens",
+      "train": 2913,
+      "test": 1293,
+      "trained": true,
+      "log_loss": 0.07404692453534814,
+      "baseline_log_loss": 0.07606380152974213
+    }
+  ],
+  "trade_sources": [
+    {
+      "hour": "2026-05-25_04",
+      "rows": 23627,
+      "valid_receipt_rows": 23548,
+      "invalid_receipt_rows": 79,
+      "changed_trade_count_rows": 449,
+      "changed_signed_flow_rows": 448,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "rows": 55577,
+      "valid_receipt_rows": 55403,
+      "invalid_receipt_rows": 174,
+      "changed_trade_count_rows": 2507,
+      "changed_signed_flow_rows": 2525,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "rows": 57396,
+      "valid_receipt_rows": 57302,
+      "invalid_receipt_rows": 94,
+      "changed_trade_count_rows": 1717,
+      "changed_signed_flow_rows": 1711,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "rows": 50852,
+      "valid_receipt_rows": 50677,
+      "invalid_receipt_rows": 175,
+      "changed_trade_count_rows": 13526,
+      "changed_signed_flow_rows": 13894,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "rows": 71465,
+      "valid_receipt_rows": 71342,
+      "invalid_receipt_rows": 123,
+      "changed_trade_count_rows": 2930,
+      "changed_signed_flow_rows": 2925,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "book_sources": [
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+      "sha256": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv",
+      "sha256": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv",
+      "sha256": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv",
+      "sha256": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv",
+      "sha256": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+    }
+  ],
+  "qualified": false,
+  "orders_enabled": false
+}

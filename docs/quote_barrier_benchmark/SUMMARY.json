@@ -1,0 +1,16 @@
+[
+  {
+    "model": "numeric",
+    "n": 3683,
+    "log_loss": 0.20193011863448437,
+    "baseline_log_loss": 0.15047849761438303,
+    "relative_loss_increase": 0.3419200871605692
+  },
+  {
+    "model": "tokens",
+    "n": 3683,
+    "log_loss": 0.19688035056181485,
+    "baseline_log_loss": 0.15047849761438303,
+    "relative_loss_increase": 0.3083620163881584
+  }
+]
