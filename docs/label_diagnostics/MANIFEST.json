@@ -1,0 +1,13 @@
+{
+  "tests_passed": 13,
+  "sha256": {
+    "censoring_report.py": "de7b76d7fbd9c48627fc9dbe4e46dc92d6dd1878bc42909132056f01780de7d5",
+    "sample_uniqueness.py": "17667a849996a0118176687dca97db66189527f1dea5fde44b4647829458d5c4",
+    "run_label_diagnostics.py": "c122960f60568d8e6d3474ea6f9c0d08835da454ff12f943614cdfc3c42ffcbd",
+    "tests/test_label_diagnostics.py": "6c06f22dd1000a99377c3bbe89cc9a6ab9c6101264c23dbeb8593f1ba5c58ae3",
+    "docs/label_diagnostics/REPORT.md": "dc2ea9596c3e36d773c3036e609b9b257f551bf6e9f40f0e1f9fc5728f3dbc01",
+    "docs/label_diagnostics/uniqueness.csv.gz": "b5c3269d18f85b212c250e08b1880efcd1fbba4bb80db8795cb5f48cf961a149",
+    "docs/label_diagnostics/RESULTS.json": "ff4c56563f9fc0b73b89fb98544d7d458da4dafd5de5a0eff12eb78995fb6af1",
+    "docs/label_diagnostics/attempts.csv.gz": "be7d8bb8d21c726d4800c3b9db281dc75501829c60d51d57a80254a36f4b7eec"
+  }
+}

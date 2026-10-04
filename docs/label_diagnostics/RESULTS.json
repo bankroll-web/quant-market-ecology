@@ -1,0 +1,195 @@
+{
+  "overall_censor_rate": 0.28760162601626016,
+  "attempts": 5904,
+  "runs": {
+    "n_runs": 1069,
+    "longest_run": 10,
+    "median_run": 1.0
+  },
+  "flags": [
+    "HIGH OVERALL CENSORING: 28.8% > 20%."
+  ],
+  "by_volatility": [
+    {
+      "group": "(-0.001, 0.411]",
+      "attempts": 5904,
+      "censored": 1698,
+      "censor_rate": 0.28760162601626016,
+      "ci_low": 0.27619664901331054,
+      "ci_high": 0.2992828188293084,
+      "share_profit": 0.010461245839277223,
+      "share_loss": 0.01355206847360913,
+      "share_time": 0.9759866856871137,
+      "labeled": 4206
+    }
+  ],
+  "by_hour_utc": [
+    {
+      "group": "4",
+      "attempts": 619,
+      "censored": 96,
+      "censor_rate": 0.15508885298869143,
+      "ci_low": 0.12870808005924522,
+      "ci_high": 0.1857241980866347
+    },
+    {
+      "group": "12",
+      "attempts": 1350,
+      "censored": 403,
+      "censor_rate": 0.2985185185185185,
+      "ci_low": 0.2747077623769212,
+      "ci_high": 0.32347266232814864
+    },
+    {
+      "group": "15",
+      "attempts": 773,
+      "censored": 332,
+      "censor_rate": 0.4294954721862872,
+      "ci_low": 0.39503343410927855,
+      "ci_high": 0.4646547960149601
+    },
+    {
+      "group": "18",
+      "attempts": 1426,
+      "censored": 424,
+      "censor_rate": 0.2973352033660589,
+      "ci_low": 0.27418145044011283,
+      "ci_high": 0.32157792803201274
+    },
+    {
+      "group": "21",
+      "attempts": 1736,
+      "censored": 443,
+      "censor_rate": 0.25518433179723504,
+      "ci_low": 0.23523232908085126,
+      "ci_high": 0.27621740923257526
+    }
+  ],
+  "by_reason": [
+    {
+      "reason": "missing_deadline_coverage",
+      "count": 1591
+    },
+    {
+      "reason": "missing_entry",
+      "count": 107
+    }
+  ],
+  "zero_vs_positive_volatility": [
+    {
+      "group": "zero_past_volatility",
+      "attempts": 5543,
+      "censored": 1550,
+      "rate": 0.27963196824824105,
+      "nominal_wilson_95_ci": [
+        0.26797234852741175,
+        0.29159681923470376
+      ]
+    },
+    {
+      "group": "positive_past_volatility",
+      "attempts": 361,
+      "censored": 148,
+      "rate": 0.4099722991689751,
+      "nominal_wilson_95_ci": [
+        0.3604440813960202,
+        0.4613963415369858
+      ]
+    }
+  ],
+  "censored_without_segment_deadline_coverage": 1698,
+  "volatility_quantile_trend_assessable": false,
+  "uniqueness": {
+    "labels": 4206,
+    "mean": 0.9999999992691683,
+    "minimum": 0.9999999962243203,
+    "sum_overlap_equivalent_mass": 4205.999996926122,
+    "nonoverlapping_subset": 2425,
+    "statistical_independence_claim": false,
+    "convention": "closed receipt intervals represented as [decision,label_available+1ns)"
+  },
+  "longest_failure_run_within_segment": 1,
+  "input_rows": 258917,
+  "valid_rows": 220923,
+  "trade_sources": [
+    {
+      "hour": "2026-05-25_04",
+      "rows": 23627,
+      "valid_receipt_rows": 23548,
+      "invalid_receipt_rows": 79,
+      "changed_trade_count_rows": 449,
+      "changed_signed_flow_rows": 448,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "rows": 55577,
+      "valid_receipt_rows": 55403,
+      "invalid_receipt_rows": 174,
+      "changed_trade_count_rows": 2507,
+      "changed_signed_flow_rows": 2525,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "rows": 57396,
+      "valid_receipt_rows": 57302,
+      "invalid_receipt_rows": 94,
+      "changed_trade_count_rows": 1717,
+      "changed_signed_flow_rows": 1711,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "rows": 50852,
+      "valid_receipt_rows": 50677,
+      "invalid_receipt_rows": 175,
+      "changed_trade_count_rows": 13526,
+      "changed_signed_flow_rows": 13894,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "rows": 71465,
+      "valid_receipt_rows": 71342,
+      "invalid_receipt_rows": 123,
+      "changed_trade_count_rows": 2930,
+      "changed_signed_flow_rows": 2925,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "book_sources": [
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_04_observed_changes.csv",
+      "sha256": "3b57a4b37a19fd7113fd0b08b7899172b6fe42270aafff7faaa634b5df87c019"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_12_observed_changes.csv",
+      "sha256": "7a3862bcbb95fe20ad88ef1fad2a9b0bf2c79c64a0d9cc47b792b7615f4c39ac"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-25_18_observed_changes.csv",
+      "sha256": "4a7bcdd00b2ac0636a187b44f39d171bb402905b7fde666c0cb9fbeb5205d9a2"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-26_15_observed_changes.csv",
+      "sha256": "c2777010c9e2654a5af220f78759bc7fca71ca9c25213af5b077bcc11971f0b6"
+    },
+    {
+      "path": "data/processed/mechanics_study_states/BTCUSDT_orderbook_2026-05-26_21_observed_changes.csv",
+      "sha256": "ea6edb5a7dd18a18e6da8133147d00b8b0314754710c01413aa0fd6c2fc3ec99"
+    }
+  ],
+  "qualified": false,
+  "orders_enabled": false,
+  "limits": [
+    "Attempts start only after 20 valid segment events and use one-second sampling. Invalid rows, warm-up rows and absent recordings are not label attempts; report is not feed uptime.",
+    "Past volatility is standard deviation of 20 observed midpoint log changes ending at decision, not clock-time volatility or future volatility.",
+    "Diagnostic quantile buckets use full sample, never reused as model bins.",
+    "Wilson intervals and their separation flag are nominal; serial dependence and multiple comparisons are not adjusted.",
+    "Raw consecutive-failure runs may bridge noncontiguous recordings; segment-local run reported separately.",
+    "Censoring may reflect fixed horizon and record boundaries, not a broken live feed.",
+    "Uniqueness sum is overlap-equivalent mass, not a statistical effective sample size; sparse labels can remain dependent.",
+    "No models fitted or live changes performed."
+  ]
+}
