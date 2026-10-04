@@ -1,0 +1,15 @@
+{
+  "deployment_commit": "aa4a6c04c75a5b198d480ed4f2795e10301a923c",
+  "deployment_status": "live",
+  "verified_url": "https://market-ecology-live-observer.onrender.com/river.html",
+  "backup_learned_outcomes": 1645,
+  "observed_learned_outcomes_after_restart": 1654,
+  "observed_journal_records": 45,
+  "restore_source": "saved_seed",
+  "observed_skill_percent": -25.62,
+  "orders_enabled": false,
+  "tests": {
+    "river": 7,
+    "live_observer": 8
+  }
+}
