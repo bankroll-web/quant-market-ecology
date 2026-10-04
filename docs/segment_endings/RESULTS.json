@@ -1,0 +1,81 @@
+{
+  "segments": 2189,
+  "censored_attempts": 1698,
+  "cause_counts_nonexclusive": {
+    "next_post_state_not_confirmable": 378,
+    "receipt_gap_over_250ms": 1010,
+    "next_event_age_over_250ms": 1320,
+    "next_post_depth_invalid": 1,
+    "next_post_imbalance_invalid": 1
+  },
+  "cause_combinations": {
+    "next_post_state_not_confirmable": 377,
+    "receipt_gap_over_250ms + next_event_age_over_250ms": 1010,
+    "next_event_age_over_250ms": 310,
+    "next_post_state_not_confirmable + next_post_depth_invalid + next_post_imbalance_invalid": 1
+  },
+  "segment_duration_ms_quantiles": [
+    0.0,
+    610.690284,
+    1431.583189,
+    3155.517396,
+    6739.878223,
+    70315.304974
+  ],
+  "trade_sources": [
+    {
+      "hour": "2026-05-25_04",
+      "rows": 23627,
+      "valid_receipt_rows": 23548,
+      "invalid_receipt_rows": 79,
+      "changed_trade_count_rows": 449,
+      "changed_signed_flow_rows": 448,
+      "raw_trade_sha256": "dd29b20050291e735683cf41d286a4cdb5fee5ccad1699dac1c2bff94509958b"
+    },
+    {
+      "hour": "2026-05-25_12",
+      "rows": 55577,
+      "valid_receipt_rows": 55403,
+      "invalid_receipt_rows": 174,
+      "changed_trade_count_rows": 2507,
+      "changed_signed_flow_rows": 2525,
+      "raw_trade_sha256": "f64c290b86e44e9b1e88ad31389d8330dc1354a6808fe2be778189a9f67bc63c"
+    },
+    {
+      "hour": "2026-05-25_18",
+      "rows": 57396,
+      "valid_receipt_rows": 57302,
+      "invalid_receipt_rows": 94,
+      "changed_trade_count_rows": 1717,
+      "changed_signed_flow_rows": 1711,
+      "raw_trade_sha256": "e907d61d12324af20bbdbd069b0f3b3133b2d82685d5c5bcdc65122da9d5de77"
+    },
+    {
+      "hour": "2026-05-26_15",
+      "rows": 50852,
+      "valid_receipt_rows": 50677,
+      "invalid_receipt_rows": 175,
+      "changed_trade_count_rows": 13526,
+      "changed_signed_flow_rows": 13894,
+      "raw_trade_sha256": "592ba478e3a3de86f5a8f94eba2d6fed479036ecb94c8bd8b0702caee2683cf1"
+    },
+    {
+      "hour": "2026-05-26_21",
+      "rows": 71465,
+      "valid_receipt_rows": 71342,
+      "invalid_receipt_rows": 123,
+      "changed_trade_count_rows": 2930,
+      "changed_signed_flow_rows": 2925,
+      "raw_trade_sha256": "73e75780db9a78e8e7e14453cd6c9ca22dba6bcef7af895075baca83d8a075bb"
+    }
+  ],
+  "qualified": false,
+  "orders_enabled": false,
+  "limits": [
+    "Categories are observed timing/state gate failures, not proof of raw exchange update-ID loss.",
+    "Reasons overlap; nonexclusive counts cannot be summed.",
+    "Next post-state confirmation uses the following reconstructed row; this is an audit of existing preprocessing, not a relaxation or live repair.",
+    "Historical invalid sections cannot be replaced with synthetic observations.",
+    "No training or live-service modification."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "sha256": {
+    "audit_segment_endings.py": "a79a05ab92543467fd83b26bcb2eef9200aaa5bca90e4d5ed1d793064eac03dc",
+    "docs/segment_endings/REPORT.md": "cdf8e17f47d55470377acc6c59f8f69c15a4491f509f20605d3bc1911ceedfc9",
+    "docs/segment_endings/RESULTS.json": "194d444374f0dfda1ecb11ab7776bd69ce87725d650966e142d153275235c001",
+    "docs/segment_endings/segments.csv.gz": "19c55c75d7c9f1b69a387710dee3028e65271cdef26a68c8f349e92ac8b2adac",
+    "docs/segment_endings/censored_causes.csv.gz": "8b18645d8c61469ac596dbf66d726e257261aae894f3acdc11c0e9724d690142"
+  }
+}
