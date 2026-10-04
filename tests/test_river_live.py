@@ -12,6 +12,7 @@ def obs(ns,mid=100.):
 
 class Tests(unittest.TestCase):
     def warm(self,m):
+        if m.journal:self.addCleanup(m.journal.close)
         start=1_000_000_000_000
         for i in range(16):m.observe(obs(start+i*100_000_000),start+i*100_000_000)
         return start+1_500_000_000
@@ -70,6 +71,29 @@ class Tests(unittest.TestCase):
         self.assertEqual(m.updates,1)
         self.assertAlmostEqual(m.recent[0]['actual_bps'],100.)
         self.assertEqual(m.recent[0]['decision_ns'],decision)
+
+    def test_seed_restore_and_local_precedence(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            local=Path(tmp)/'local.json'; seed=Path(tmp)/'seed.json'
+            m=RiverLive();m.events=12;seed.write_text(json.dumps(m.snapshot()))
+            restored=RiverLive(local,seed_checkpoint=seed)
+            self.assertEqual(restored.events,12);self.assertEqual(restored.restore_source,'saved_seed')
+            m.events=19;local.write_text(json.dumps(m.snapshot()))
+            restored=RiverLive(local,seed_checkpoint=seed)
+            self.assertEqual(restored.events,19);self.assertEqual(restored.restore_source,'local')
+
+    def test_decisions_and_outcomes_are_journaled(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            m=RiverLive(Path(tmp)/'checkpoint.json');t=self.warm(m)
+            for i in range(1,301):
+                ns=t+i*100_000_000;m.observe(obs(ns,101),ns)
+            paths=list((Path(tmp)/'checkpoint-journal').glob('*.partial'))
+            rows=[json.loads(x) for x in paths[0].read_text().splitlines()]
+            self.assertTrue(any(x['kind']=='river_decision' for x in rows))
+            self.assertTrue(any(x['kind']=='river_outcome' for x in rows))
+            self.assertFalse(any('x' in x['payload'] for x in rows))
 
     def test_venue_models_do_not_share_weights(self):
         coinbase=RiverLive();kraken=RiverLive(provider='Kraken',symbol='BTC/USD')

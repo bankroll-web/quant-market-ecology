@@ -130,7 +130,7 @@ class Output:
         from .river_live import RiverLive
         from .river_dashboard import PAGE as RIVER_PAGE
         self.rivers={'Coinbase Exchange':RiverLive(self.directory.parent/'river-coinbase-checkpoint.json'),
-                     'Kraken':RiverLive(self.directory.parent/'river-kraken-checkpoint.json','Kraken','BTC/USD')}
+                     'Kraken':RiverLive(self.directory.parent/'river-kraken-checkpoint.json','Kraken','BTC/USD',seed_checkpoint=Path(__file__).with_name('river_kraken_seed.json'))}
         (self.directory/'river.html').write_text(RIVER_PAGE)
         from .capture_archive import CaptureArchive
         archive_path = Path(archive_directory or self.directory.parent / (self.directory.name + '-archive'))
