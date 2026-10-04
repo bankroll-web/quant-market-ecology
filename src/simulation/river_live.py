@@ -22,7 +22,7 @@ HORIZON_NS = 30_000_000_000
 
 
 class RiverLive:
-    def __init__(self, checkpoint=None, provider='Coinbase Exchange', symbol='BTC-USD'):
+    def __init__(self, checkpoint=None, provider='Coinbase Exchange', symbol='BTC-USD', seed_checkpoint=None):
         from river import linear_model, optim
         self.model = linear_model.LinearRegression(optimizer=optim.SGD(.005),
             l2=.0001, clip_gradient=10)
@@ -44,9 +44,15 @@ class RiverLive:
         self.restored = False
         self.last_save_ns = 0
         self.latest = None
-        if self.checkpoint and self.checkpoint.exists():
+        source = self.checkpoint if self.checkpoint and self.checkpoint.exists() else (Path(seed_checkpoint) if seed_checkpoint else None)
+        self.restore_source = None
+        self.journal = None
+        if self.checkpoint:
+            from .capture_archive import CaptureArchive
+            self.journal = CaptureArchive(self.checkpoint.parent / (self.checkpoint.stem + "-journal"))
+        if source and source.exists():
             try:
-                data = json.loads(self.checkpoint.read_text())
+                data = json.loads(source.read_text())
                 if data['version'] != self.version or data['river_version'] != '0.26.1':
                     raise ValueError('checkpoint version mismatch')
                 weights = data['weights']
@@ -62,6 +68,7 @@ class RiverLive:
                     setattr(self,key,value)
                 self.patterns=data['patterns']
                 self.restored=True
+                self.restore_source = "local" if source == self.checkpoint else "saved_seed"
             except (KeyError,TypeError,ValueError,OSError):
                 # Malformed checkpoints fail closed instead of loading partial weights.
                 self.model = linear_model.LinearRegression(optimizer=optim.SGD(.005),l2=.0001,clip_gradient=10)
@@ -133,6 +140,8 @@ class RiverLive:
             row={k:v for k,v in p.items() if k not in ('x','mid','due_ns')}
             row.update(actual_bps=actual,outcome_ns=received_ns)
             self.recent.append(row)
+            if self.journal:
+                self.journal.append("river_outcome", dict(session=self.session, version=self.version, **row), received_ns)
             pattern=self.patterns.setdefault(p['pattern'],dict(count=0,sum_bps=0.,sum_sq_bps=0.))
             pattern['count']+=1;pattern['sum_bps']+=actual;pattern['sum_sq_bps']+=actual**2
             # Scored pre-update prediction above; then, and only then, learn.
@@ -155,6 +164,9 @@ class RiverLive:
                 due_ns=received_ns+HORIZON_NS,forecast_bps=prediction,
                 baseline_bps=self.target_sum/self.updates if self.updates else 0.,
                 pattern=f'{direction} / {liquidity}'))
+            if self.journal:
+                saved={k:v for k,v in self.pending[-1].items() if k not in ("x","mid")}
+                self.journal.append("river_decision", dict(session=self.session,version=self.version,token_values=vals,tokens=tokens,**saved),received_ns)
             self.decisions+=1;self.last_decision_ns=received_ns
         self.status='learning after delayed outcomes' if self.updates else 'warming up: waiting for 30-second outcomes'
 
@@ -174,8 +186,9 @@ class RiverLive:
             self.last_save_ns=now_ns
         return dict(generated_ns=now_ns,version=self.version,session=self.session,status=self.status,
             venue=self.provider+' '+self.symbol,horizon_seconds=30,continuous_learning=True,
-            qualified=False,signal='WAIT',restored=self.restored,
-            persistence='Local checkpoint only; free Render restarts can erase it. Download a backup.',
+            qualified=False,signal='WAIT',restored=self.restored,restore_source=self.restore_source,
+            learning_journal=self.journal.view() if self.journal else None,
+            persistence='Local checkpoint and forecast/outcome journal are ephemeral. Saved seed restores only its backup point after storage loss; download newer backups.',
             events=self.events,tokens=self.events*12,decisions=self.decisions,learned_outcomes=self.updates,
             pending=len(self.pending),discarded_labels=self.dropped,
             mse_bps2=self.loss/self.updates if self.updates else None,
